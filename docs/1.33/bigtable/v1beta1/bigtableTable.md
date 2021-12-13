@@ -18,4 +18,4 @@ permalink: /1.33/bigtable/v1beta1/bigtableTable/
 new(name)
 ```
 
-new returns an instance of Bigtabletable
+new returns an instance of BigtableTable

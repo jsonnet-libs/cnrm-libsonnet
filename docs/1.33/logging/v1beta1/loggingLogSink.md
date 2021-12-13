@@ -18,4 +18,4 @@ permalink: /1.33/logging/v1beta1/loggingLogSink/
 new(name)
 ```
 
-new returns an instance of Logginglogsink
+new returns an instance of LoggingLogSink

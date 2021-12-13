@@ -18,4 +18,4 @@ permalink: /1.33/iam/v1beta1/iamPolicyMember/
 new(name)
 ```
 
-new returns an instance of Iampolicymember
+new returns an instance of IAMPolicyMember

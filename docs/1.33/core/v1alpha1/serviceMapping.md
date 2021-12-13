@@ -18,4 +18,4 @@ permalink: /1.33/core/v1alpha1/serviceMapping/
 new(name)
 ```
 
-new returns an instance of Servicemapping
+new returns an instance of ServiceMapping

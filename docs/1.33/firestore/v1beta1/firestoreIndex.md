@@ -18,4 +18,4 @@ permalink: /1.33/firestore/v1beta1/firestoreIndex/
 new(name)
 ```
 
-new returns an instance of Firestoreindex
+new returns an instance of FirestoreIndex

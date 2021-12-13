@@ -18,4 +18,4 @@ permalink: /1.33/bigquery/v1beta1/bigQueryTable/
 new(name)
 ```
 
-new returns an instance of Bigquerytable
+new returns an instance of BigQueryTable

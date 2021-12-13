@@ -18,4 +18,4 @@ permalink: /1.33/storage/v1beta1/storageBucketAccessControl/
 new(name)
 ```
 
-new returns an instance of Storagebucketaccesscontrol
+new returns an instance of StorageBucketAccessControl

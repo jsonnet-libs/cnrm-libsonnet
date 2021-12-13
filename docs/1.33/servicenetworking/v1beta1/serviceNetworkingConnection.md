@@ -18,4 +18,4 @@ permalink: /1.33/servicenetworking/v1beta1/serviceNetworkingConnection/
 new(name)
 ```
 
-new returns an instance of Servicenetworkingconnection
+new returns an instance of ServiceNetworkingConnection

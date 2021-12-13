@@ -18,4 +18,4 @@ permalink: /1.33/compute/v1beta1/computeReservation/
 new(name)
 ```
 
-new returns an instance of Computereservation
+new returns an instance of ComputeReservation

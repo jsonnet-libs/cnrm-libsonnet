@@ -18,4 +18,4 @@ permalink: /1.33/compute/v1beta1/computeForwardingRule/
 new(name)
 ```
 
-new returns an instance of Computeforwardingrule
+new returns an instance of ComputeForwardingRule

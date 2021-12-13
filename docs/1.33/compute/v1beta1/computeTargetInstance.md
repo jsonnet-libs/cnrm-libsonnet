@@ -18,4 +18,4 @@ permalink: /1.33/compute/v1beta1/computeTargetInstance/
 new(name)
 ```
 
-new returns an instance of Computetargetinstance
+new returns an instance of ComputeTargetInstance

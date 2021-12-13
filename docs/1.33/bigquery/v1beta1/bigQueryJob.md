@@ -18,4 +18,4 @@ permalink: /1.33/bigquery/v1beta1/bigQueryJob/
 new(name)
 ```
 
-new returns an instance of Bigqueryjob
+new returns an instance of BigQueryJob

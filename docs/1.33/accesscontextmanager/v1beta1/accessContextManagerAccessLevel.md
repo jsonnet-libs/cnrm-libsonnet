@@ -18,4 +18,4 @@ permalink: /1.33/accesscontextmanager/v1beta1/accessContextManagerAccessLevel/
 new(name)
 ```
 
-new returns an instance of Accesscontextmanageraccesslevel
+new returns an instance of AccessContextManagerAccessLevel

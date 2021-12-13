@@ -18,4 +18,4 @@ permalink: /1.33/dataflow/v1beta1/dataflowJob/
 new(name)
 ```
 
-new returns an instance of Dataflowjob
+new returns an instance of DataflowJob

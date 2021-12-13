@@ -18,4 +18,4 @@ permalink: /1.33/compute/v1beta1/computeVPNTunnel/
 new(name)
 ```
 
-new returns an instance of Computevpntunnel
+new returns an instance of ComputeVPNTunnel

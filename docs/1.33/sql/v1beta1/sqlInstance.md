@@ -18,4 +18,4 @@ permalink: /1.33/sql/v1beta1/sqlInstance/
 new(name)
 ```
 
-new returns an instance of Sqlinstance
+new returns an instance of SQLInstance

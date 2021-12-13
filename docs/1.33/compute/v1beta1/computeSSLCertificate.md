@@ -18,4 +18,4 @@ permalink: /1.33/compute/v1beta1/computeSSLCertificate/
 new(name)
 ```
 
-new returns an instance of Computesslcertificate
+new returns an instance of ComputeSSLCertificate

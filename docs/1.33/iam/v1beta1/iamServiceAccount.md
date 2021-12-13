@@ -18,4 +18,4 @@ permalink: /1.33/iam/v1beta1/iamServiceAccount/
 new(name)
 ```
 
-new returns an instance of Iamserviceaccount
+new returns an instance of IAMServiceAccount

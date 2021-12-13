@@ -18,4 +18,4 @@ permalink: /1.33/spanner/v1beta1/spannerDatabase/
 new(name)
 ```
 
-new returns an instance of Spannerdatabase
+new returns an instance of SpannerDatabase

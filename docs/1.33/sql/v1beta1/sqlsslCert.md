@@ -18,4 +18,4 @@ permalink: /1.33/sql/v1beta1/sqlsslCert/
 new(name)
 ```
 
-new returns an instance of Sqlsslcert
+new returns an instance of SQLSSLCert

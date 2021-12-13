@@ -18,4 +18,4 @@ permalink: /1.33/sql/v1beta1/sqlUser/
 new(name)
 ```
 
-new returns an instance of Sqluser
+new returns an instance of SQLUser

@@ -18,4 +18,4 @@ permalink: /1.33/compute/v1beta1/computeRouterInterface/
 new(name)
 ```
 
-new returns an instance of Computerouterinterface
+new returns an instance of ComputeRouterInterface

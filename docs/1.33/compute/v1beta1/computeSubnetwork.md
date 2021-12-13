@@ -18,4 +18,4 @@ permalink: /1.33/compute/v1beta1/computeSubnetwork/
 new(name)
 ```
 
-new returns an instance of Computesubnetwork
+new returns an instance of ComputeSubnetwork

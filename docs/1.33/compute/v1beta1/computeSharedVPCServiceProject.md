@@ -18,4 +18,4 @@ permalink: /1.33/compute/v1beta1/computeSharedVPCServiceProject/
 new(name)
 ```
 
-new returns an instance of Computesharedvpcserviceproject
+new returns an instance of ComputeSharedVPCServiceProject

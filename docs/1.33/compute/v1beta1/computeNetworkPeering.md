@@ -18,4 +18,4 @@ permalink: /1.33/compute/v1beta1/computeNetworkPeering/
 new(name)
 ```
 
-new returns an instance of Computenetworkpeering
+new returns an instance of ComputeNetworkPeering

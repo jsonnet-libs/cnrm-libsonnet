@@ -18,4 +18,4 @@ permalink: /1.33/compute/v1beta1/computeTargetSSLProxy/
 new(name)
 ```
 
-new returns an instance of Computetargetsslproxy
+new returns an instance of ComputeTargetSSLProxy

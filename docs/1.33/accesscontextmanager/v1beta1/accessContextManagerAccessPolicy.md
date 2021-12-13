@@ -18,4 +18,4 @@ permalink: /1.33/accesscontextmanager/v1beta1/accessContextManagerAccessPolicy/
 new(name)
 ```
 
-new returns an instance of Accesscontextmanageraccesspolicy
+new returns an instance of AccessContextManagerAccessPolicy

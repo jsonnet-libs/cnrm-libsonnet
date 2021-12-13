@@ -18,4 +18,4 @@ permalink: /1.33/compute/v1beta1/computeTargetPool/
 new(name)
 ```
 
-new returns an instance of Computetargetpool
+new returns an instance of ComputeTargetPool

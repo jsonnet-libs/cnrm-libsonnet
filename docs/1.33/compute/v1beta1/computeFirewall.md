@@ -18,4 +18,4 @@ permalink: /1.33/compute/v1beta1/computeFirewall/
 new(name)
 ```
 
-new returns an instance of Computefirewall
+new returns an instance of ComputeFirewall

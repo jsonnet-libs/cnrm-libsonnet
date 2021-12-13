@@ -18,4 +18,4 @@ permalink: /1.33/compute/v1beta1/computeProjectMetadata/
 new(name)
 ```
 
-new returns an instance of Computeprojectmetadata
+new returns an instance of ComputeProjectMetadata

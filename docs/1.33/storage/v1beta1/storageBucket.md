@@ -18,4 +18,4 @@ permalink: /1.33/storage/v1beta1/storageBucket/
 new(name)
 ```
 
-new returns an instance of Storagebucket
+new returns an instance of StorageBucket

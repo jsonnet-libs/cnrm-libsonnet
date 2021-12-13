@@ -18,4 +18,4 @@ permalink: /1.33/sql/v1beta1/sqlDatabase/
 new(name)
 ```
 
-new returns an instance of Sqldatabase
+new returns an instance of SQLDatabase

@@ -1,10 +1,10 @@
 {
   local d = (import 'doc-util/main.libsonnet'),
   '#':: d.pkg(name='kmsKeyRing', url='', help=''),
-  '#new':: d.fn(help='new returns an instance of Kmskeyring', args=[d.arg(name='name', type=d.T.string)]),
+  '#new':: d.fn(help='new returns an instance of KMSKeyRing', args=[d.arg(name='name', type=d.T.string)]),
   new(name): {
     apiVersion: 'kms.cnrm.cloud.google.com/v1beta1',
-    kind: 'KmsKeyRing',
+    kind: 'KMSKeyRing',
   } + self.metadata.withName(name=name),
   '#mixin': 'ignore',
   mixin: self,

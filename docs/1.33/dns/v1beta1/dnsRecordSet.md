@@ -18,4 +18,4 @@ permalink: /1.33/dns/v1beta1/dnsRecordSet/
 new(name)
 ```
 
-new returns an instance of Dnsrecordset
+new returns an instance of DNSRecordSet

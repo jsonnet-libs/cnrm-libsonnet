@@ -18,4 +18,4 @@ permalink: /1.33/compute/v1beta1/computeNodeGroup/
 new(name)
 ```
 
-new returns an instance of Computenodegroup
+new returns an instance of ComputeNodeGroup

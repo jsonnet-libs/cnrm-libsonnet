@@ -18,4 +18,4 @@ permalink: /1.33/redis/v1beta1/redisInstance/
 new(name)
 ```
 
-new returns an instance of Redisinstance
+new returns an instance of RedisInstance

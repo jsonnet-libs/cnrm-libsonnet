@@ -18,4 +18,4 @@ permalink: /1.33/dataflow/v1beta1/dataflowFlexTemplateJob/
 new(name)
 ```
 
-new returns an instance of Dataflowflextemplatejob
+new returns an instance of DataflowFlexTemplateJob

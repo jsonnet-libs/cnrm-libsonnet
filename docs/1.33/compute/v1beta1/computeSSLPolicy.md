@@ -18,4 +18,4 @@ permalink: /1.33/compute/v1beta1/computeSSLPolicy/
 new(name)
 ```
 
-new returns an instance of Computesslpolicy
+new returns an instance of ComputeSSLPolicy

@@ -18,4 +18,4 @@ permalink: /1.33/iam/v1beta1/iamCustomRole/
 new(name)
 ```
 
-new returns an instance of Iamcustomrole
+new returns an instance of IAMCustomRole

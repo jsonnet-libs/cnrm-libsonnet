@@ -18,4 +18,4 @@ permalink: /1.33/compute/v1beta1/computeInterconnectAttachment/
 new(name)
 ```
 
-new returns an instance of Computeinterconnectattachment
+new returns an instance of ComputeInterconnectAttachment

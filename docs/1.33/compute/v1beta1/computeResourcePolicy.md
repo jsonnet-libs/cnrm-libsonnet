@@ -18,4 +18,4 @@ permalink: /1.33/compute/v1beta1/computeResourcePolicy/
 new(name)
 ```
 
-new returns an instance of Computeresourcepolicy
+new returns an instance of ComputeResourcePolicy

@@ -18,4 +18,4 @@ permalink: /1.33/pubsub/v1beta1/pubSubSubscription/
 new(name)
 ```
 
-new returns an instance of Pubsubsubscription
+new returns an instance of PubSubSubscription

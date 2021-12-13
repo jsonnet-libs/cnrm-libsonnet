@@ -18,4 +18,4 @@ permalink: /1.33/compute/v1beta1/computeTargetVPNGateway/
 new(name)
 ```
 
-new returns an instance of Computetargetvpngateway
+new returns an instance of ComputeTargetVPNGateway

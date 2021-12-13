@@ -18,4 +18,4 @@ permalink: /1.33/dns/v1beta1/dnsManagedZone/
 new(name)
 ```
 
-new returns an instance of Dnsmanagedzone
+new returns an instance of DNSManagedZone

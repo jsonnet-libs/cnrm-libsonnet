@@ -18,4 +18,4 @@ permalink: /1.33/compute/v1beta1/computeAddress/
 new(name)
 ```
 
-new returns an instance of Computeaddress
+new returns an instance of ComputeAddress

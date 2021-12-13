@@ -18,4 +18,4 @@ permalink: /1.33/bigtable/v1beta1/bigtableGCPolicy/
 new(name)
 ```
 
-new returns an instance of Bigtablegcpolicy
+new returns an instance of BigtableGCPolicy

@@ -18,4 +18,4 @@ permalink: /1.33/compute/v1beta1/computeRouterNAT/
 new(name)
 ```
 
-new returns an instance of Computerouternat
+new returns an instance of ComputeRouterNAT

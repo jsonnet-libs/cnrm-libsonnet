@@ -18,4 +18,4 @@ permalink: /1.33/kms/v1beta1/kmsCryptoKey/
 new(name)
 ```
 
-new returns an instance of Kmscryptokey
+new returns an instance of KMSCryptoKey

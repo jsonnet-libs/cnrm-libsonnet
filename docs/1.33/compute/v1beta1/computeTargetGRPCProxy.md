@@ -18,4 +18,4 @@ permalink: /1.33/compute/v1beta1/computeTargetGRPCProxy/
 new(name)
 ```
 
-new returns an instance of Computetargetgrpcproxy
+new returns an instance of ComputeTargetGRPCProxy

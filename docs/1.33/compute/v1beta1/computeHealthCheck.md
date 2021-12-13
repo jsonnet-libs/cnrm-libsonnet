@@ -18,4 +18,4 @@ permalink: /1.33/compute/v1beta1/computeHealthCheck/
 new(name)
 ```
 
-new returns an instance of Computehealthcheck
+new returns an instance of ComputeHealthCheck

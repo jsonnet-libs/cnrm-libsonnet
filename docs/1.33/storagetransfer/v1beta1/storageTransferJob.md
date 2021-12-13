@@ -18,4 +18,4 @@ permalink: /1.33/storagetransfer/v1beta1/storageTransferJob/
 new(name)
 ```
 
-new returns an instance of Storagetransferjob
+new returns an instance of StorageTransferJob

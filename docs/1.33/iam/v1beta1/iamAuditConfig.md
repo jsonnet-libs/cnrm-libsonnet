@@ -18,4 +18,4 @@ permalink: /1.33/iam/v1beta1/iamAuditConfig/
 new(name)
 ```
 
-new returns an instance of Iamauditconfig
+new returns an instance of IAMAuditConfig

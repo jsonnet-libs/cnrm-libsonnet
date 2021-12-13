@@ -18,4 +18,4 @@ permalink: /1.33/monitoring/v1beta1/monitoringNotificationChannel/
 new(name)
 ```
 
-new returns an instance of Monitoringnotificationchannel
+new returns an instance of MonitoringNotificationChannel

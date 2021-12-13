@@ -18,4 +18,4 @@ permalink: /1.33/kms/v1beta1/kmsKeyRing/
 new(name)
 ```
 
-new returns an instance of Kmskeyring
+new returns an instance of KMSKeyRing

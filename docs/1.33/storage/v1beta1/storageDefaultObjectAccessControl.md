@@ -18,4 +18,4 @@ permalink: /1.33/storage/v1beta1/storageDefaultObjectAccessControl/
 new(name)
 ```
 
-new returns an instance of Storagedefaultobjectaccesscontrol
+new returns an instance of StorageDefaultObjectAccessControl

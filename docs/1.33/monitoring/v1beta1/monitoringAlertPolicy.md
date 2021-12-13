@@ -18,4 +18,4 @@ permalink: /1.33/monitoring/v1beta1/monitoringAlertPolicy/
 new(name)
 ```
 
-new returns an instance of Monitoringalertpolicy
+new returns an instance of MonitoringAlertPolicy

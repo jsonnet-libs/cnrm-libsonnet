@@ -18,4 +18,4 @@ permalink: /1.33/resourcemanager/v1beta1/resourceManagerPolicy/
 new(name)
 ```
 
-new returns an instance of Resourcemanagerpolicy
+new returns an instance of ResourceManagerPolicy

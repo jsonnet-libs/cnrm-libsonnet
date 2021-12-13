@@ -18,4 +18,4 @@ permalink: /1.33/secretmanager/v1beta1/secretManagerSecret/
 new(name)
 ```
 
-new returns an instance of Secretmanagersecret
+new returns an instance of SecretManagerSecret

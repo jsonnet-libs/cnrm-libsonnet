@@ -18,4 +18,4 @@ permalink: /1.33/accesscontextmanager/v1beta1/accessContextManagerServicePerimet
 new(name)
 ```
 
-new returns an instance of Accesscontextmanagerserviceperimeter
+new returns an instance of AccessContextManagerServicePerimeter

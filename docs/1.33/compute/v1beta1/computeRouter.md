@@ -18,4 +18,4 @@ permalink: /1.33/compute/v1beta1/computeRouter/
 new(name)
 ```
 
-new returns an instance of Computerouter
+new returns an instance of ComputeRouter

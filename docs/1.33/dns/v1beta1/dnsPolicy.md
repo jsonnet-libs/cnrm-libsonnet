@@ -18,4 +18,4 @@ permalink: /1.33/dns/v1beta1/dnsPolicy/
 new(name)
 ```
 
-new returns an instance of Dnspolicy
+new returns an instance of DNSPolicy

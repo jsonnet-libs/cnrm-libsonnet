@@ -18,4 +18,4 @@ permalink: /1.33/sourcerepo/v1beta1/sourceRepoRepository/
 new(name)
 ```
 
-new returns an instance of Sourcereporepository
+new returns an instance of SourceRepoRepository

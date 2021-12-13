@@ -18,4 +18,4 @@ permalink: /1.33/compute/v1beta1/computeTargetHTTPProxy/
 new(name)
 ```
 
-new returns an instance of Computetargethttpproxy
+new returns an instance of ComputeTargetHTTPProxy

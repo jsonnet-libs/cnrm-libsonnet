@@ -18,4 +18,4 @@ permalink: /1.33/spanner/v1beta1/spannerInstance/
 new(name)
 ```
 
-new returns an instance of Spannerinstance
+new returns an instance of SpannerInstance

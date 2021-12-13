@@ -18,4 +18,4 @@ permalink: /1.33/cloudbuild/v1beta1/cloudBuildTrigger/
 new(name)
 ```
 
-new returns an instance of Cloudbuildtrigger
+new returns an instance of CloudBuildTrigger

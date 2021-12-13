@@ -18,4 +18,4 @@ permalink: /1.33/compute/v1beta1/computeURLMap/
 new(name)
 ```
 
-new returns an instance of Computeurlmap
+new returns an instance of ComputeURLMap

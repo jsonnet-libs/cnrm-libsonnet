@@ -18,4 +18,4 @@ permalink: /1.33/container/v1beta1/containerCluster/
 new(name)
 ```
 
-new returns an instance of Containercluster
+new returns an instance of ContainerCluster

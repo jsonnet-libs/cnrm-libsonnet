@@ -18,4 +18,4 @@ permalink: /1.33/pubsub/v1beta1/pubSubTopic/
 new(name)
 ```
 
-new returns an instance of Pubsubtopic
+new returns an instance of PubSubTopic

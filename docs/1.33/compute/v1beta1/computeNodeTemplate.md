@@ -18,4 +18,4 @@ permalink: /1.33/compute/v1beta1/computeNodeTemplate/
 new(name)
 ```
 
-new returns an instance of Computenodetemplate
+new returns an instance of ComputeNodeTemplate

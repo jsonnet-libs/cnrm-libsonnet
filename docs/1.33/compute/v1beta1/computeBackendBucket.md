@@ -18,4 +18,4 @@ permalink: /1.33/compute/v1beta1/computeBackendBucket/
 new(name)
 ```
 
-new returns an instance of Computebackendbucket
+new returns an instance of ComputeBackendBucket

@@ -18,4 +18,4 @@ permalink: /1.33/storage/v1beta1/storageNotification/
 new(name)
 ```
 
-new returns an instance of Storagenotification
+new returns an instance of StorageNotification

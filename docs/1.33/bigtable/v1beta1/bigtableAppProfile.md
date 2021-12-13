@@ -18,4 +18,4 @@ permalink: /1.33/bigtable/v1beta1/bigtableAppProfile/
 new(name)
 ```
 
-new returns an instance of Bigtableappprofile
+new returns an instance of BigtableAppProfile

@@ -18,4 +18,4 @@ permalink: /1.33/container/v1beta1/containerNodePool/
 new(name)
 ```
 
-new returns an instance of Containernodepool
+new returns an instance of ContainerNodePool

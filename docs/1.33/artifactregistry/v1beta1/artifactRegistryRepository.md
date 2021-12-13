@@ -18,4 +18,4 @@ permalink: /1.33/artifactregistry/v1beta1/artifactRegistryRepository/
 new(name)
 ```
 
-new returns an instance of Artifactregistryrepository
+new returns an instance of ArtifactRegistryRepository

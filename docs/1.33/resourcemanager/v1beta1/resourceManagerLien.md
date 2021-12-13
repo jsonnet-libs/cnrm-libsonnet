@@ -18,4 +18,4 @@ permalink: /1.33/resourcemanager/v1beta1/resourceManagerLien/
 new(name)
 ```
 
-new returns an instance of Resourcemanagerlien
+new returns an instance of ResourceManagerLien

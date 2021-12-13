@@ -18,4 +18,4 @@ permalink: /1.33/bigquery/v1beta1/bigQueryDataset/
 new(name)
 ```
 
-new returns an instance of Bigquerydataset
+new returns an instance of BigQueryDataset
