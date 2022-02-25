@@ -34,6 +34,7 @@ permalink: /1.74/dataflow/v1beta1/dataflowFlexTemplateJob/
 * [`obj spec`](#obj-spec)
   * [`fn withContainerSpecGcsPath(containerSpecGcsPath)`](#fn-specwithcontainerspecgcspath)
   * [`fn withParameters(parameters)`](#fn-specwithparameters)
+  * [`fn withParametersMixin(parameters)`](#fn-specwithparametersmixin)
   * [`fn withRegion(region)`](#fn-specwithregion)
 
 ## Fields
@@ -247,6 +248,16 @@ withParameters(parameters)
 ```
 
 
+
+### fn spec.withParametersMixin
+
+```ts
+withParametersMixin(parameters)
+```
+
+
+
+**Note:** This function appends passed data to existing values
 
 ### fn spec.withRegion
 

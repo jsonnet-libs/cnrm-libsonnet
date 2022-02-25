@@ -55,8 +55,10 @@
   spec: {
     '#withContainerSpecGcsPath':: d.fn(help='', args=[d.arg(name='containerSpecGcsPath', type=d.T.string)]),
     withContainerSpecGcsPath(containerSpecGcsPath): { spec+: { containerSpecGcsPath: containerSpecGcsPath } },
-    '#withParameters':: d.fn(help='', args=[d.arg(name='parameters', type=d.T.any)]),
+    '#withParameters':: d.fn(help='', args=[d.arg(name='parameters', type=d.T.object)]),
     withParameters(parameters): { spec+: { parameters: parameters } },
+    '#withParametersMixin':: d.fn(help='\n\n**Note:** This function appends passed data to existing values', args=[d.arg(name='parameters', type=d.T.object)]),
+    withParametersMixin(parameters): { spec+: { parameters+: parameters } },
     '#withRegion':: d.fn(help='"Immutable. The region in which the created job should run."', args=[d.arg(name='region', type=d.T.string)]),
     withRegion(region): { spec+: { region: region } },
   },

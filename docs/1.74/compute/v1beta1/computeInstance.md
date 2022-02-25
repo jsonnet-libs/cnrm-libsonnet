@@ -73,6 +73,7 @@ permalink: /1.74/compute/v1beta1/computeInstance/
           * [`fn withName(name)`](#fn-specbootdiskdiskencryptionkeyrawvaluefromsecretkeyrefwithname)
     * [`obj spec.bootDisk.initializeParams`](#obj-specbootdiskinitializeparams)
       * [`fn withLabels(labels)`](#fn-specbootdiskinitializeparamswithlabels)
+      * [`fn withLabelsMixin(labels)`](#fn-specbootdiskinitializeparamswithlabelsmixin)
       * [`fn withSize(size)`](#fn-specbootdiskinitializeparamswithsize)
       * [`fn withType(type)`](#fn-specbootdiskinitializeparamswithtype)
       * [`obj spec.bootDisk.initializeParams.sourceImageRef`](#obj-specbootdiskinitializeparamssourceimageref)
@@ -633,6 +634,16 @@ withLabels(labels)
 ```
 
 "Immutable. A set of key/value label pairs assigned to the disk."
+
+### fn spec.bootDisk.initializeParams.withLabelsMixin
+
+```ts
+withLabelsMixin(labels)
+```
+
+"Immutable. A set of key/value label pairs assigned to the disk."
+
+**Note:** This function appends passed data to existing values
 
 ### fn spec.bootDisk.initializeParams.withSize
 

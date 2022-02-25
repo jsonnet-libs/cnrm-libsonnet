@@ -44,11 +44,13 @@ permalink: /1.74/monitoring/v1beta1/monitoringServiceLevelObjective/
   * [`obj spec.serviceLevelIndicator`](#obj-specservicelevelindicator)
     * [`obj spec.serviceLevelIndicator.basicSli`](#obj-specservicelevelindicatorbasicsli)
       * [`fn withAvailability(availability)`](#fn-specservicelevelindicatorbasicsliwithavailability)
+      * [`fn withAvailabilityMixin(availability)`](#fn-specservicelevelindicatorbasicsliwithavailabilitymixin)
       * [`fn withLocation(location)`](#fn-specservicelevelindicatorbasicsliwithlocation)
       * [`fn withLocationMixin(location)`](#fn-specservicelevelindicatorbasicsliwithlocationmixin)
       * [`fn withMethod(method)`](#fn-specservicelevelindicatorbasicsliwithmethod)
       * [`fn withMethodMixin(method)`](#fn-specservicelevelindicatorbasicsliwithmethodmixin)
       * [`fn withOperationAvailability(operationAvailability)`](#fn-specservicelevelindicatorbasicsliwithoperationavailability)
+      * [`fn withOperationAvailabilityMixin(operationAvailability)`](#fn-specservicelevelindicatorbasicsliwithoperationavailabilitymixin)
       * [`fn withVersion(version)`](#fn-specservicelevelindicatorbasicsliwithversion)
       * [`fn withVersionMixin(version)`](#fn-specservicelevelindicatorbasicsliwithversionmixin)
       * [`obj spec.serviceLevelIndicator.basicSli.latency`](#obj-specservicelevelindicatorbasicslilatency)
@@ -74,11 +76,13 @@ permalink: /1.74/monitoring/v1beta1/monitoringServiceLevelObjective/
         * [`fn withThreshold(threshold)`](#fn-specservicelevelindicatorwindowsbasedgoodtotalratiothresholdwiththreshold)
         * [`obj spec.serviceLevelIndicator.windowsBased.goodTotalRatioThreshold.basicSliPerformance`](#obj-specservicelevelindicatorwindowsbasedgoodtotalratiothresholdbasicsliperformance)
           * [`fn withAvailability(availability)`](#fn-specservicelevelindicatorwindowsbasedgoodtotalratiothresholdbasicsliperformancewithavailability)
+          * [`fn withAvailabilityMixin(availability)`](#fn-specservicelevelindicatorwindowsbasedgoodtotalratiothresholdbasicsliperformancewithavailabilitymixin)
           * [`fn withLocation(location)`](#fn-specservicelevelindicatorwindowsbasedgoodtotalratiothresholdbasicsliperformancewithlocation)
           * [`fn withLocationMixin(location)`](#fn-specservicelevelindicatorwindowsbasedgoodtotalratiothresholdbasicsliperformancewithlocationmixin)
           * [`fn withMethod(method)`](#fn-specservicelevelindicatorwindowsbasedgoodtotalratiothresholdbasicsliperformancewithmethod)
           * [`fn withMethodMixin(method)`](#fn-specservicelevelindicatorwindowsbasedgoodtotalratiothresholdbasicsliperformancewithmethodmixin)
           * [`fn withOperationAvailability(operationAvailability)`](#fn-specservicelevelindicatorwindowsbasedgoodtotalratiothresholdbasicsliperformancewithoperationavailability)
+          * [`fn withOperationAvailabilityMixin(operationAvailability)`](#fn-specservicelevelindicatorwindowsbasedgoodtotalratiothresholdbasicsliperformancewithoperationavailabilitymixin)
           * [`fn withVersion(version)`](#fn-specservicelevelindicatorwindowsbasedgoodtotalratiothresholdbasicsliperformancewithversion)
           * [`fn withVersionMixin(version)`](#fn-specservicelevelindicatorwindowsbasedgoodtotalratiothresholdbasicsliperformancewithversionmixin)
           * [`obj spec.serviceLevelIndicator.windowsBased.goodTotalRatioThreshold.basicSliPerformance.latency`](#obj-specservicelevelindicatorwindowsbasedgoodtotalratiothresholdbasicsliperformancelatency)
@@ -392,6 +396,16 @@ withAvailability(availability)
 
 "Good service is defined to be the count of requests made to this service that return successfully."
 
+### fn spec.serviceLevelIndicator.basicSli.withAvailabilityMixin
+
+```ts
+withAvailabilityMixin(availability)
+```
+
+"Good service is defined to be the count of requests made to this service that return successfully."
+
+**Note:** This function appends passed data to existing values
+
 ### fn spec.serviceLevelIndicator.basicSli.withLocation
 
 ```ts
@@ -435,6 +449,16 @@ withOperationAvailability(operationAvailability)
 ```
 
 "Good service is defined to be the count of operations performed by this service that return successfully"
+
+### fn spec.serviceLevelIndicator.basicSli.withOperationAvailabilityMixin
+
+```ts
+withOperationAvailabilityMixin(operationAvailability)
+```
+
+"Good service is defined to be the count of operations performed by this service that return successfully"
+
+**Note:** This function appends passed data to existing values
 
 ### fn spec.serviceLevelIndicator.basicSli.withVersion
 
@@ -602,6 +626,16 @@ withAvailability(availability)
 
 "Good service is defined to be the count of requests made to this service that return successfully."
 
+### fn spec.serviceLevelIndicator.windowsBased.goodTotalRatioThreshold.basicSliPerformance.withAvailabilityMixin
+
+```ts
+withAvailabilityMixin(availability)
+```
+
+"Good service is defined to be the count of requests made to this service that return successfully."
+
+**Note:** This function appends passed data to existing values
+
 ### fn spec.serviceLevelIndicator.windowsBased.goodTotalRatioThreshold.basicSliPerformance.withLocation
 
 ```ts
@@ -645,6 +679,16 @@ withOperationAvailability(operationAvailability)
 ```
 
 "Good service is defined to be the count of operations performed by this service that return successfully"
+
+### fn spec.serviceLevelIndicator.windowsBased.goodTotalRatioThreshold.basicSliPerformance.withOperationAvailabilityMixin
+
+```ts
+withOperationAvailabilityMixin(operationAvailability)
+```
+
+"Good service is defined to be the count of operations performed by this service that return successfully"
+
+**Note:** This function appends passed data to existing values
 
 ### fn spec.serviceLevelIndicator.windowsBased.goodTotalRatioThreshold.basicSliPerformance.withVersion
 

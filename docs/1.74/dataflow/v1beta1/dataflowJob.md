@@ -39,11 +39,13 @@ permalink: /1.74/dataflow/v1beta1/dataflowJob/
   * [`fn withMachineType(machineType)`](#fn-specwithmachinetype)
   * [`fn withMaxWorkers(maxWorkers)`](#fn-specwithmaxworkers)
   * [`fn withParameters(parameters)`](#fn-specwithparameters)
+  * [`fn withParametersMixin(parameters)`](#fn-specwithparametersmixin)
   * [`fn withRegion(region)`](#fn-specwithregion)
   * [`fn withResourceID(resourceID)`](#fn-specwithresourceid)
   * [`fn withTempGcsLocation(tempGcsLocation)`](#fn-specwithtempgcslocation)
   * [`fn withTemplateGcsPath(templateGcsPath)`](#fn-specwithtemplategcspath)
   * [`fn withTransformNameMapping(transformNameMapping)`](#fn-specwithtransformnamemapping)
+  * [`fn withTransformNameMappingMixin(transformNameMapping)`](#fn-specwithtransformnamemappingmixin)
   * [`fn withZone(zone)`](#fn-specwithzone)
   * [`obj spec.kmsKeyRef`](#obj-speckmskeyref)
     * [`fn withExternal(external)`](#fn-speckmskeyrefwithexternal)
@@ -316,6 +318,16 @@ withParameters(parameters)
 
 "Key/Value pairs to be passed to the Dataflow job (as used in the template)."
 
+### fn spec.withParametersMixin
+
+```ts
+withParametersMixin(parameters)
+```
+
+"Key/Value pairs to be passed to the Dataflow job (as used in the template)."
+
+**Note:** This function appends passed data to existing values
+
 ### fn spec.withRegion
 
 ```ts
@@ -355,6 +367,16 @@ withTransformNameMapping(transformNameMapping)
 ```
 
 "Only applicable when updating a pipeline. Map of transform name prefixes of the job to be replaced with the corresponding name prefixes of the new job."
+
+### fn spec.withTransformNameMappingMixin
+
+```ts
+withTransformNameMappingMixin(transformNameMapping)
+```
+
+"Only applicable when updating a pipeline. Map of transform name prefixes of the job to be replaced with the corresponding name prefixes of the new job."
+
+**Note:** This function appends passed data to existing values
 
 ### fn spec.withZone
 
