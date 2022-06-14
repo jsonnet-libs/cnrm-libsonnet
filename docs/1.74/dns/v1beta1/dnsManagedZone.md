@@ -22,8 +22,6 @@ permalink: /1.74/dns/v1beta1/dnsManagedZone/
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -43,9 +41,17 @@ permalink: /1.74/dns/v1beta1/dnsManagedZone/
     * [`fn withKind(kind)`](#fn-specdnssecconfigwithkind)
     * [`fn withNonExistence(nonExistence)`](#fn-specdnssecconfigwithnonexistence)
     * [`fn withState(state)`](#fn-specdnssecconfigwithstate)
+    * [`obj spec.dnssecConfig.defaultKeySpecs`](#obj-specdnssecconfigdefaultkeyspecs)
+      * [`fn withAlgorithm(algorithm)`](#fn-specdnssecconfigdefaultkeyspecswithalgorithm)
+      * [`fn withKeyLength(keyLength)`](#fn-specdnssecconfigdefaultkeyspecswithkeylength)
+      * [`fn withKeyType(keyType)`](#fn-specdnssecconfigdefaultkeyspecswithkeytype)
+      * [`fn withKind(kind)`](#fn-specdnssecconfigdefaultkeyspecswithkind)
   * [`obj spec.forwardingConfig`](#obj-specforwardingconfig)
     * [`fn withTargetNameServers(targetNameServers)`](#fn-specforwardingconfigwithtargetnameservers)
     * [`fn withTargetNameServersMixin(targetNameServers)`](#fn-specforwardingconfigwithtargetnameserversmixin)
+    * [`obj spec.forwardingConfig.targetNameServers`](#obj-specforwardingconfigtargetnameservers)
+      * [`fn withForwardingPath(forwardingPath)`](#fn-specforwardingconfigtargetnameserverswithforwardingpath)
+      * [`fn withIpv4Address(ipv4Address)`](#fn-specforwardingconfigtargetnameserverswithipv4address)
   * [`obj spec.peeringConfig`](#obj-specpeeringconfig)
     * [`obj spec.peeringConfig.targetNetwork`](#obj-specpeeringconfigtargetnetwork)
       * [`obj spec.peeringConfig.targetNetwork.networkRef`](#obj-specpeeringconfigtargetnetworknetworkref)
@@ -55,6 +61,11 @@ permalink: /1.74/dns/v1beta1/dnsManagedZone/
   * [`obj spec.privateVisibilityConfig`](#obj-specprivatevisibilityconfig)
     * [`fn withNetworks(networks)`](#fn-specprivatevisibilityconfigwithnetworks)
     * [`fn withNetworksMixin(networks)`](#fn-specprivatevisibilityconfigwithnetworksmixin)
+    * [`obj spec.privateVisibilityConfig.networks`](#obj-specprivatevisibilityconfignetworks)
+      * [`obj spec.privateVisibilityConfig.networks.networkRef`](#obj-specprivatevisibilityconfignetworksnetworkref)
+        * [`fn withExternal(external)`](#fn-specprivatevisibilityconfignetworksnetworkrefwithexternal)
+        * [`fn withName(name)`](#fn-specprivatevisibilityconfignetworksnetworkrefwithname)
+        * [`fn withNamespace(namespace)`](#fn-specprivatevisibilityconfignetworksnetworkrefwithnamespace)
   * [`obj spec.serviceDirectoryConfig`](#obj-specservicedirectoryconfig)
     * [`obj spec.serviceDirectoryConfig.namespace`](#obj-specservicedirectoryconfignamespace)
       * [`fn withNamespaceUrl(namespaceUrl)`](#fn-specservicedirectoryconfignamespacewithnamespaceurl)
@@ -172,24 +183,6 @@ withLabelsMixin(labels)
 ```
 
 "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
-
-**Note:** This function appends passed data to existing values
-
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
 
 **Note:** This function appends passed data to existing values
 
@@ -341,6 +334,42 @@ withState(state)
 
 "Specifies whether DNSSEC is enabled, and what mode it is in Possible values: [\"off\", \"on\", \"transfer\"]."
 
+## obj spec.dnssecConfig.defaultKeySpecs
+
+"Specifies parameters that will be used for generating initial DnsKeys\nfor this ManagedZone. If you provide a spec for keySigning or zoneSigning,\nyou must also provide one for the other.\ndefault_key_specs can only be updated when the state is 'off'."
+
+### fn spec.dnssecConfig.defaultKeySpecs.withAlgorithm
+
+```ts
+withAlgorithm(algorithm)
+```
+
+"String mnemonic specifying the DNSSEC algorithm of this key Possible values: [\"ecdsap256sha256\", \"ecdsap384sha384\", \"rsasha1\", \"rsasha256\", \"rsasha512\"]."
+
+### fn spec.dnssecConfig.defaultKeySpecs.withKeyLength
+
+```ts
+withKeyLength(keyLength)
+```
+
+"Length of the keys in bits."
+
+### fn spec.dnssecConfig.defaultKeySpecs.withKeyType
+
+```ts
+withKeyType(keyType)
+```
+
+"Specifies whether this is a key signing key (KSK) or a zone\nsigning key (ZSK). Key signing keys have the Secure Entry\nPoint flag set and, when active, will only be used to sign\nresource record sets of type DNSKEY. Zone signing keys do\nnot have the Secure Entry Point flag set and will be used\nto sign all other types of resource record sets. Possible values: [\"keySigning\", \"zoneSigning\"]."
+
+### fn spec.dnssecConfig.defaultKeySpecs.withKind
+
+```ts
+withKind(kind)
+```
+
+"Identifies what kind of resource this is."
+
 ## obj spec.forwardingConfig
 
 "The presence for this field indicates that outbound forwarding is enabled\nfor this zone. The value of this field contains the set of destinations\nto forward to."
@@ -362,6 +391,26 @@ withTargetNameServersMixin(targetNameServers)
 "List of target name servers to forward to. Cloud DNS will\nselect the best available name server if more than\none target is given."
 
 **Note:** This function appends passed data to existing values
+
+## obj spec.forwardingConfig.targetNameServers
+
+"List of target name servers to forward to. Cloud DNS will\nselect the best available name server if more than\none target is given."
+
+### fn spec.forwardingConfig.targetNameServers.withForwardingPath
+
+```ts
+withForwardingPath(forwardingPath)
+```
+
+"Forwarding path for this TargetNameServer. If unset or 'default' Cloud DNS will make forwarding\ndecision based on address ranges, i.e. RFC1918 addresses go to the VPC, Non-RFC1918 addresses go\nto the Internet. When set to 'private', Cloud DNS will always send queries through VPC for this target Possible values: [\"default\", \"private\"]."
+
+### fn spec.forwardingConfig.targetNameServers.withIpv4Address
+
+```ts
+withIpv4Address(ipv4Address)
+```
+
+"IPv4 address of a target name server."
 
 ## obj spec.peeringConfig
 
@@ -420,6 +469,38 @@ withNetworksMixin(networks)
 
 
 **Note:** This function appends passed data to existing values
+
+## obj spec.privateVisibilityConfig.networks
+
+
+
+## obj spec.privateVisibilityConfig.networks.networkRef
+
+"VPC network to bind to."
+
+### fn spec.privateVisibilityConfig.networks.networkRef.withExternal
+
+```ts
+withExternal(external)
+```
+
+"The selfLink of a ComputeNetwork."
+
+### fn spec.privateVisibilityConfig.networks.networkRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.privateVisibilityConfig.networks.networkRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
 
 ## obj spec.serviceDirectoryConfig
 

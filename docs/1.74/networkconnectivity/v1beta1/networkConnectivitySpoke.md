@@ -22,8 +22,6 @@ permalink: /1.74/networkconnectivity/v1beta1/networkConnectivitySpoke/
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -43,14 +41,28 @@ permalink: /1.74/networkconnectivity/v1beta1/networkConnectivitySpoke/
     * [`fn withSiteToSiteDataTransfer(siteToSiteDataTransfer)`](#fn-speclinkedinterconnectattachmentswithsitetositedatatransfer)
     * [`fn withUris(uris)`](#fn-speclinkedinterconnectattachmentswithuris)
     * [`fn withUrisMixin(uris)`](#fn-speclinkedinterconnectattachmentswithurismixin)
+    * [`obj spec.linkedInterconnectAttachments.uris`](#obj-speclinkedinterconnectattachmentsuris)
+      * [`fn withExternal(external)`](#fn-speclinkedinterconnectattachmentsuriswithexternal)
+      * [`fn withName(name)`](#fn-speclinkedinterconnectattachmentsuriswithname)
+      * [`fn withNamespace(namespace)`](#fn-speclinkedinterconnectattachmentsuriswithnamespace)
   * [`obj spec.linkedRouterApplianceInstances`](#obj-speclinkedrouterapplianceinstances)
     * [`fn withInstances(instances)`](#fn-speclinkedrouterapplianceinstanceswithinstances)
     * [`fn withInstancesMixin(instances)`](#fn-speclinkedrouterapplianceinstanceswithinstancesmixin)
     * [`fn withSiteToSiteDataTransfer(siteToSiteDataTransfer)`](#fn-speclinkedrouterapplianceinstanceswithsitetositedatatransfer)
+    * [`obj spec.linkedRouterApplianceInstances.instances`](#obj-speclinkedrouterapplianceinstancesinstances)
+      * [`fn withIpAddress(ipAddress)`](#fn-speclinkedrouterapplianceinstancesinstanceswithipaddress)
+      * [`obj spec.linkedRouterApplianceInstances.instances.virtualMachineRef`](#obj-speclinkedrouterapplianceinstancesinstancesvirtualmachineref)
+        * [`fn withExternal(external)`](#fn-speclinkedrouterapplianceinstancesinstancesvirtualmachinerefwithexternal)
+        * [`fn withName(name)`](#fn-speclinkedrouterapplianceinstancesinstancesvirtualmachinerefwithname)
+        * [`fn withNamespace(namespace)`](#fn-speclinkedrouterapplianceinstancesinstancesvirtualmachinerefwithnamespace)
   * [`obj spec.linkedVpnTunnels`](#obj-speclinkedvpntunnels)
     * [`fn withSiteToSiteDataTransfer(siteToSiteDataTransfer)`](#fn-speclinkedvpntunnelswithsitetositedatatransfer)
     * [`fn withUris(uris)`](#fn-speclinkedvpntunnelswithuris)
     * [`fn withUrisMixin(uris)`](#fn-speclinkedvpntunnelswithurismixin)
+    * [`obj spec.linkedVpnTunnels.uris`](#obj-speclinkedvpntunnelsuris)
+      * [`fn withExternal(external)`](#fn-speclinkedvpntunnelsuriswithexternal)
+      * [`fn withName(name)`](#fn-speclinkedvpntunnelsuriswithname)
+      * [`fn withNamespace(namespace)`](#fn-speclinkedvpntunnelsuriswithnamespace)
   * [`obj spec.projectRef`](#obj-specprojectref)
     * [`fn withExternal(external)`](#fn-specprojectrefwithexternal)
     * [`fn withName(name)`](#fn-specprojectrefwithname)
@@ -169,24 +181,6 @@ withLabelsMixin(labels)
 ```
 
 "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
-
-**Note:** This function appends passed data to existing values
-
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
 
 **Note:** This function appends passed data to existing values
 
@@ -334,6 +328,34 @@ withUrisMixin(uris)
 
 **Note:** This function appends passed data to existing values
 
+## obj spec.linkedInterconnectAttachments.uris
+
+
+
+### fn spec.linkedInterconnectAttachments.uris.withExternal
+
+```ts
+withExternal(external)
+```
+
+"Allowed value: The `selfLink` field of a `ComputeInterconnectAttachment` resource."
+
+### fn spec.linkedInterconnectAttachments.uris.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.linkedInterconnectAttachments.uris.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
 ## obj spec.linkedRouterApplianceInstances
 
 "The URIs of linked Router appliance resources"
@@ -364,6 +386,46 @@ withSiteToSiteDataTransfer(siteToSiteDataTransfer)
 
 "A value that controls whether site-to-site data transfer is enabled for these resources. Note that data transfer is available only in supported locations."
 
+## obj spec.linkedRouterApplianceInstances.instances
+
+"The list of router appliance instances"
+
+### fn spec.linkedRouterApplianceInstances.instances.withIpAddress
+
+```ts
+withIpAddress(ipAddress)
+```
+
+"The IP address on the VM to use for peering."
+
+## obj spec.linkedRouterApplianceInstances.instances.virtualMachineRef
+
+
+
+### fn spec.linkedRouterApplianceInstances.instances.virtualMachineRef.withExternal
+
+```ts
+withExternal(external)
+```
+
+"The URI of the virtual machine resource\n\nAllowed value: The `selfLink` field of a `ComputeInstance` resource."
+
+### fn spec.linkedRouterApplianceInstances.instances.virtualMachineRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.linkedRouterApplianceInstances.instances.virtualMachineRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
 ## obj spec.linkedVpnTunnels
 
 "The URIs of linked VPN tunnel resources"
@@ -393,6 +455,34 @@ withUrisMixin(uris)
 
 
 **Note:** This function appends passed data to existing values
+
+## obj spec.linkedVpnTunnels.uris
+
+
+
+### fn spec.linkedVpnTunnels.uris.withExternal
+
+```ts
+withExternal(external)
+```
+
+"Allowed value: The `selfLink` field of a `ComputeVPNTunnel` resource."
+
+### fn spec.linkedVpnTunnels.uris.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.linkedVpnTunnels.uris.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
 
 ## obj spec.projectRef
 

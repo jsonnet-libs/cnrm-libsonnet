@@ -22,8 +22,6 @@ permalink: /1.74/cloudbuild/v1beta1/cloudBuildTrigger/
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -65,9 +63,18 @@ permalink: /1.74/cloudbuild/v1beta1/cloudBuildTrigger/
         * [`fn withPathsMixin(paths)`](#fn-specbuildartifactsobjectswithpathsmixin)
         * [`fn withTiming(timing)`](#fn-specbuildartifactsobjectswithtiming)
         * [`fn withTimingMixin(timing)`](#fn-specbuildartifactsobjectswithtimingmixin)
+        * [`obj spec.build.artifacts.objects.timing`](#obj-specbuildartifactsobjectstiming)
+          * [`fn withEndTime(endTime)`](#fn-specbuildartifactsobjectstimingwithendtime)
+          * [`fn withStartTime(startTime)`](#fn-specbuildartifactsobjectstimingwithstarttime)
     * [`obj spec.build.availableSecrets`](#obj-specbuildavailablesecrets)
       * [`fn withSecretManager(secretManager)`](#fn-specbuildavailablesecretswithsecretmanager)
       * [`fn withSecretManagerMixin(secretManager)`](#fn-specbuildavailablesecretswithsecretmanagermixin)
+      * [`obj spec.build.availableSecrets.secretManager`](#obj-specbuildavailablesecretssecretmanager)
+        * [`fn withEnv(env)`](#fn-specbuildavailablesecretssecretmanagerwithenv)
+        * [`obj spec.build.availableSecrets.secretManager.versionRef`](#obj-specbuildavailablesecretssecretmanagerversionref)
+          * [`fn withExternal(external)`](#fn-specbuildavailablesecretssecretmanagerversionrefwithexternal)
+          * [`fn withName(name)`](#fn-specbuildavailablesecretssecretmanagerversionrefwithname)
+          * [`fn withNamespace(namespace)`](#fn-specbuildavailablesecretssecretmanagerversionrefwithnamespace)
     * [`obj spec.build.logsBucketRef`](#obj-specbuildlogsbucketref)
       * [`fn withExternal(external)`](#fn-specbuildlogsbucketrefwithexternal)
       * [`fn withName(name)`](#fn-specbuildlogsbucketrefwithname)
@@ -89,6 +96,16 @@ permalink: /1.74/cloudbuild/v1beta1/cloudBuildTrigger/
       * [`fn withVolumes(volumes)`](#fn-specbuildoptionswithvolumes)
       * [`fn withVolumesMixin(volumes)`](#fn-specbuildoptionswithvolumesmixin)
       * [`fn withWorkerPool(workerPool)`](#fn-specbuildoptionswithworkerpool)
+      * [`obj spec.build.options.volumes`](#obj-specbuildoptionsvolumes)
+        * [`fn withName(name)`](#fn-specbuildoptionsvolumeswithname)
+        * [`fn withPath(path)`](#fn-specbuildoptionsvolumeswithpath)
+    * [`obj spec.build.secret`](#obj-specbuildsecret)
+      * [`fn withSecretEnv(secretEnv)`](#fn-specbuildsecretwithsecretenv)
+      * [`fn withSecretEnvMixin(secretEnv)`](#fn-specbuildsecretwithsecretenvmixin)
+      * [`obj spec.build.secret.kmsKeyRef`](#obj-specbuildsecretkmskeyref)
+        * [`fn withExternal(external)`](#fn-specbuildsecretkmskeyrefwithexternal)
+        * [`fn withName(name)`](#fn-specbuildsecretkmskeyrefwithname)
+        * [`fn withNamespace(namespace)`](#fn-specbuildsecretkmskeyrefwithnamespace)
     * [`obj spec.build.source`](#obj-specbuildsource)
       * [`obj spec.build.source.repoSource`](#obj-specbuildsourcereposource)
         * [`fn withBranchName(branchName)`](#fn-specbuildsourcereposourcewithbranchname)
@@ -110,6 +127,26 @@ permalink: /1.74/cloudbuild/v1beta1/cloudBuildTrigger/
           * [`fn withExternal(external)`](#fn-specbuildsourcestoragesourcebucketrefwithexternal)
           * [`fn withName(name)`](#fn-specbuildsourcestoragesourcebucketrefwithname)
           * [`fn withNamespace(namespace)`](#fn-specbuildsourcestoragesourcebucketrefwithnamespace)
+    * [`obj spec.build.step`](#obj-specbuildstep)
+      * [`fn withArgs(args)`](#fn-specbuildstepwithargs)
+      * [`fn withArgsMixin(args)`](#fn-specbuildstepwithargsmixin)
+      * [`fn withDir(dir)`](#fn-specbuildstepwithdir)
+      * [`fn withEntrypoint(entrypoint)`](#fn-specbuildstepwithentrypoint)
+      * [`fn withEnv(env)`](#fn-specbuildstepwithenv)
+      * [`fn withEnvMixin(env)`](#fn-specbuildstepwithenvmixin)
+      * [`fn withId(id)`](#fn-specbuildstepwithid)
+      * [`fn withName(name)`](#fn-specbuildstepwithname)
+      * [`fn withSecretEnv(secretEnv)`](#fn-specbuildstepwithsecretenv)
+      * [`fn withSecretEnvMixin(secretEnv)`](#fn-specbuildstepwithsecretenvmixin)
+      * [`fn withTimeout(timeout)`](#fn-specbuildstepwithtimeout)
+      * [`fn withTiming(timing)`](#fn-specbuildstepwithtiming)
+      * [`fn withVolumes(volumes)`](#fn-specbuildstepwithvolumes)
+      * [`fn withVolumesMixin(volumes)`](#fn-specbuildstepwithvolumesmixin)
+      * [`fn withWaitFor(waitFor)`](#fn-specbuildstepwithwaitfor)
+      * [`fn withWaitForMixin(waitFor)`](#fn-specbuildstepwithwaitformixin)
+      * [`obj spec.build.step.volumes`](#obj-specbuildstepvolumes)
+        * [`fn withName(name)`](#fn-specbuildstepvolumeswithname)
+        * [`fn withPath(path)`](#fn-specbuildstepvolumeswithpath)
   * [`obj spec.github`](#obj-specgithub)
     * [`fn withName(name)`](#fn-specgithubwithname)
     * [`fn withOwner(owner)`](#fn-specgithubwithowner)
@@ -266,24 +303,6 @@ withLabelsMixin(labels)
 ```
 
 "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
-
-**Note:** This function appends passed data to existing values
-
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
 
 **Note:** This function appends passed data to existing values
 
@@ -625,6 +644,26 @@ withTimingMixin(timing)
 
 **Note:** This function appends passed data to existing values
 
+## obj spec.build.artifacts.objects.timing
+
+"Output only. Stores timing information for pushing all artifact objects."
+
+### fn spec.build.artifacts.objects.timing.withEndTime
+
+```ts
+withEndTime(endTime)
+```
+
+"End of time span.\n\nA timestamp in RFC3339 UTC \"Zulu\" format, with nanosecond resolution and up to\nnine fractional digits. Examples: \"2014-10-02T15:01:23Z\" and \"2014-10-02T15:01:23.045123456Z\"."
+
+### fn spec.build.artifacts.objects.timing.withStartTime
+
+```ts
+withStartTime(startTime)
+```
+
+"Start of time span.\n\nA timestamp in RFC3339 UTC \"Zulu\" format, with nanosecond resolution and up to\nnine fractional digits. Examples: \"2014-10-02T15:01:23Z\" and \"2014-10-02T15:01:23.045123456Z\"."
+
 ## obj spec.build.availableSecrets
 
 "Secrets and secret environment variables."
@@ -646,6 +685,46 @@ withSecretManagerMixin(secretManager)
 "Pairs a secret environment variable with a SecretVersion in Secret Manager."
 
 **Note:** This function appends passed data to existing values
+
+## obj spec.build.availableSecrets.secretManager
+
+"Pairs a secret environment variable with a SecretVersion in Secret Manager."
+
+### fn spec.build.availableSecrets.secretManager.withEnv
+
+```ts
+withEnv(env)
+```
+
+"Environment variable name to associate with the secret. Secret environment\nvariables must be unique across all of a build's secrets, and must be used\nby at least one build step."
+
+## obj spec.build.availableSecrets.secretManager.versionRef
+
+
+
+### fn spec.build.availableSecrets.secretManager.versionRef.withExternal
+
+```ts
+withExternal(external)
+```
+
+"The name of a SecretManagerSecretVersion."
+
+### fn spec.build.availableSecrets.secretManager.versionRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.build.availableSecrets.secretManager.versionRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
 
 ## obj spec.build.logsBucketRef
 
@@ -815,6 +894,76 @@ withWorkerPool(workerPool)
 
 "Option to specify a WorkerPool for the build. Format projects/{project}/workerPools/{workerPool}\n\nThis field is experimental."
 
+## obj spec.build.options.volumes
+
+"Global list of volumes to mount for ALL build steps\n\nEach volume is created as an empty volume prior to starting the build process.\nUpon completion of the build, volumes and their contents are discarded. Global\nvolume names and paths cannot conflict with the volumes defined a build step.\n\nUsing a global volume in a build with only one step is not valid as it is indicative\nof a build request with an incorrect configuration."
+
+### fn spec.build.options.volumes.withName
+
+```ts
+withName(name)
+```
+
+"Name of the volume to mount.\n\nVolume names must be unique per build step and must be valid names for Docker volumes.\nEach named volume must be used by at least two build steps."
+
+### fn spec.build.options.volumes.withPath
+
+```ts
+withPath(path)
+```
+
+"Path at which to mount the volume.\n\nPaths must be absolute and cannot conflict with other volume paths on the same\nbuild step or with certain reserved volume paths."
+
+## obj spec.build.secret
+
+"Secrets to decrypt using Cloud Key Management Service."
+
+### fn spec.build.secret.withSecretEnv
+
+```ts
+withSecretEnv(secretEnv)
+```
+
+"Map of environment variable name to its encrypted value.\nSecret environment variables must be unique across all of a build's secrets, \nand must be used by at least one build step. Values can be at most 64 KB in size. \nThere can be at most 100 secret values across all of a build's secrets."
+
+### fn spec.build.secret.withSecretEnvMixin
+
+```ts
+withSecretEnvMixin(secretEnv)
+```
+
+"Map of environment variable name to its encrypted value.\nSecret environment variables must be unique across all of a build's secrets, \nand must be used by at least one build step. Values can be at most 64 KB in size. \nThere can be at most 100 secret values across all of a build's secrets."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.build.secret.kmsKeyRef
+
+"KMS crypto key to use to decrypt these envs."
+
+### fn spec.build.secret.kmsKeyRef.withExternal
+
+```ts
+withExternal(external)
+```
+
+"The selfLink of a KMSCryptoKey."
+
+### fn spec.build.secret.kmsKeyRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.build.secret.kmsKeyRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
 ## obj spec.build.source
 
 "The location of the source files to build.\n\nOne of 'storageSource' or 'repoSource' must be provided."
@@ -964,6 +1113,168 @@ withNamespace(namespace)
 ```
 
 "Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
+## obj spec.build.step
+
+"The operations to be performed on the workspace."
+
+### fn spec.build.step.withArgs
+
+```ts
+withArgs(args)
+```
+
+"A list of arguments that will be presented to the step when it is started.\n\nIf the image used to run the step's container has an entrypoint, the args\nare used as arguments to that entrypoint. If the image does not define an\nentrypoint, the first element in args is used as the entrypoint, and the\nremainder will be used as arguments."
+
+### fn spec.build.step.withArgsMixin
+
+```ts
+withArgsMixin(args)
+```
+
+"A list of arguments that will be presented to the step when it is started.\n\nIf the image used to run the step's container has an entrypoint, the args\nare used as arguments to that entrypoint. If the image does not define an\nentrypoint, the first element in args is used as the entrypoint, and the\nremainder will be used as arguments."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.build.step.withDir
+
+```ts
+withDir(dir)
+```
+
+"Working directory to use when running this step's container.\n\nIf this value is a relative path, it is relative to the build's working\ndirectory. If this value is absolute, it may be outside the build's working\ndirectory, in which case the contents of the path may not be persisted\nacross build step executions, unless a 'volume' for that path is specified.\n\nIf the build specifies a 'RepoSource' with 'dir' and a step with a\n'dir',\nwhich specifies an absolute path, the 'RepoSource' 'dir' is ignored\nfor the step's execution."
+
+### fn spec.build.step.withEntrypoint
+
+```ts
+withEntrypoint(entrypoint)
+```
+
+"Entrypoint to be used instead of the build step image's\ndefault entrypoint.\nIf unset, the image's default entrypoint is used."
+
+### fn spec.build.step.withEnv
+
+```ts
+withEnv(env)
+```
+
+"A list of environment variable definitions to be used when\nrunning a step.\n\nThe elements are of the form \"KEY=VALUE\" for the environment variable\n\"KEY\" being given the value \"VALUE\"."
+
+### fn spec.build.step.withEnvMixin
+
+```ts
+withEnvMixin(env)
+```
+
+"A list of environment variable definitions to be used when\nrunning a step.\n\nThe elements are of the form \"KEY=VALUE\" for the environment variable\n\"KEY\" being given the value \"VALUE\"."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.build.step.withId
+
+```ts
+withId(id)
+```
+
+"Unique identifier for this build step, used in 'wait_for' to\nreference this build step as a dependency."
+
+### fn spec.build.step.withName
+
+```ts
+withName(name)
+```
+
+"The name of the container image that will run this particular build step.\n\nIf the image is available in the host's Docker daemon's cache, it will be\nrun directly. If not, the host will attempt to pull the image first, using\nthe builder service account's credentials if necessary.\n\nThe Docker daemon's cache will already have the latest versions of all of\nthe officially supported build steps (see https://github.com/GoogleCloudPlatform/cloud-builders \nfor images and examples).\nThe Docker daemon will also have cached many of the layers for some popular\nimages, like \"ubuntu\", \"debian\", but they will be refreshed at the time\nyou attempt to use them.\n\nIf you built an image in a previous build step, it will be stored in the\nhost's Docker daemon's cache and is available to use as the name for a\nlater build step."
+
+### fn spec.build.step.withSecretEnv
+
+```ts
+withSecretEnv(secretEnv)
+```
+
+"A list of environment variables which are encrypted using\na Cloud Key\nManagement Service crypto key. These values must be specified in\nthe build's 'Secret'."
+
+### fn spec.build.step.withSecretEnvMixin
+
+```ts
+withSecretEnvMixin(secretEnv)
+```
+
+"A list of environment variables which are encrypted using\na Cloud Key\nManagement Service crypto key. These values must be specified in\nthe build's 'Secret'."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.build.step.withTimeout
+
+```ts
+withTimeout(timeout)
+```
+
+"Time limit for executing this build step. If not defined,\nthe step has no\ntime limit and will be allowed to continue to run until either it\ncompletes or the build itself times out."
+
+### fn spec.build.step.withTiming
+
+```ts
+withTiming(timing)
+```
+
+"Output only. Stores timing information for executing this\nbuild step."
+
+### fn spec.build.step.withVolumes
+
+```ts
+withVolumes(volumes)
+```
+
+"List of volumes to mount into the build step.\n\nEach volume is created as an empty volume prior to execution of the\nbuild step. Upon completion of the build, volumes and their contents\nare discarded.\n\nUsing a named volume in only one step is not valid as it is\nindicative of a build request with an incorrect configuration."
+
+### fn spec.build.step.withVolumesMixin
+
+```ts
+withVolumesMixin(volumes)
+```
+
+"List of volumes to mount into the build step.\n\nEach volume is created as an empty volume prior to execution of the\nbuild step. Upon completion of the build, volumes and their contents\nare discarded.\n\nUsing a named volume in only one step is not valid as it is\nindicative of a build request with an incorrect configuration."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.build.step.withWaitFor
+
+```ts
+withWaitFor(waitFor)
+```
+
+"The ID(s) of the step(s) that this build step depends on.\n\nThis build step will not start until all the build steps in 'wait_for'\nhave completed successfully. If 'wait_for' is empty, this build step\nwill start when all previous build steps in the 'Build.Steps' list\nhave completed successfully."
+
+### fn spec.build.step.withWaitForMixin
+
+```ts
+withWaitForMixin(waitFor)
+```
+
+"The ID(s) of the step(s) that this build step depends on.\n\nThis build step will not start until all the build steps in 'wait_for'\nhave completed successfully. If 'wait_for' is empty, this build step\nwill start when all previous build steps in the 'Build.Steps' list\nhave completed successfully."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.build.step.volumes
+
+"List of volumes to mount into the build step.\n\nEach volume is created as an empty volume prior to execution of the\nbuild step. Upon completion of the build, volumes and their contents\nare discarded.\n\nUsing a named volume in only one step is not valid as it is\nindicative of a build request with an incorrect configuration."
+
+### fn spec.build.step.volumes.withName
+
+```ts
+withName(name)
+```
+
+"Name of the volume to mount.\n\nVolume names must be unique per build step and must be valid names for\nDocker volumes. Each named volume must be used by at least two build steps."
+
+### fn spec.build.step.volumes.withPath
+
+```ts
+withPath(path)
+```
+
+"Path at which to mount the volume.\n\nPaths must be absolute and cannot conflict with other volume paths on\nthe same build step or with certain reserved volume paths."
 
 ## obj spec.github
 

@@ -22,8 +22,6 @@ permalink: /1.74/iam/v1beta1/iamPolicy/
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -36,6 +34,22 @@ permalink: /1.74/iam/v1beta1/iamPolicy/
   * [`fn withAuditConfigsMixin(auditConfigs)`](#fn-specwithauditconfigsmixin)
   * [`fn withBindings(bindings)`](#fn-specwithbindings)
   * [`fn withBindingsMixin(bindings)`](#fn-specwithbindingsmixin)
+  * [`obj spec.auditConfigs`](#obj-specauditconfigs)
+    * [`fn withAuditLogConfigs(auditLogConfigs)`](#fn-specauditconfigswithauditlogconfigs)
+    * [`fn withAuditLogConfigsMixin(auditLogConfigs)`](#fn-specauditconfigswithauditlogconfigsmixin)
+    * [`fn withService(service)`](#fn-specauditconfigswithservice)
+    * [`obj spec.auditConfigs.auditLogConfigs`](#obj-specauditconfigsauditlogconfigs)
+      * [`fn withExemptedMembers(exemptedMembers)`](#fn-specauditconfigsauditlogconfigswithexemptedmembers)
+      * [`fn withExemptedMembersMixin(exemptedMembers)`](#fn-specauditconfigsauditlogconfigswithexemptedmembersmixin)
+      * [`fn withLogType(logType)`](#fn-specauditconfigsauditlogconfigswithlogtype)
+  * [`obj spec.bindings`](#obj-specbindings)
+    * [`fn withMembers(members)`](#fn-specbindingswithmembers)
+    * [`fn withMembersMixin(members)`](#fn-specbindingswithmembersmixin)
+    * [`fn withRole(role)`](#fn-specbindingswithrole)
+    * [`obj spec.bindings.condition`](#obj-specbindingscondition)
+      * [`fn withDescription(description)`](#fn-specbindingsconditionwithdescription)
+      * [`fn withExpression(expression)`](#fn-specbindingsconditionwithexpression)
+      * [`fn withTitle(title)`](#fn-specbindingsconditionwithtitle)
   * [`obj spec.resourceRef`](#obj-specresourceref)
     * [`fn withApiVersion(apiVersion)`](#fn-specresourcerefwithapiversion)
     * [`fn withExternal(external)`](#fn-specresourcerefwithexternal)
@@ -159,24 +173,6 @@ withLabelsMixin(labels)
 
 **Note:** This function appends passed data to existing values
 
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-**Note:** This function appends passed data to existing values
-
 ### fn metadata.withName
 
 ```ts
@@ -274,6 +270,124 @@ withBindingsMixin(bindings)
 "Optional. The list of IAM bindings."
 
 **Note:** This function appends passed data to existing values
+
+## obj spec.auditConfigs
+
+"Optional. The list of IAM audit configs."
+
+### fn spec.auditConfigs.withAuditLogConfigs
+
+```ts
+withAuditLogConfigs(auditLogConfigs)
+```
+
+"Required. The configuration for logging of each type of permission."
+
+### fn spec.auditConfigs.withAuditLogConfigsMixin
+
+```ts
+withAuditLogConfigsMixin(auditLogConfigs)
+```
+
+"Required. The configuration for logging of each type of permission."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.auditConfigs.withService
+
+```ts
+withService(service)
+```
+
+"Required. The service for which to enable Data Access audit logs. The special value 'allServices' covers all services. Note that if there are audit configs covering both 'allServices' and a specific service, then the union of the two audit configs is used for that service: the 'logTypes' specified in each 'auditLogConfig' are enabled, and the 'exemptedMembers' in each 'auditLogConfg' are exempted."
+
+## obj spec.auditConfigs.auditLogConfigs
+
+"Required. The configuration for logging of each type of permission."
+
+### fn spec.auditConfigs.auditLogConfigs.withExemptedMembers
+
+```ts
+withExemptedMembers(exemptedMembers)
+```
+
+"Identities that do not cause logging for this type of permission. The format is the same as that for 'members' in IAMPolicy/IAMPolicyMember."
+
+### fn spec.auditConfigs.auditLogConfigs.withExemptedMembersMixin
+
+```ts
+withExemptedMembersMixin(exemptedMembers)
+```
+
+"Identities that do not cause logging for this type of permission. The format is the same as that for 'members' in IAMPolicy/IAMPolicyMember."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.auditConfigs.auditLogConfigs.withLogType
+
+```ts
+withLogType(logType)
+```
+
+"Permission type for which logging is to be configured. Must be one of 'DATA_READ', 'DATA_WRITE', or 'ADMIN_READ'."
+
+## obj spec.bindings
+
+"Optional. The list of IAM bindings."
+
+### fn spec.bindings.withMembers
+
+```ts
+withMembers(members)
+```
+
+"Optional. The list of IAM users to be bound to the role."
+
+### fn spec.bindings.withMembersMixin
+
+```ts
+withMembersMixin(members)
+```
+
+"Optional. The list of IAM users to be bound to the role."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.bindings.withRole
+
+```ts
+withRole(role)
+```
+
+"Required. The role to bind the users to."
+
+## obj spec.bindings.condition
+
+"Optional. The condition under which the binding applies."
+
+### fn spec.bindings.condition.withDescription
+
+```ts
+withDescription(description)
+```
+
+
+
+### fn spec.bindings.condition.withExpression
+
+```ts
+withExpression(expression)
+```
+
+
+
+### fn spec.bindings.condition.withTitle
+
+```ts
+withTitle(title)
+```
+
+
 
 ## obj spec.resourceRef
 

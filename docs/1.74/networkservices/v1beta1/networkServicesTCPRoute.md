@@ -22,8 +22,6 @@ permalink: /1.74/networkservices/v1beta1/networkServicesTCPRoute/
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -45,10 +43,34 @@ permalink: /1.74/networkservices/v1beta1/networkServicesTCPRoute/
   * [`fn withRoutersMixin(routers)`](#fn-specwithroutersmixin)
   * [`fn withRules(rules)`](#fn-specwithrules)
   * [`fn withRulesMixin(rules)`](#fn-specwithrulesmixin)
+  * [`obj spec.gateways`](#obj-specgateways)
+    * [`fn withExternal(external)`](#fn-specgatewayswithexternal)
+    * [`fn withName(name)`](#fn-specgatewayswithname)
+    * [`fn withNamespace(namespace)`](#fn-specgatewayswithnamespace)
+  * [`obj spec.meshes`](#obj-specmeshes)
+    * [`fn withExternal(external)`](#fn-specmesheswithexternal)
+    * [`fn withName(name)`](#fn-specmesheswithname)
+    * [`fn withNamespace(namespace)`](#fn-specmesheswithnamespace)
   * [`obj spec.projectRef`](#obj-specprojectref)
     * [`fn withExternal(external)`](#fn-specprojectrefwithexternal)
     * [`fn withName(name)`](#fn-specprojectrefwithname)
     * [`fn withNamespace(namespace)`](#fn-specprojectrefwithnamespace)
+  * [`obj spec.rules`](#obj-specrules)
+    * [`fn withMatches(matches)`](#fn-specruleswithmatches)
+    * [`fn withMatchesMixin(matches)`](#fn-specruleswithmatchesmixin)
+    * [`obj spec.rules.action`](#obj-specrulesaction)
+      * [`fn withDestinations(destinations)`](#fn-specrulesactionwithdestinations)
+      * [`fn withDestinationsMixin(destinations)`](#fn-specrulesactionwithdestinationsmixin)
+      * [`fn withOriginalDestination(originalDestination)`](#fn-specrulesactionwithoriginaldestination)
+      * [`obj spec.rules.action.destinations`](#obj-specrulesactiondestinations)
+        * [`fn withWeight(weight)`](#fn-specrulesactiondestinationswithweight)
+        * [`obj spec.rules.action.destinations.serviceRef`](#obj-specrulesactiondestinationsserviceref)
+          * [`fn withExternal(external)`](#fn-specrulesactiondestinationsservicerefwithexternal)
+          * [`fn withName(name)`](#fn-specrulesactiondestinationsservicerefwithname)
+          * [`fn withNamespace(namespace)`](#fn-specrulesactiondestinationsservicerefwithnamespace)
+    * [`obj spec.rules.matches`](#obj-specrulesmatches)
+      * [`fn withAddress(address)`](#fn-specrulesmatcheswithaddress)
+      * [`fn withPort(port)`](#fn-specrulesmatcheswithport)
 
 ## Fields
 
@@ -163,24 +185,6 @@ withLabelsMixin(labels)
 ```
 
 "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
-
-**Note:** This function appends passed data to existing values
-
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
 
 **Note:** This function appends passed data to existing values
 
@@ -360,6 +364,62 @@ withRulesMixin(rules)
 
 **Note:** This function appends passed data to existing values
 
+## obj spec.gateways
+
+
+
+### fn spec.gateways.withExternal
+
+```ts
+withExternal(external)
+```
+
+"Allowed value: The `selfLink` field of a `NetworkServicesGateway` resource."
+
+### fn spec.gateways.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.gateways.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
+## obj spec.meshes
+
+
+
+### fn spec.meshes.withExternal
+
+```ts
+withExternal(external)
+```
+
+"Allowed value: The `selfLink` field of a `NetworkServicesMesh` resource."
+
+### fn spec.meshes.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.meshes.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
 ## obj spec.projectRef
 
 "The Project that this resource belongs to."
@@ -387,3 +447,115 @@ withNamespace(namespace)
 ```
 
 "Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
+## obj spec.rules
+
+"Required. Rules that define how traffic is routed and handled. At least one RouteRule must be supplied. If there are multiple rules then the action taken will be the first rule to match."
+
+### fn spec.rules.withMatches
+
+```ts
+withMatches(matches)
+```
+
+"Optional. RouteMatch defines the predicate used to match requests to a given action. Multiple match types are “OR”ed for evaluation. If no routeMatch field is specified, this rule will unconditionally match traffic."
+
+### fn spec.rules.withMatchesMixin
+
+```ts
+withMatchesMixin(matches)
+```
+
+"Optional. RouteMatch defines the predicate used to match requests to a given action. Multiple match types are “OR”ed for evaluation. If no routeMatch field is specified, this rule will unconditionally match traffic."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.rules.action
+
+"Required. The detailed rule defining how to route matched traffic."
+
+### fn spec.rules.action.withDestinations
+
+```ts
+withDestinations(destinations)
+```
+
+"Optional. The destination services to which traffic should be forwarded. At least one destination service is required."
+
+### fn spec.rules.action.withDestinationsMixin
+
+```ts
+withDestinationsMixin(destinations)
+```
+
+"Optional. The destination services to which traffic should be forwarded. At least one destination service is required."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.rules.action.withOriginalDestination
+
+```ts
+withOriginalDestination(originalDestination)
+```
+
+"Optional. If true, Router will use the destination IP and port of the original connection as the destination of the request. Default is false."
+
+## obj spec.rules.action.destinations
+
+"Optional. The destination services to which traffic should be forwarded. At least one destination service is required."
+
+### fn spec.rules.action.destinations.withWeight
+
+```ts
+withWeight(weight)
+```
+
+"Optional. Specifies the proportion of requests forwarded to the backend referenced by the serviceName field. This is computed as: weight/Sum(weights in this destination list). For non-zero values, there may be some epsilon from the exact proportion defined here depending on the precision an implementation supports. If only one serviceName is specified and it has a weight greater than 0, 100% of the traffic is forwarded to that backend. If weights are specified for any one service name, they need to be specified for all of them. If weights are unspecified for all services, then, traffic is distributed in equal proportions to all of them."
+
+## obj spec.rules.action.destinations.serviceRef
+
+
+
+### fn spec.rules.action.destinations.serviceRef.withExternal
+
+```ts
+withExternal(external)
+```
+
+"Required. The URL of a BackendService to route traffic to.\n\nAllowed value: The Google Cloud resource name of a `ComputeBackendService` resource (format: `projects/{{project}}/global/backendServices/{{name}}`)."
+
+### fn spec.rules.action.destinations.serviceRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.rules.action.destinations.serviceRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
+## obj spec.rules.matches
+
+"Optional. RouteMatch defines the predicate used to match requests to a given action. Multiple match types are “OR”ed for evaluation. If no routeMatch field is specified, this rule will unconditionally match traffic."
+
+### fn spec.rules.matches.withAddress
+
+```ts
+withAddress(address)
+```
+
+"Required. Must be specified in the CIDR range format. A CIDR range consists of an IP Address and a prefix length to construct the subnet mask. By default, the prefix length is 32 (i.e. matches a single IP address). Only IPV4 addresses are supported. Examples: “10.0.0.1” - matches against this exact IP address. “10.0.0.0/8\" - matches against any IP address within the 10.0.0.0 subnet and 255.255.255.0 mask. \"0.0.0.0/0\" - matches against any IP address'."
+
+### fn spec.rules.matches.withPort
+
+```ts
+withPort(port)
+```
+
+"Required. Specifies the destination port to match against."

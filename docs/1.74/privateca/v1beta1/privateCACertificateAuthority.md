@@ -22,8 +22,6 @@ permalink: /1.74/privateca/v1beta1/privateCACertificateAuthority/
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -62,11 +60,23 @@ permalink: /1.74/privateca/v1beta1/privateCACertificateAuthority/
         * [`fn withIpAddressesMixin(ipAddresses)`](#fn-specconfigsubjectconfigsubjectaltnamewithipaddressesmixin)
         * [`fn withUris(uris)`](#fn-specconfigsubjectconfigsubjectaltnamewithuris)
         * [`fn withUrisMixin(uris)`](#fn-specconfigsubjectconfigsubjectaltnamewithurismixin)
+        * [`obj spec.config.subjectConfig.subjectAltName.customSans`](#obj-specconfigsubjectconfigsubjectaltnamecustomsans)
+          * [`fn withCritical(critical)`](#fn-specconfigsubjectconfigsubjectaltnamecustomsanswithcritical)
+          * [`fn withValue(value)`](#fn-specconfigsubjectconfigsubjectaltnamecustomsanswithvalue)
+          * [`obj spec.config.subjectConfig.subjectAltName.customSans.objectId`](#obj-specconfigsubjectconfigsubjectaltnamecustomsansobjectid)
+            * [`fn withObjectIdPath(objectIdPath)`](#fn-specconfigsubjectconfigsubjectaltnamecustomsansobjectidwithobjectidpath)
+            * [`fn withObjectIdPathMixin(objectIdPath)`](#fn-specconfigsubjectconfigsubjectaltnamecustomsansobjectidwithobjectidpathmixin)
     * [`obj spec.config.x509Config`](#obj-specconfigx509config)
       * [`fn withAdditionalExtensions(additionalExtensions)`](#fn-specconfigx509configwithadditionalextensions)
       * [`fn withAdditionalExtensionsMixin(additionalExtensions)`](#fn-specconfigx509configwithadditionalextensionsmixin)
       * [`fn withPolicyIds(policyIds)`](#fn-specconfigx509configwithpolicyids)
       * [`fn withPolicyIdsMixin(policyIds)`](#fn-specconfigx509configwithpolicyidsmixin)
+      * [`obj spec.config.x509Config.additionalExtensions`](#obj-specconfigx509configadditionalextensions)
+        * [`fn withCritical(critical)`](#fn-specconfigx509configadditionalextensionswithcritical)
+        * [`fn withValue(value)`](#fn-specconfigx509configadditionalextensionswithvalue)
+        * [`obj spec.config.x509Config.additionalExtensions.objectId`](#obj-specconfigx509configadditionalextensionsobjectid)
+          * [`fn withObjectIdPath(objectIdPath)`](#fn-specconfigx509configadditionalextensionsobjectidwithobjectidpath)
+          * [`fn withObjectIdPathMixin(objectIdPath)`](#fn-specconfigx509configadditionalextensionsobjectidwithobjectidpathmixin)
       * [`obj spec.config.x509Config.caOptions`](#obj-specconfigx509configcaoptions)
         * [`fn withIsCa(isCa)`](#fn-specconfigx509configcaoptionswithisca)
         * [`fn withMaxIssuerPathLength(maxIssuerPathLength)`](#fn-specconfigx509configcaoptionswithmaxissuerpathlength)
@@ -90,6 +100,12 @@ permalink: /1.74/privateca/v1beta1/privateCACertificateAuthority/
           * [`fn withOcspSigning(ocspSigning)`](#fn-specconfigx509configkeyusageextendedkeyusagewithocspsigning)
           * [`fn withServerAuth(serverAuth)`](#fn-specconfigx509configkeyusageextendedkeyusagewithserverauth)
           * [`fn withTimeStamping(timeStamping)`](#fn-specconfigx509configkeyusageextendedkeyusagewithtimestamping)
+        * [`obj spec.config.x509Config.keyUsage.unknownExtendedKeyUsages`](#obj-specconfigx509configkeyusageunknownextendedkeyusages)
+          * [`fn withObjectIdPath(objectIdPath)`](#fn-specconfigx509configkeyusageunknownextendedkeyusageswithobjectidpath)
+          * [`fn withObjectIdPathMixin(objectIdPath)`](#fn-specconfigx509configkeyusageunknownextendedkeyusageswithobjectidpathmixin)
+      * [`obj spec.config.x509Config.policyIds`](#obj-specconfigx509configpolicyids)
+        * [`fn withObjectIdPath(objectIdPath)`](#fn-specconfigx509configpolicyidswithobjectidpath)
+        * [`fn withObjectIdPathMixin(objectIdPath)`](#fn-specconfigx509configpolicyidswithobjectidpathmixin)
   * [`obj spec.gcsBucketRef`](#obj-specgcsbucketref)
     * [`fn withExternal(external)`](#fn-specgcsbucketrefwithexternal)
     * [`fn withName(name)`](#fn-specgcsbucketrefwithname)
@@ -218,24 +234,6 @@ withLabelsMixin(labels)
 ```
 
 "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
-
-**Note:** This function appends passed data to existing values
-
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
 
 **Note:** This function appends passed data to existing values
 
@@ -531,6 +529,48 @@ withUrisMixin(uris)
 
 **Note:** This function appends passed data to existing values
 
+## obj spec.config.subjectConfig.subjectAltName.customSans
+
+"Contains additional subject alternative name values."
+
+### fn spec.config.subjectConfig.subjectAltName.customSans.withCritical
+
+```ts
+withCritical(critical)
+```
+
+"Optional. Indicates whether or not this extension is critical (i.e., if the client does not know how to handle this extension, the client should consider this to be an error)."
+
+### fn spec.config.subjectConfig.subjectAltName.customSans.withValue
+
+```ts
+withValue(value)
+```
+
+"Required. The value of this X.509 extension."
+
+## obj spec.config.subjectConfig.subjectAltName.customSans.objectId
+
+"Required. The OID for this X.509 extension."
+
+### fn spec.config.subjectConfig.subjectAltName.customSans.objectId.withObjectIdPath
+
+```ts
+withObjectIdPath(objectIdPath)
+```
+
+"Required. The parts of an OID path. The most significant parts of the path come first."
+
+### fn spec.config.subjectConfig.subjectAltName.customSans.objectId.withObjectIdPathMixin
+
+```ts
+withObjectIdPathMixin(objectIdPath)
+```
+
+"Required. The parts of an OID path. The most significant parts of the path come first."
+
+**Note:** This function appends passed data to existing values
+
 ## obj spec.config.x509Config
 
 "Required. Describes how some of the technical X.509 fields in a certificate should be populated."
@@ -568,6 +608,48 @@ withPolicyIdsMixin(policyIds)
 ```
 
 "Optional. Describes the X.509 certificate policy object identifiers, per https://tools.ietf.org/html/rfc5280#section-4.2.1.4."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.config.x509Config.additionalExtensions
+
+"Optional. Describes custom X.509 extensions."
+
+### fn spec.config.x509Config.additionalExtensions.withCritical
+
+```ts
+withCritical(critical)
+```
+
+"Optional. Indicates whether or not this extension is critical (i.e., if the client does not know how to handle this extension, the client should consider this to be an error)."
+
+### fn spec.config.x509Config.additionalExtensions.withValue
+
+```ts
+withValue(value)
+```
+
+"Required. The value of this X.509 extension."
+
+## obj spec.config.x509Config.additionalExtensions.objectId
+
+"Required. The OID for this X.509 extension."
+
+### fn spec.config.x509Config.additionalExtensions.objectId.withObjectIdPath
+
+```ts
+withObjectIdPath(objectIdPath)
+```
+
+"Required. The parts of an OID path. The most significant parts of the path come first."
+
+### fn spec.config.x509Config.additionalExtensions.objectId.withObjectIdPathMixin
+
+```ts
+withObjectIdPathMixin(objectIdPath)
+```
+
+"Required. The parts of an OID path. The most significant parts of the path come first."
 
 **Note:** This function appends passed data to existing values
 
@@ -740,6 +822,50 @@ withTimeStamping(timeStamping)
 ```
 
 "Corresponds to OID 1.3.6.1.5.5.7.3.8. Officially described as \"Binding the hash of an object to a time\"."
+
+## obj spec.config.x509Config.keyUsage.unknownExtendedKeyUsages
+
+"Used to describe extended key usages that are not listed in the KeyUsage.ExtendedKeyUsageOptions message."
+
+### fn spec.config.x509Config.keyUsage.unknownExtendedKeyUsages.withObjectIdPath
+
+```ts
+withObjectIdPath(objectIdPath)
+```
+
+"Required. The parts of an OID path. The most significant parts of the path come first."
+
+### fn spec.config.x509Config.keyUsage.unknownExtendedKeyUsages.withObjectIdPathMixin
+
+```ts
+withObjectIdPathMixin(objectIdPath)
+```
+
+"Required. The parts of an OID path. The most significant parts of the path come first."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.config.x509Config.policyIds
+
+"Optional. Describes the X.509 certificate policy object identifiers, per https://tools.ietf.org/html/rfc5280#section-4.2.1.4."
+
+### fn spec.config.x509Config.policyIds.withObjectIdPath
+
+```ts
+withObjectIdPath(objectIdPath)
+```
+
+"Required. The parts of an OID path. The most significant parts of the path come first."
+
+### fn spec.config.x509Config.policyIds.withObjectIdPathMixin
+
+```ts
+withObjectIdPathMixin(objectIdPath)
+```
+
+"Required. The parts of an OID path. The most significant parts of the path come first."
+
+**Note:** This function appends passed data to existing values
 
 ## obj spec.gcsBucketRef
 

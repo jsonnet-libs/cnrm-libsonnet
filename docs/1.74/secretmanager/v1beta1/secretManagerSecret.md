@@ -22,8 +22,6 @@ permalink: /1.74/secretmanager/v1beta1/secretManagerSecret/
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -42,9 +40,20 @@ permalink: /1.74/secretmanager/v1beta1/secretManagerSecret/
     * [`obj spec.replication.userManaged`](#obj-specreplicationusermanaged)
       * [`fn withReplicas(replicas)`](#fn-specreplicationusermanagedwithreplicas)
       * [`fn withReplicasMixin(replicas)`](#fn-specreplicationusermanagedwithreplicasmixin)
+      * [`obj spec.replication.userManaged.replicas`](#obj-specreplicationusermanagedreplicas)
+        * [`fn withLocation(location)`](#fn-specreplicationusermanagedreplicaswithlocation)
+        * [`obj spec.replication.userManaged.replicas.customerManagedEncryption`](#obj-specreplicationusermanagedreplicascustomermanagedencryption)
+          * [`obj spec.replication.userManaged.replicas.customerManagedEncryption.kmsKeyRef`](#obj-specreplicationusermanagedreplicascustomermanagedencryptionkmskeyref)
+            * [`fn withExternal(external)`](#fn-specreplicationusermanagedreplicascustomermanagedencryptionkmskeyrefwithexternal)
+            * [`fn withName(name)`](#fn-specreplicationusermanagedreplicascustomermanagedencryptionkmskeyrefwithname)
+            * [`fn withNamespace(namespace)`](#fn-specreplicationusermanagedreplicascustomermanagedencryptionkmskeyrefwithnamespace)
   * [`obj spec.rotation`](#obj-specrotation)
     * [`fn withNextRotationTime(nextRotationTime)`](#fn-specrotationwithnextrotationtime)
     * [`fn withRotationPeriod(rotationPeriod)`](#fn-specrotationwithrotationperiod)
+  * [`obj spec.topics`](#obj-spectopics)
+    * [`fn withExternal(external)`](#fn-spectopicswithexternal)
+    * [`fn withName(name)`](#fn-spectopicswithname)
+    * [`fn withNamespace(namespace)`](#fn-spectopicswithnamespace)
 
 ## Fields
 
@@ -159,24 +168,6 @@ withLabelsMixin(labels)
 ```
 
 "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
-
-**Note:** This function appends passed data to existing values
-
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
 
 **Note:** This function appends passed data to existing values
 
@@ -318,6 +309,50 @@ withReplicasMixin(replicas)
 
 **Note:** This function appends passed data to existing values
 
+## obj spec.replication.userManaged.replicas
+
+"Immutable. The list of Replicas for this Secret. Cannot be empty."
+
+### fn spec.replication.userManaged.replicas.withLocation
+
+```ts
+withLocation(location)
+```
+
+"Immutable. The canonical IDs of the location to replicate data. For example: \"us-east1\"."
+
+## obj spec.replication.userManaged.replicas.customerManagedEncryption
+
+"Immutable. Customer Managed Encryption for the secret."
+
+## obj spec.replication.userManaged.replicas.customerManagedEncryption.kmsKeyRef
+
+"Customer Managed Encryption for the secret."
+
+### fn spec.replication.userManaged.replicas.customerManagedEncryption.kmsKeyRef.withExternal
+
+```ts
+withExternal(external)
+```
+
+"The selfLink of a KMSCryptoKey."
+
+### fn spec.replication.userManaged.replicas.customerManagedEncryption.kmsKeyRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.replication.userManaged.replicas.customerManagedEncryption.kmsKeyRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
 ## obj spec.rotation
 
 "The rotation time and period for a Secret. At 'next_rotation_time', Secret Manager will send a Pub/Sub notification to the topics configured on the Secret. 'topics' must be set to configure rotation."
@@ -337,3 +372,31 @@ withRotationPeriod(rotationPeriod)
 ```
 
 "Immutable. The Duration between rotation notifications. Must be in seconds and at least 3600s (1h) and at most 3153600000s (100 years).\nIf rotationPeriod is set, 'next_rotation_time' must be set. 'next_rotation_time' will be advanced by this period when the service automatically sends rotation notifications."
+
+## obj spec.topics
+
+
+
+### fn spec.topics.withExternal
+
+```ts
+withExternal(external)
+```
+
+"A string of the format \"projects/{{project}}/topics/{{value}}\", where {{value}} is the name of a PubSubTopic."
+
+### fn spec.topics.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.topics.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"

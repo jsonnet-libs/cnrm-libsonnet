@@ -27,10 +27,6 @@
     withLabels(labels): { metadata+: { labels: labels } },
     '#withLabelsMixin':: d.fn(help='"Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"\n\n**Note:** This function appends passed data to existing values', args=[d.arg(name='labels', type=d.T.object)]),
     withLabelsMixin(labels): { metadata+: { labels+: labels } },
-    '#withManagedFields':: d.fn(help="\"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \\\"ci-cd\\\". The set of fields is always in the version that the workflow used when modifying the object.\"", args=[d.arg(name='managedFields', type=d.T.array)]),
-    withManagedFields(managedFields): { metadata+: { managedFields: if std.isArray(v=managedFields) then managedFields else [managedFields] } },
-    '#withManagedFieldsMixin':: d.fn(help="\"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \\\"ci-cd\\\". The set of fields is always in the version that the workflow used when modifying the object.\"\n\n**Note:** This function appends passed data to existing values", args=[d.arg(name='managedFields', type=d.T.array)]),
-    withManagedFieldsMixin(managedFields): { metadata+: { managedFields+: if std.isArray(v=managedFields) then managedFields else [managedFields] } },
     '#withName':: d.fn(help='"Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names"', args=[d.arg(name='name', type=d.T.string)]),
     withName(name): { metadata+: { name: name } },
     '#withNamespace':: d.fn(help='"Namespace defines the space within which each name must be unique. An empty namespace is equivalent to the \\"default\\" namespace, but \\"default\\" is the canonical representation. Not all objects are required to be scoped to a namespace - the value of this field for those objects will be empty.\\n\\nMust be a DNS_LABEL. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/namespaces"', args=[d.arg(name='namespace', type=d.T.string)]),
@@ -55,6 +51,17 @@
   spec: {
     '#dnssecConfig':: d.obj(help='"DNSSEC configuration."'),
     dnssecConfig: {
+      '#defaultKeySpecs':: d.obj(help="\"Specifies parameters that will be used for generating initial DnsKeys\\nfor this ManagedZone. If you provide a spec for keySigning or zoneSigning,\\nyou must also provide one for the other.\\ndefault_key_specs can only be updated when the state is 'off'.\""),
+      defaultKeySpecs: {
+        '#withAlgorithm':: d.fn(help='"String mnemonic specifying the DNSSEC algorithm of this key Possible values: [\\"ecdsap256sha256\\", \\"ecdsap384sha384\\", \\"rsasha1\\", \\"rsasha256\\", \\"rsasha512\\"]."', args=[d.arg(name='algorithm', type=d.T.string)]),
+        withAlgorithm(algorithm): { algorithm: algorithm },
+        '#withKeyLength':: d.fn(help='"Length of the keys in bits."', args=[d.arg(name='keyLength', type=d.T.integer)]),
+        withKeyLength(keyLength): { keyLength: keyLength },
+        '#withKeyType':: d.fn(help='"Specifies whether this is a key signing key (KSK) or a zone\\nsigning key (ZSK). Key signing keys have the Secure Entry\\nPoint flag set and, when active, will only be used to sign\\nresource record sets of type DNSKEY. Zone signing keys do\\nnot have the Secure Entry Point flag set and will be used\\nto sign all other types of resource record sets. Possible values: [\\"keySigning\\", \\"zoneSigning\\"]."', args=[d.arg(name='keyType', type=d.T.string)]),
+        withKeyType(keyType): { keyType: keyType },
+        '#withKind':: d.fn(help='"Identifies what kind of resource this is."', args=[d.arg(name='kind', type=d.T.string)]),
+        withKind(kind): { kind: kind },
+      },
       '#withDefaultKeySpecs':: d.fn(help="\"Specifies parameters that will be used for generating initial DnsKeys\\nfor this ManagedZone. If you provide a spec for keySigning or zoneSigning,\\nyou must also provide one for the other.\\ndefault_key_specs can only be updated when the state is 'off'.\"", args=[d.arg(name='defaultKeySpecs', type=d.T.array)]),
       withDefaultKeySpecs(defaultKeySpecs): { spec+: { dnssecConfig+: { defaultKeySpecs: if std.isArray(v=defaultKeySpecs) then defaultKeySpecs else [defaultKeySpecs] } } },
       '#withDefaultKeySpecsMixin':: d.fn(help="\"Specifies parameters that will be used for generating initial DnsKeys\\nfor this ManagedZone. If you provide a spec for keySigning or zoneSigning,\\nyou must also provide one for the other.\\ndefault_key_specs can only be updated when the state is 'off'.\"\n\n**Note:** This function appends passed data to existing values", args=[d.arg(name='defaultKeySpecs', type=d.T.array)]),
@@ -68,6 +75,13 @@
     },
     '#forwardingConfig':: d.obj(help='"The presence for this field indicates that outbound forwarding is enabled\\nfor this zone. The value of this field contains the set of destinations\\nto forward to."'),
     forwardingConfig: {
+      '#targetNameServers':: d.obj(help='"List of target name servers to forward to. Cloud DNS will\\nselect the best available name server if more than\\none target is given."'),
+      targetNameServers: {
+        '#withForwardingPath':: d.fn(help="\"Forwarding path for this TargetNameServer. If unset or 'default' Cloud DNS will make forwarding\\ndecision based on address ranges, i.e. RFC1918 addresses go to the VPC, Non-RFC1918 addresses go\\nto the Internet. When set to 'private', Cloud DNS will always send queries through VPC for this target Possible values: [\\\"default\\\", \\\"private\\\"].\"", args=[d.arg(name='forwardingPath', type=d.T.string)]),
+        withForwardingPath(forwardingPath): { forwardingPath: forwardingPath },
+        '#withIpv4Address':: d.fn(help='"IPv4 address of a target name server."', args=[d.arg(name='ipv4Address', type=d.T.string)]),
+        withIpv4Address(ipv4Address): { ipv4Address: ipv4Address },
+      },
       '#withTargetNameServers':: d.fn(help='"List of target name servers to forward to. Cloud DNS will\\nselect the best available name server if more than\\none target is given."', args=[d.arg(name='targetNameServers', type=d.T.array)]),
       withTargetNameServers(targetNameServers): { spec+: { forwardingConfig+: { targetNameServers: if std.isArray(v=targetNameServers) then targetNameServers else [targetNameServers] } } },
       '#withTargetNameServersMixin':: d.fn(help='"List of target name servers to forward to. Cloud DNS will\\nselect the best available name server if more than\\none target is given."\n\n**Note:** This function appends passed data to existing values', args=[d.arg(name='targetNameServers', type=d.T.array)]),
@@ -90,6 +104,18 @@
     },
     '#privateVisibilityConfig':: d.obj(help='"For privately visible zones, the set of Virtual Private Cloud\\nresources that the zone is visible from."'),
     privateVisibilityConfig: {
+      '#networks':: d.obj(help=''),
+      networks: {
+        '#networkRef':: d.obj(help='"VPC network to bind to."'),
+        networkRef: {
+          '#withExternal':: d.fn(help='"The selfLink of a ComputeNetwork."', args=[d.arg(name='external', type=d.T.string)]),
+          withExternal(external): { networkRef+: { external: external } },
+          '#withName':: d.fn(help='"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"', args=[d.arg(name='name', type=d.T.string)]),
+          withName(name): { networkRef+: { name: name } },
+          '#withNamespace':: d.fn(help='"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"', args=[d.arg(name='namespace', type=d.T.string)]),
+          withNamespace(namespace): { networkRef+: { namespace: namespace } },
+        },
+      },
       '#withNetworks':: d.fn(help='', args=[d.arg(name='networks', type=d.T.array)]),
       withNetworks(networks): { spec+: { privateVisibilityConfig+: { networks: if std.isArray(v=networks) then networks else [networks] } } },
       '#withNetworksMixin':: d.fn(help='\n\n**Note:** This function appends passed data to existing values', args=[d.arg(name='networks', type=d.T.array)]),

@@ -22,8 +22,6 @@ permalink: /1.74/containeranalysis/v1beta1/containerAnalysisNote/
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -60,6 +58,25 @@ permalink: /1.74/containeranalysis/v1beta1/containerAnalysisNote/
     * [`fn withDistribution(distribution)`](#fn-specpackagewithdistribution)
     * [`fn withDistributionMixin(distribution)`](#fn-specpackagewithdistributionmixin)
     * [`fn withName(name)`](#fn-specpackagewithname)
+    * [`obj spec.package.distribution`](#obj-specpackagedistribution)
+      * [`fn withArchitecture(architecture)`](#fn-specpackagedistributionwitharchitecture)
+      * [`fn withCpeUri(cpeUri)`](#fn-specpackagedistributionwithcpeuri)
+      * [`fn withDescription(description)`](#fn-specpackagedistributionwithdescription)
+      * [`fn withMaintainer(maintainer)`](#fn-specpackagedistributionwithmaintainer)
+      * [`fn withUrl(url)`](#fn-specpackagedistributionwithurl)
+      * [`obj spec.package.distribution.latestVersion`](#obj-specpackagedistributionlatestversion)
+        * [`fn withEpoch(epoch)`](#fn-specpackagedistributionlatestversionwithepoch)
+        * [`fn withFullName(fullName)`](#fn-specpackagedistributionlatestversionwithfullname)
+        * [`fn withKind(kind)`](#fn-specpackagedistributionlatestversionwithkind)
+        * [`fn withName(name)`](#fn-specpackagedistributionlatestversionwithname)
+        * [`fn withRevision(revision)`](#fn-specpackagedistributionlatestversionwithrevision)
+  * [`obj spec.relatedNoteNames`](#obj-specrelatednotenames)
+    * [`fn withExternal(external)`](#fn-specrelatednotenameswithexternal)
+    * [`fn withName(name)`](#fn-specrelatednotenameswithname)
+    * [`fn withNamespace(namespace)`](#fn-specrelatednotenameswithnamespace)
+  * [`obj spec.relatedUrl`](#obj-specrelatedurl)
+    * [`fn withLabel(label)`](#fn-specrelatedurlwithlabel)
+    * [`fn withUrl(url)`](#fn-specrelatedurlwithurl)
   * [`obj spec.vulnerability`](#obj-specvulnerability)
     * [`fn withCvssScore(cvssScore)`](#fn-specvulnerabilitywithcvssscore)
     * [`fn withDetails(details)`](#fn-specvulnerabilitywithdetails)
@@ -80,6 +97,43 @@ permalink: /1.74/containeranalysis/v1beta1/containerAnalysisNote/
       * [`fn withPrivilegesRequired(privilegesRequired)`](#fn-specvulnerabilitycvssv3withprivilegesrequired)
       * [`fn withScope(scope)`](#fn-specvulnerabilitycvssv3withscope)
       * [`fn withUserInteraction(userInteraction)`](#fn-specvulnerabilitycvssv3withuserinteraction)
+    * [`obj spec.vulnerability.details`](#obj-specvulnerabilitydetails)
+      * [`fn withAffectedCpeUri(affectedCpeUri)`](#fn-specvulnerabilitydetailswithaffectedcpeuri)
+      * [`fn withAffectedPackage(affectedPackage)`](#fn-specvulnerabilitydetailswithaffectedpackage)
+      * [`fn withDescription(description)`](#fn-specvulnerabilitydetailswithdescription)
+      * [`fn withFixedCpeUri(fixedCpeUri)`](#fn-specvulnerabilitydetailswithfixedcpeuri)
+      * [`fn withFixedPackage(fixedPackage)`](#fn-specvulnerabilitydetailswithfixedpackage)
+      * [`fn withIsObsolete(isObsolete)`](#fn-specvulnerabilitydetailswithisobsolete)
+      * [`fn withPackageType(packageType)`](#fn-specvulnerabilitydetailswithpackagetype)
+      * [`fn withSeverityName(severityName)`](#fn-specvulnerabilitydetailswithseverityname)
+      * [`fn withSourceUpdateTime(sourceUpdateTime)`](#fn-specvulnerabilitydetailswithsourceupdatetime)
+      * [`obj spec.vulnerability.details.affectedVersionEnd`](#obj-specvulnerabilitydetailsaffectedversionend)
+        * [`fn withEpoch(epoch)`](#fn-specvulnerabilitydetailsaffectedversionendwithepoch)
+        * [`fn withFullName(fullName)`](#fn-specvulnerabilitydetailsaffectedversionendwithfullname)
+        * [`fn withKind(kind)`](#fn-specvulnerabilitydetailsaffectedversionendwithkind)
+        * [`fn withName(name)`](#fn-specvulnerabilitydetailsaffectedversionendwithname)
+        * [`fn withRevision(revision)`](#fn-specvulnerabilitydetailsaffectedversionendwithrevision)
+      * [`obj spec.vulnerability.details.affectedVersionStart`](#obj-specvulnerabilitydetailsaffectedversionstart)
+        * [`fn withEpoch(epoch)`](#fn-specvulnerabilitydetailsaffectedversionstartwithepoch)
+        * [`fn withFullName(fullName)`](#fn-specvulnerabilitydetailsaffectedversionstartwithfullname)
+        * [`fn withKind(kind)`](#fn-specvulnerabilitydetailsaffectedversionstartwithkind)
+        * [`fn withName(name)`](#fn-specvulnerabilitydetailsaffectedversionstartwithname)
+        * [`fn withRevision(revision)`](#fn-specvulnerabilitydetailsaffectedversionstartwithrevision)
+      * [`obj spec.vulnerability.details.fixedVersion`](#obj-specvulnerabilitydetailsfixedversion)
+        * [`fn withEpoch(epoch)`](#fn-specvulnerabilitydetailsfixedversionwithepoch)
+        * [`fn withFullName(fullName)`](#fn-specvulnerabilitydetailsfixedversionwithfullname)
+        * [`fn withKind(kind)`](#fn-specvulnerabilitydetailsfixedversionwithkind)
+        * [`fn withName(name)`](#fn-specvulnerabilitydetailsfixedversionwithname)
+        * [`fn withRevision(revision)`](#fn-specvulnerabilitydetailsfixedversionwithrevision)
+    * [`obj spec.vulnerability.windowsDetails`](#obj-specvulnerabilitywindowsdetails)
+      * [`fn withCpeUri(cpeUri)`](#fn-specvulnerabilitywindowsdetailswithcpeuri)
+      * [`fn withDescription(description)`](#fn-specvulnerabilitywindowsdetailswithdescription)
+      * [`fn withFixingKbs(fixingKbs)`](#fn-specvulnerabilitywindowsdetailswithfixingkbs)
+      * [`fn withFixingKbsMixin(fixingKbs)`](#fn-specvulnerabilitywindowsdetailswithfixingkbsmixin)
+      * [`fn withName(name)`](#fn-specvulnerabilitywindowsdetailswithname)
+      * [`obj spec.vulnerability.windowsDetails.fixingKbs`](#obj-specvulnerabilitywindowsdetailsfixingkbs)
+        * [`fn withName(name)`](#fn-specvulnerabilitywindowsdetailsfixingkbswithname)
+        * [`fn withUrl(url)`](#fn-specvulnerabilitywindowsdetailsfixingkbswithurl)
 
 ## Fields
 
@@ -194,24 +248,6 @@ withLabelsMixin(labels)
 ```
 
 "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
-
-**Note:** This function appends passed data to existing values
-
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
 
 **Note:** This function appends passed data to existing values
 
@@ -479,6 +515,142 @@ withName(name)
 
 "The name of the package."
 
+## obj spec.package.distribution
+
+"The various channels by which a package is distributed."
+
+### fn spec.package.distribution.withArchitecture
+
+```ts
+withArchitecture(architecture)
+```
+
+"The CPU architecture for which packages in this distribution channel were built Possible values: ARCHITECTURE_UNSPECIFIED, X86, X64"
+
+### fn spec.package.distribution.withCpeUri
+
+```ts
+withCpeUri(cpeUri)
+```
+
+"The cpe_uri in [cpe format](https://cpe.mitre.org/specification/) denoting the package manager version distributing a package."
+
+### fn spec.package.distribution.withDescription
+
+```ts
+withDescription(description)
+```
+
+"The distribution channel-specific description of this package."
+
+### fn spec.package.distribution.withMaintainer
+
+```ts
+withMaintainer(maintainer)
+```
+
+"A freeform string denoting the maintainer of this package."
+
+### fn spec.package.distribution.withUrl
+
+```ts
+withUrl(url)
+```
+
+"The distribution channel-specific homepage for this package."
+
+## obj spec.package.distribution.latestVersion
+
+"The latest available version of this package in this distribution channel."
+
+### fn spec.package.distribution.latestVersion.withEpoch
+
+```ts
+withEpoch(epoch)
+```
+
+"Used to correct mistakes in the version numbering scheme."
+
+### fn spec.package.distribution.latestVersion.withFullName
+
+```ts
+withFullName(fullName)
+```
+
+"Human readable version string. This string is of the form :- and is only set when kind is NORMAL."
+
+### fn spec.package.distribution.latestVersion.withKind
+
+```ts
+withKind(kind)
+```
+
+"Distinguish between sentinel MIN/MAX versions and normal versions. If kind is not NORMAL, then the other fields are ignored. Possible values: NOTE_KIND_UNSPECIFIED, VULNERABILITY, BUILD, IMAGE, PACKAGE, DEPLOYMENT, DISCOVERY, ATTESTATION, UPGRADE"
+
+### fn spec.package.distribution.latestVersion.withName
+
+```ts
+withName(name)
+```
+
+"The main part of the version name."
+
+### fn spec.package.distribution.latestVersion.withRevision
+
+```ts
+withRevision(revision)
+```
+
+"The iteration of the package build from the above version."
+
+## obj spec.relatedNoteNames
+
+
+
+### fn spec.relatedNoteNames.withExternal
+
+```ts
+withExternal(external)
+```
+
+"Allowed value: The Google Cloud resource name of a `ContainerAnalysisNote` resource (format: `projects/{{project}}/notes/{{name}}`)."
+
+### fn spec.relatedNoteNames.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.relatedNoteNames.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
+## obj spec.relatedUrl
+
+"URLs associated with this note."
+
+### fn spec.relatedUrl.withLabel
+
+```ts
+withLabel(label)
+```
+
+"Label to describe usage of the URL"
+
+### fn spec.relatedUrl.withUrl
+
+```ts
+withUrl(url)
+```
+
+"Specific URL to associate with the note"
+
 ## obj spec.vulnerability
 
 "A note describing a package vulnerability."
@@ -634,3 +806,277 @@ withUserInteraction(userInteraction)
 ```
 
 " Possible values: USER_INTERACTION_UNSPECIFIED, USER_INTERACTION_NONE, USER_INTERACTION_REQUIRED"
+
+## obj spec.vulnerability.details
+
+"Details of all known distros and packages affected by this vulnerability."
+
+### fn spec.vulnerability.details.withAffectedCpeUri
+
+```ts
+withAffectedCpeUri(affectedCpeUri)
+```
+
+"Required. The (https://cpe.mitre.org/specification/) this vulnerability affects."
+
+### fn spec.vulnerability.details.withAffectedPackage
+
+```ts
+withAffectedPackage(affectedPackage)
+```
+
+"Required. The package this vulnerability affects."
+
+### fn spec.vulnerability.details.withDescription
+
+```ts
+withDescription(description)
+```
+
+"A vendor-specific description of this vulnerability."
+
+### fn spec.vulnerability.details.withFixedCpeUri
+
+```ts
+withFixedCpeUri(fixedCpeUri)
+```
+
+"The distro recommended (https://cpe.mitre.org/specification/) to update to that contains a fix for this vulnerability. It is possible for this to be different from the affected_cpe_uri."
+
+### fn spec.vulnerability.details.withFixedPackage
+
+```ts
+withFixedPackage(fixedPackage)
+```
+
+"The distro recommended package to update to that contains a fix for this vulnerability. It is possible for this to be different from the affected_package."
+
+### fn spec.vulnerability.details.withIsObsolete
+
+```ts
+withIsObsolete(isObsolete)
+```
+
+"Whether this detail is obsolete. Occurrences are expected not to point to obsolete details."
+
+### fn spec.vulnerability.details.withPackageType
+
+```ts
+withPackageType(packageType)
+```
+
+"The type of package; whether native or non native (e.g., ruby gems, node.js packages, etc.)."
+
+### fn spec.vulnerability.details.withSeverityName
+
+```ts
+withSeverityName(severityName)
+```
+
+"The distro assigned severity of this vulnerability."
+
+### fn spec.vulnerability.details.withSourceUpdateTime
+
+```ts
+withSourceUpdateTime(sourceUpdateTime)
+```
+
+"The time this information was last changed at the source. This is an upstream timestamp from the underlying information source - e.g. Ubuntu security tracker."
+
+## obj spec.vulnerability.details.affectedVersionEnd
+
+"The version number at the end of an interval in which this vulnerability exists. A vulnerability can affect a package between version numbers that are disjoint sets of intervals (example: ) each of which will be represented in its own Detail. If a specific affected version is provided by a vulnerability database, affected_version_start and affected_version_end will be the same in that Detail."
+
+### fn spec.vulnerability.details.affectedVersionEnd.withEpoch
+
+```ts
+withEpoch(epoch)
+```
+
+"Used to correct mistakes in the version numbering scheme."
+
+### fn spec.vulnerability.details.affectedVersionEnd.withFullName
+
+```ts
+withFullName(fullName)
+```
+
+"Human readable version string. This string is of the form :- and is only set when kind is NORMAL."
+
+### fn spec.vulnerability.details.affectedVersionEnd.withKind
+
+```ts
+withKind(kind)
+```
+
+"Required. Distinguishes between sentinel MIN/MAX versions and normal versions. Possible values: NOTE_KIND_UNSPECIFIED, VULNERABILITY, BUILD, IMAGE, PACKAGE, DEPLOYMENT, DISCOVERY, ATTESTATION, UPGRADE"
+
+### fn spec.vulnerability.details.affectedVersionEnd.withName
+
+```ts
+withName(name)
+```
+
+"Required only when version kind is NORMAL. The main part of the version name."
+
+### fn spec.vulnerability.details.affectedVersionEnd.withRevision
+
+```ts
+withRevision(revision)
+```
+
+"The iteration of the package build from the above version."
+
+## obj spec.vulnerability.details.affectedVersionStart
+
+"The version number at the start of an interval in which this vulnerability exists. A vulnerability can affect a package between version numbers that are disjoint sets of intervals (example: ) each of which will be represented in its own Detail. If a specific affected version is provided by a vulnerability database, affected_version_start and affected_version_end will be the same in that Detail."
+
+### fn spec.vulnerability.details.affectedVersionStart.withEpoch
+
+```ts
+withEpoch(epoch)
+```
+
+"Used to correct mistakes in the version numbering scheme."
+
+### fn spec.vulnerability.details.affectedVersionStart.withFullName
+
+```ts
+withFullName(fullName)
+```
+
+"Human readable version string. This string is of the form :- and is only set when kind is NORMAL."
+
+### fn spec.vulnerability.details.affectedVersionStart.withKind
+
+```ts
+withKind(kind)
+```
+
+"Required. Distinguishes between sentinel MIN/MAX versions and normal versions. Possible values: NOTE_KIND_UNSPECIFIED, VULNERABILITY, BUILD, IMAGE, PACKAGE, DEPLOYMENT, DISCOVERY, ATTESTATION, UPGRADE"
+
+### fn spec.vulnerability.details.affectedVersionStart.withName
+
+```ts
+withName(name)
+```
+
+"Required only when version kind is NORMAL. The main part of the version name."
+
+### fn spec.vulnerability.details.affectedVersionStart.withRevision
+
+```ts
+withRevision(revision)
+```
+
+"The iteration of the package build from the above version."
+
+## obj spec.vulnerability.details.fixedVersion
+
+"The distro recommended version to update to that contains a fix for this vulnerability. Setting this to VersionKind.MAXIMUM means no such version is yet available."
+
+### fn spec.vulnerability.details.fixedVersion.withEpoch
+
+```ts
+withEpoch(epoch)
+```
+
+"Used to correct mistakes in the version numbering scheme."
+
+### fn spec.vulnerability.details.fixedVersion.withFullName
+
+```ts
+withFullName(fullName)
+```
+
+"Human readable version string. This string is of the form :- and is only set when kind is NORMAL."
+
+### fn spec.vulnerability.details.fixedVersion.withKind
+
+```ts
+withKind(kind)
+```
+
+"Required. Distinguishes between sentinel MIN/MAX versions and normal versions. Possible values: NOTE_KIND_UNSPECIFIED, VULNERABILITY, BUILD, IMAGE, PACKAGE, DEPLOYMENT, DISCOVERY, ATTESTATION, UPGRADE"
+
+### fn spec.vulnerability.details.fixedVersion.withName
+
+```ts
+withName(name)
+```
+
+"Required only when version kind is NORMAL. The main part of the version name."
+
+### fn spec.vulnerability.details.fixedVersion.withRevision
+
+```ts
+withRevision(revision)
+```
+
+"The iteration of the package build from the above version."
+
+## obj spec.vulnerability.windowsDetails
+
+"Windows details get their own format because the information format and model don't match a normal detail. Specifically Windows updates are done as patches, thus Windows vulnerabilities really are a missing package, rather than a package being at an incorrect version."
+
+### fn spec.vulnerability.windowsDetails.withCpeUri
+
+```ts
+withCpeUri(cpeUri)
+```
+
+"Required. The (https://cpe.mitre.org/specification/) this vulnerability affects."
+
+### fn spec.vulnerability.windowsDetails.withDescription
+
+```ts
+withDescription(description)
+```
+
+"The description of this vulnerability."
+
+### fn spec.vulnerability.windowsDetails.withFixingKbs
+
+```ts
+withFixingKbs(fixingKbs)
+```
+
+"Required. The names of the KBs which have hotfixes to mitigate this vulnerability. Note that there may be multiple hotfixes (and thus multiple KBs) that mitigate a given vulnerability. Currently any listed KBs presence is considered a fix."
+
+### fn spec.vulnerability.windowsDetails.withFixingKbsMixin
+
+```ts
+withFixingKbsMixin(fixingKbs)
+```
+
+"Required. The names of the KBs which have hotfixes to mitigate this vulnerability. Note that there may be multiple hotfixes (and thus multiple KBs) that mitigate a given vulnerability. Currently any listed KBs presence is considered a fix."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.vulnerability.windowsDetails.withName
+
+```ts
+withName(name)
+```
+
+"Required. The name of this vulnerability."
+
+## obj spec.vulnerability.windowsDetails.fixingKbs
+
+"Required. The names of the KBs which have hotfixes to mitigate this vulnerability. Note that there may be multiple hotfixes (and thus multiple KBs) that mitigate a given vulnerability. Currently any listed KBs presence is considered a fix."
+
+### fn spec.vulnerability.windowsDetails.fixingKbs.withName
+
+```ts
+withName(name)
+```
+
+"The KB name (generally of the form KB+ (e.g., KB123456))."
+
+### fn spec.vulnerability.windowsDetails.fixingKbs.withUrl
+
+```ts
+withUrl(url)
+```
+
+"A link to the KB in the (https://www.catalog.update.microsoft.com/)."

@@ -22,8 +22,6 @@ permalink: /1.74/compute/v1beta1/computeForwardingRule/
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -58,6 +56,13 @@ permalink: /1.74/compute/v1beta1/computeForwardingRule/
       * [`fn withExternal(external)`](#fn-specipaddressaddressrefwithexternal)
       * [`fn withName(name)`](#fn-specipaddressaddressrefwithname)
       * [`fn withNamespace(namespace)`](#fn-specipaddressaddressrefwithnamespace)
+  * [`obj spec.metadataFilters`](#obj-specmetadatafilters)
+    * [`fn withFilterLabels(filterLabels)`](#fn-specmetadatafilterswithfilterlabels)
+    * [`fn withFilterLabelsMixin(filterLabels)`](#fn-specmetadatafilterswithfilterlabelsmixin)
+    * [`fn withFilterMatchCriteria(filterMatchCriteria)`](#fn-specmetadatafilterswithfiltermatchcriteria)
+    * [`obj spec.metadataFilters.filterLabels`](#obj-specmetadatafiltersfilterlabels)
+      * [`fn withName(name)`](#fn-specmetadatafiltersfilterlabelswithname)
+      * [`fn withValue(value)`](#fn-specmetadatafiltersfilterlabelswithvalue)
   * [`obj spec.networkRef`](#obj-specnetworkref)
     * [`fn withExternal(external)`](#fn-specnetworkrefwithexternal)
     * [`fn withName(name)`](#fn-specnetworkrefwithname)
@@ -205,24 +210,6 @@ withLabelsMixin(labels)
 ```
 
 "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
-
-**Note:** This function appends passed data to existing values
-
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
 
 **Note:** This function appends passed data to existing values
 
@@ -487,6 +474,56 @@ withNamespace(namespace)
 ```
 
 "Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
+## obj spec.metadataFilters
+
+"Immutable. Opaque filter criteria used by Loadbalancer to restrict routing configuration to a limited set of [xDS](https://github.com/envoyproxy/data-plane-api/blob/master/XDS_PROTOCOL.md) compliant clients. In their xDS requests to Loadbalancer, xDS clients present [node metadata](https://github.com/envoyproxy/data-plane-api/search?q=%22message+Node%22+in%3A%2Fenvoy%2Fapi%2Fv2%2Fcore%2Fbase.proto&). If a match takes place, the relevant configuration is made available to those proxies. Otherwise, all the resources (e.g. `TargetHttpProxy`, `UrlMap`) referenced by the `ForwardingRule` will not be visible to those proxies.\n\nFor each `metadataFilter` in this list, if its `filterMatchCriteria` is set to MATCH_ANY, at least one of the `filterLabel`s must match the corresponding label provided in the metadata. If its `filterMatchCriteria` is set to MATCH_ALL, then all of its `filterLabel`s must match with corresponding labels provided in the metadata.\n\n`metadataFilters` specified here will be applifed before those specified in the `UrlMap` that this `ForwardingRule` references.\n\n`metadataFilters` only applies to Loadbalancers that have their loadBalancingScheme set to `INTERNAL_SELF_MANAGED`."
+
+### fn spec.metadataFilters.withFilterLabels
+
+```ts
+withFilterLabels(filterLabels)
+```
+
+"Immutable. The list of label value pairs that must match labels in the provided metadata based on `filterMatchCriteria`\n\nThis list must not be empty and can have at the most 64 entries."
+
+### fn spec.metadataFilters.withFilterLabelsMixin
+
+```ts
+withFilterLabelsMixin(filterLabels)
+```
+
+"Immutable. The list of label value pairs that must match labels in the provided metadata based on `filterMatchCriteria`\n\nThis list must not be empty and can have at the most 64 entries."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.metadataFilters.withFilterMatchCriteria
+
+```ts
+withFilterMatchCriteria(filterMatchCriteria)
+```
+
+"Immutable. Specifies how individual `filterLabel` matches within the list of `filterLabel`s contribute towards the overall `metadataFilter` match.\n\nSupported values are:\n\n*   MATCH_ANY: At least one of the `filterLabels` must have a matching label in the provided metadata.\n*   MATCH_ALL: All `filterLabels` must have matching labels in the provided metadata. Possible values: NOT_SET, MATCH_ALL, MATCH_ANY."
+
+## obj spec.metadataFilters.filterLabels
+
+"Immutable. The list of label value pairs that must match labels in the provided metadata based on `filterMatchCriteria`\n\nThis list must not be empty and can have at the most 64 entries."
+
+### fn spec.metadataFilters.filterLabels.withName
+
+```ts
+withName(name)
+```
+
+"Immutable. Name of metadata label.\n\nThe name can have a maximum length of 1024 characters and must be at least 1 character long."
+
+### fn spec.metadataFilters.filterLabels.withValue
+
+```ts
+withValue(value)
+```
+
+"Immutable. The value of the label must match the specified value.\n\nvalue can have a maximum length of 1024 characters."
 
 ## obj spec.networkRef
 

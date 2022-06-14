@@ -22,8 +22,6 @@ permalink: /1.74/networksecurity/v1beta1/networkSecurityAuthorizationPolicy/
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -42,6 +40,26 @@ permalink: /1.74/networksecurity/v1beta1/networkSecurityAuthorizationPolicy/
     * [`fn withExternal(external)`](#fn-specprojectrefwithexternal)
     * [`fn withName(name)`](#fn-specprojectrefwithname)
     * [`fn withNamespace(namespace)`](#fn-specprojectrefwithnamespace)
+  * [`obj spec.rules`](#obj-specrules)
+    * [`fn withDestinations(destinations)`](#fn-specruleswithdestinations)
+    * [`fn withDestinationsMixin(destinations)`](#fn-specruleswithdestinationsmixin)
+    * [`fn withSources(sources)`](#fn-specruleswithsources)
+    * [`fn withSourcesMixin(sources)`](#fn-specruleswithsourcesmixin)
+    * [`obj spec.rules.destinations`](#obj-specrulesdestinations)
+      * [`fn withHosts(hosts)`](#fn-specrulesdestinationswithhosts)
+      * [`fn withHostsMixin(hosts)`](#fn-specrulesdestinationswithhostsmixin)
+      * [`fn withMethods(methods)`](#fn-specrulesdestinationswithmethods)
+      * [`fn withMethodsMixin(methods)`](#fn-specrulesdestinationswithmethodsmixin)
+      * [`fn withPorts(ports)`](#fn-specrulesdestinationswithports)
+      * [`fn withPortsMixin(ports)`](#fn-specrulesdestinationswithportsmixin)
+      * [`obj spec.rules.destinations.httpHeaderMatch`](#obj-specrulesdestinationshttpheadermatch)
+        * [`fn withHeaderName(headerName)`](#fn-specrulesdestinationshttpheadermatchwithheadername)
+        * [`fn withRegexMatch(regexMatch)`](#fn-specrulesdestinationshttpheadermatchwithregexmatch)
+    * [`obj spec.rules.sources`](#obj-specrulessources)
+      * [`fn withIpBlocks(ipBlocks)`](#fn-specrulessourceswithipblocks)
+      * [`fn withIpBlocksMixin(ipBlocks)`](#fn-specrulessourceswithipblocksmixin)
+      * [`fn withPrincipals(principals)`](#fn-specrulessourceswithprincipals)
+      * [`fn withPrincipalsMixin(principals)`](#fn-specrulessourceswithprincipalsmixin)
 
 ## Fields
 
@@ -156,24 +174,6 @@ withLabelsMixin(labels)
 ```
 
 "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
-
-**Note:** This function appends passed data to existing values
-
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
 
 **Note:** This function appends passed data to existing values
 
@@ -316,3 +316,161 @@ withNamespace(namespace)
 ```
 
 "Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
+## obj spec.rules
+
+"Optional. List of rules to match. If not set, the action specified in the ‘action’ field will be applied without any additional rule checks."
+
+### fn spec.rules.withDestinations
+
+```ts
+withDestinations(destinations)
+```
+
+"Optional. List of attributes for the traffic destination. If not set, the action specified in the ‘action’ field will be applied without any rule checks for the destination."
+
+### fn spec.rules.withDestinationsMixin
+
+```ts
+withDestinationsMixin(destinations)
+```
+
+"Optional. List of attributes for the traffic destination. If not set, the action specified in the ‘action’ field will be applied without any rule checks for the destination."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.rules.withSources
+
+```ts
+withSources(sources)
+```
+
+"Optional. List of attributes for the traffic source. If not set, the action specified in the ‘action’ field will be applied without any rule checks for the source."
+
+### fn spec.rules.withSourcesMixin
+
+```ts
+withSourcesMixin(sources)
+```
+
+"Optional. List of attributes for the traffic source. If not set, the action specified in the ‘action’ field will be applied without any rule checks for the source."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.rules.destinations
+
+"Optional. List of attributes for the traffic destination. If not set, the action specified in the ‘action’ field will be applied without any rule checks for the destination."
+
+### fn spec.rules.destinations.withHosts
+
+```ts
+withHosts(hosts)
+```
+
+"Required. List of host names to match. Matched against HOST header in http requests. Each host can be an exact match, or a prefix match (example, “mydomain.*”) or a suffix match (example, *.myorg.com”) or a presence(any) match “*”."
+
+### fn spec.rules.destinations.withHostsMixin
+
+```ts
+withHostsMixin(hosts)
+```
+
+"Required. List of host names to match. Matched against HOST header in http requests. Each host can be an exact match, or a prefix match (example, “mydomain.*”) or a suffix match (example, *.myorg.com”) or a presence(any) match “*”."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.rules.destinations.withMethods
+
+```ts
+withMethods(methods)
+```
+
+"Optional. A list of HTTP methods to match. Should not be set for gRPC services."
+
+### fn spec.rules.destinations.withMethodsMixin
+
+```ts
+withMethodsMixin(methods)
+```
+
+"Optional. A list of HTTP methods to match. Should not be set for gRPC services."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.rules.destinations.withPorts
+
+```ts
+withPorts(ports)
+```
+
+"Required. List of destination ports to match."
+
+### fn spec.rules.destinations.withPortsMixin
+
+```ts
+withPortsMixin(ports)
+```
+
+"Required. List of destination ports to match."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.rules.destinations.httpHeaderMatch
+
+"Optional. Match against key:value pair in http header. Provides a flexible match based on HTTP headers, for potentially advanced use cases."
+
+### fn spec.rules.destinations.httpHeaderMatch.withHeaderName
+
+```ts
+withHeaderName(headerName)
+```
+
+"Required. The name of the HTTP header to match. For matching against the HTTP request's authority, use a headerMatch with the header name \":authority\". For matching a request's method, use the headerName \":method\"."
+
+### fn spec.rules.destinations.httpHeaderMatch.withRegexMatch
+
+```ts
+withRegexMatch(regexMatch)
+```
+
+"Required. The value of the header must match the regular expression specified in regexMatch. For regular expression grammar, please see: en.cppreference.com/w/cpp/regex/ecmascript For matching against a port specified in the HTTP request, use a headerMatch with headerName set to Host and a regular expression that satisfies the RFC2616 Host header's port specifier."
+
+## obj spec.rules.sources
+
+"Optional. List of attributes for the traffic source. If not set, the action specified in the ‘action’ field will be applied without any rule checks for the source."
+
+### fn spec.rules.sources.withIpBlocks
+
+```ts
+withIpBlocks(ipBlocks)
+```
+
+"Optional. List of CIDR ranges to match based on source IP address. Single IP (e.g., \"1.2.3.4\") and CIDR (e.g., \"1.2.3.0/24\") are supported."
+
+### fn spec.rules.sources.withIpBlocksMixin
+
+```ts
+withIpBlocksMixin(ipBlocks)
+```
+
+"Optional. List of CIDR ranges to match based on source IP address. Single IP (e.g., \"1.2.3.4\") and CIDR (e.g., \"1.2.3.0/24\") are supported."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.rules.sources.withPrincipals
+
+```ts
+withPrincipals(principals)
+```
+
+"Optional. List of peer identities to match for authorization. Each peer can be an exact match, or a prefix match (example, “namespace/*”) or a suffix match (example, */service-account”) or a presence match “*”."
+
+### fn spec.rules.sources.withPrincipalsMixin
+
+```ts
+withPrincipalsMixin(principals)
+```
+
+"Optional. List of peer identities to match for authorization. Each peer can be an exact match, or a prefix match (example, “namespace/*”) or a suffix match (example, */service-account”) or a presence match “*”."
+
+**Note:** This function appends passed data to existing values

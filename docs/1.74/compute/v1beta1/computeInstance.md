@@ -22,8 +22,6 @@ permalink: /1.74/compute/v1beta1/computeInstance/
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -60,6 +58,24 @@ permalink: /1.74/compute/v1beta1/computeInstance/
   * [`obj spec.advancedMachineFeatures`](#obj-specadvancedmachinefeatures)
     * [`fn withEnableNestedVirtualization(enableNestedVirtualization)`](#fn-specadvancedmachinefeatureswithenablenestedvirtualization)
     * [`fn withThreadsPerCore(threadsPerCore)`](#fn-specadvancedmachinefeatureswiththreadspercore)
+  * [`obj spec.attachedDisk`](#obj-specattacheddisk)
+    * [`fn withDeviceName(deviceName)`](#fn-specattacheddiskwithdevicename)
+    * [`fn withDiskEncryptionKeySha256(diskEncryptionKeySha256)`](#fn-specattacheddiskwithdiskencryptionkeysha256)
+    * [`fn withMode(mode)`](#fn-specattacheddiskwithmode)
+    * [`obj spec.attachedDisk.diskEncryptionKeyRaw`](#obj-specattacheddiskdiskencryptionkeyraw)
+      * [`fn withValue(value)`](#fn-specattacheddiskdiskencryptionkeyrawwithvalue)
+      * [`obj spec.attachedDisk.diskEncryptionKeyRaw.valueFrom`](#obj-specattacheddiskdiskencryptionkeyrawvaluefrom)
+        * [`obj spec.attachedDisk.diskEncryptionKeyRaw.valueFrom.secretKeyRef`](#obj-specattacheddiskdiskencryptionkeyrawvaluefromsecretkeyref)
+          * [`fn withKey(key)`](#fn-specattacheddiskdiskencryptionkeyrawvaluefromsecretkeyrefwithkey)
+          * [`fn withName(name)`](#fn-specattacheddiskdiskencryptionkeyrawvaluefromsecretkeyrefwithname)
+    * [`obj spec.attachedDisk.kmsKeyRef`](#obj-specattacheddiskkmskeyref)
+      * [`fn withExternal(external)`](#fn-specattacheddiskkmskeyrefwithexternal)
+      * [`fn withName(name)`](#fn-specattacheddiskkmskeyrefwithname)
+      * [`fn withNamespace(namespace)`](#fn-specattacheddiskkmskeyrefwithnamespace)
+    * [`obj spec.attachedDisk.sourceDiskRef`](#obj-specattacheddisksourcediskref)
+      * [`fn withExternal(external)`](#fn-specattacheddisksourcediskrefwithexternal)
+      * [`fn withName(name)`](#fn-specattacheddisksourcediskrefwithname)
+      * [`fn withNamespace(namespace)`](#fn-specattacheddisksourcediskrefwithnamespace)
   * [`obj spec.bootDisk`](#obj-specbootdisk)
     * [`fn withAutoDelete(autoDelete)`](#fn-specbootdiskwithautodelete)
     * [`fn withDeviceName(deviceName)`](#fn-specbootdiskwithdevicename)
@@ -90,10 +106,53 @@ permalink: /1.74/compute/v1beta1/computeInstance/
       * [`fn withNamespace(namespace)`](#fn-specbootdisksourcediskrefwithnamespace)
   * [`obj spec.confidentialInstanceConfig`](#obj-specconfidentialinstanceconfig)
     * [`fn withEnableConfidentialCompute(enableConfidentialCompute)`](#fn-specconfidentialinstanceconfigwithenableconfidentialcompute)
+  * [`obj spec.guestAccelerator`](#obj-specguestaccelerator)
+    * [`fn withCount(count)`](#fn-specguestacceleratorwithcount)
+    * [`fn withType(type)`](#fn-specguestacceleratorwithtype)
   * [`obj spec.instanceTemplateRef`](#obj-specinstancetemplateref)
     * [`fn withExternal(external)`](#fn-specinstancetemplaterefwithexternal)
     * [`fn withName(name)`](#fn-specinstancetemplaterefwithname)
     * [`fn withNamespace(namespace)`](#fn-specinstancetemplaterefwithnamespace)
+  * [`obj spec.metadata`](#obj-specmetadata)
+    * [`fn withKey(key)`](#fn-specmetadatawithkey)
+    * [`fn withValue(value)`](#fn-specmetadatawithvalue)
+  * [`obj spec.networkInterface`](#obj-specnetworkinterface)
+    * [`fn withAccessConfig(accessConfig)`](#fn-specnetworkinterfacewithaccessconfig)
+    * [`fn withAccessConfigMixin(accessConfig)`](#fn-specnetworkinterfacewithaccessconfigmixin)
+    * [`fn withAliasIpRange(aliasIpRange)`](#fn-specnetworkinterfacewithaliasiprange)
+    * [`fn withAliasIpRangeMixin(aliasIpRange)`](#fn-specnetworkinterfacewithaliasiprangemixin)
+    * [`fn withIpv6AccessConfig(ipv6AccessConfig)`](#fn-specnetworkinterfacewithipv6accessconfig)
+    * [`fn withIpv6AccessConfigMixin(ipv6AccessConfig)`](#fn-specnetworkinterfacewithipv6accessconfigmixin)
+    * [`fn withIpv6AccessType(ipv6AccessType)`](#fn-specnetworkinterfacewithipv6accesstype)
+    * [`fn withName(name)`](#fn-specnetworkinterfacewithname)
+    * [`fn withNetworkIp(networkIp)`](#fn-specnetworkinterfacewithnetworkip)
+    * [`fn withNicType(nicType)`](#fn-specnetworkinterfacewithnictype)
+    * [`fn withQueueCount(queueCount)`](#fn-specnetworkinterfacewithqueuecount)
+    * [`fn withStackType(stackType)`](#fn-specnetworkinterfacewithstacktype)
+    * [`fn withSubnetworkProject(subnetworkProject)`](#fn-specnetworkinterfacewithsubnetworkproject)
+    * [`obj spec.networkInterface.accessConfig`](#obj-specnetworkinterfaceaccessconfig)
+      * [`fn withNetworkTier(networkTier)`](#fn-specnetworkinterfaceaccessconfigwithnetworktier)
+      * [`fn withPublicPtrDomainName(publicPtrDomainName)`](#fn-specnetworkinterfaceaccessconfigwithpublicptrdomainname)
+      * [`obj spec.networkInterface.accessConfig.natIpRef`](#obj-specnetworkinterfaceaccessconfignatipref)
+        * [`fn withExternal(external)`](#fn-specnetworkinterfaceaccessconfignatiprefwithexternal)
+        * [`fn withName(name)`](#fn-specnetworkinterfaceaccessconfignatiprefwithname)
+        * [`fn withNamespace(namespace)`](#fn-specnetworkinterfaceaccessconfignatiprefwithnamespace)
+    * [`obj spec.networkInterface.aliasIpRange`](#obj-specnetworkinterfacealiasiprange)
+      * [`fn withIpCidrRange(ipCidrRange)`](#fn-specnetworkinterfacealiasiprangewithipcidrrange)
+      * [`fn withSubnetworkRangeName(subnetworkRangeName)`](#fn-specnetworkinterfacealiasiprangewithsubnetworkrangename)
+    * [`obj spec.networkInterface.ipv6AccessConfig`](#obj-specnetworkinterfaceipv6accessconfig)
+      * [`fn withExternalIpv6(externalIpv6)`](#fn-specnetworkinterfaceipv6accessconfigwithexternalipv6)
+      * [`fn withExternalIpv6PrefixLength(externalIpv6PrefixLength)`](#fn-specnetworkinterfaceipv6accessconfigwithexternalipv6prefixlength)
+      * [`fn withNetworkTier(networkTier)`](#fn-specnetworkinterfaceipv6accessconfigwithnetworktier)
+      * [`fn withPublicPtrDomainName(publicPtrDomainName)`](#fn-specnetworkinterfaceipv6accessconfigwithpublicptrdomainname)
+    * [`obj spec.networkInterface.networkRef`](#obj-specnetworkinterfacenetworkref)
+      * [`fn withExternal(external)`](#fn-specnetworkinterfacenetworkrefwithexternal)
+      * [`fn withName(name)`](#fn-specnetworkinterfacenetworkrefwithname)
+      * [`fn withNamespace(namespace)`](#fn-specnetworkinterfacenetworkrefwithnamespace)
+    * [`obj spec.networkInterface.subnetworkRef`](#obj-specnetworkinterfacesubnetworkref)
+      * [`fn withExternal(external)`](#fn-specnetworkinterfacesubnetworkrefwithexternal)
+      * [`fn withName(name)`](#fn-specnetworkinterfacesubnetworkrefwithname)
+      * [`fn withNamespace(namespace)`](#fn-specnetworkinterfacesubnetworkrefwithnamespace)
   * [`obj spec.networkPerformanceConfig`](#obj-specnetworkperformanceconfig)
     * [`fn withTotalEgressBandwidthTier(totalEgressBandwidthTier)`](#fn-specnetworkperformanceconfigwithtotalegressbandwidthtier)
   * [`obj spec.reservationAffinity`](#obj-specreservationaffinity)
@@ -102,6 +161,10 @@ permalink: /1.74/compute/v1beta1/computeInstance/
       * [`fn withKey(key)`](#fn-specreservationaffinityspecificreservationwithkey)
       * [`fn withValues(values)`](#fn-specreservationaffinityspecificreservationwithvalues)
       * [`fn withValuesMixin(values)`](#fn-specreservationaffinityspecificreservationwithvaluesmixin)
+  * [`obj spec.resourcePolicies`](#obj-specresourcepolicies)
+    * [`fn withExternal(external)`](#fn-specresourcepolicieswithexternal)
+    * [`fn withName(name)`](#fn-specresourcepolicieswithname)
+    * [`fn withNamespace(namespace)`](#fn-specresourcepolicieswithnamespace)
   * [`obj spec.scheduling`](#obj-specscheduling)
     * [`fn withAutomaticRestart(automaticRestart)`](#fn-specschedulingwithautomaticrestart)
     * [`fn withMinNodeCpus(minNodeCpus)`](#fn-specschedulingwithminnodecpus)
@@ -109,6 +172,11 @@ permalink: /1.74/compute/v1beta1/computeInstance/
     * [`fn withNodeAffinitiesMixin(nodeAffinities)`](#fn-specschedulingwithnodeaffinitiesmixin)
     * [`fn withOnHostMaintenance(onHostMaintenance)`](#fn-specschedulingwithonhostmaintenance)
     * [`fn withPreemptible(preemptible)`](#fn-specschedulingwithpreemptible)
+    * [`obj spec.scheduling.nodeAffinities`](#obj-specschedulingnodeaffinities)
+      * [`fn withValue(value)`](#fn-specschedulingnodeaffinitieswithvalue)
+      * [`fn withValueMixin(value)`](#fn-specschedulingnodeaffinitieswithvaluemixin)
+  * [`obj spec.scratchDisk`](#obj-specscratchdisk)
+    * [`fn withInterface(interface)`](#fn-specscratchdiskwithinterface)
   * [`obj spec.serviceAccount`](#obj-specserviceaccount)
     * [`fn withScopes(scopes)`](#fn-specserviceaccountwithscopes)
     * [`fn withScopesMixin(scopes)`](#fn-specserviceaccountwithscopesmixin)
@@ -234,24 +302,6 @@ withLabelsMixin(labels)
 ```
 
 "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
-
-**Note:** This function appends passed data to existing values
-
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
 
 **Note:** This function appends passed data to existing values
 
@@ -551,6 +601,126 @@ withThreadsPerCore(threadsPerCore)
 
 "The number of threads per physical core. To disable simultaneous multithreading (SMT) set this to 1. If unset, the maximum number of threads supported per core by the underlying processor is assumed."
 
+## obj spec.attachedDisk
+
+"List of disks attached to the instance."
+
+### fn spec.attachedDisk.withDeviceName
+
+```ts
+withDeviceName(deviceName)
+```
+
+"Name with which the attached disk is accessible under /dev/disk/by-id/."
+
+### fn spec.attachedDisk.withDiskEncryptionKeySha256
+
+```ts
+withDiskEncryptionKeySha256(diskEncryptionKeySha256)
+```
+
+"The RFC 4648 base64 encoded SHA-256 hash of the customer-supplied encryption key that protects this resource."
+
+### fn spec.attachedDisk.withMode
+
+```ts
+withMode(mode)
+```
+
+"Read/write mode for the disk. One of \"READ_ONLY\" or \"READ_WRITE\"."
+
+## obj spec.attachedDisk.diskEncryptionKeyRaw
+
+"A 256-bit customer-supplied encryption key, encoded in RFC 4648 base64 to encrypt this disk. Only one of kms_key_self_link and disk_encryption_key_raw may be set."
+
+### fn spec.attachedDisk.diskEncryptionKeyRaw.withValue
+
+```ts
+withValue(value)
+```
+
+"Value of the field. Cannot be used if 'valueFrom' is specified."
+
+## obj spec.attachedDisk.diskEncryptionKeyRaw.valueFrom
+
+"Source for the field's value. Cannot be used if 'value' is specified."
+
+## obj spec.attachedDisk.diskEncryptionKeyRaw.valueFrom.secretKeyRef
+
+"Reference to a value with the given key in the given Secret in the resource's namespace."
+
+### fn spec.attachedDisk.diskEncryptionKeyRaw.valueFrom.secretKeyRef.withKey
+
+```ts
+withKey(key)
+```
+
+"Key that identifies the value to be extracted."
+
+### fn spec.attachedDisk.diskEncryptionKeyRaw.valueFrom.secretKeyRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the Secret to extract a value from."
+
+## obj spec.attachedDisk.kmsKeyRef
+
+
+
+### fn spec.attachedDisk.kmsKeyRef.withExternal
+
+```ts
+withExternal(external)
+```
+
+"The selfLink of a KMSCryptoKey."
+
+### fn spec.attachedDisk.kmsKeyRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.attachedDisk.kmsKeyRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
+## obj spec.attachedDisk.sourceDiskRef
+
+
+
+### fn spec.attachedDisk.sourceDiskRef.withExternal
+
+```ts
+withExternal(external)
+```
+
+"The selfLink of a ComputeDisk."
+
+### fn spec.attachedDisk.sourceDiskRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.attachedDisk.sourceDiskRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
 ## obj spec.bootDisk
 
 "Immutable. The boot disk for the instance."
@@ -757,6 +927,26 @@ withEnableConfidentialCompute(enableConfidentialCompute)
 
 "Defines whether the instance should have confidential compute enabled."
 
+## obj spec.guestAccelerator
+
+"Immutable. List of the type and count of accelerator cards attached to the instance."
+
+### fn spec.guestAccelerator.withCount
+
+```ts
+withCount(count)
+```
+
+"Immutable. The number of the guest accelerator cards exposed to this instance."
+
+### fn spec.guestAccelerator.withType
+
+```ts
+withType(type)
+```
+
+"Immutable. The accelerator type resource exposed to this instance. E.g. nvidia-tesla-k80."
+
 ## obj spec.instanceTemplateRef
 
 
@@ -778,6 +968,300 @@ withName(name)
 "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
 
 ### fn spec.instanceTemplateRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
+## obj spec.metadata
+
+
+
+### fn spec.metadata.withKey
+
+```ts
+withKey(key)
+```
+
+
+
+### fn spec.metadata.withValue
+
+```ts
+withValue(value)
+```
+
+
+
+## obj spec.networkInterface
+
+"Immutable. The networks attached to the instance."
+
+### fn spec.networkInterface.withAccessConfig
+
+```ts
+withAccessConfig(accessConfig)
+```
+
+"Access configurations, i.e. IPs via which this instance can be accessed via the Internet."
+
+### fn spec.networkInterface.withAccessConfigMixin
+
+```ts
+withAccessConfigMixin(accessConfig)
+```
+
+"Access configurations, i.e. IPs via which this instance can be accessed via the Internet."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.networkInterface.withAliasIpRange
+
+```ts
+withAliasIpRange(aliasIpRange)
+```
+
+"An array of alias IP ranges for this network interface."
+
+### fn spec.networkInterface.withAliasIpRangeMixin
+
+```ts
+withAliasIpRangeMixin(aliasIpRange)
+```
+
+"An array of alias IP ranges for this network interface."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.networkInterface.withIpv6AccessConfig
+
+```ts
+withIpv6AccessConfig(ipv6AccessConfig)
+```
+
+"An array of IPv6 access configurations for this interface. Currently, only one IPv6 access config, DIRECT_IPV6, is supported. If there is no ipv6AccessConfig specified, then this instance will have no external IPv6 Internet access."
+
+### fn spec.networkInterface.withIpv6AccessConfigMixin
+
+```ts
+withIpv6AccessConfigMixin(ipv6AccessConfig)
+```
+
+"An array of IPv6 access configurations for this interface. Currently, only one IPv6 access config, DIRECT_IPV6, is supported. If there is no ipv6AccessConfig specified, then this instance will have no external IPv6 Internet access."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.networkInterface.withIpv6AccessType
+
+```ts
+withIpv6AccessType(ipv6AccessType)
+```
+
+"One of EXTERNAL, INTERNAL to indicate whether the IP can be accessed from the Internet. This field is always inherited from its subnetwork."
+
+### fn spec.networkInterface.withName
+
+```ts
+withName(name)
+```
+
+"The name of the interface."
+
+### fn spec.networkInterface.withNetworkIp
+
+```ts
+withNetworkIp(networkIp)
+```
+
+"The private IP address assigned to the instance."
+
+### fn spec.networkInterface.withNicType
+
+```ts
+withNicType(nicType)
+```
+
+"Immutable. The type of vNIC to be used on this interface. Possible values:GVNIC, VIRTIO_NET."
+
+### fn spec.networkInterface.withQueueCount
+
+```ts
+withQueueCount(queueCount)
+```
+
+"Immutable. The networking queue count that's specified by users for the network interface. Both Rx and Tx queues will be set to this number. It will be empty if not specified."
+
+### fn spec.networkInterface.withStackType
+
+```ts
+withStackType(stackType)
+```
+
+"The stack type for this network interface to identify whether the IPv6 feature is enabled or not. If not specified, IPV4_ONLY will be used."
+
+### fn spec.networkInterface.withSubnetworkProject
+
+```ts
+withSubnetworkProject(subnetworkProject)
+```
+
+"The project in which the subnetwork belongs."
+
+## obj spec.networkInterface.accessConfig
+
+"Access configurations, i.e. IPs via which this instance can be accessed via the Internet."
+
+### fn spec.networkInterface.accessConfig.withNetworkTier
+
+```ts
+withNetworkTier(networkTier)
+```
+
+"The networking tier used for configuring this instance. One of PREMIUM or STANDARD."
+
+### fn spec.networkInterface.accessConfig.withPublicPtrDomainName
+
+```ts
+withPublicPtrDomainName(publicPtrDomainName)
+```
+
+"The DNS domain name for the public PTR record."
+
+## obj spec.networkInterface.accessConfig.natIpRef
+
+
+
+### fn spec.networkInterface.accessConfig.natIpRef.withExternal
+
+```ts
+withExternal(external)
+```
+
+"The address of a ComputeAddress."
+
+### fn spec.networkInterface.accessConfig.natIpRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.networkInterface.accessConfig.natIpRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
+## obj spec.networkInterface.aliasIpRange
+
+"An array of alias IP ranges for this network interface."
+
+### fn spec.networkInterface.aliasIpRange.withIpCidrRange
+
+```ts
+withIpCidrRange(ipCidrRange)
+```
+
+"The IP CIDR range represented by this alias IP range."
+
+### fn spec.networkInterface.aliasIpRange.withSubnetworkRangeName
+
+```ts
+withSubnetworkRangeName(subnetworkRangeName)
+```
+
+"The subnetwork secondary range name specifying the secondary range from which to allocate the IP CIDR range for this alias IP range."
+
+## obj spec.networkInterface.ipv6AccessConfig
+
+"An array of IPv6 access configurations for this interface. Currently, only one IPv6 access config, DIRECT_IPV6, is supported. If there is no ipv6AccessConfig specified, then this instance will have no external IPv6 Internet access."
+
+### fn spec.networkInterface.ipv6AccessConfig.withExternalIpv6
+
+```ts
+withExternalIpv6(externalIpv6)
+```
+
+"The first IPv6 address of the external IPv6 range associated with this instance, prefix length is stored in externalIpv6PrefixLength in ipv6AccessConfig. The field is output only, an IPv6 address from a subnetwork associated with the instance will be allocated dynamically."
+
+### fn spec.networkInterface.ipv6AccessConfig.withExternalIpv6PrefixLength
+
+```ts
+withExternalIpv6PrefixLength(externalIpv6PrefixLength)
+```
+
+"The prefix length of the external IPv6 range."
+
+### fn spec.networkInterface.ipv6AccessConfig.withNetworkTier
+
+```ts
+withNetworkTier(networkTier)
+```
+
+"The service-level to be provided for IPv6 traffic when the subnet has an external subnet. Only PREMIUM tier is valid for IPv6."
+
+### fn spec.networkInterface.ipv6AccessConfig.withPublicPtrDomainName
+
+```ts
+withPublicPtrDomainName(publicPtrDomainName)
+```
+
+"The domain name to be used when creating DNSv6 records for the external IPv6 ranges."
+
+## obj spec.networkInterface.networkRef
+
+
+
+### fn spec.networkInterface.networkRef.withExternal
+
+```ts
+withExternal(external)
+```
+
+"The selfLink of a ComputeNetwork."
+
+### fn spec.networkInterface.networkRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.networkInterface.networkRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
+## obj spec.networkInterface.subnetworkRef
+
+
+
+### fn spec.networkInterface.subnetworkRef.withExternal
+
+```ts
+withExternal(external)
+```
+
+"The selfLink of a ComputeSubnetwork."
+
+### fn spec.networkInterface.subnetworkRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.networkInterface.subnetworkRef.withNamespace
 
 ```ts
 withNamespace(namespace)
@@ -839,6 +1323,34 @@ withValuesMixin(values)
 
 **Note:** This function appends passed data to existing values
 
+## obj spec.resourcePolicies
+
+
+
+### fn spec.resourcePolicies.withExternal
+
+```ts
+withExternal(external)
+```
+
+"The selfLink of a ComputeResourcePolicy."
+
+### fn spec.resourcePolicies.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.resourcePolicies.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
 ## obj spec.scheduling
 
 "The scheduling strategy being used by the instance."
@@ -892,6 +1404,40 @@ withPreemptible(preemptible)
 ```
 
 "Immutable. Whether the instance is preemptible."
+
+## obj spec.scheduling.nodeAffinities
+
+
+
+### fn spec.scheduling.nodeAffinities.withValue
+
+```ts
+withValue(value)
+```
+
+
+
+### fn spec.scheduling.nodeAffinities.withValueMixin
+
+```ts
+withValueMixin(value)
+```
+
+
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.scratchDisk
+
+"Immutable. The scratch disks attached to the instance."
+
+### fn spec.scratchDisk.withInterface
+
+```ts
+withInterface(interface)
+```
+
+"The disk interface used for attaching this disk. One of SCSI or NVME."
 
 ## obj spec.serviceAccount
 

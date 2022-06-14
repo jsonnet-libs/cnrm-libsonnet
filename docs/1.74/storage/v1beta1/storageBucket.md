@@ -22,8 +22,6 @@ permalink: /1.74/storage/v1beta1/storageBucket/
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -44,11 +42,34 @@ permalink: /1.74/storage/v1beta1/storageBucket/
   * [`fn withResourceID(resourceID)`](#fn-specwithresourceid)
   * [`fn withStorageClass(storageClass)`](#fn-specwithstorageclass)
   * [`fn withUniformBucketLevelAccess(uniformBucketLevelAccess)`](#fn-specwithuniformbucketlevelaccess)
+  * [`obj spec.cors`](#obj-speccors)
+    * [`fn withMaxAgeSeconds(maxAgeSeconds)`](#fn-speccorswithmaxageseconds)
+    * [`fn withMethod(method)`](#fn-speccorswithmethod)
+    * [`fn withMethodMixin(method)`](#fn-speccorswithmethodmixin)
+    * [`fn withOrigin(origin)`](#fn-speccorswithorigin)
+    * [`fn withOriginMixin(origin)`](#fn-speccorswithoriginmixin)
+    * [`fn withResponseHeader(responseHeader)`](#fn-speccorswithresponseheader)
+    * [`fn withResponseHeaderMixin(responseHeader)`](#fn-speccorswithresponseheadermixin)
   * [`obj spec.encryption`](#obj-specencryption)
     * [`obj spec.encryption.kmsKeyRef`](#obj-specencryptionkmskeyref)
       * [`fn withExternal(external)`](#fn-specencryptionkmskeyrefwithexternal)
       * [`fn withName(name)`](#fn-specencryptionkmskeyrefwithname)
       * [`fn withNamespace(namespace)`](#fn-specencryptionkmskeyrefwithnamespace)
+  * [`obj spec.lifecycleRule`](#obj-speclifecyclerule)
+    * [`obj spec.lifecycleRule.action`](#obj-speclifecycleruleaction)
+      * [`fn withStorageClass(storageClass)`](#fn-speclifecycleruleactionwithstorageclass)
+      * [`fn withType(type)`](#fn-speclifecycleruleactionwithtype)
+    * [`obj spec.lifecycleRule.condition`](#obj-speclifecyclerulecondition)
+      * [`fn withAge(age)`](#fn-speclifecycleruleconditionwithage)
+      * [`fn withCreatedBefore(createdBefore)`](#fn-speclifecycleruleconditionwithcreatedbefore)
+      * [`fn withCustomTimeBefore(customTimeBefore)`](#fn-speclifecycleruleconditionwithcustomtimebefore)
+      * [`fn withDaysSinceCustomTime(daysSinceCustomTime)`](#fn-speclifecycleruleconditionwithdayssincecustomtime)
+      * [`fn withDaysSinceNoncurrentTime(daysSinceNoncurrentTime)`](#fn-speclifecycleruleconditionwithdayssincenoncurrenttime)
+      * [`fn withMatchesStorageClass(matchesStorageClass)`](#fn-speclifecycleruleconditionwithmatchesstorageclass)
+      * [`fn withMatchesStorageClassMixin(matchesStorageClass)`](#fn-speclifecycleruleconditionwithmatchesstorageclassmixin)
+      * [`fn withNoncurrentTimeBefore(noncurrentTimeBefore)`](#fn-speclifecycleruleconditionwithnoncurrenttimebefore)
+      * [`fn withNumNewerVersions(numNewerVersions)`](#fn-speclifecycleruleconditionwithnumnewerversions)
+      * [`fn withWithState(withState)`](#fn-speclifecycleruleconditionwithwithstate)
   * [`obj spec.logging`](#obj-speclogging)
     * [`fn withLogBucket(logBucket)`](#fn-specloggingwithlogbucket)
     * [`fn withLogObjectPrefix(logObjectPrefix)`](#fn-specloggingwithlogobjectprefix)
@@ -174,24 +195,6 @@ withLabelsMixin(labels)
 ```
 
 "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
-
-**Note:** This function appends passed data to existing values
-
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
 
 **Note:** This function appends passed data to existing values
 
@@ -357,6 +360,72 @@ withUniformBucketLevelAccess(uniformBucketLevelAccess)
 
 "Enables uniform bucket-level access on a bucket."
 
+## obj spec.cors
+
+"The bucket's Cross-Origin Resource Sharing (CORS) configuration."
+
+### fn spec.cors.withMaxAgeSeconds
+
+```ts
+withMaxAgeSeconds(maxAgeSeconds)
+```
+
+"The value, in seconds, to return in the Access-Control-Max-Age header used in preflight responses."
+
+### fn spec.cors.withMethod
+
+```ts
+withMethod(method)
+```
+
+"The list of HTTP methods on which to include CORS response headers, (GET, OPTIONS, POST, etc) Note: \"*\" is permitted in the list of methods, and means \"any method\"."
+
+### fn spec.cors.withMethodMixin
+
+```ts
+withMethodMixin(method)
+```
+
+"The list of HTTP methods on which to include CORS response headers, (GET, OPTIONS, POST, etc) Note: \"*\" is permitted in the list of methods, and means \"any method\"."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.cors.withOrigin
+
+```ts
+withOrigin(origin)
+```
+
+"The list of Origins eligible to receive CORS response headers. Note: \"*\" is permitted in the list of origins, and means \"any Origin\"."
+
+### fn spec.cors.withOriginMixin
+
+```ts
+withOriginMixin(origin)
+```
+
+"The list of Origins eligible to receive CORS response headers. Note: \"*\" is permitted in the list of origins, and means \"any Origin\"."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.cors.withResponseHeader
+
+```ts
+withResponseHeader(responseHeader)
+```
+
+"The list of HTTP headers other than the simple response headers to give permission for the user-agent to share across domains."
+
+### fn spec.cors.withResponseHeaderMixin
+
+```ts
+withResponseHeaderMixin(responseHeader)
+```
+
+"The list of HTTP headers other than the simple response headers to give permission for the user-agent to share across domains."
+
+**Note:** This function appends passed data to existing values
+
 ## obj spec.encryption
 
 "The bucket's encryption configuration."
@@ -388,6 +457,116 @@ withNamespace(namespace)
 ```
 
 "Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
+## obj spec.lifecycleRule
+
+"The bucket's Lifecycle Rules configuration."
+
+## obj spec.lifecycleRule.action
+
+"The Lifecycle Rule's action configuration. A single block of this type is supported."
+
+### fn spec.lifecycleRule.action.withStorageClass
+
+```ts
+withStorageClass(storageClass)
+```
+
+"The target Storage Class of objects affected by this Lifecycle Rule. Supported values include: MULTI_REGIONAL, REGIONAL, NEARLINE, COLDLINE, ARCHIVE."
+
+### fn spec.lifecycleRule.action.withType
+
+```ts
+withType(type)
+```
+
+"The type of the action of this Lifecycle Rule. Supported values include: Delete and SetStorageClass."
+
+## obj spec.lifecycleRule.condition
+
+"The Lifecycle Rule's condition configuration."
+
+### fn spec.lifecycleRule.condition.withAge
+
+```ts
+withAge(age)
+```
+
+"Minimum age of an object in days to satisfy this condition."
+
+### fn spec.lifecycleRule.condition.withCreatedBefore
+
+```ts
+withCreatedBefore(createdBefore)
+```
+
+"Creation date of an object in RFC 3339 (e.g. 2017-06-13) to satisfy this condition."
+
+### fn spec.lifecycleRule.condition.withCustomTimeBefore
+
+```ts
+withCustomTimeBefore(customTimeBefore)
+```
+
+"Creation date of an object in RFC 3339 (e.g. 2017-06-13) to satisfy this condition."
+
+### fn spec.lifecycleRule.condition.withDaysSinceCustomTime
+
+```ts
+withDaysSinceCustomTime(daysSinceCustomTime)
+```
+
+"Number of days elapsed since the user-specified timestamp set on an object."
+
+### fn spec.lifecycleRule.condition.withDaysSinceNoncurrentTime
+
+```ts
+withDaysSinceNoncurrentTime(daysSinceNoncurrentTime)
+```
+
+"Number of days elapsed since the noncurrent timestamp of an object. This\n\t\t\t\t\t\t\t\t\t\tcondition is relevant only for versioned objects."
+
+### fn spec.lifecycleRule.condition.withMatchesStorageClass
+
+```ts
+withMatchesStorageClass(matchesStorageClass)
+```
+
+"Storage Class of objects to satisfy this condition. Supported values include: MULTI_REGIONAL, REGIONAL, NEARLINE, COLDLINE, ARCHIVE, STANDARD, DURABLE_REDUCED_AVAILABILITY."
+
+### fn spec.lifecycleRule.condition.withMatchesStorageClassMixin
+
+```ts
+withMatchesStorageClassMixin(matchesStorageClass)
+```
+
+"Storage Class of objects to satisfy this condition. Supported values include: MULTI_REGIONAL, REGIONAL, NEARLINE, COLDLINE, ARCHIVE, STANDARD, DURABLE_REDUCED_AVAILABILITY."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.lifecycleRule.condition.withNoncurrentTimeBefore
+
+```ts
+withNoncurrentTimeBefore(noncurrentTimeBefore)
+```
+
+"Creation date of an object in RFC 3339 (e.g. 2017-06-13) to satisfy this condition."
+
+### fn spec.lifecycleRule.condition.withNumNewerVersions
+
+```ts
+withNumNewerVersions(numNewerVersions)
+```
+
+"Relevant only for versioned objects. The number of newer versions of an object to satisfy this condition."
+
+### fn spec.lifecycleRule.condition.withWithState
+
+```ts
+withWithState(withState)
+```
+
+"Match to live and/or archived objects. Unversioned buckets have only live objects. Supported values include: \"LIVE\", \"ARCHIVED\", \"ANY\"."
 
 ## obj spec.logging
 

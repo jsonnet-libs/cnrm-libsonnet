@@ -22,8 +22,6 @@ permalink: /1.74/monitoring/v1beta1/monitoringMetricDescriptor/
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -41,6 +39,10 @@ permalink: /1.74/monitoring/v1beta1/monitoringMetricDescriptor/
   * [`fn withType(type)`](#fn-specwithtype)
   * [`fn withUnit(unit)`](#fn-specwithunit)
   * [`fn withValueType(valueType)`](#fn-specwithvaluetype)
+  * [`obj spec.labels`](#obj-speclabels)
+    * [`fn withDescription(description)`](#fn-speclabelswithdescription)
+    * [`fn withKey(key)`](#fn-speclabelswithkey)
+    * [`fn withValueType(valueType)`](#fn-speclabelswithvaluetype)
   * [`obj spec.metadata`](#obj-specmetadata)
     * [`fn withIngestDelay(ingestDelay)`](#fn-specmetadatawithingestdelay)
     * [`fn withLaunchStage(launchStage)`](#fn-specmetadatawithlaunchstage)
@@ -163,24 +165,6 @@ withLabelsMixin(labels)
 ```
 
 "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
-
-**Note:** This function appends passed data to existing values
-
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
 
 **Note:** This function appends passed data to existing values
 
@@ -319,6 +303,34 @@ withValueType(valueType)
 ```
 
 "Whether the measurement is an integer, a floating-point number, etc. Some combinations of `metric_kind` and `value_type` might not be supported. Possible values: STRING, BOOL, INT64"
+
+## obj spec.labels
+
+"The set of labels that can be used to describe a specific instance of this metric type. For example, the `appengine.googleapis.com/http/server/response_latencies` metric type has a label for the HTTP response code, `response_code`, so you can look at latencies for successful responses or just for responses that failed."
+
+### fn spec.labels.withDescription
+
+```ts
+withDescription(description)
+```
+
+"A human-readable description for the label."
+
+### fn spec.labels.withKey
+
+```ts
+withKey(key)
+```
+
+"The key for this label. The key must meet the following criteria: * Does not exceed 100 characters. * Matches the following regular expression: `a-zA-Z*` * The first character must be an upper- or lower-case letter. * The remaining characters must be letters, digits, or underscores."
+
+### fn spec.labels.withValueType
+
+```ts
+withValueType(valueType)
+```
+
+"The type of data that can be assigned to the label. Possible values: STRING, BOOL, INT64"
 
 ## obj spec.metadata
 

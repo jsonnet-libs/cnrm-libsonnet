@@ -27,10 +27,6 @@
     withLabels(labels): { metadata+: { labels: labels } },
     '#withLabelsMixin':: d.fn(help='"Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"\n\n**Note:** This function appends passed data to existing values', args=[d.arg(name='labels', type=d.T.object)]),
     withLabelsMixin(labels): { metadata+: { labels+: labels } },
-    '#withManagedFields':: d.fn(help="\"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \\\"ci-cd\\\". The set of fields is always in the version that the workflow used when modifying the object.\"", args=[d.arg(name='managedFields', type=d.T.array)]),
-    withManagedFields(managedFields): { metadata+: { managedFields: if std.isArray(v=managedFields) then managedFields else [managedFields] } },
-    '#withManagedFieldsMixin':: d.fn(help="\"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \\\"ci-cd\\\". The set of fields is always in the version that the workflow used when modifying the object.\"\n\n**Note:** This function appends passed data to existing values", args=[d.arg(name='managedFields', type=d.T.array)]),
-    withManagedFieldsMixin(managedFields): { metadata+: { managedFields+: if std.isArray(v=managedFields) then managedFields else [managedFields] } },
     '#withName':: d.fn(help='"Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names"', args=[d.arg(name='name', type=d.T.string)]),
     withName(name): { metadata+: { name: name } },
     '#withNamespace':: d.fn(help='"Namespace defines the space within which each name must be unique. An empty namespace is equivalent to the \\"default\\" namespace, but \\"default\\" is the canonical representation. Not all objects are required to be scoped to a namespace - the value of this field for those objects will be empty.\\n\\nMust be a DNS_LABEL. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/namespaces"', args=[d.arg(name='namespace', type=d.T.string)]),
@@ -57,6 +53,20 @@
     specificReservation: {
       '#instanceProperties':: d.obj(help='"Immutable. The instance properties for the reservation."'),
       instanceProperties: {
+        '#guestAccelerators':: d.obj(help='"Immutable. Guest accelerator type and count."'),
+        guestAccelerators: {
+          '#withAcceleratorCount':: d.fn(help='"Immutable. The number of the guest accelerator cards exposed to\\nthis instance."', args=[d.arg(name='acceleratorCount', type=d.T.integer)]),
+          withAcceleratorCount(acceleratorCount): { acceleratorCount: acceleratorCount },
+          '#withAcceleratorType':: d.fn(help="\"Immutable. The full or partial URL of the accelerator type to\\nattach to this instance. For example:\\n'projects/my-project/zones/us-central1-c/acceleratorTypes/nvidia-tesla-p100'\\n\\nIf you are creating an instance template, specify only the accelerator name.\"", args=[d.arg(name='acceleratorType', type=d.T.string)]),
+          withAcceleratorType(acceleratorType): { acceleratorType: acceleratorType },
+        },
+        '#localSsds':: d.obj(help="\"Immutable. The amount of local ssd to reserve with each instance. This\\nreserves disks of type 'local-ssd'.\""),
+        localSsds: {
+          '#withDiskSizeGb':: d.fn(help='"Immutable. The size of the disk in base-2 GB."', args=[d.arg(name='diskSizeGb', type=d.T.integer)]),
+          withDiskSizeGb(diskSizeGb): { diskSizeGb: diskSizeGb },
+          '#withInterface':: d.fn(help='"Immutable. The disk interface to use for attaching this disk. Default value: \\"SCSI\\" Possible values: [\\"SCSI\\", \\"NVME\\"]."', args=[d.arg(name='interface', type=d.T.string)]),
+          withInterface(interface): { interface: interface },
+        },
         '#withGuestAccelerators':: d.fn(help='"Immutable. Guest accelerator type and count."', args=[d.arg(name='guestAccelerators', type=d.T.array)]),
         withGuestAccelerators(guestAccelerators): { spec+: { specificReservation+: { instanceProperties+: { guestAccelerators: if std.isArray(v=guestAccelerators) then guestAccelerators else [guestAccelerators] } } } },
         '#withGuestAcceleratorsMixin':: d.fn(help='"Immutable. Guest accelerator type and count."\n\n**Note:** This function appends passed data to existing values', args=[d.arg(name='guestAccelerators', type=d.T.array)]),

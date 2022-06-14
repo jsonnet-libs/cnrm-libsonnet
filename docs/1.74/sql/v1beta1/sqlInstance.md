@@ -22,8 +22,6 @@ permalink: /1.74/sql/v1beta1/sqlInstance/
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -92,6 +90,9 @@ permalink: /1.74/sql/v1beta1/sqlInstance/
       * [`obj spec.settings.backupConfiguration.backupRetentionSettings`](#obj-specsettingsbackupconfigurationbackupretentionsettings)
         * [`fn withRetainedBackups(retainedBackups)`](#fn-specsettingsbackupconfigurationbackupretentionsettingswithretainedbackups)
         * [`fn withRetentionUnit(retentionUnit)`](#fn-specsettingsbackupconfigurationbackupretentionsettingswithretentionunit)
+    * [`obj spec.settings.databaseFlags`](#obj-specsettingsdatabaseflags)
+      * [`fn withName(name)`](#fn-specsettingsdatabaseflagswithname)
+      * [`fn withValue(value)`](#fn-specsettingsdatabaseflagswithvalue)
     * [`obj spec.settings.insightsConfig`](#obj-specsettingsinsightsconfig)
       * [`fn withQueryInsightsEnabled(queryInsightsEnabled)`](#fn-specsettingsinsightsconfigwithqueryinsightsenabled)
       * [`fn withQueryStringLength(queryStringLength)`](#fn-specsettingsinsightsconfigwithquerystringlength)
@@ -103,6 +104,10 @@ permalink: /1.74/sql/v1beta1/sqlInstance/
       * [`fn withAuthorizedNetworksMixin(authorizedNetworks)`](#fn-specsettingsipconfigurationwithauthorizednetworksmixin)
       * [`fn withIpv4Enabled(ipv4Enabled)`](#fn-specsettingsipconfigurationwithipv4enabled)
       * [`fn withRequireSsl(requireSsl)`](#fn-specsettingsipconfigurationwithrequiressl)
+      * [`obj spec.settings.ipConfiguration.authorizedNetworks`](#obj-specsettingsipconfigurationauthorizednetworks)
+        * [`fn withExpirationTime(expirationTime)`](#fn-specsettingsipconfigurationauthorizednetworkswithexpirationtime)
+        * [`fn withName(name)`](#fn-specsettingsipconfigurationauthorizednetworkswithname)
+        * [`fn withValue(value)`](#fn-specsettingsipconfigurationauthorizednetworkswithvalue)
       * [`obj spec.settings.ipConfiguration.privateNetworkRef`](#obj-specsettingsipconfigurationprivatenetworkref)
         * [`fn withExternal(external)`](#fn-specsettingsipconfigurationprivatenetworkrefwithexternal)
         * [`fn withName(name)`](#fn-specsettingsipconfigurationprivatenetworkrefwithname)
@@ -228,24 +233,6 @@ withLabelsMixin(labels)
 ```
 
 "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
-
-**Note:** This function appends passed data to existing values
-
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
 
 **Note:** This function appends passed data to existing values
 
@@ -747,6 +734,26 @@ withRetentionUnit(retentionUnit)
 
 "The unit that 'retainedBackups' represents. Defaults to COUNT."
 
+## obj spec.settings.databaseFlags
+
+
+
+### fn spec.settings.databaseFlags.withName
+
+```ts
+withName(name)
+```
+
+"Name of the flag."
+
+### fn spec.settings.databaseFlags.withValue
+
+```ts
+withValue(value)
+```
+
+"Value of the flag."
+
 ## obj spec.settings.insightsConfig
 
 "Configuration of Query Insights."
@@ -825,6 +832,34 @@ withIpv4Enabled(ipv4Enabled)
 
 ```ts
 withRequireSsl(requireSsl)
+```
+
+
+
+## obj spec.settings.ipConfiguration.authorizedNetworks
+
+
+
+### fn spec.settings.ipConfiguration.authorizedNetworks.withExpirationTime
+
+```ts
+withExpirationTime(expirationTime)
+```
+
+
+
+### fn spec.settings.ipConfiguration.authorizedNetworks.withName
+
+```ts
+withName(name)
+```
+
+
+
+### fn spec.settings.ipConfiguration.authorizedNetworks.withValue
+
+```ts
+withValue(value)
 ```
 
 

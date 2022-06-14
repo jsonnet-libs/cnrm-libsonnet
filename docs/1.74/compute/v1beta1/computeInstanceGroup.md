@@ -22,8 +22,6 @@ permalink: /1.74/compute/v1beta1/computeInstanceGroup/
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -39,6 +37,13 @@ permalink: /1.74/compute/v1beta1/computeInstanceGroup/
   * [`fn withNamedPortMixin(namedPort)`](#fn-specwithnamedportmixin)
   * [`fn withResourceID(resourceID)`](#fn-specwithresourceid)
   * [`fn withZone(zone)`](#fn-specwithzone)
+  * [`obj spec.instances`](#obj-specinstances)
+    * [`fn withExternal(external)`](#fn-specinstanceswithexternal)
+    * [`fn withName(name)`](#fn-specinstanceswithname)
+    * [`fn withNamespace(namespace)`](#fn-specinstanceswithnamespace)
+  * [`obj spec.namedPort`](#obj-specnamedport)
+    * [`fn withName(name)`](#fn-specnamedportwithname)
+    * [`fn withPort(port)`](#fn-specnamedportwithport)
   * [`obj spec.networkRef`](#obj-specnetworkref)
     * [`fn withExternal(external)`](#fn-specnetworkrefwithexternal)
     * [`fn withName(name)`](#fn-specnetworkrefwithname)
@@ -157,24 +162,6 @@ withLabelsMixin(labels)
 ```
 
 "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
-
-**Note:** This function appends passed data to existing values
-
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
 
 **Note:** This function appends passed data to existing values
 
@@ -299,6 +286,54 @@ withZone(zone)
 ```
 
 "Immutable. The zone that this instance group should be created in."
+
+## obj spec.instances
+
+
+
+### fn spec.instances.withExternal
+
+```ts
+withExternal(external)
+```
+
+"The selfLink of a ComputeInstance."
+
+### fn spec.instances.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.instances.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
+## obj spec.namedPort
+
+"The named port configuration."
+
+### fn spec.namedPort.withName
+
+```ts
+withName(name)
+```
+
+"The name which the port will be mapped to."
+
+### fn spec.namedPort.withPort
+
+```ts
+withPort(port)
+```
+
+"The port number to map the name to."
 
 ## obj spec.networkRef
 

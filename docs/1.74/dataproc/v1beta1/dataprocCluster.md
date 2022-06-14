@@ -22,8 +22,6 @@ permalink: /1.74/dataproc/v1beta1/dataprocCluster/
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -81,6 +79,9 @@ permalink: /1.74/dataproc/v1beta1/dataprocCluster/
         * [`fn withExternal(external)`](#fn-specconfiggceclusterconfigsubnetworkrefwithexternal)
         * [`fn withName(name)`](#fn-specconfiggceclusterconfigsubnetworkrefwithname)
         * [`fn withNamespace(namespace)`](#fn-specconfiggceclusterconfigsubnetworkrefwithnamespace)
+    * [`obj spec.config.initializationActions`](#obj-specconfiginitializationactions)
+      * [`fn withExecutableFile(executableFile)`](#fn-specconfiginitializationactionswithexecutablefile)
+      * [`fn withExecutionTimeout(executionTimeout)`](#fn-specconfiginitializationactionswithexecutiontimeout)
     * [`obj spec.config.lifecycleConfig`](#obj-specconfiglifecycleconfig)
       * [`fn withAutoDeleteTime(autoDeleteTime)`](#fn-specconfiglifecycleconfigwithautodeletetime)
       * [`fn withAutoDeleteTtl(autoDeleteTtl)`](#fn-specconfiglifecycleconfigwithautodeletettl)
@@ -92,6 +93,9 @@ permalink: /1.74/dataproc/v1beta1/dataprocCluster/
       * [`fn withMinCpuPlatform(minCpuPlatform)`](#fn-specconfigmasterconfigwithmincpuplatform)
       * [`fn withNumInstances(numInstances)`](#fn-specconfigmasterconfigwithnuminstances)
       * [`fn withPreemptibility(preemptibility)`](#fn-specconfigmasterconfigwithpreemptibility)
+      * [`obj spec.config.masterConfig.accelerators`](#obj-specconfigmasterconfigaccelerators)
+        * [`fn withAcceleratorCount(acceleratorCount)`](#fn-specconfigmasterconfigacceleratorswithacceleratorcount)
+        * [`fn withAcceleratorType(acceleratorType)`](#fn-specconfigmasterconfigacceleratorswithacceleratortype)
       * [`obj spec.config.masterConfig.diskConfig`](#obj-specconfigmasterconfigdiskconfig)
         * [`fn withBootDiskSizeGb(bootDiskSizeGb)`](#fn-specconfigmasterconfigdiskconfigwithbootdisksizegb)
         * [`fn withBootDiskType(bootDiskType)`](#fn-specconfigmasterconfigdiskconfigwithbootdisktype)
@@ -107,6 +111,9 @@ permalink: /1.74/dataproc/v1beta1/dataprocCluster/
       * [`fn withMinCpuPlatform(minCpuPlatform)`](#fn-specconfigsecondaryworkerconfigwithmincpuplatform)
       * [`fn withNumInstances(numInstances)`](#fn-specconfigsecondaryworkerconfigwithnuminstances)
       * [`fn withPreemptibility(preemptibility)`](#fn-specconfigsecondaryworkerconfigwithpreemptibility)
+      * [`obj spec.config.secondaryWorkerConfig.accelerators`](#obj-specconfigsecondaryworkerconfigaccelerators)
+        * [`fn withAcceleratorCount(acceleratorCount)`](#fn-specconfigsecondaryworkerconfigacceleratorswithacceleratorcount)
+        * [`fn withAcceleratorType(acceleratorType)`](#fn-specconfigsecondaryworkerconfigacceleratorswithacceleratortype)
       * [`obj spec.config.secondaryWorkerConfig.diskConfig`](#obj-specconfigsecondaryworkerconfigdiskconfig)
         * [`fn withBootDiskSizeGb(bootDiskSizeGb)`](#fn-specconfigsecondaryworkerconfigdiskconfigwithbootdisksizegb)
         * [`fn withBootDiskType(bootDiskType)`](#fn-specconfigsecondaryworkerconfigdiskconfigwithbootdisktype)
@@ -156,6 +163,9 @@ permalink: /1.74/dataproc/v1beta1/dataprocCluster/
       * [`fn withMinCpuPlatform(minCpuPlatform)`](#fn-specconfigworkerconfigwithmincpuplatform)
       * [`fn withNumInstances(numInstances)`](#fn-specconfigworkerconfigwithnuminstances)
       * [`fn withPreemptibility(preemptibility)`](#fn-specconfigworkerconfigwithpreemptibility)
+      * [`obj spec.config.workerConfig.accelerators`](#obj-specconfigworkerconfigaccelerators)
+        * [`fn withAcceleratorCount(acceleratorCount)`](#fn-specconfigworkerconfigacceleratorswithacceleratorcount)
+        * [`fn withAcceleratorType(acceleratorType)`](#fn-specconfigworkerconfigacceleratorswithacceleratortype)
       * [`obj spec.config.workerConfig.diskConfig`](#obj-specconfigworkerconfigdiskconfig)
         * [`fn withBootDiskSizeGb(bootDiskSizeGb)`](#fn-specconfigworkerconfigdiskconfigwithbootdisksizegb)
         * [`fn withBootDiskType(bootDiskType)`](#fn-specconfigworkerconfigdiskconfigwithbootdisktype)
@@ -282,24 +292,6 @@ withLabelsMixin(labels)
 ```
 
 "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
-
-**Note:** This function appends passed data to existing values
-
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
 
 **Note:** This function appends passed data to existing values
 
@@ -715,6 +707,26 @@ withNamespace(namespace)
 
 "Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
 
+## obj spec.config.initializationActions
+
+"Optional. Commands to execute on each node after config is completed. By default, executables are run on master and all worker nodes. You can test a node's `role` metadata to run an executable on a master or worker node, as shown below using `curl` (you can also use `wget`): ROLE=$(curl -H Metadata-Flavor:Google http://metadata/computeMetadata/v1/instance/attributes/dataproc-role) if [[ \"${ROLE}\" == 'Master' ]]; then ... master specific actions ... else ... worker specific actions ... fi"
+
+### fn spec.config.initializationActions.withExecutableFile
+
+```ts
+withExecutableFile(executableFile)
+```
+
+"Required. Cloud Storage URI of executable file."
+
+### fn spec.config.initializationActions.withExecutionTimeout
+
+```ts
+withExecutionTimeout(executionTimeout)
+```
+
+"Optional. Amount of time executable has to complete. Default is 10 minutes (see JSON representation of [Duration](https://developers.google.com/protocol-buffers/docs/proto3#json)). Cluster creation fails with an explanatory error message (the name of the executable that caused the error and the exceeded timeout period) if the executable is not completed at end of the timeout period."
+
 ## obj spec.config.lifecycleConfig
 
 "Optional. Lifecycle setting for the cluster."
@@ -796,6 +808,26 @@ withPreemptibility(preemptibility)
 ```
 
 "Optional. Specifies the preemptibility of the instance group. The default value for master and worker groups is `NON_PREEMPTIBLE`. This default cannot be changed. The default value for secondary instances is `PREEMPTIBLE`. Possible values: PREEMPTIBILITY_UNSPECIFIED, NON_PREEMPTIBLE, PREEMPTIBLE"
+
+## obj spec.config.masterConfig.accelerators
+
+"Optional. The Compute Engine accelerator configuration for these instances."
+
+### fn spec.config.masterConfig.accelerators.withAcceleratorCount
+
+```ts
+withAcceleratorCount(acceleratorCount)
+```
+
+"The number of the accelerator cards of this type exposed to this instance."
+
+### fn spec.config.masterConfig.accelerators.withAcceleratorType
+
+```ts
+withAcceleratorType(acceleratorType)
+```
+
+"Full URL, partial URI, or short name of the accelerator type resource to expose to this instance. See [Compute Engine AcceleratorTypes](https://cloud.google.com/compute/docs/reference/beta/acceleratorTypes). Examples: * `https://www.googleapis.com/compute/beta/projects/[project_id]/zones/us-east1-a/acceleratorTypes/nvidia-tesla-k80` * `projects/[project_id]/zones/us-east1-a/acceleratorTypes/nvidia-tesla-k80` * `nvidia-tesla-k80` **Auto Zone Exception**: If you are using the Dataproc [Auto Zone Placement](https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/auto-zone#using_auto_zone_placement) feature, you must use the short name of the accelerator type resource, for example, `nvidia-tesla-k80`."
 
 ## obj spec.config.masterConfig.diskConfig
 
@@ -906,6 +938,26 @@ withPreemptibility(preemptibility)
 ```
 
 "Optional. Specifies the preemptibility of the instance group. The default value for master and worker groups is `NON_PREEMPTIBLE`. This default cannot be changed. The default value for secondary instances is `PREEMPTIBLE`. Possible values: PREEMPTIBILITY_UNSPECIFIED, NON_PREEMPTIBLE, PREEMPTIBLE"
+
+## obj spec.config.secondaryWorkerConfig.accelerators
+
+"Optional. The Compute Engine accelerator configuration for these instances."
+
+### fn spec.config.secondaryWorkerConfig.accelerators.withAcceleratorCount
+
+```ts
+withAcceleratorCount(acceleratorCount)
+```
+
+"The number of the accelerator cards of this type exposed to this instance."
+
+### fn spec.config.secondaryWorkerConfig.accelerators.withAcceleratorType
+
+```ts
+withAcceleratorType(acceleratorType)
+```
+
+"Full URL, partial URI, or short name of the accelerator type resource to expose to this instance. See [Compute Engine AcceleratorTypes](https://cloud.google.com/compute/docs/reference/beta/acceleratorTypes). Examples: * `https://www.googleapis.com/compute/beta/projects/[project_id]/zones/us-east1-a/acceleratorTypes/nvidia-tesla-k80` * `projects/[project_id]/zones/us-east1-a/acceleratorTypes/nvidia-tesla-k80` * `nvidia-tesla-k80` **Auto Zone Exception**: If you are using the Dataproc [Auto Zone Placement](https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/auto-zone#using_auto_zone_placement) feature, you must use the short name of the accelerator type resource, for example, `nvidia-tesla-k80`."
 
 ## obj spec.config.secondaryWorkerConfig.diskConfig
 
@@ -1268,6 +1320,26 @@ withPreemptibility(preemptibility)
 ```
 
 "Optional. Specifies the preemptibility of the instance group. The default value for master and worker groups is `NON_PREEMPTIBLE`. This default cannot be changed. The default value for secondary instances is `PREEMPTIBLE`. Possible values: PREEMPTIBILITY_UNSPECIFIED, NON_PREEMPTIBLE, PREEMPTIBLE"
+
+## obj spec.config.workerConfig.accelerators
+
+"Optional. The Compute Engine accelerator configuration for these instances."
+
+### fn spec.config.workerConfig.accelerators.withAcceleratorCount
+
+```ts
+withAcceleratorCount(acceleratorCount)
+```
+
+"The number of the accelerator cards of this type exposed to this instance."
+
+### fn spec.config.workerConfig.accelerators.withAcceleratorType
+
+```ts
+withAcceleratorType(acceleratorType)
+```
+
+"Full URL, partial URI, or short name of the accelerator type resource to expose to this instance. See [Compute Engine AcceleratorTypes](https://cloud.google.com/compute/docs/reference/beta/acceleratorTypes). Examples: * `https://www.googleapis.com/compute/beta/projects/[project_id]/zones/us-east1-a/acceleratorTypes/nvidia-tesla-k80` * `projects/[project_id]/zones/us-east1-a/acceleratorTypes/nvidia-tesla-k80` * `nvidia-tesla-k80` **Auto Zone Exception**: If you are using the Dataproc [Auto Zone Placement](https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/auto-zone#using_auto_zone_placement) feature, you must use the short name of the accelerator type resource, for example, `nvidia-tesla-k80`."
 
 ## obj spec.config.workerConfig.diskConfig
 

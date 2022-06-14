@@ -22,8 +22,6 @@ permalink: /1.74/compute/v1beta1/computePacketMirroring/
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -55,6 +53,18 @@ permalink: /1.74/compute/v1beta1/computePacketMirroring/
     * [`fn withSubnetworksMixin(subnetworks)`](#fn-specmirroredresourceswithsubnetworksmixin)
     * [`fn withTags(tags)`](#fn-specmirroredresourceswithtags)
     * [`fn withTagsMixin(tags)`](#fn-specmirroredresourceswithtagsmixin)
+    * [`obj spec.mirroredResources.instances`](#obj-specmirroredresourcesinstances)
+      * [`fn withCanonicalUrl(canonicalUrl)`](#fn-specmirroredresourcesinstanceswithcanonicalurl)
+      * [`obj spec.mirroredResources.instances.urlRef`](#obj-specmirroredresourcesinstancesurlref)
+        * [`fn withExternal(external)`](#fn-specmirroredresourcesinstancesurlrefwithexternal)
+        * [`fn withName(name)`](#fn-specmirroredresourcesinstancesurlrefwithname)
+        * [`fn withNamespace(namespace)`](#fn-specmirroredresourcesinstancesurlrefwithnamespace)
+    * [`obj spec.mirroredResources.subnetworks`](#obj-specmirroredresourcessubnetworks)
+      * [`fn withCanonicalUrl(canonicalUrl)`](#fn-specmirroredresourcessubnetworkswithcanonicalurl)
+      * [`obj spec.mirroredResources.subnetworks.urlRef`](#obj-specmirroredresourcessubnetworksurlref)
+        * [`fn withExternal(external)`](#fn-specmirroredresourcessubnetworksurlrefwithexternal)
+        * [`fn withName(name)`](#fn-specmirroredresourcessubnetworksurlrefwithname)
+        * [`fn withNamespace(namespace)`](#fn-specmirroredresourcessubnetworksurlrefwithnamespace)
   * [`obj spec.network`](#obj-specnetwork)
     * [`obj spec.network.urlRef`](#obj-specnetworkurlref)
       * [`fn withExternal(external)`](#fn-specnetworkurlrefwithexternal)
@@ -178,24 +188,6 @@ withLabelsMixin(labels)
 ```
 
 "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
-
-**Note:** This function appends passed data to existing values
-
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
 
 **Note:** This function appends passed data to existing values
 
@@ -438,6 +430,86 @@ withTagsMixin(tags)
 "A set of mirrored tags. Traffic from/to all VM instances that have one or more of these tags will be mirrored."
 
 **Note:** This function appends passed data to existing values
+
+## obj spec.mirroredResources.instances
+
+"A set of virtual machine instances that are being mirrored. They must live in zones contained in the same region as this packetMirroring. Note that this config will apply only to those network interfaces of the Instances that belong to the network specified in this packetMirroring. You may specify a maximum of 50 Instances."
+
+### fn spec.mirroredResources.instances.withCanonicalUrl
+
+```ts
+withCanonicalUrl(canonicalUrl)
+```
+
+"Output only. Unique identifier for the instance; defined by the server."
+
+## obj spec.mirroredResources.instances.urlRef
+
+
+
+### fn spec.mirroredResources.instances.urlRef.withExternal
+
+```ts
+withExternal(external)
+```
+
+"Resource URL to the virtual machine instance which is being mirrored.\n\nAllowed value: The `selfLink` field of a `ComputeInstance` resource."
+
+### fn spec.mirroredResources.instances.urlRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.mirroredResources.instances.urlRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
+## obj spec.mirroredResources.subnetworks
+
+"A set of subnetworks for which traffic from/to all VM instances will be mirrored. They must live in the same region as this packetMirroring. You may specify a maximum of 5 subnetworks."
+
+### fn spec.mirroredResources.subnetworks.withCanonicalUrl
+
+```ts
+withCanonicalUrl(canonicalUrl)
+```
+
+"Output only. Unique identifier for the subnetwork; defined by the server."
+
+## obj spec.mirroredResources.subnetworks.urlRef
+
+
+
+### fn spec.mirroredResources.subnetworks.urlRef.withExternal
+
+```ts
+withExternal(external)
+```
+
+"Resource URL to the subnetwork for which traffic from/to all VM instances will be mirrored.\n\nAllowed value: The `selfLink` field of a `ComputeSubnetwork` resource."
+
+### fn spec.mirroredResources.subnetworks.urlRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.mirroredResources.subnetworks.urlRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
 
 ## obj spec.network
 

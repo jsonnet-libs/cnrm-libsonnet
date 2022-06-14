@@ -22,8 +22,6 @@ permalink: /1.74/filestore/v1beta1/filestoreInstance/
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -40,6 +38,32 @@ permalink: /1.74/filestore/v1beta1/filestoreInstance/
   * [`fn withNetworksMixin(networks)`](#fn-specwithnetworksmixin)
   * [`fn withResourceID(resourceID)`](#fn-specwithresourceid)
   * [`fn withTier(tier)`](#fn-specwithtier)
+  * [`obj spec.fileShares`](#obj-specfileshares)
+    * [`fn withCapacityGb(capacityGb)`](#fn-specfileshareswithcapacitygb)
+    * [`fn withName(name)`](#fn-specfileshareswithname)
+    * [`fn withNfsExportOptions(nfsExportOptions)`](#fn-specfileshareswithnfsexportoptions)
+    * [`fn withNfsExportOptionsMixin(nfsExportOptions)`](#fn-specfileshareswithnfsexportoptionsmixin)
+    * [`obj spec.fileShares.nfsExportOptions`](#obj-specfilesharesnfsexportoptions)
+      * [`fn withAccessMode(accessMode)`](#fn-specfilesharesnfsexportoptionswithaccessmode)
+      * [`fn withAnonGid(anonGid)`](#fn-specfilesharesnfsexportoptionswithanongid)
+      * [`fn withAnonUid(anonUid)`](#fn-specfilesharesnfsexportoptionswithanonuid)
+      * [`fn withIpRanges(ipRanges)`](#fn-specfilesharesnfsexportoptionswithipranges)
+      * [`fn withIpRangesMixin(ipRanges)`](#fn-specfilesharesnfsexportoptionswithiprangesmixin)
+      * [`fn withSquashMode(squashMode)`](#fn-specfilesharesnfsexportoptionswithsquashmode)
+    * [`obj spec.fileShares.sourceBackupRef`](#obj-specfilesharessourcebackupref)
+      * [`fn withExternal(external)`](#fn-specfilesharessourcebackuprefwithexternal)
+      * [`fn withName(name)`](#fn-specfilesharessourcebackuprefwithname)
+      * [`fn withNamespace(namespace)`](#fn-specfilesharessourcebackuprefwithnamespace)
+  * [`obj spec.networks`](#obj-specnetworks)
+    * [`fn withIpAddresses(ipAddresses)`](#fn-specnetworkswithipaddresses)
+    * [`fn withIpAddressesMixin(ipAddresses)`](#fn-specnetworkswithipaddressesmixin)
+    * [`fn withModes(modes)`](#fn-specnetworkswithmodes)
+    * [`fn withModesMixin(modes)`](#fn-specnetworkswithmodesmixin)
+    * [`fn withReservedIPRange(reservedIPRange)`](#fn-specnetworkswithreservediprange)
+    * [`obj spec.networks.networkRef`](#obj-specnetworksnetworkref)
+      * [`fn withExternal(external)`](#fn-specnetworksnetworkrefwithexternal)
+      * [`fn withName(name)`](#fn-specnetworksnetworkrefwithname)
+      * [`fn withNamespace(namespace)`](#fn-specnetworksnetworkrefwithnamespace)
   * [`obj spec.projectRef`](#obj-specprojectref)
     * [`fn withExternal(external)`](#fn-specprojectrefwithexternal)
     * [`fn withName(name)`](#fn-specprojectrefwithname)
@@ -158,24 +182,6 @@ withLabelsMixin(labels)
 ```
 
 "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
-
-**Note:** This function appends passed data to existing values
-
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
 
 **Note:** This function appends passed data to existing values
 
@@ -308,6 +314,202 @@ withTier(tier)
 ```
 
 "The service tier of the instance. Possible values: TIER_UNSPECIFIED, STANDARD, PREMIUM, BASIC_HDD, BASIC_SSD, HIGH_SCALE_SSD"
+
+## obj spec.fileShares
+
+"File system shares on the instance. For this version, only a single file share is supported."
+
+### fn spec.fileShares.withCapacityGb
+
+```ts
+withCapacityGb(capacityGb)
+```
+
+"File share capacity in gigabytes (GB). Cloud Filestore defines 1 GB as 1024^3 bytes."
+
+### fn spec.fileShares.withName
+
+```ts
+withName(name)
+```
+
+"The name of the file share (must be 16 characters or less)."
+
+### fn spec.fileShares.withNfsExportOptions
+
+```ts
+withNfsExportOptions(nfsExportOptions)
+```
+
+"Nfs Export Options. There is a limit of 10 export options per file share."
+
+### fn spec.fileShares.withNfsExportOptionsMixin
+
+```ts
+withNfsExportOptionsMixin(nfsExportOptions)
+```
+
+"Nfs Export Options. There is a limit of 10 export options per file share."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.fileShares.nfsExportOptions
+
+"Nfs Export Options. There is a limit of 10 export options per file share."
+
+### fn spec.fileShares.nfsExportOptions.withAccessMode
+
+```ts
+withAccessMode(accessMode)
+```
+
+"Either READ_ONLY, for allowing only read requests on the exported directory, or READ_WRITE, for allowing both read and write requests. The default is READ_WRITE. Possible values: ACCESS_MODE_UNSPECIFIED, READ_ONLY, READ_WRITE"
+
+### fn spec.fileShares.nfsExportOptions.withAnonGid
+
+```ts
+withAnonGid(anonGid)
+```
+
+"An integer representing the anonymous group id with a default value of 65534. Anon_gid may only be set with squash_mode of ROOT_SQUASH. An error will be returned if this field is specified for other squash_mode settings."
+
+### fn spec.fileShares.nfsExportOptions.withAnonUid
+
+```ts
+withAnonUid(anonUid)
+```
+
+"An integer representing the anonymous user id with a default value of 65534. Anon_uid may only be set with squash_mode of ROOT_SQUASH. An error will be returned if this field is specified for other squash_mode settings."
+
+### fn spec.fileShares.nfsExportOptions.withIpRanges
+
+```ts
+withIpRanges(ipRanges)
+```
+
+"List of either an IPv4 addresses in the format `{octet1}.{octet2}.{octet3}.{octet4}` or CIDR ranges in the format `{octet1}.{octet2}.{octet3}.{octet4}/{mask size}` which may mount the file share. Overlapping IP ranges are not allowed, both within and across NfsExportOptions. An error will be returned. The limit is 64 IP ranges/addresses for each FileShareConfig among all NfsExportOptions."
+
+### fn spec.fileShares.nfsExportOptions.withIpRangesMixin
+
+```ts
+withIpRangesMixin(ipRanges)
+```
+
+"List of either an IPv4 addresses in the format `{octet1}.{octet2}.{octet3}.{octet4}` or CIDR ranges in the format `{octet1}.{octet2}.{octet3}.{octet4}/{mask size}` which may mount the file share. Overlapping IP ranges are not allowed, both within and across NfsExportOptions. An error will be returned. The limit is 64 IP ranges/addresses for each FileShareConfig among all NfsExportOptions."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.fileShares.nfsExportOptions.withSquashMode
+
+```ts
+withSquashMode(squashMode)
+```
+
+"Either NO_ROOT_SQUASH, for allowing root access on the exported directory, or ROOT_SQUASH, for not allowing root access. The default is NO_ROOT_SQUASH. Possible values: SQUASH_MODE_UNSPECIFIED, NO_ROOT_SQUASH, ROOT_SQUASH"
+
+## obj spec.fileShares.sourceBackupRef
+
+
+
+### fn spec.fileShares.sourceBackupRef.withExternal
+
+```ts
+withExternal(external)
+```
+
+"The resource name of the backup, in the format `projects/{project_number}/locations/{location_id}/backups/{backup_id}`, that this file share has been restored from.\n\nAllowed value: The Google Cloud resource name of a `FilestoreBackup` resource (format: `projects/{{project}}/locations/{{location}}/backups/{{name}}`)."
+
+### fn spec.fileShares.sourceBackupRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.fileShares.sourceBackupRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
+## obj spec.networks
+
+"VPC networks to which the instance is connected. For this version, only a single network is supported."
+
+### fn spec.networks.withIpAddresses
+
+```ts
+withIpAddresses(ipAddresses)
+```
+
+"Output only. IPv4 addresses in the format `{octet1}.{octet2}.{octet3}.{octet4}` or IPv6 addresses in the format `{block1}:{block2}:{block3}:{block4}:{block5}:{block6}:{block7}:{block8}`."
+
+### fn spec.networks.withIpAddressesMixin
+
+```ts
+withIpAddressesMixin(ipAddresses)
+```
+
+"Output only. IPv4 addresses in the format `{octet1}.{octet2}.{octet3}.{octet4}` or IPv6 addresses in the format `{block1}:{block2}:{block3}:{block4}:{block5}:{block6}:{block7}:{block8}`."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.networks.withModes
+
+```ts
+withModes(modes)
+```
+
+"Internet protocol versions for which the instance has IP addresses assigned. For this version, only MODE_IPV4 is supported."
+
+### fn spec.networks.withModesMixin
+
+```ts
+withModesMixin(modes)
+```
+
+"Internet protocol versions for which the instance has IP addresses assigned. For this version, only MODE_IPV4 is supported."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.networks.withReservedIPRange
+
+```ts
+withReservedIPRange(reservedIPRange)
+```
+
+"A /29 CIDR block in one of the [internal IP address ranges](https://www.arin.net/reference/research/statistics/address_filters/) that identifies the range of IP addresses reserved for this instance. For example, 10.0.0.0/29 or 192.168.0.0/29. The range you specify can't overlap with either existing subnets or assigned IP address ranges for other Cloud Filestore instances in the selected VPC network."
+
+## obj spec.networks.networkRef
+
+
+
+### fn spec.networks.networkRef.withExternal
+
+```ts
+withExternal(external)
+```
+
+"The name of the Google Compute Engine [VPC network](https://cloud.google.com/vpc/docs/vpc) to which the instance is connected.\n\nAllowed value: The Google Cloud resource name of a `ComputeNetwork` resource (format: `projects/{{project}}/global/networks/{{name}}`)."
+
+### fn spec.networks.networkRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.networks.networkRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
 
 ## obj spec.projectRef
 

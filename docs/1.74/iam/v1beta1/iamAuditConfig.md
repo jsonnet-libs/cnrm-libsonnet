@@ -22,8 +22,6 @@ permalink: /1.74/iam/v1beta1/iamAuditConfig/
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -35,6 +33,10 @@ permalink: /1.74/iam/v1beta1/iamAuditConfig/
   * [`fn withAuditLogConfigs(auditLogConfigs)`](#fn-specwithauditlogconfigs)
   * [`fn withAuditLogConfigsMixin(auditLogConfigs)`](#fn-specwithauditlogconfigsmixin)
   * [`fn withService(service)`](#fn-specwithservice)
+  * [`obj spec.auditLogConfigs`](#obj-specauditlogconfigs)
+    * [`fn withExemptedMembers(exemptedMembers)`](#fn-specauditlogconfigswithexemptedmembers)
+    * [`fn withExemptedMembersMixin(exemptedMembers)`](#fn-specauditlogconfigswithexemptedmembersmixin)
+    * [`fn withLogType(logType)`](#fn-specauditlogconfigswithlogtype)
   * [`obj spec.resourceRef`](#obj-specresourceref)
     * [`fn withApiVersion(apiVersion)`](#fn-specresourcerefwithapiversion)
     * [`fn withExternal(external)`](#fn-specresourcerefwithexternal)
@@ -158,24 +160,6 @@ withLabelsMixin(labels)
 
 **Note:** This function appends passed data to existing values
 
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-**Note:** This function appends passed data to existing values
-
 ### fn metadata.withName
 
 ```ts
@@ -263,6 +247,36 @@ withService(service)
 ```
 
 "Immutable. Required. The service for which to enable Data Access audit logs. The special value 'allServices' covers all services. Note that if there are audit configs covering both 'allServices' and a specific service, then the union of the two audit configs is used for that service: the 'logTypes' specified in each 'auditLogConfig' are enabled, and the 'exemptedMembers' in each 'auditLogConfg' are exempted."
+
+## obj spec.auditLogConfigs
+
+"Required. The configuration for logging of each type of permission."
+
+### fn spec.auditLogConfigs.withExemptedMembers
+
+```ts
+withExemptedMembers(exemptedMembers)
+```
+
+"Identities that do not cause logging for this type of permission. The format is the same as that for 'members' in IAMPolicy/IAMPolicyMember."
+
+### fn spec.auditLogConfigs.withExemptedMembersMixin
+
+```ts
+withExemptedMembersMixin(exemptedMembers)
+```
+
+"Identities that do not cause logging for this type of permission. The format is the same as that for 'members' in IAMPolicy/IAMPolicyMember."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.auditLogConfigs.withLogType
+
+```ts
+withLogType(logType)
+```
+
+"Permission type for which logging is to be configured. Must be one of 'DATA_READ', 'DATA_WRITE', or 'ADMIN_READ'."
 
 ## obj spec.resourceRef
 

@@ -22,8 +22,6 @@ permalink: /1.74/bigtable/v1beta1/bigtableInstance/
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -38,6 +36,15 @@ permalink: /1.74/bigtable/v1beta1/bigtableInstance/
   * [`fn withDisplayName(displayName)`](#fn-specwithdisplayname)
   * [`fn withInstanceType(instanceType)`](#fn-specwithinstancetype)
   * [`fn withResourceID(resourceID)`](#fn-specwithresourceid)
+  * [`obj spec.cluster`](#obj-speccluster)
+    * [`fn withClusterId(clusterId)`](#fn-specclusterwithclusterid)
+    * [`fn withNumNodes(numNodes)`](#fn-specclusterwithnumnodes)
+    * [`fn withStorageType(storageType)`](#fn-specclusterwithstoragetype)
+    * [`fn withZone(zone)`](#fn-specclusterwithzone)
+    * [`obj spec.cluster.kmsKeyRef`](#obj-specclusterkmskeyref)
+      * [`fn withExternal(external)`](#fn-specclusterkmskeyrefwithexternal)
+      * [`fn withName(name)`](#fn-specclusterkmskeyrefwithname)
+      * [`fn withNamespace(namespace)`](#fn-specclusterkmskeyrefwithnamespace)
 
 ## Fields
 
@@ -155,24 +162,6 @@ withLabelsMixin(labels)
 
 **Note:** This function appends passed data to existing values
 
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-**Note:** This function appends passed data to existing values
-
 ### fn metadata.withName
 
 ```ts
@@ -284,3 +273,67 @@ withResourceID(resourceID)
 ```
 
 "Immutable. Optional. The name of the resource. Used for creation and acquisition. When unset, the value of `metadata.name` is used as the default."
+
+## obj spec.cluster
+
+"A block of cluster configuration options. This can be specified at least once."
+
+### fn spec.cluster.withClusterId
+
+```ts
+withClusterId(clusterId)
+```
+
+"The ID of the Cloud Bigtable cluster."
+
+### fn spec.cluster.withNumNodes
+
+```ts
+withNumNodes(numNodes)
+```
+
+"The number of nodes in your Cloud Bigtable cluster. For PRODUCTION instances where the numNodes will be managed by Config Connector, this field is required with a minimum of 1. For a DEVELOPMENT instance or for an existing instance where the numNodes is managed outside of Config Connector, this field must be left unset."
+
+### fn spec.cluster.withStorageType
+
+```ts
+withStorageType(storageType)
+```
+
+"The storage type to use. One of \"SSD\" or \"HDD\". Defaults to \"SSD\"."
+
+### fn spec.cluster.withZone
+
+```ts
+withZone(zone)
+```
+
+"The zone to create the Cloud Bigtable cluster in. Each cluster must have a different zone in the same region. Zones that support Bigtable instances are noted on the Cloud Bigtable locations page."
+
+## obj spec.cluster.kmsKeyRef
+
+"Describes the Cloud KMS encryption key that will be used to protect the destination Bigtable\ncluster. The requirements for this key are: 1) The Cloud Bigtable service account associated with the project that contains\nthis cluster must be granted the cloudkms.cryptoKeyEncrypterDecrypter role on the CMEK key.\n2) Only regional keys can be used and the region of the CMEK key must match the region of the cluster.\n3) All clusters within an instance must use the same CMEK key access to this encryption key."
+
+### fn spec.cluster.kmsKeyRef.withExternal
+
+```ts
+withExternal(external)
+```
+
+"The selfLink of a KMSCryptoKey."
+
+### fn spec.cluster.kmsKeyRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.cluster.kmsKeyRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"

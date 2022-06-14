@@ -22,8 +22,6 @@ permalink: /1.74/compute/v1beta1/computeRouter/
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -43,6 +41,9 @@ permalink: /1.74/compute/v1beta1/computeRouter/
     * [`fn withAdvertisedIpRanges(advertisedIpRanges)`](#fn-specbgpwithadvertisedipranges)
     * [`fn withAdvertisedIpRangesMixin(advertisedIpRanges)`](#fn-specbgpwithadvertisediprangesmixin)
     * [`fn withAsn(asn)`](#fn-specbgpwithasn)
+    * [`obj spec.bgp.advertisedIpRanges`](#obj-specbgpadvertisedipranges)
+      * [`fn withDescription(description)`](#fn-specbgpadvertisediprangeswithdescription)
+      * [`fn withRange(range)`](#fn-specbgpadvertisediprangeswithrange)
   * [`obj spec.networkRef`](#obj-specnetworkref)
     * [`fn withExternal(external)`](#fn-specnetworkrefwithexternal)
     * [`fn withName(name)`](#fn-specnetworkrefwithname)
@@ -161,24 +162,6 @@ withLabelsMixin(labels)
 ```
 
 "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
-
-**Note:** This function appends passed data to existing values
-
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
 
 **Note:** This function appends passed data to existing values
 
@@ -331,6 +314,26 @@ withAsn(asn)
 ```
 
 "Local BGP Autonomous System Number (ASN). Must be an RFC6996\nprivate ASN, either 16-bit or 32-bit. The value will be fixed for\nthis router resource. All VPN tunnels that link to this router\nwill have the same local ASN."
+
+## obj spec.bgp.advertisedIpRanges
+
+"User-specified list of individual IP ranges to advertise in\ncustom mode. This field can only be populated if advertiseMode\nis CUSTOM and is advertised to all peers of the router. These IP\nranges will be advertised in addition to any specified groups.\nLeave this field blank to advertise no custom IP ranges."
+
+### fn spec.bgp.advertisedIpRanges.withDescription
+
+```ts
+withDescription(description)
+```
+
+"User-specified description for the IP range."
+
+### fn spec.bgp.advertisedIpRanges.withRange
+
+```ts
+withRange(range)
+```
+
+"The IP range to advertise. The value must be a\nCIDR-formatted string."
 
 ## obj spec.networkRef
 

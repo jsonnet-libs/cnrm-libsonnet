@@ -22,8 +22,6 @@ permalink: /1.74/sourcerepo/v1beta1/sourceRepoRepository/
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -35,6 +33,16 @@ permalink: /1.74/sourcerepo/v1beta1/sourceRepoRepository/
   * [`fn withPubsubConfigs(pubsubConfigs)`](#fn-specwithpubsubconfigs)
   * [`fn withPubsubConfigsMixin(pubsubConfigs)`](#fn-specwithpubsubconfigsmixin)
   * [`fn withResourceID(resourceID)`](#fn-specwithresourceid)
+  * [`obj spec.pubsubConfigs`](#obj-specpubsubconfigs)
+    * [`fn withMessageFormat(messageFormat)`](#fn-specpubsubconfigswithmessageformat)
+    * [`obj spec.pubsubConfigs.serviceAccountRef`](#obj-specpubsubconfigsserviceaccountref)
+      * [`fn withExternal(external)`](#fn-specpubsubconfigsserviceaccountrefwithexternal)
+      * [`fn withName(name)`](#fn-specpubsubconfigsserviceaccountrefwithname)
+      * [`fn withNamespace(namespace)`](#fn-specpubsubconfigsserviceaccountrefwithnamespace)
+    * [`obj spec.pubsubConfigs.topicRef`](#obj-specpubsubconfigstopicref)
+      * [`fn withExternal(external)`](#fn-specpubsubconfigstopicrefwithexternal)
+      * [`fn withName(name)`](#fn-specpubsubconfigstopicrefwithname)
+      * [`fn withNamespace(namespace)`](#fn-specpubsubconfigstopicrefwithnamespace)
 
 ## Fields
 
@@ -152,24 +160,6 @@ withLabelsMixin(labels)
 
 **Note:** This function appends passed data to existing values
 
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-**Note:** This function appends passed data to existing values
-
 ### fn metadata.withName
 
 ```ts
@@ -257,3 +247,71 @@ withResourceID(resourceID)
 ```
 
 "Immutable. Optional. The name of the resource. Used for creation and acquisition. When unset, the value of `metadata.name` is used as the default."
+
+## obj spec.pubsubConfigs
+
+"How this repository publishes a change in the repository through Cloud Pub/Sub. \nKeyed by the topic names."
+
+### fn spec.pubsubConfigs.withMessageFormat
+
+```ts
+withMessageFormat(messageFormat)
+```
+
+"The format of the Cloud Pub/Sub messages. \n- PROTOBUF: The message payload is a serialized protocol buffer of SourceRepoEvent.\n- JSON: The message payload is a JSON string of SourceRepoEvent. Possible values: [\"PROTOBUF\", \"JSON\"]."
+
+## obj spec.pubsubConfigs.serviceAccountRef
+
+"Service account used for publishing Cloud Pub/Sub messages. This\nservice account needs to be in the same project as the\npubsubConfig. When added, the caller needs to have\niam.serviceAccounts.actAs permission on this service account. If\nunspecified, it defaults to the compute engine default service\naccount."
+
+### fn spec.pubsubConfigs.serviceAccountRef.withExternal
+
+```ts
+withExternal(external)
+```
+
+"The email of an IAMServiceAccount."
+
+### fn spec.pubsubConfigs.serviceAccountRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.pubsubConfigs.serviceAccountRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
+## obj spec.pubsubConfigs.topicRef
+
+
+
+### fn spec.pubsubConfigs.topicRef.withExternal
+
+```ts
+withExternal(external)
+```
+
+"The name of a PubSubTopic."
+
+### fn spec.pubsubConfigs.topicRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.pubsubConfigs.topicRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"

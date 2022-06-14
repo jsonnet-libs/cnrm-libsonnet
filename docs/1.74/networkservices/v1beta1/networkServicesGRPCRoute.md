@@ -22,8 +22,6 @@ permalink: /1.74/networkservices/v1beta1/networkServicesGRPCRoute/
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -47,10 +45,54 @@ permalink: /1.74/networkservices/v1beta1/networkServicesGRPCRoute/
   * [`fn withRoutersMixin(routers)`](#fn-specwithroutersmixin)
   * [`fn withRules(rules)`](#fn-specwithrules)
   * [`fn withRulesMixin(rules)`](#fn-specwithrulesmixin)
+  * [`obj spec.gateways`](#obj-specgateways)
+    * [`fn withExternal(external)`](#fn-specgatewayswithexternal)
+    * [`fn withName(name)`](#fn-specgatewayswithname)
+    * [`fn withNamespace(namespace)`](#fn-specgatewayswithnamespace)
+  * [`obj spec.meshes`](#obj-specmeshes)
+    * [`fn withExternal(external)`](#fn-specmesheswithexternal)
+    * [`fn withName(name)`](#fn-specmesheswithname)
+    * [`fn withNamespace(namespace)`](#fn-specmesheswithnamespace)
   * [`obj spec.projectRef`](#obj-specprojectref)
     * [`fn withExternal(external)`](#fn-specprojectrefwithexternal)
     * [`fn withName(name)`](#fn-specprojectrefwithname)
     * [`fn withNamespace(namespace)`](#fn-specprojectrefwithnamespace)
+  * [`obj spec.rules`](#obj-specrules)
+    * [`fn withMatches(matches)`](#fn-specruleswithmatches)
+    * [`fn withMatchesMixin(matches)`](#fn-specruleswithmatchesmixin)
+    * [`obj spec.rules.action`](#obj-specrulesaction)
+      * [`fn withDestinations(destinations)`](#fn-specrulesactionwithdestinations)
+      * [`fn withDestinationsMixin(destinations)`](#fn-specrulesactionwithdestinationsmixin)
+      * [`fn withTimeout(timeout)`](#fn-specrulesactionwithtimeout)
+      * [`obj spec.rules.action.destinations`](#obj-specrulesactiondestinations)
+        * [`fn withWeight(weight)`](#fn-specrulesactiondestinationswithweight)
+        * [`obj spec.rules.action.destinations.serviceRef`](#obj-specrulesactiondestinationsserviceref)
+          * [`fn withExternal(external)`](#fn-specrulesactiondestinationsservicerefwithexternal)
+          * [`fn withName(name)`](#fn-specrulesactiondestinationsservicerefwithname)
+          * [`fn withNamespace(namespace)`](#fn-specrulesactiondestinationsservicerefwithnamespace)
+      * [`obj spec.rules.action.faultInjectionPolicy`](#obj-specrulesactionfaultinjectionpolicy)
+        * [`obj spec.rules.action.faultInjectionPolicy.abort`](#obj-specrulesactionfaultinjectionpolicyabort)
+          * [`fn withHttpStatus(httpStatus)`](#fn-specrulesactionfaultinjectionpolicyabortwithhttpstatus)
+          * [`fn withPercentage(percentage)`](#fn-specrulesactionfaultinjectionpolicyabortwithpercentage)
+        * [`obj spec.rules.action.faultInjectionPolicy.delay`](#obj-specrulesactionfaultinjectionpolicydelay)
+          * [`fn withFixedDelay(fixedDelay)`](#fn-specrulesactionfaultinjectionpolicydelaywithfixeddelay)
+          * [`fn withPercentage(percentage)`](#fn-specrulesactionfaultinjectionpolicydelaywithpercentage)
+      * [`obj spec.rules.action.retryPolicy`](#obj-specrulesactionretrypolicy)
+        * [`fn withNumRetries(numRetries)`](#fn-specrulesactionretrypolicywithnumretries)
+        * [`fn withRetryConditions(retryConditions)`](#fn-specrulesactionretrypolicywithretryconditions)
+        * [`fn withRetryConditionsMixin(retryConditions)`](#fn-specrulesactionretrypolicywithretryconditionsmixin)
+    * [`obj spec.rules.matches`](#obj-specrulesmatches)
+      * [`fn withHeaders(headers)`](#fn-specrulesmatcheswithheaders)
+      * [`fn withHeadersMixin(headers)`](#fn-specrulesmatcheswithheadersmixin)
+      * [`obj spec.rules.matches.headers`](#obj-specrulesmatchesheaders)
+        * [`fn withKey(key)`](#fn-specrulesmatchesheaderswithkey)
+        * [`fn withType(type)`](#fn-specrulesmatchesheaderswithtype)
+        * [`fn withValue(value)`](#fn-specrulesmatchesheaderswithvalue)
+      * [`obj spec.rules.matches.method`](#obj-specrulesmatchesmethod)
+        * [`fn withCaseSensitive(caseSensitive)`](#fn-specrulesmatchesmethodwithcasesensitive)
+        * [`fn withGrpcMethod(grpcMethod)`](#fn-specrulesmatchesmethodwithgrpcmethod)
+        * [`fn withGrpcService(grpcService)`](#fn-specrulesmatchesmethodwithgrpcservice)
+        * [`fn withType(type)`](#fn-specrulesmatchesmethodwithtype)
 
 ## Fields
 
@@ -165,24 +207,6 @@ withLabelsMixin(labels)
 ```
 
 "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
-
-**Note:** This function appends passed data to existing values
-
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
 
 **Note:** This function appends passed data to existing values
 
@@ -380,6 +404,62 @@ withRulesMixin(rules)
 
 **Note:** This function appends passed data to existing values
 
+## obj spec.gateways
+
+
+
+### fn spec.gateways.withExternal
+
+```ts
+withExternal(external)
+```
+
+"Allowed value: The `selfLink` field of a `NetworkServicesGateway` resource."
+
+### fn spec.gateways.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.gateways.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
+## obj spec.meshes
+
+
+
+### fn spec.meshes.withExternal
+
+```ts
+withExternal(external)
+```
+
+"Allowed value: The `selfLink` field of a `NetworkServicesMesh` resource."
+
+### fn spec.meshes.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.meshes.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
 ## obj spec.projectRef
 
 "The Project that this resource belongs to."
@@ -407,3 +487,255 @@ withNamespace(namespace)
 ```
 
 "Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
+## obj spec.rules
+
+"Required. A list of detailed rules defining how to route traffic. Within a single GrpcRoute, the GrpcRoute.RouteAction associated with the first matching GrpcRoute.RouteRule will be executed. At least one rule must be supplied."
+
+### fn spec.rules.withMatches
+
+```ts
+withMatches(matches)
+```
+
+"Optional. Matches define conditions used for matching the rule against incoming gRPC requests. Each match is independent, i.e. this rule will be matched if ANY one of the matches is satisfied. If no matches field is specified, this rule will unconditionally match traffic."
+
+### fn spec.rules.withMatchesMixin
+
+```ts
+withMatchesMixin(matches)
+```
+
+"Optional. Matches define conditions used for matching the rule against incoming gRPC requests. Each match is independent, i.e. this rule will be matched if ANY one of the matches is satisfied. If no matches field is specified, this rule will unconditionally match traffic."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.rules.action
+
+"Required. A detailed rule defining how to route traffic. This field is required."
+
+### fn spec.rules.action.withDestinations
+
+```ts
+withDestinations(destinations)
+```
+
+"Optional. The destination services to which traffic should be forwarded. If multiple destinations are specified, traffic will be split between Backend Service(s) according to the weight field of these destinations."
+
+### fn spec.rules.action.withDestinationsMixin
+
+```ts
+withDestinationsMixin(destinations)
+```
+
+"Optional. The destination services to which traffic should be forwarded. If multiple destinations are specified, traffic will be split between Backend Service(s) according to the weight field of these destinations."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.rules.action.withTimeout
+
+```ts
+withTimeout(timeout)
+```
+
+"Optional. Specifies the timeout for selected route. Timeout is computed from the time the request has been fully processed (i.e. end of stream) up until the response has been completely processed. Timeout includes all retries."
+
+## obj spec.rules.action.destinations
+
+"Optional. The destination services to which traffic should be forwarded. If multiple destinations are specified, traffic will be split between Backend Service(s) according to the weight field of these destinations."
+
+### fn spec.rules.action.destinations.withWeight
+
+```ts
+withWeight(weight)
+```
+
+"Optional. Specifies the proportion of requests forwarded to the backend referenced by the serviceName field. This is computed as: weight/Sum(weights in this destination list). For non-zero values, there may be some epsilon from the exact proportion defined here depending on the precision an implementation supports. If only one serviceName is specified and it has a weight greater than 0, 100% of the traffic is forwarded to that backend. If weights are specified for any one service name, they need to be specified for all of them. If weights are unspecified for all services, then, traffic is distributed in equal proportions to all of them."
+
+## obj spec.rules.action.destinations.serviceRef
+
+
+
+### fn spec.rules.action.destinations.serviceRef.withExternal
+
+```ts
+withExternal(external)
+```
+
+"Required. The URL of a destination service to which to route traffic. Must refer to either a BackendService or ServiceDirectoryService.\n\nAllowed value: The Google Cloud resource name of a `ComputeBackendService` resource (format: `projects/{{project}}/global/backendServices/{{name}}`)."
+
+### fn spec.rules.action.destinations.serviceRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.rules.action.destinations.serviceRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
+## obj spec.rules.action.faultInjectionPolicy
+
+"Optional. The specification for fault injection introduced into traffic to test the resiliency of clients to destination service failure. As part of fault injection, when clients send requests to a destination, delays can be introduced on a percentage of requests before sending those requests to the destination service. Similarly requests from clients can be aborted by for a percentage of requests. timeout and retry_policy will be ignored by clients that are configured with a fault_injection_policy"
+
+## obj spec.rules.action.faultInjectionPolicy.abort
+
+"The specification for aborting to client requests."
+
+### fn spec.rules.action.faultInjectionPolicy.abort.withHttpStatus
+
+```ts
+withHttpStatus(httpStatus)
+```
+
+"The HTTP status code used to abort the request. The value must be between 200 and 599 inclusive."
+
+### fn spec.rules.action.faultInjectionPolicy.abort.withPercentage
+
+```ts
+withPercentage(percentage)
+```
+
+"The percentage of traffic which will be aborted. The value must be between [0, 100]"
+
+## obj spec.rules.action.faultInjectionPolicy.delay
+
+"The specification for injecting delay to client requests."
+
+### fn spec.rules.action.faultInjectionPolicy.delay.withFixedDelay
+
+```ts
+withFixedDelay(fixedDelay)
+```
+
+"Specify a fixed delay before forwarding the request."
+
+### fn spec.rules.action.faultInjectionPolicy.delay.withPercentage
+
+```ts
+withPercentage(percentage)
+```
+
+"The percentage of traffic on which delay will be injected. The value must be between [0, 100]"
+
+## obj spec.rules.action.retryPolicy
+
+"Optional. Specifies the retry policy associated with this route."
+
+### fn spec.rules.action.retryPolicy.withNumRetries
+
+```ts
+withNumRetries(numRetries)
+```
+
+"Specifies the allowed number of retries. This number must be > 0. If not specpfied, default to 1."
+
+### fn spec.rules.action.retryPolicy.withRetryConditions
+
+```ts
+withRetryConditions(retryConditions)
+```
+
+"- connect-failure: Router will retry on failures connecting to Backend Services, for example due to connection timeouts. - refused-stream: Router will retry if the backend service resets the stream with a REFUSED_STREAM error code. This reset type indicates that it is safe to retry. - cancelled: Router will retry if the gRPC status code in the response header is set to cancelled - deadline-exceeded: Router will retry if the gRPC status code in the response header is set to deadline-exceeded - resource-exhausted: Router will retry if the gRPC status code in the response header is set to resource-exhausted - unavailable: Router will retry if the gRPC status code in the response header is set to unavailable"
+
+### fn spec.rules.action.retryPolicy.withRetryConditionsMixin
+
+```ts
+withRetryConditionsMixin(retryConditions)
+```
+
+"- connect-failure: Router will retry on failures connecting to Backend Services, for example due to connection timeouts. - refused-stream: Router will retry if the backend service resets the stream with a REFUSED_STREAM error code. This reset type indicates that it is safe to retry. - cancelled: Router will retry if the gRPC status code in the response header is set to cancelled - deadline-exceeded: Router will retry if the gRPC status code in the response header is set to deadline-exceeded - resource-exhausted: Router will retry if the gRPC status code in the response header is set to resource-exhausted - unavailable: Router will retry if the gRPC status code in the response header is set to unavailable"
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.rules.matches
+
+"Optional. Matches define conditions used for matching the rule against incoming gRPC requests. Each match is independent, i.e. this rule will be matched if ANY one of the matches is satisfied. If no matches field is specified, this rule will unconditionally match traffic."
+
+### fn spec.rules.matches.withHeaders
+
+```ts
+withHeaders(headers)
+```
+
+"Optional. Specifies a collection of headers to match."
+
+### fn spec.rules.matches.withHeadersMixin
+
+```ts
+withHeadersMixin(headers)
+```
+
+"Optional. Specifies a collection of headers to match."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.rules.matches.headers
+
+"Optional. Specifies a collection of headers to match."
+
+### fn spec.rules.matches.headers.withKey
+
+```ts
+withKey(key)
+```
+
+"Required. The key of the header."
+
+### fn spec.rules.matches.headers.withType
+
+```ts
+withType(type)
+```
+
+"Optional. Specifies how to match against the value of the header. If not specified, a default value of EXACT is used. Possible values: MATCH_TYPE_UNSPECIFIED, MATCH_ANY, MATCH_ALL"
+
+### fn spec.rules.matches.headers.withValue
+
+```ts
+withValue(value)
+```
+
+"Required. The value of the header."
+
+## obj spec.rules.matches.method
+
+"Optional. A gRPC method to match against. If this field is empty or omitted, will match all methods."
+
+### fn spec.rules.matches.method.withCaseSensitive
+
+```ts
+withCaseSensitive(caseSensitive)
+```
+
+"Optional. Specifies that matches are case sensitive. The default value is true. case_sensitive must not be used with a type of REGULAR_EXPRESSION."
+
+### fn spec.rules.matches.method.withGrpcMethod
+
+```ts
+withGrpcMethod(grpcMethod)
+```
+
+"Required. Name of the method to match against. If unspecified, will match all methods."
+
+### fn spec.rules.matches.method.withGrpcService
+
+```ts
+withGrpcService(grpcService)
+```
+
+"Required. Name of the service to match against. If unspecified, will match all services."
+
+### fn spec.rules.matches.method.withType
+
+```ts
+withType(type)
+```
+
+"Optional. Specifies how to match against the name. If not specified, a default value of \"EXACT\" is used. Possible values: MATCH_TYPE_UNSPECIFIED, MATCH_ANY, MATCH_ALL"

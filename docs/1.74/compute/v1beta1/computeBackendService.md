@@ -22,8 +22,6 @@ permalink: /1.74/compute/v1beta1/computeBackendService/
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -52,6 +50,27 @@ permalink: /1.74/compute/v1beta1/computeBackendService/
   * [`fn withResourceID(resourceID)`](#fn-specwithresourceid)
   * [`fn withSessionAffinity(sessionAffinity)`](#fn-specwithsessionaffinity)
   * [`fn withTimeoutSec(timeoutSec)`](#fn-specwithtimeoutsec)
+  * [`obj spec.backend`](#obj-specbackend)
+    * [`fn withBalancingMode(balancingMode)`](#fn-specbackendwithbalancingmode)
+    * [`fn withCapacityScaler(capacityScaler)`](#fn-specbackendwithcapacityscaler)
+    * [`fn withDescription(description)`](#fn-specbackendwithdescription)
+    * [`fn withFailover(failover)`](#fn-specbackendwithfailover)
+    * [`fn withMaxConnections(maxConnections)`](#fn-specbackendwithmaxconnections)
+    * [`fn withMaxConnectionsPerEndpoint(maxConnectionsPerEndpoint)`](#fn-specbackendwithmaxconnectionsperendpoint)
+    * [`fn withMaxConnectionsPerInstance(maxConnectionsPerInstance)`](#fn-specbackendwithmaxconnectionsperinstance)
+    * [`fn withMaxRate(maxRate)`](#fn-specbackendwithmaxrate)
+    * [`fn withMaxRatePerEndpoint(maxRatePerEndpoint)`](#fn-specbackendwithmaxrateperendpoint)
+    * [`fn withMaxRatePerInstance(maxRatePerInstance)`](#fn-specbackendwithmaxrateperinstance)
+    * [`fn withMaxUtilization(maxUtilization)`](#fn-specbackendwithmaxutilization)
+    * [`obj spec.backend.group`](#obj-specbackendgroup)
+      * [`obj spec.backend.group.instanceGroupRef`](#obj-specbackendgroupinstancegroupref)
+        * [`fn withExternal(external)`](#fn-specbackendgroupinstancegrouprefwithexternal)
+        * [`fn withName(name)`](#fn-specbackendgroupinstancegrouprefwithname)
+        * [`fn withNamespace(namespace)`](#fn-specbackendgroupinstancegrouprefwithnamespace)
+      * [`obj spec.backend.group.networkEndpointGroupRef`](#obj-specbackendgroupnetworkendpointgroupref)
+        * [`fn withExternal(external)`](#fn-specbackendgroupnetworkendpointgrouprefwithexternal)
+        * [`fn withName(name)`](#fn-specbackendgroupnetworkendpointgrouprefwithname)
+        * [`fn withNamespace(namespace)`](#fn-specbackendgroupnetworkendpointgrouprefwithnamespace)
   * [`obj spec.cdnPolicy`](#obj-speccdnpolicy)
     * [`fn withCacheMode(cacheMode)`](#fn-speccdnpolicywithcachemode)
     * [`fn withClientTtl(clientTtl)`](#fn-speccdnpolicywithclientttl)
@@ -70,6 +89,9 @@ permalink: /1.74/compute/v1beta1/computeBackendService/
       * [`fn withQueryStringBlacklistMixin(queryStringBlacklist)`](#fn-speccdnpolicycachekeypolicywithquerystringblacklistmixin)
       * [`fn withQueryStringWhitelist(queryStringWhitelist)`](#fn-speccdnpolicycachekeypolicywithquerystringwhitelist)
       * [`fn withQueryStringWhitelistMixin(queryStringWhitelist)`](#fn-speccdnpolicycachekeypolicywithquerystringwhitelistmixin)
+    * [`obj spec.cdnPolicy.negativeCachingPolicy`](#obj-speccdnpolicynegativecachingpolicy)
+      * [`fn withCode(code)`](#fn-speccdnpolicynegativecachingpolicywithcode)
+      * [`fn withTtl(ttl)`](#fn-speccdnpolicynegativecachingpolicywithttl)
   * [`obj spec.circuitBreakers`](#obj-speccircuitbreakers)
     * [`fn withMaxConnections(maxConnections)`](#fn-speccircuitbreakerswithmaxconnections)
     * [`fn withMaxPendingRequests(maxPendingRequests)`](#fn-speccircuitbreakerswithmaxpendingrequests)
@@ -96,6 +118,15 @@ permalink: /1.74/compute/v1beta1/computeBackendService/
     * [`fn withDisableConnectionDrainOnFailover(disableConnectionDrainOnFailover)`](#fn-specfailoverpolicywithdisableconnectiondrainonfailover)
     * [`fn withDropTrafficIfUnhealthy(dropTrafficIfUnhealthy)`](#fn-specfailoverpolicywithdroptrafficifunhealthy)
     * [`fn withFailoverRatio(failoverRatio)`](#fn-specfailoverpolicywithfailoverratio)
+  * [`obj spec.healthChecks`](#obj-spechealthchecks)
+    * [`obj spec.healthChecks.healthCheckRef`](#obj-spechealthcheckshealthcheckref)
+      * [`fn withExternal(external)`](#fn-spechealthcheckshealthcheckrefwithexternal)
+      * [`fn withName(name)`](#fn-spechealthcheckshealthcheckrefwithname)
+      * [`fn withNamespace(namespace)`](#fn-spechealthcheckshealthcheckrefwithnamespace)
+    * [`obj spec.healthChecks.httpHealthCheckRef`](#obj-spechealthcheckshttphealthcheckref)
+      * [`fn withExternal(external)`](#fn-spechealthcheckshttphealthcheckrefwithexternal)
+      * [`fn withName(name)`](#fn-spechealthcheckshttphealthcheckrefwithname)
+      * [`fn withNamespace(namespace)`](#fn-spechealthcheckshttphealthcheckrefwithnamespace)
   * [`obj spec.iap`](#obj-speciap)
     * [`fn withOauth2ClientId(oauth2ClientId)`](#fn-speciapwithoauth2clientid)
     * [`fn withOauth2ClientSecretSha256(oauth2ClientSecretSha256)`](#fn-speciapwithoauth2clientsecretsha256)
@@ -253,24 +284,6 @@ withLabelsMixin(labels)
 ```
 
 "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
-
-**Note:** This function appends passed data to existing values
-
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
 
 **Note:** This function appends passed data to existing values
 
@@ -504,6 +517,158 @@ withTimeoutSec(timeoutSec)
 
 "How many seconds to wait for the backend before considering it a\nfailed request. Default is 30 seconds. Valid range is [1, 86400]."
 
+## obj spec.backend
+
+"The set of backends that serve this BackendService."
+
+### fn spec.backend.withBalancingMode
+
+```ts
+withBalancingMode(balancingMode)
+```
+
+"Specifies the balancing mode for this backend.\n\nFor global HTTP(S) or TCP/SSL load balancing, the default is\nUTILIZATION. Valid values are UTILIZATION, RATE (for HTTP(S))\nand CONNECTION (for TCP/SSL). Default value: \"UTILIZATION\" Possible values: [\"UTILIZATION\", \"RATE\", \"CONNECTION\"]."
+
+### fn spec.backend.withCapacityScaler
+
+```ts
+withCapacityScaler(capacityScaler)
+```
+
+"A multiplier applied to the group's maximum servicing capacity\n(based on UTILIZATION, RATE or CONNECTION).\n\nDefault value is 1, which means the group will serve up to 100%\nof its configured capacity (depending on balancingMode). A\nsetting of 0 means the group is completely drained, offering\n0% of its available Capacity. Valid range is [0.0,1.0]."
+
+### fn spec.backend.withDescription
+
+```ts
+withDescription(description)
+```
+
+"An optional description of this resource.\nProvide this property when you create the resource."
+
+### fn spec.backend.withFailover
+
+```ts
+withFailover(failover)
+```
+
+"This field designates whether this is a failover backend. More\nthan one failover backend can be configured for a given RegionBackendService."
+
+### fn spec.backend.withMaxConnections
+
+```ts
+withMaxConnections(maxConnections)
+```
+
+"The max number of simultaneous connections for the group. Can\nbe used with either CONNECTION or UTILIZATION balancing modes.\n\nFor CONNECTION mode, either maxConnections or one\nof maxConnectionsPerInstance or maxConnectionsPerEndpoint,\nas appropriate for group type, must be set."
+
+### fn spec.backend.withMaxConnectionsPerEndpoint
+
+```ts
+withMaxConnectionsPerEndpoint(maxConnectionsPerEndpoint)
+```
+
+"The max number of simultaneous connections that a single backend\nnetwork endpoint can handle. This is used to calculate the\ncapacity of the group. Can be used in either CONNECTION or\nUTILIZATION balancing modes.\n\nFor CONNECTION mode, either\nmaxConnections or maxConnectionsPerEndpoint must be set."
+
+### fn spec.backend.withMaxConnectionsPerInstance
+
+```ts
+withMaxConnectionsPerInstance(maxConnectionsPerInstance)
+```
+
+"The max number of simultaneous connections that a single\nbackend instance can handle. This is used to calculate the\ncapacity of the group. Can be used in either CONNECTION or\nUTILIZATION balancing modes.\n\nFor CONNECTION mode, either maxConnections or\nmaxConnectionsPerInstance must be set."
+
+### fn spec.backend.withMaxRate
+
+```ts
+withMaxRate(maxRate)
+```
+
+"The max requests per second (RPS) of the group.\n\nCan be used with either RATE or UTILIZATION balancing modes,\nbut required if RATE mode. For RATE mode, either maxRate or one\nof maxRatePerInstance or maxRatePerEndpoint, as appropriate for\ngroup type, must be set."
+
+### fn spec.backend.withMaxRatePerEndpoint
+
+```ts
+withMaxRatePerEndpoint(maxRatePerEndpoint)
+```
+
+"The max requests per second (RPS) that a single backend network\nendpoint can handle. This is used to calculate the capacity of\nthe group. Can be used in either balancing mode. For RATE mode,\neither maxRate or maxRatePerEndpoint must be set."
+
+### fn spec.backend.withMaxRatePerInstance
+
+```ts
+withMaxRatePerInstance(maxRatePerInstance)
+```
+
+"The max requests per second (RPS) that a single backend\ninstance can handle. This is used to calculate the capacity of\nthe group. Can be used in either balancing mode. For RATE mode,\neither maxRate or maxRatePerInstance must be set."
+
+### fn spec.backend.withMaxUtilization
+
+```ts
+withMaxUtilization(maxUtilization)
+```
+
+"Used when balancingMode is UTILIZATION. This ratio defines the\nCPU utilization target for the group. Valid range is [0.0, 1.0]."
+
+## obj spec.backend.group
+
+"Reference to a ComputeInstanceGroup or ComputeNetworkEndpointGroup\nresource. In case of instance group this defines the list of\ninstances that serve traffic. Member virtual machine instances from\neach instance group must live in the same zone as the instance\ngroup itself. No two backends in a backend service are allowed to\nuse same Instance Group resource.\n\nFor Network Endpoint Groups this defines list of endpoints. All\nendpoints of Network Endpoint Group must be hosted on instances\nlocated in the same zone as the Network Endpoint Group.\n\nBackend services cannot mix Instance Group and Network Endpoint\nGroup backends.\n\nWhen the 'load_balancing_scheme' is INTERNAL, only instance groups\nare supported."
+
+## obj spec.backend.group.instanceGroupRef
+
+
+
+### fn spec.backend.group.instanceGroupRef.withExternal
+
+```ts
+withExternal(external)
+```
+
+"The selfLink of a ComputeInstanceGroup."
+
+### fn spec.backend.group.instanceGroupRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.backend.group.instanceGroupRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
+## obj spec.backend.group.networkEndpointGroupRef
+
+
+
+### fn spec.backend.group.networkEndpointGroupRef.withExternal
+
+```ts
+withExternal(external)
+```
+
+"The selfLink of a ComputeNetworkEndpointGroup."
+
+### fn spec.backend.group.networkEndpointGroupRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.backend.group.networkEndpointGroupRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
 ## obj spec.cdnPolicy
 
 "Cloud CDN configuration for this BackendService."
@@ -645,6 +810,26 @@ withQueryStringWhitelistMixin(queryStringWhitelist)
 "Names of query string parameters to include in cache keys.\n\nAll other parameters will be excluded. Either specify\nquery_string_whitelist or query_string_blacklist, not both.\n'&' and '=' will be percent encoded and not treated as\ndelimiters."
 
 **Note:** This function appends passed data to existing values
+
+## obj spec.cdnPolicy.negativeCachingPolicy
+
+"Sets a cache TTL for the specified HTTP status code. negativeCaching must be enabled to configure negativeCachingPolicy.\nOmitting the policy and leaving negativeCaching enabled will use Cloud CDN's default cache TTLs."
+
+### fn spec.cdnPolicy.negativeCachingPolicy.withCode
+
+```ts
+withCode(code)
+```
+
+"The HTTP status code to define a TTL against. Only HTTP status codes 300, 301, 308, 404, 405, 410, 421, 451 and 501\ncan be specified as values, and you cannot specify a status code more than once."
+
+### fn spec.cdnPolicy.negativeCachingPolicy.withTtl
+
+```ts
+withTtl(ttl)
+```
+
+"The TTL (in seconds) for which to cache responses with the corresponding status code. The maximum allowed value is 1800s\n(30 minutes), noting that infrequently accessed objects may be evicted from the cache before the defined TTL."
 
 ## obj spec.circuitBreakers
 
@@ -825,6 +1010,66 @@ withFailoverRatio(failoverRatio)
 ```
 
 "The value of the field must be in [0, 1]. If the ratio of the healthy\nVMs in the primary backend is at or below this number, traffic arriving\nat the load-balanced IP will be directed to the failover backend.\nIn case where 'failoverRatio' is not set or all the VMs in the backup\nbackend are unhealthy, the traffic will be directed back to the primary\nbackend in the \"force\" mode, where traffic will be spread to the healthy\nVMs with the best effort, or to all VMs when no VM is healthy.\nThis field is only used with l4 load balancing."
+
+## obj spec.healthChecks
+
+
+
+## obj spec.healthChecks.healthCheckRef
+
+
+
+### fn spec.healthChecks.healthCheckRef.withExternal
+
+```ts
+withExternal(external)
+```
+
+"The selfLink of a ComputeHealthCheck."
+
+### fn spec.healthChecks.healthCheckRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.healthChecks.healthCheckRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
+## obj spec.healthChecks.httpHealthCheckRef
+
+
+
+### fn spec.healthChecks.httpHealthCheckRef.withExternal
+
+```ts
+withExternal(external)
+```
+
+"The selfLink of a ComputeHTTPHealthCheck."
+
+### fn spec.healthChecks.httpHealthCheckRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.healthChecks.httpHealthCheckRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
 
 ## obj spec.iap
 

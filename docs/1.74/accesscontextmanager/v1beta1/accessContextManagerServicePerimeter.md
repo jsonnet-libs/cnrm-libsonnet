@@ -22,8 +22,6 @@ permalink: /1.74/accesscontextmanager/v1beta1/accessContextManagerServicePerimet
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -52,6 +50,82 @@ permalink: /1.74/accesscontextmanager/v1beta1/accessContextManagerServicePerimet
     * [`fn withResourcesMixin(resources)`](#fn-specspecwithresourcesmixin)
     * [`fn withRestrictedServices(restrictedServices)`](#fn-specspecwithrestrictedservices)
     * [`fn withRestrictedServicesMixin(restrictedServices)`](#fn-specspecwithrestrictedservicesmixin)
+    * [`obj spec.spec.accessLevels`](#obj-specspecaccesslevels)
+      * [`fn withExternal(external)`](#fn-specspecaccesslevelswithexternal)
+      * [`fn withName(name)`](#fn-specspecaccesslevelswithname)
+      * [`fn withNamespace(namespace)`](#fn-specspecaccesslevelswithnamespace)
+    * [`obj spec.spec.egressPolicies`](#obj-specspecegresspolicies)
+      * [`obj spec.spec.egressPolicies.egressFrom`](#obj-specspecegresspoliciesegressfrom)
+        * [`fn withIdentities(identities)`](#fn-specspecegresspoliciesegressfromwithidentities)
+        * [`fn withIdentitiesMixin(identities)`](#fn-specspecegresspoliciesegressfromwithidentitiesmixin)
+        * [`fn withIdentityType(identityType)`](#fn-specspecegresspoliciesegressfromwithidentitytype)
+        * [`obj spec.spec.egressPolicies.egressFrom.identities`](#obj-specspecegresspoliciesegressfromidentities)
+          * [`fn withUser(user)`](#fn-specspecegresspoliciesegressfromidentitieswithuser)
+          * [`obj spec.spec.egressPolicies.egressFrom.identities.serviceAccountRef`](#obj-specspecegresspoliciesegressfromidentitiesserviceaccountref)
+            * [`fn withExternal(external)`](#fn-specspecegresspoliciesegressfromidentitiesserviceaccountrefwithexternal)
+            * [`fn withName(name)`](#fn-specspecegresspoliciesegressfromidentitiesserviceaccountrefwithname)
+            * [`fn withNamespace(namespace)`](#fn-specspecegresspoliciesegressfromidentitiesserviceaccountrefwithnamespace)
+      * [`obj spec.spec.egressPolicies.egressTo`](#obj-specspecegresspoliciesegressto)
+        * [`fn withOperations(operations)`](#fn-specspecegresspoliciesegresstowithoperations)
+        * [`fn withOperationsMixin(operations)`](#fn-specspecegresspoliciesegresstowithoperationsmixin)
+        * [`fn withResources(resources)`](#fn-specspecegresspoliciesegresstowithresources)
+        * [`fn withResourcesMixin(resources)`](#fn-specspecegresspoliciesegresstowithresourcesmixin)
+        * [`obj spec.spec.egressPolicies.egressTo.operations`](#obj-specspecegresspoliciesegresstooperations)
+          * [`fn withMethodSelectors(methodSelectors)`](#fn-specspecegresspoliciesegresstooperationswithmethodselectors)
+          * [`fn withMethodSelectorsMixin(methodSelectors)`](#fn-specspecegresspoliciesegresstooperationswithmethodselectorsmixin)
+          * [`fn withServiceName(serviceName)`](#fn-specspecegresspoliciesegresstooperationswithservicename)
+          * [`obj spec.spec.egressPolicies.egressTo.operations.methodSelectors`](#obj-specspecegresspoliciesegresstooperationsmethodselectors)
+            * [`fn withMethod(method)`](#fn-specspecegresspoliciesegresstooperationsmethodselectorswithmethod)
+            * [`fn withPermission(permission)`](#fn-specspecegresspoliciesegresstooperationsmethodselectorswithpermission)
+        * [`obj spec.spec.egressPolicies.egressTo.resources`](#obj-specspecegresspoliciesegresstoresources)
+          * [`obj spec.spec.egressPolicies.egressTo.resources.projectRef`](#obj-specspecegresspoliciesegresstoresourcesprojectref)
+            * [`fn withExternal(external)`](#fn-specspecegresspoliciesegresstoresourcesprojectrefwithexternal)
+            * [`fn withName(name)`](#fn-specspecegresspoliciesegresstoresourcesprojectrefwithname)
+            * [`fn withNamespace(namespace)`](#fn-specspecegresspoliciesegresstoresourcesprojectrefwithnamespace)
+    * [`obj spec.spec.ingressPolicies`](#obj-specspecingresspolicies)
+      * [`obj spec.spec.ingressPolicies.ingressFrom`](#obj-specspecingresspoliciesingressfrom)
+        * [`fn withIdentities(identities)`](#fn-specspecingresspoliciesingressfromwithidentities)
+        * [`fn withIdentitiesMixin(identities)`](#fn-specspecingresspoliciesingressfromwithidentitiesmixin)
+        * [`fn withIdentityType(identityType)`](#fn-specspecingresspoliciesingressfromwithidentitytype)
+        * [`fn withSources(sources)`](#fn-specspecingresspoliciesingressfromwithsources)
+        * [`fn withSourcesMixin(sources)`](#fn-specspecingresspoliciesingressfromwithsourcesmixin)
+        * [`obj spec.spec.ingressPolicies.ingressFrom.identities`](#obj-specspecingresspoliciesingressfromidentities)
+          * [`fn withUser(user)`](#fn-specspecingresspoliciesingressfromidentitieswithuser)
+          * [`obj spec.spec.ingressPolicies.ingressFrom.identities.serviceAccountRef`](#obj-specspecingresspoliciesingressfromidentitiesserviceaccountref)
+            * [`fn withExternal(external)`](#fn-specspecingresspoliciesingressfromidentitiesserviceaccountrefwithexternal)
+            * [`fn withName(name)`](#fn-specspecingresspoliciesingressfromidentitiesserviceaccountrefwithname)
+            * [`fn withNamespace(namespace)`](#fn-specspecingresspoliciesingressfromidentitiesserviceaccountrefwithnamespace)
+        * [`obj spec.spec.ingressPolicies.ingressFrom.sources`](#obj-specspecingresspoliciesingressfromsources)
+          * [`obj spec.spec.ingressPolicies.ingressFrom.sources.accessLevelRef`](#obj-specspecingresspoliciesingressfromsourcesaccesslevelref)
+            * [`fn withExternal(external)`](#fn-specspecingresspoliciesingressfromsourcesaccesslevelrefwithexternal)
+            * [`fn withName(name)`](#fn-specspecingresspoliciesingressfromsourcesaccesslevelrefwithname)
+            * [`fn withNamespace(namespace)`](#fn-specspecingresspoliciesingressfromsourcesaccesslevelrefwithnamespace)
+          * [`obj spec.spec.ingressPolicies.ingressFrom.sources.projectRef`](#obj-specspecingresspoliciesingressfromsourcesprojectref)
+            * [`fn withExternal(external)`](#fn-specspecingresspoliciesingressfromsourcesprojectrefwithexternal)
+            * [`fn withName(name)`](#fn-specspecingresspoliciesingressfromsourcesprojectrefwithname)
+            * [`fn withNamespace(namespace)`](#fn-specspecingresspoliciesingressfromsourcesprojectrefwithnamespace)
+      * [`obj spec.spec.ingressPolicies.ingressTo`](#obj-specspecingresspoliciesingressto)
+        * [`fn withOperations(operations)`](#fn-specspecingresspoliciesingresstowithoperations)
+        * [`fn withOperationsMixin(operations)`](#fn-specspecingresspoliciesingresstowithoperationsmixin)
+        * [`fn withResources(resources)`](#fn-specspecingresspoliciesingresstowithresources)
+        * [`fn withResourcesMixin(resources)`](#fn-specspecingresspoliciesingresstowithresourcesmixin)
+        * [`obj spec.spec.ingressPolicies.ingressTo.operations`](#obj-specspecingresspoliciesingresstooperations)
+          * [`fn withMethodSelectors(methodSelectors)`](#fn-specspecingresspoliciesingresstooperationswithmethodselectors)
+          * [`fn withMethodSelectorsMixin(methodSelectors)`](#fn-specspecingresspoliciesingresstooperationswithmethodselectorsmixin)
+          * [`fn withServiceName(serviceName)`](#fn-specspecingresspoliciesingresstooperationswithservicename)
+          * [`obj spec.spec.ingressPolicies.ingressTo.operations.methodSelectors`](#obj-specspecingresspoliciesingresstooperationsmethodselectors)
+            * [`fn withMethod(method)`](#fn-specspecingresspoliciesingresstooperationsmethodselectorswithmethod)
+            * [`fn withPermission(permission)`](#fn-specspecingresspoliciesingresstooperationsmethodselectorswithpermission)
+        * [`obj spec.spec.ingressPolicies.ingressTo.resources`](#obj-specspecingresspoliciesingresstoresources)
+          * [`obj spec.spec.ingressPolicies.ingressTo.resources.projectRef`](#obj-specspecingresspoliciesingresstoresourcesprojectref)
+            * [`fn withExternal(external)`](#fn-specspecingresspoliciesingresstoresourcesprojectrefwithexternal)
+            * [`fn withName(name)`](#fn-specspecingresspoliciesingresstoresourcesprojectrefwithname)
+            * [`fn withNamespace(namespace)`](#fn-specspecingresspoliciesingresstoresourcesprojectrefwithnamespace)
+    * [`obj spec.spec.resources`](#obj-specspecresources)
+      * [`obj spec.spec.resources.projectRef`](#obj-specspecresourcesprojectref)
+        * [`fn withExternal(external)`](#fn-specspecresourcesprojectrefwithexternal)
+        * [`fn withName(name)`](#fn-specspecresourcesprojectrefwithname)
+        * [`fn withNamespace(namespace)`](#fn-specspecresourcesprojectrefwithnamespace)
     * [`obj spec.spec.vpcAccessibleServices`](#obj-specspecvpcaccessibleservices)
       * [`fn withAllowedServices(allowedServices)`](#fn-specspecvpcaccessibleserviceswithallowedservices)
       * [`fn withAllowedServicesMixin(allowedServices)`](#fn-specspecvpcaccessibleserviceswithallowedservicesmixin)
@@ -170,24 +244,6 @@ withLabelsMixin(labels)
 ```
 
 "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
-
-**Note:** This function appends passed data to existing values
-
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
 
 **Note:** This function appends passed data to existing values
 
@@ -414,6 +470,536 @@ withRestrictedServicesMixin(restrictedServices)
 "GCP services that are subject to the Service Perimeter\nrestrictions. Must contain a list of services. For example, if\n'storage.googleapis.com' is specified, access to the storage\nbuckets inside the perimeter must meet the perimeter's access\nrestrictions."
 
 **Note:** This function appends passed data to existing values
+
+## obj spec.spec.accessLevels
+
+
+
+### fn spec.spec.accessLevels.withExternal
+
+```ts
+withExternal(external)
+```
+
+"A string of the format \"{{parent}}/accessLevels/{{value}}\", where {{value}} is the name of an AccessContextManagerAccessLevel."
+
+### fn spec.spec.accessLevels.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.spec.accessLevels.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
+## obj spec.spec.egressPolicies
+
+"List of EgressPolicies to apply to the perimeter. A perimeter may \nhave multiple EgressPolicies, each of which is evaluated separately.\nAccess is granted if any EgressPolicy grants it. Must be empty for \na perimeter bridge."
+
+## obj spec.spec.egressPolicies.egressFrom
+
+"Defines conditions on the source of a request causing this 'EgressPolicy' to apply."
+
+### fn spec.spec.egressPolicies.egressFrom.withIdentities
+
+```ts
+withIdentities(identities)
+```
+
+
+
+### fn spec.spec.egressPolicies.egressFrom.withIdentitiesMixin
+
+```ts
+withIdentitiesMixin(identities)
+```
+
+
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.spec.egressPolicies.egressFrom.withIdentityType
+
+```ts
+withIdentityType(identityType)
+```
+
+"Specifies the type of identities that are allowed access to outside the \nperimeter. If left unspecified, then members of 'identities' field will \nbe allowed access. Possible values: [\"IDENTITY_TYPE_UNSPECIFIED\", \"ANY_IDENTITY\", \"ANY_USER_ACCOUNT\", \"ANY_SERVICE_ACCOUNT\"]."
+
+## obj spec.spec.egressPolicies.egressFrom.identities
+
+
+
+### fn spec.spec.egressPolicies.egressFrom.identities.withUser
+
+```ts
+withUser(user)
+```
+
+
+
+## obj spec.spec.egressPolicies.egressFrom.identities.serviceAccountRef
+
+
+
+### fn spec.spec.egressPolicies.egressFrom.identities.serviceAccountRef.withExternal
+
+```ts
+withExternal(external)
+```
+
+"A string of the format \"serviceAccount:{{value}}\", where {{value}} is the email of an IAMServiceAccount."
+
+### fn spec.spec.egressPolicies.egressFrom.identities.serviceAccountRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.spec.egressPolicies.egressFrom.identities.serviceAccountRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
+## obj spec.spec.egressPolicies.egressTo
+
+"Defines the conditions on the 'ApiOperation' and destination resources that \ncause this 'EgressPolicy' to apply."
+
+### fn spec.spec.egressPolicies.egressTo.withOperations
+
+```ts
+withOperations(operations)
+```
+
+"A list of 'ApiOperations' that this egress rule applies to. A request matches \nif it contains an operation/service in this list."
+
+### fn spec.spec.egressPolicies.egressTo.withOperationsMixin
+
+```ts
+withOperationsMixin(operations)
+```
+
+"A list of 'ApiOperations' that this egress rule applies to. A request matches \nif it contains an operation/service in this list."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.spec.egressPolicies.egressTo.withResources
+
+```ts
+withResources(resources)
+```
+
+
+
+### fn spec.spec.egressPolicies.egressTo.withResourcesMixin
+
+```ts
+withResourcesMixin(resources)
+```
+
+
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.spec.egressPolicies.egressTo.operations
+
+"A list of 'ApiOperations' that this egress rule applies to. A request matches \nif it contains an operation/service in this list."
+
+### fn spec.spec.egressPolicies.egressTo.operations.withMethodSelectors
+
+```ts
+withMethodSelectors(methodSelectors)
+```
+
+"API methods or permissions to allow. Method or permission must belong \nto the service specified by 'serviceName' field. A single MethodSelector \nentry with '*' specified for the 'method' field will allow all methods \nAND permissions for the service specified in 'serviceName'."
+
+### fn spec.spec.egressPolicies.egressTo.operations.withMethodSelectorsMixin
+
+```ts
+withMethodSelectorsMixin(methodSelectors)
+```
+
+"API methods or permissions to allow. Method or permission must belong \nto the service specified by 'serviceName' field. A single MethodSelector \nentry with '*' specified for the 'method' field will allow all methods \nAND permissions for the service specified in 'serviceName'."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.spec.egressPolicies.egressTo.operations.withServiceName
+
+```ts
+withServiceName(serviceName)
+```
+
+"The name of the API whose methods or permissions the 'IngressPolicy' or \n'EgressPolicy' want to allow. A single 'ApiOperation' with serviceName \nfield set to '*' will allow all methods AND permissions for all services."
+
+## obj spec.spec.egressPolicies.egressTo.operations.methodSelectors
+
+"API methods or permissions to allow. Method or permission must belong \nto the service specified by 'serviceName' field. A single MethodSelector \nentry with '*' specified for the 'method' field will allow all methods \nAND permissions for the service specified in 'serviceName'."
+
+### fn spec.spec.egressPolicies.egressTo.operations.methodSelectors.withMethod
+
+```ts
+withMethod(method)
+```
+
+"Value for 'method' should be a valid method name for the corresponding \n'serviceName' in 'ApiOperation'. If '*' used as value for method, \nthen ALL methods and permissions are allowed."
+
+### fn spec.spec.egressPolicies.egressTo.operations.methodSelectors.withPermission
+
+```ts
+withPermission(permission)
+```
+
+"Value for permission should be a valid Cloud IAM permission for the \ncorresponding 'serviceName' in 'ApiOperation'."
+
+## obj spec.spec.egressPolicies.egressTo.resources
+
+
+
+## obj spec.spec.egressPolicies.egressTo.resources.projectRef
+
+
+
+### fn spec.spec.egressPolicies.egressTo.resources.projectRef.withExternal
+
+```ts
+withExternal(external)
+```
+
+"A string of the format \"projects/{{value}}\", where {{value}} is the number of a Project."
+
+### fn spec.spec.egressPolicies.egressTo.resources.projectRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.spec.egressPolicies.egressTo.resources.projectRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
+## obj spec.spec.ingressPolicies
+
+"List of 'IngressPolicies' to apply to the perimeter. A perimeter may\nhave multiple 'IngressPolicies', each of which is evaluated\nseparately. Access is granted if any 'Ingress Policy' grants it.\nMust be empty for a perimeter bridge."
+
+## obj spec.spec.ingressPolicies.ingressFrom
+
+"Defines the conditions on the source of a request causing this 'IngressPolicy'\nto apply."
+
+### fn spec.spec.ingressPolicies.ingressFrom.withIdentities
+
+```ts
+withIdentities(identities)
+```
+
+
+
+### fn spec.spec.ingressPolicies.ingressFrom.withIdentitiesMixin
+
+```ts
+withIdentitiesMixin(identities)
+```
+
+
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.spec.ingressPolicies.ingressFrom.withIdentityType
+
+```ts
+withIdentityType(identityType)
+```
+
+"Specifies the type of identities that are allowed access from outside the \nperimeter. If left unspecified, then members of 'identities' field will be \nallowed access. Possible values: [\"IDENTITY_TYPE_UNSPECIFIED\", \"ANY_IDENTITY\", \"ANY_USER_ACCOUNT\", \"ANY_SERVICE_ACCOUNT\"]."
+
+### fn spec.spec.ingressPolicies.ingressFrom.withSources
+
+```ts
+withSources(sources)
+```
+
+"Sources that this 'IngressPolicy' authorizes access from."
+
+### fn spec.spec.ingressPolicies.ingressFrom.withSourcesMixin
+
+```ts
+withSourcesMixin(sources)
+```
+
+"Sources that this 'IngressPolicy' authorizes access from."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.spec.ingressPolicies.ingressFrom.identities
+
+
+
+### fn spec.spec.ingressPolicies.ingressFrom.identities.withUser
+
+```ts
+withUser(user)
+```
+
+
+
+## obj spec.spec.ingressPolicies.ingressFrom.identities.serviceAccountRef
+
+
+
+### fn spec.spec.ingressPolicies.ingressFrom.identities.serviceAccountRef.withExternal
+
+```ts
+withExternal(external)
+```
+
+"A string of the format \"serviceAccount:{{value}}\", where {{value}} is the email of an IAMServiceAccount."
+
+### fn spec.spec.ingressPolicies.ingressFrom.identities.serviceAccountRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.spec.ingressPolicies.ingressFrom.identities.serviceAccountRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
+## obj spec.spec.ingressPolicies.ingressFrom.sources
+
+"Sources that this 'IngressPolicy' authorizes access from."
+
+## obj spec.spec.ingressPolicies.ingressFrom.sources.accessLevelRef
+
+"An AccessLevel resource name that allow resources within the\nServicePerimeters to be accessed from the internet. AccessLevels\nlisted must be in the same policy as this ServicePerimeter.\nReferencing a nonexistent AccessLevel will cause an error. If no\nAccessLevel names are listed, resources within the perimeter can\nonly be accessed via Google Cloud calls with request origins within\nthe perimeter."
+
+### fn spec.spec.ingressPolicies.ingressFrom.sources.accessLevelRef.withExternal
+
+```ts
+withExternal(external)
+```
+
+"A string of the format \"{{parent}}/accessLevels/{{value}}\", where {{value}} is the name of an AccessContextManagerAccessLevel."
+
+### fn spec.spec.ingressPolicies.ingressFrom.sources.accessLevelRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.spec.ingressPolicies.ingressFrom.sources.accessLevelRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
+## obj spec.spec.ingressPolicies.ingressFrom.sources.projectRef
+
+"(Optional) A Google Cloud resource that is allowed to ingress the\nperimeter. Requests from these resources will be allowed to access\nperimeter data. Currently only projects are allowed. Format\n\"projects/{project_number}\" The project may be in any Google Cloud\norganization, not just the organization that the perimeter is defined in."
+
+### fn spec.spec.ingressPolicies.ingressFrom.sources.projectRef.withExternal
+
+```ts
+withExternal(external)
+```
+
+"A string of the format \"projects/{{value}}\", where {{value}} is the number of a Project."
+
+### fn spec.spec.ingressPolicies.ingressFrom.sources.projectRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.spec.ingressPolicies.ingressFrom.sources.projectRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
+## obj spec.spec.ingressPolicies.ingressTo
+
+"Defines the conditions on the 'ApiOperation' and request destination that cause\nthis 'IngressPolicy' to apply."
+
+### fn spec.spec.ingressPolicies.ingressTo.withOperations
+
+```ts
+withOperations(operations)
+```
+
+"A list of 'ApiOperations' the sources specified in corresponding 'IngressFrom' \nare allowed to perform in this 'ServicePerimeter'."
+
+### fn spec.spec.ingressPolicies.ingressTo.withOperationsMixin
+
+```ts
+withOperationsMixin(operations)
+```
+
+"A list of 'ApiOperations' the sources specified in corresponding 'IngressFrom' \nare allowed to perform in this 'ServicePerimeter'."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.spec.ingressPolicies.ingressTo.withResources
+
+```ts
+withResources(resources)
+```
+
+
+
+### fn spec.spec.ingressPolicies.ingressTo.withResourcesMixin
+
+```ts
+withResourcesMixin(resources)
+```
+
+
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.spec.ingressPolicies.ingressTo.operations
+
+"A list of 'ApiOperations' the sources specified in corresponding 'IngressFrom' \nare allowed to perform in this 'ServicePerimeter'."
+
+### fn spec.spec.ingressPolicies.ingressTo.operations.withMethodSelectors
+
+```ts
+withMethodSelectors(methodSelectors)
+```
+
+"API methods or permissions to allow. Method or permission must belong to \nthe service specified by serviceName field. A single 'MethodSelector' entry \nwith '*' specified for the method field will allow all methods AND \npermissions for the service specified in 'serviceName'."
+
+### fn spec.spec.ingressPolicies.ingressTo.operations.withMethodSelectorsMixin
+
+```ts
+withMethodSelectorsMixin(methodSelectors)
+```
+
+"API methods or permissions to allow. Method or permission must belong to \nthe service specified by serviceName field. A single 'MethodSelector' entry \nwith '*' specified for the method field will allow all methods AND \npermissions for the service specified in 'serviceName'."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.spec.ingressPolicies.ingressTo.operations.withServiceName
+
+```ts
+withServiceName(serviceName)
+```
+
+"The name of the API whose methods or permissions the 'IngressPolicy' or \n'EgressPolicy' want to allow. A single 'ApiOperation' with 'serviceName' \nfield set to '*' will allow all methods AND permissions for all services."
+
+## obj spec.spec.ingressPolicies.ingressTo.operations.methodSelectors
+
+"API methods or permissions to allow. Method or permission must belong to \nthe service specified by serviceName field. A single 'MethodSelector' entry \nwith '*' specified for the method field will allow all methods AND \npermissions for the service specified in 'serviceName'."
+
+### fn spec.spec.ingressPolicies.ingressTo.operations.methodSelectors.withMethod
+
+```ts
+withMethod(method)
+```
+
+"Value for method should be a valid method name for the corresponding \nserviceName in 'ApiOperation'. If '*' used as value for 'method', then \nALL methods and permissions are allowed."
+
+### fn spec.spec.ingressPolicies.ingressTo.operations.methodSelectors.withPermission
+
+```ts
+withPermission(permission)
+```
+
+"Value for permission should be a valid Cloud IAM permission for the \ncorresponding 'serviceName' in 'ApiOperation'."
+
+## obj spec.spec.ingressPolicies.ingressTo.resources
+
+
+
+## obj spec.spec.ingressPolicies.ingressTo.resources.projectRef
+
+
+
+### fn spec.spec.ingressPolicies.ingressTo.resources.projectRef.withExternal
+
+```ts
+withExternal(external)
+```
+
+"A string of the format \"projects/{{value}}\", where {{value}} is the number of a Project."
+
+### fn spec.spec.ingressPolicies.ingressTo.resources.projectRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.spec.ingressPolicies.ingressTo.resources.projectRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
+## obj spec.spec.resources
+
+
+
+## obj spec.spec.resources.projectRef
+
+
+
+### fn spec.spec.resources.projectRef.withExternal
+
+```ts
+withExternal(external)
+```
+
+"A string of the format \"projects/{{value}}\", where {{value}} is the number of a Project."
+
+### fn spec.spec.resources.projectRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.spec.resources.projectRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
 
 ## obj spec.spec.vpcAccessibleServices
 

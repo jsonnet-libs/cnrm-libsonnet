@@ -22,8 +22,6 @@ permalink: /1.74/container/v1beta1/containerCluster/
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -91,6 +89,10 @@ permalink: /1.74/container/v1beta1/containerCluster/
         * [`fn withExternal(external)`](#fn-specclusterautoscalingautoprovisioningdefaultsserviceaccountrefwithexternal)
         * [`fn withName(name)`](#fn-specclusterautoscalingautoprovisioningdefaultsserviceaccountrefwithname)
         * [`fn withNamespace(namespace)`](#fn-specclusterautoscalingautoprovisioningdefaultsserviceaccountrefwithnamespace)
+    * [`obj spec.clusterAutoscaling.resourceLimits`](#obj-specclusterautoscalingresourcelimits)
+      * [`fn withMaximum(maximum)`](#fn-specclusterautoscalingresourcelimitswithmaximum)
+      * [`fn withMinimum(minimum)`](#fn-specclusterautoscalingresourcelimitswithminimum)
+      * [`fn withResourceType(resourceType)`](#fn-specclusterautoscalingresourcelimitswithresourcetype)
   * [`obj spec.clusterTelemetry`](#obj-specclustertelemetry)
     * [`fn withType(type)`](#fn-specclustertelemetrywithtype)
   * [`obj spec.confidentialNodes`](#obj-specconfidentialnodes)
@@ -120,6 +122,10 @@ permalink: /1.74/container/v1beta1/containerCluster/
     * [`obj spec.maintenancePolicy.dailyMaintenanceWindow`](#obj-specmaintenancepolicydailymaintenancewindow)
       * [`fn withDuration(duration)`](#fn-specmaintenancepolicydailymaintenancewindowwithduration)
       * [`fn withStartTime(startTime)`](#fn-specmaintenancepolicydailymaintenancewindowwithstarttime)
+    * [`obj spec.maintenancePolicy.maintenanceExclusion`](#obj-specmaintenancepolicymaintenanceexclusion)
+      * [`fn withEndTime(endTime)`](#fn-specmaintenancepolicymaintenanceexclusionwithendtime)
+      * [`fn withExclusionName(exclusionName)`](#fn-specmaintenancepolicymaintenanceexclusionwithexclusionname)
+      * [`fn withStartTime(startTime)`](#fn-specmaintenancepolicymaintenanceexclusionwithstarttime)
     * [`obj spec.maintenancePolicy.recurringWindow`](#obj-specmaintenancepolicyrecurringwindow)
       * [`fn withEndTime(endTime)`](#fn-specmaintenancepolicyrecurringwindowwithendtime)
       * [`fn withRecurrence(recurrence)`](#fn-specmaintenancepolicyrecurringwindowwithrecurrence)
@@ -140,6 +146,9 @@ permalink: /1.74/container/v1beta1/containerCluster/
   * [`obj spec.masterAuthorizedNetworksConfig`](#obj-specmasterauthorizednetworksconfig)
     * [`fn withCidrBlocks(cidrBlocks)`](#fn-specmasterauthorizednetworksconfigwithcidrblocks)
     * [`fn withCidrBlocksMixin(cidrBlocks)`](#fn-specmasterauthorizednetworksconfigwithcidrblocksmixin)
+    * [`obj spec.masterAuthorizedNetworksConfig.cidrBlocks`](#obj-specmasterauthorizednetworksconfigcidrblocks)
+      * [`fn withCidrBlock(cidrBlock)`](#fn-specmasterauthorizednetworksconfigcidrblockswithcidrblock)
+      * [`fn withDisplayName(displayName)`](#fn-specmasterauthorizednetworksconfigcidrblockswithdisplayname)
   * [`obj spec.monitoringConfig`](#obj-specmonitoringconfig)
     * [`fn withEnableComponents(enableComponents)`](#fn-specmonitoringconfigwithenablecomponents)
     * [`fn withEnableComponentsMixin(enableComponents)`](#fn-specmonitoringconfigwithenablecomponentsmixin)
@@ -179,6 +188,10 @@ permalink: /1.74/container/v1beta1/containerCluster/
       * [`fn withLocalSsdCount(localSsdCount)`](#fn-specnodeconfigephemeralstorageconfigwithlocalssdcount)
     * [`obj spec.nodeConfig.gcfsConfig`](#obj-specnodeconfiggcfsconfig)
       * [`fn withEnabled(enabled)`](#fn-specnodeconfiggcfsconfigwithenabled)
+    * [`obj spec.nodeConfig.guestAccelerator`](#obj-specnodeconfigguestaccelerator)
+      * [`fn withCount(count)`](#fn-specnodeconfigguestacceleratorwithcount)
+      * [`fn withGpuPartitionSize(gpuPartitionSize)`](#fn-specnodeconfigguestacceleratorwithgpupartitionsize)
+      * [`fn withType(type)`](#fn-specnodeconfigguestacceleratorwithtype)
     * [`obj spec.nodeConfig.kubeletConfig`](#obj-specnodeconfigkubeletconfig)
       * [`fn withCpuCfsQuota(cpuCfsQuota)`](#fn-specnodeconfigkubeletconfigwithcpucfsquota)
       * [`fn withCpuCfsQuotaPeriod(cpuCfsQuotaPeriod)`](#fn-specnodeconfigkubeletconfigwithcpucfsquotaperiod)
@@ -199,6 +212,10 @@ permalink: /1.74/container/v1beta1/containerCluster/
     * [`obj spec.nodeConfig.shieldedInstanceConfig`](#obj-specnodeconfigshieldedinstanceconfig)
       * [`fn withEnableIntegrityMonitoring(enableIntegrityMonitoring)`](#fn-specnodeconfigshieldedinstanceconfigwithenableintegritymonitoring)
       * [`fn withEnableSecureBoot(enableSecureBoot)`](#fn-specnodeconfigshieldedinstanceconfigwithenablesecureboot)
+    * [`obj spec.nodeConfig.taint`](#obj-specnodeconfigtaint)
+      * [`fn withEffect(effect)`](#fn-specnodeconfigtaintwitheffect)
+      * [`fn withKey(key)`](#fn-specnodeconfigtaintwithkey)
+      * [`fn withValue(value)`](#fn-specnodeconfigtaintwithvalue)
     * [`obj spec.nodeConfig.workloadMetadataConfig`](#obj-specnodeconfigworkloadmetadataconfig)
       * [`fn withMode(mode)`](#fn-specnodeconfigworkloadmetadataconfigwithmode)
       * [`fn withNodeMetadata(nodeMetadata)`](#fn-specnodeconfigworkloadmetadataconfigwithnodemetadata)
@@ -350,24 +367,6 @@ withLabelsMixin(labels)
 ```
 
 "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
-
-**Note:** This function appends passed data to existing values
-
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
 
 **Note:** This function appends passed data to existing values
 
@@ -855,6 +854,34 @@ withNamespace(namespace)
 
 "Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
 
+## obj spec.clusterAutoscaling.resourceLimits
+
+"Global constraints for machine resources in the cluster. Configuring the cpu and memory types is required if node auto-provisioning is enabled. These limits will apply to node pool autoscaling in addition to node auto-provisioning."
+
+### fn spec.clusterAutoscaling.resourceLimits.withMaximum
+
+```ts
+withMaximum(maximum)
+```
+
+"Maximum amount of the resource in the cluster."
+
+### fn spec.clusterAutoscaling.resourceLimits.withMinimum
+
+```ts
+withMinimum(minimum)
+```
+
+"Minimum amount of the resource in the cluster."
+
+### fn spec.clusterAutoscaling.resourceLimits.withResourceType
+
+```ts
+withResourceType(resourceType)
+```
+
+"The type of the resource. For example, cpu and memory. See the guide to using Node Auto-Provisioning for a list of types."
+
 ## obj spec.clusterTelemetry
 
 "Telemetry integration for the cluster."
@@ -1051,6 +1078,34 @@ withStartTime(startTime)
 
 
 
+## obj spec.maintenancePolicy.maintenanceExclusion
+
+"Exceptions to maintenance window. Non-emergency maintenance should not occur in these windows."
+
+### fn spec.maintenancePolicy.maintenanceExclusion.withEndTime
+
+```ts
+withEndTime(endTime)
+```
+
+
+
+### fn spec.maintenancePolicy.maintenanceExclusion.withExclusionName
+
+```ts
+withExclusionName(exclusionName)
+```
+
+
+
+### fn spec.maintenancePolicy.maintenanceExclusion.withStartTime
+
+```ts
+withStartTime(startTime)
+```
+
+
+
 ## obj spec.maintenancePolicy.recurringWindow
 
 "Time window for recurring maintenance operations."
@@ -1184,6 +1239,26 @@ withCidrBlocksMixin(cidrBlocks)
 "External networks that can access the Kubernetes cluster master through HTTPS."
 
 **Note:** This function appends passed data to existing values
+
+## obj spec.masterAuthorizedNetworksConfig.cidrBlocks
+
+"External networks that can access the Kubernetes cluster master through HTTPS."
+
+### fn spec.masterAuthorizedNetworksConfig.cidrBlocks.withCidrBlock
+
+```ts
+withCidrBlock(cidrBlock)
+```
+
+"External network that can access Kubernetes master through HTTPS. Must be specified in CIDR notation."
+
+### fn spec.masterAuthorizedNetworksConfig.cidrBlocks.withDisplayName
+
+```ts
+withDisplayName(displayName)
+```
+
+"Field for users to identify CIDR blocks."
 
 ## obj spec.monitoringConfig
 
@@ -1483,6 +1558,34 @@ withEnabled(enabled)
 
 "Immutable. Whether or not GCFS is enabled."
 
+## obj spec.nodeConfig.guestAccelerator
+
+"Immutable. List of the type and count of accelerator cards attached to the instance."
+
+### fn spec.nodeConfig.guestAccelerator.withCount
+
+```ts
+withCount(count)
+```
+
+"Immutable. The number of the accelerator cards exposed to an instance."
+
+### fn spec.nodeConfig.guestAccelerator.withGpuPartitionSize
+
+```ts
+withGpuPartitionSize(gpuPartitionSize)
+```
+
+"Immutable. Size of partitions to create on the GPU. Valid values are described in the NVIDIA mig user guide (https://docs.nvidia.com/datacenter/tesla/mig-user-guide/#partitioning)."
+
+### fn spec.nodeConfig.guestAccelerator.withType
+
+```ts
+withType(type)
+```
+
+"Immutable. The accelerator type resource name."
+
 ## obj spec.nodeConfig.kubeletConfig
 
 "Node kubelet configs."
@@ -1620,6 +1723,34 @@ withEnableSecureBoot(enableSecureBoot)
 ```
 
 "Immutable. Defines whether the instance has Secure Boot enabled."
+
+## obj spec.nodeConfig.taint
+
+"Immutable. List of Kubernetes taints to be applied to each node."
+
+### fn spec.nodeConfig.taint.withEffect
+
+```ts
+withEffect(effect)
+```
+
+"Immutable. Effect for taint."
+
+### fn spec.nodeConfig.taint.withKey
+
+```ts
+withKey(key)
+```
+
+"Immutable. Key for taint."
+
+### fn spec.nodeConfig.taint.withValue
+
+```ts
+withValue(value)
+```
+
+"Immutable. Value for taint."
 
 ## obj spec.nodeConfig.workloadMetadataConfig
 

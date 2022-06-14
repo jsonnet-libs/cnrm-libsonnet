@@ -22,8 +22,6 @@ permalink: /1.74/accesscontextmanager/v1beta1/accessContextManagerAccessLevel/
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -43,6 +41,40 @@ permalink: /1.74/accesscontextmanager/v1beta1/accessContextManagerAccessLevel/
     * [`fn withCombiningFunction(combiningFunction)`](#fn-specbasicwithcombiningfunction)
     * [`fn withConditions(conditions)`](#fn-specbasicwithconditions)
     * [`fn withConditionsMixin(conditions)`](#fn-specbasicwithconditionsmixin)
+    * [`obj spec.basic.conditions`](#obj-specbasicconditions)
+      * [`fn withIpSubnetworks(ipSubnetworks)`](#fn-specbasicconditionswithipsubnetworks)
+      * [`fn withIpSubnetworksMixin(ipSubnetworks)`](#fn-specbasicconditionswithipsubnetworksmixin)
+      * [`fn withMembers(members)`](#fn-specbasicconditionswithmembers)
+      * [`fn withMembersMixin(members)`](#fn-specbasicconditionswithmembersmixin)
+      * [`fn withNegate(negate)`](#fn-specbasicconditionswithnegate)
+      * [`fn withRegions(regions)`](#fn-specbasicconditionswithregions)
+      * [`fn withRegionsMixin(regions)`](#fn-specbasicconditionswithregionsmixin)
+      * [`fn withRequiredAccessLevels(requiredAccessLevels)`](#fn-specbasicconditionswithrequiredaccesslevels)
+      * [`fn withRequiredAccessLevelsMixin(requiredAccessLevels)`](#fn-specbasicconditionswithrequiredaccesslevelsmixin)
+      * [`obj spec.basic.conditions.devicePolicy`](#obj-specbasicconditionsdevicepolicy)
+        * [`fn withAllowedDeviceManagementLevels(allowedDeviceManagementLevels)`](#fn-specbasicconditionsdevicepolicywithalloweddevicemanagementlevels)
+        * [`fn withAllowedDeviceManagementLevelsMixin(allowedDeviceManagementLevels)`](#fn-specbasicconditionsdevicepolicywithalloweddevicemanagementlevelsmixin)
+        * [`fn withAllowedEncryptionStatuses(allowedEncryptionStatuses)`](#fn-specbasicconditionsdevicepolicywithallowedencryptionstatuses)
+        * [`fn withAllowedEncryptionStatusesMixin(allowedEncryptionStatuses)`](#fn-specbasicconditionsdevicepolicywithallowedencryptionstatusesmixin)
+        * [`fn withOsConstraints(osConstraints)`](#fn-specbasicconditionsdevicepolicywithosconstraints)
+        * [`fn withOsConstraintsMixin(osConstraints)`](#fn-specbasicconditionsdevicepolicywithosconstraintsmixin)
+        * [`fn withRequireAdminApproval(requireAdminApproval)`](#fn-specbasicconditionsdevicepolicywithrequireadminapproval)
+        * [`fn withRequireCorpOwned(requireCorpOwned)`](#fn-specbasicconditionsdevicepolicywithrequirecorpowned)
+        * [`fn withRequireScreenLock(requireScreenLock)`](#fn-specbasicconditionsdevicepolicywithrequirescreenlock)
+        * [`obj spec.basic.conditions.devicePolicy.osConstraints`](#obj-specbasicconditionsdevicepolicyosconstraints)
+          * [`fn withMinimumVersion(minimumVersion)`](#fn-specbasicconditionsdevicepolicyosconstraintswithminimumversion)
+          * [`fn withOsType(osType)`](#fn-specbasicconditionsdevicepolicyosconstraintswithostype)
+          * [`fn withRequireVerifiedChromeOs(requireVerifiedChromeOs)`](#fn-specbasicconditionsdevicepolicyosconstraintswithrequireverifiedchromeos)
+      * [`obj spec.basic.conditions.members`](#obj-specbasicconditionsmembers)
+        * [`fn withUser(user)`](#fn-specbasicconditionsmemberswithuser)
+        * [`obj spec.basic.conditions.members.serviceAccountRef`](#obj-specbasicconditionsmembersserviceaccountref)
+          * [`fn withExternal(external)`](#fn-specbasicconditionsmembersserviceaccountrefwithexternal)
+          * [`fn withName(name)`](#fn-specbasicconditionsmembersserviceaccountrefwithname)
+          * [`fn withNamespace(namespace)`](#fn-specbasicconditionsmembersserviceaccountrefwithnamespace)
+      * [`obj spec.basic.conditions.requiredAccessLevels`](#obj-specbasicconditionsrequiredaccesslevels)
+        * [`fn withExternal(external)`](#fn-specbasicconditionsrequiredaccesslevelswithexternal)
+        * [`fn withName(name)`](#fn-specbasicconditionsrequiredaccesslevelswithname)
+        * [`fn withNamespace(namespace)`](#fn-specbasicconditionsrequiredaccesslevelswithnamespace)
   * [`obj spec.custom`](#obj-speccustom)
     * [`obj spec.custom.expr`](#obj-speccustomexpr)
       * [`fn withDescription(description)`](#fn-speccustomexprwithdescription)
@@ -163,24 +195,6 @@ withLabelsMixin(labels)
 ```
 
 "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
-
-**Note:** This function appends passed data to existing values
-
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
 
 **Note:** This function appends passed data to existing values
 
@@ -327,6 +341,268 @@ withConditionsMixin(conditions)
 "A set of requirements for the AccessLevel to be granted."
 
 **Note:** This function appends passed data to existing values
+
+## obj spec.basic.conditions
+
+"A set of requirements for the AccessLevel to be granted."
+
+### fn spec.basic.conditions.withIpSubnetworks
+
+```ts
+withIpSubnetworks(ipSubnetworks)
+```
+
+"A list of CIDR block IP subnetwork specification. May be IPv4\nor IPv6.\nNote that for a CIDR IP address block, the specified IP address\nportion must be properly truncated (i.e. all the host bits must\nbe zero) or the input is considered malformed. For example,\n\"192.0.2.0/24\" is accepted but \"192.0.2.1/24\" is not. Similarly,\nfor IPv6, \"2001:db8::/32\" is accepted whereas \"2001:db8::1/32\"\nis not. The originating IP of a request must be in one of the\nlisted subnets in order for this Condition to be true.\nIf empty, all IP addresses are allowed."
+
+### fn spec.basic.conditions.withIpSubnetworksMixin
+
+```ts
+withIpSubnetworksMixin(ipSubnetworks)
+```
+
+"A list of CIDR block IP subnetwork specification. May be IPv4\nor IPv6.\nNote that for a CIDR IP address block, the specified IP address\nportion must be properly truncated (i.e. all the host bits must\nbe zero) or the input is considered malformed. For example,\n\"192.0.2.0/24\" is accepted but \"192.0.2.1/24\" is not. Similarly,\nfor IPv6, \"2001:db8::/32\" is accepted whereas \"2001:db8::1/32\"\nis not. The originating IP of a request must be in one of the\nlisted subnets in order for this Condition to be true.\nIf empty, all IP addresses are allowed."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.basic.conditions.withMembers
+
+```ts
+withMembers(members)
+```
+
+
+
+### fn spec.basic.conditions.withMembersMixin
+
+```ts
+withMembersMixin(members)
+```
+
+
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.basic.conditions.withNegate
+
+```ts
+withNegate(negate)
+```
+
+"Whether to negate the Condition. If true, the Condition becomes\na NAND over its non-empty fields, each field must be false for\nthe Condition overall to be satisfied. Defaults to false."
+
+### fn spec.basic.conditions.withRegions
+
+```ts
+withRegions(regions)
+```
+
+"The request must originate from one of the provided\ncountries/regions.\nFormat: A valid ISO 3166-1 alpha-2 code."
+
+### fn spec.basic.conditions.withRegionsMixin
+
+```ts
+withRegionsMixin(regions)
+```
+
+"The request must originate from one of the provided\ncountries/regions.\nFormat: A valid ISO 3166-1 alpha-2 code."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.basic.conditions.withRequiredAccessLevels
+
+```ts
+withRequiredAccessLevels(requiredAccessLevels)
+```
+
+
+
+### fn spec.basic.conditions.withRequiredAccessLevelsMixin
+
+```ts
+withRequiredAccessLevelsMixin(requiredAccessLevels)
+```
+
+
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.basic.conditions.devicePolicy
+
+"Device specific restrictions, all restrictions must hold for\nthe Condition to be true. If not specified, all devices are\nallowed."
+
+### fn spec.basic.conditions.devicePolicy.withAllowedDeviceManagementLevels
+
+```ts
+withAllowedDeviceManagementLevels(allowedDeviceManagementLevels)
+```
+
+"A list of allowed device management levels.\nAn empty list allows all management levels. Possible values: [\"MANAGEMENT_UNSPECIFIED\", \"NONE\", \"BASIC\", \"COMPLETE\"]."
+
+### fn spec.basic.conditions.devicePolicy.withAllowedDeviceManagementLevelsMixin
+
+```ts
+withAllowedDeviceManagementLevelsMixin(allowedDeviceManagementLevels)
+```
+
+"A list of allowed device management levels.\nAn empty list allows all management levels. Possible values: [\"MANAGEMENT_UNSPECIFIED\", \"NONE\", \"BASIC\", \"COMPLETE\"]."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.basic.conditions.devicePolicy.withAllowedEncryptionStatuses
+
+```ts
+withAllowedEncryptionStatuses(allowedEncryptionStatuses)
+```
+
+"A list of allowed encryptions statuses.\nAn empty list allows all statuses. Possible values: [\"ENCRYPTION_UNSPECIFIED\", \"ENCRYPTION_UNSUPPORTED\", \"UNENCRYPTED\", \"ENCRYPTED\"]."
+
+### fn spec.basic.conditions.devicePolicy.withAllowedEncryptionStatusesMixin
+
+```ts
+withAllowedEncryptionStatusesMixin(allowedEncryptionStatuses)
+```
+
+"A list of allowed encryptions statuses.\nAn empty list allows all statuses. Possible values: [\"ENCRYPTION_UNSPECIFIED\", \"ENCRYPTION_UNSUPPORTED\", \"UNENCRYPTED\", \"ENCRYPTED\"]."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.basic.conditions.devicePolicy.withOsConstraints
+
+```ts
+withOsConstraints(osConstraints)
+```
+
+"A list of allowed OS versions.\nAn empty list allows all types and all versions."
+
+### fn spec.basic.conditions.devicePolicy.withOsConstraintsMixin
+
+```ts
+withOsConstraintsMixin(osConstraints)
+```
+
+"A list of allowed OS versions.\nAn empty list allows all types and all versions."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.basic.conditions.devicePolicy.withRequireAdminApproval
+
+```ts
+withRequireAdminApproval(requireAdminApproval)
+```
+
+"Whether the device needs to be approved by the customer admin."
+
+### fn spec.basic.conditions.devicePolicy.withRequireCorpOwned
+
+```ts
+withRequireCorpOwned(requireCorpOwned)
+```
+
+"Whether the device needs to be corp owned."
+
+### fn spec.basic.conditions.devicePolicy.withRequireScreenLock
+
+```ts
+withRequireScreenLock(requireScreenLock)
+```
+
+"Whether or not screenlock is required for the DevicePolicy\nto be true. Defaults to false."
+
+## obj spec.basic.conditions.devicePolicy.osConstraints
+
+"A list of allowed OS versions.\nAn empty list allows all types and all versions."
+
+### fn spec.basic.conditions.devicePolicy.osConstraints.withMinimumVersion
+
+```ts
+withMinimumVersion(minimumVersion)
+```
+
+"The minimum allowed OS version. If not set, any version\nof this OS satisfies the constraint.\nFormat: \"major.minor.patch\" such as \"10.5.301\", \"9.2.1\"."
+
+### fn spec.basic.conditions.devicePolicy.osConstraints.withOsType
+
+```ts
+withOsType(osType)
+```
+
+"The operating system type of the device. Possible values: [\"OS_UNSPECIFIED\", \"DESKTOP_MAC\", \"DESKTOP_WINDOWS\", \"DESKTOP_LINUX\", \"DESKTOP_CHROME_OS\", \"ANDROID\", \"IOS\"]."
+
+### fn spec.basic.conditions.devicePolicy.osConstraints.withRequireVerifiedChromeOs
+
+```ts
+withRequireVerifiedChromeOs(requireVerifiedChromeOs)
+```
+
+"If you specify DESKTOP_CHROME_OS for osType, you can optionally include requireVerifiedChromeOs to require Chrome Verified Access."
+
+## obj spec.basic.conditions.members
+
+
+
+### fn spec.basic.conditions.members.withUser
+
+```ts
+withUser(user)
+```
+
+
+
+## obj spec.basic.conditions.members.serviceAccountRef
+
+
+
+### fn spec.basic.conditions.members.serviceAccountRef.withExternal
+
+```ts
+withExternal(external)
+```
+
+"A string of the format \"serviceAccount:{{value}}\", where {{value}} is the email of an IAMServiceAccount."
+
+### fn spec.basic.conditions.members.serviceAccountRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.basic.conditions.members.serviceAccountRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
+## obj spec.basic.conditions.requiredAccessLevels
+
+
+
+### fn spec.basic.conditions.requiredAccessLevels.withExternal
+
+```ts
+withExternal(external)
+```
+
+"The name of an AccessContextManagerAccessLevel."
+
+### fn spec.basic.conditions.requiredAccessLevels.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.basic.conditions.requiredAccessLevels.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
 
 ## obj spec.custom
 

@@ -22,8 +22,6 @@ permalink: /1.74/compute/v1beta1/computeReservation/
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -46,6 +44,12 @@ permalink: /1.74/compute/v1beta1/computeReservation/
       * [`fn withLocalSsdsMixin(localSsds)`](#fn-specspecificreservationinstancepropertieswithlocalssdsmixin)
       * [`fn withMachineType(machineType)`](#fn-specspecificreservationinstancepropertieswithmachinetype)
       * [`fn withMinCpuPlatform(minCpuPlatform)`](#fn-specspecificreservationinstancepropertieswithmincpuplatform)
+      * [`obj spec.specificReservation.instanceProperties.guestAccelerators`](#obj-specspecificreservationinstancepropertiesguestaccelerators)
+        * [`fn withAcceleratorCount(acceleratorCount)`](#fn-specspecificreservationinstancepropertiesguestacceleratorswithacceleratorcount)
+        * [`fn withAcceleratorType(acceleratorType)`](#fn-specspecificreservationinstancepropertiesguestacceleratorswithacceleratortype)
+      * [`obj spec.specificReservation.instanceProperties.localSsds`](#obj-specspecificreservationinstancepropertieslocalssds)
+        * [`fn withDiskSizeGb(diskSizeGb)`](#fn-specspecificreservationinstancepropertieslocalssdswithdisksizegb)
+        * [`fn withInterface(interface)`](#fn-specspecificreservationinstancepropertieslocalssdswithinterface)
 
 ## Fields
 
@@ -160,24 +164,6 @@ withLabelsMixin(labels)
 ```
 
 "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
-
-**Note:** This function appends passed data to existing values
-
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
 
 **Note:** This function appends passed data to existing values
 
@@ -350,3 +336,43 @@ withMinCpuPlatform(minCpuPlatform)
 ```
 
 "Immutable. The minimum CPU platform for the reservation. For example,\n'\"Intel Skylake\"'. See\nthe CPU platform availability reference](https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform#availablezones)\nfor information on available CPU platforms."
+
+## obj spec.specificReservation.instanceProperties.guestAccelerators
+
+"Immutable. Guest accelerator type and count."
+
+### fn spec.specificReservation.instanceProperties.guestAccelerators.withAcceleratorCount
+
+```ts
+withAcceleratorCount(acceleratorCount)
+```
+
+"Immutable. The number of the guest accelerator cards exposed to\nthis instance."
+
+### fn spec.specificReservation.instanceProperties.guestAccelerators.withAcceleratorType
+
+```ts
+withAcceleratorType(acceleratorType)
+```
+
+"Immutable. The full or partial URL of the accelerator type to\nattach to this instance. For example:\n'projects/my-project/zones/us-central1-c/acceleratorTypes/nvidia-tesla-p100'\n\nIf you are creating an instance template, specify only the accelerator name."
+
+## obj spec.specificReservation.instanceProperties.localSsds
+
+"Immutable. The amount of local ssd to reserve with each instance. This\nreserves disks of type 'local-ssd'."
+
+### fn spec.specificReservation.instanceProperties.localSsds.withDiskSizeGb
+
+```ts
+withDiskSizeGb(diskSizeGb)
+```
+
+"Immutable. The size of the disk in base-2 GB."
+
+### fn spec.specificReservation.instanceProperties.localSsds.withInterface
+
+```ts
+withInterface(interface)
+```
+
+"Immutable. The disk interface to use for attaching this disk. Default value: \"SCSI\" Possible values: [\"SCSI\", \"NVME\"]."

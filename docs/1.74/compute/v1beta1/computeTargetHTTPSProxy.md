@@ -22,8 +22,6 @@ permalink: /1.74/compute/v1beta1/computeTargetHTTPSProxy/
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -39,6 +37,10 @@ permalink: /1.74/compute/v1beta1/computeTargetHTTPSProxy/
   * [`fn withResourceID(resourceID)`](#fn-specwithresourceid)
   * [`fn withSslCertificates(sslCertificates)`](#fn-specwithsslcertificates)
   * [`fn withSslCertificatesMixin(sslCertificates)`](#fn-specwithsslcertificatesmixin)
+  * [`obj spec.sslCertificates`](#obj-specsslcertificates)
+    * [`fn withExternal(external)`](#fn-specsslcertificateswithexternal)
+    * [`fn withName(name)`](#fn-specsslcertificateswithname)
+    * [`fn withNamespace(namespace)`](#fn-specsslcertificateswithnamespace)
   * [`obj spec.sslPolicyRef`](#obj-specsslpolicyref)
     * [`fn withExternal(external)`](#fn-specsslpolicyrefwithexternal)
     * [`fn withName(name)`](#fn-specsslpolicyrefwithname)
@@ -164,24 +166,6 @@ withLabelsMixin(labels)
 
 **Note:** This function appends passed data to existing values
 
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-**Note:** This function appends passed data to existing values
-
 ### fn metadata.withName
 
 ```ts
@@ -301,6 +285,34 @@ withSslCertificatesMixin(sslCertificates)
 
 
 **Note:** This function appends passed data to existing values
+
+## obj spec.sslCertificates
+
+
+
+### fn spec.sslCertificates.withExternal
+
+```ts
+withExternal(external)
+```
+
+"The selfLink of a ComputeSSLCertificate."
+
+### fn spec.sslCertificates.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.sslCertificates.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
 
 ## obj spec.sslPolicyRef
 

@@ -22,8 +22,6 @@ permalink: /1.74/dns/v1beta1/dnsPolicy/
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -41,6 +39,14 @@ permalink: /1.74/dns/v1beta1/dnsPolicy/
   * [`obj spec.alternativeNameServerConfig`](#obj-specalternativenameserverconfig)
     * [`fn withTargetNameServers(targetNameServers)`](#fn-specalternativenameserverconfigwithtargetnameservers)
     * [`fn withTargetNameServersMixin(targetNameServers)`](#fn-specalternativenameserverconfigwithtargetnameserversmixin)
+    * [`obj spec.alternativeNameServerConfig.targetNameServers`](#obj-specalternativenameserverconfigtargetnameservers)
+      * [`fn withForwardingPath(forwardingPath)`](#fn-specalternativenameserverconfigtargetnameserverswithforwardingpath)
+      * [`fn withIpv4Address(ipv4Address)`](#fn-specalternativenameserverconfigtargetnameserverswithipv4address)
+  * [`obj spec.networks`](#obj-specnetworks)
+    * [`obj spec.networks.networkRef`](#obj-specnetworksnetworkref)
+      * [`fn withExternal(external)`](#fn-specnetworksnetworkrefwithexternal)
+      * [`fn withName(name)`](#fn-specnetworksnetworkrefwithname)
+      * [`fn withNamespace(namespace)`](#fn-specnetworksnetworkrefwithnamespace)
 
 ## Fields
 
@@ -155,24 +161,6 @@ withLabelsMixin(labels)
 ```
 
 "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
-
-**Note:** This function appends passed data to existing values
-
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
 
 **Note:** This function appends passed data to existing values
 
@@ -309,3 +297,55 @@ withTargetNameServersMixin(targetNameServers)
 "Sets an alternative name server for the associated networks. When specified,\nall DNS queries are forwarded to a name server that you choose. Names such as .internal\nare not available when an alternative name server is specified."
 
 **Note:** This function appends passed data to existing values
+
+## obj spec.alternativeNameServerConfig.targetNameServers
+
+"Sets an alternative name server for the associated networks. When specified,\nall DNS queries are forwarded to a name server that you choose. Names such as .internal\nare not available when an alternative name server is specified."
+
+### fn spec.alternativeNameServerConfig.targetNameServers.withForwardingPath
+
+```ts
+withForwardingPath(forwardingPath)
+```
+
+"Forwarding path for this TargetNameServer. If unset or 'default' Cloud DNS will make forwarding\ndecision based on address ranges, i.e. RFC1918 addresses go to the VPC, Non-RFC1918 addresses go\nto the Internet. When set to 'private', Cloud DNS will always send queries through VPC for this target Possible values: [\"default\", \"private\"]."
+
+### fn spec.alternativeNameServerConfig.targetNameServers.withIpv4Address
+
+```ts
+withIpv4Address(ipv4Address)
+```
+
+"IPv4 address to forward to."
+
+## obj spec.networks
+
+"List of network names specifying networks to which this policy is applied."
+
+## obj spec.networks.networkRef
+
+"VPC network to bind to."
+
+### fn spec.networks.networkRef.withExternal
+
+```ts
+withExternal(external)
+```
+
+"The selfLink of a ComputeNetwork."
+
+### fn spec.networks.networkRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.networks.networkRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"

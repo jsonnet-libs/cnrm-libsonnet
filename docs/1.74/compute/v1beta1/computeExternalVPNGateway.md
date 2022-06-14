@@ -22,8 +22,6 @@ permalink: /1.74/compute/v1beta1/computeExternalVPNGateway/
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -37,6 +35,9 @@ permalink: /1.74/compute/v1beta1/computeExternalVPNGateway/
   * [`fn withInterfaceMixin(interface)`](#fn-specwithinterfacemixin)
   * [`fn withRedundancyType(redundancyType)`](#fn-specwithredundancytype)
   * [`fn withResourceID(resourceID)`](#fn-specwithresourceid)
+  * [`obj spec.interface`](#obj-specinterface)
+    * [`fn withId(id)`](#fn-specinterfacewithid)
+    * [`fn withIpAddress(ipAddress)`](#fn-specinterfacewithipaddress)
 
 ## Fields
 
@@ -154,24 +155,6 @@ withLabelsMixin(labels)
 
 **Note:** This function appends passed data to existing values
 
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-**Note:** This function appends passed data to existing values
-
 ### fn metadata.withName
 
 ```ts
@@ -275,3 +258,23 @@ withResourceID(resourceID)
 ```
 
 "Immutable. Optional. The name of the resource. Used for creation and acquisition. When unset, the value of `metadata.name` is used as the default."
+
+## obj spec.interface
+
+"Immutable. A list of interfaces on this external VPN gateway."
+
+### fn spec.interface.withId
+
+```ts
+withId(id)
+```
+
+"Immutable. The numeric ID for this interface. Allowed values are based on the redundancy type\nof this external VPN gateway\n* '0 - SINGLE_IP_INTERNALLY_REDUNDANT'\n* '0, 1 - TWO_IPS_REDUNDANCY'\n* '0, 1, 2, 3 - FOUR_IPS_REDUNDANCY'."
+
+### fn spec.interface.withIpAddress
+
+```ts
+withIpAddress(ipAddress)
+```
+
+"Immutable. IP address of the interface in the external VPN gateway.\nOnly IPv4 is supported. This IP address can be either from\nyour on-premise gateway or another Cloud provider's VPN gateway,\nit cannot be an IP address from Google Compute Engine."

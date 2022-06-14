@@ -22,8 +22,6 @@ permalink: /1.74/compute/v1beta1/computeResourcePolicy/
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -61,6 +59,9 @@ permalink: /1.74/compute/v1beta1/computeResourcePolicy/
       * [`obj spec.snapshotSchedulePolicy.schedule.weeklySchedule`](#obj-specsnapshotschedulepolicyscheduleweeklyschedule)
         * [`fn withDayOfWeeks(dayOfWeeks)`](#fn-specsnapshotschedulepolicyscheduleweeklyschedulewithdayofweeks)
         * [`fn withDayOfWeeksMixin(dayOfWeeks)`](#fn-specsnapshotschedulepolicyscheduleweeklyschedulewithdayofweeksmixin)
+        * [`obj spec.snapshotSchedulePolicy.schedule.weeklySchedule.dayOfWeeks`](#obj-specsnapshotschedulepolicyscheduleweeklyscheduledayofweeks)
+          * [`fn withDay(day)`](#fn-specsnapshotschedulepolicyscheduleweeklyscheduledayofweekswithday)
+          * [`fn withStartTime(startTime)`](#fn-specsnapshotschedulepolicyscheduleweeklyscheduledayofweekswithstarttime)
     * [`obj spec.snapshotSchedulePolicy.snapshotProperties`](#obj-specsnapshotschedulepolicysnapshotproperties)
       * [`fn withGuestFlush(guestFlush)`](#fn-specsnapshotschedulepolicysnapshotpropertieswithguestflush)
       * [`fn withLabels(labels)`](#fn-specsnapshotschedulepolicysnapshotpropertieswithlabels)
@@ -181,24 +182,6 @@ withLabelsMixin(labels)
 ```
 
 "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
-
-**Note:** This function appends passed data to existing values
-
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
 
 **Note:** This function appends passed data to existing values
 
@@ -457,6 +440,26 @@ withDayOfWeeksMixin(dayOfWeeks)
 "Immutable. May contain up to seven (one for each day of the week) snapshot times."
 
 **Note:** This function appends passed data to existing values
+
+## obj spec.snapshotSchedulePolicy.schedule.weeklySchedule.dayOfWeeks
+
+"Immutable. May contain up to seven (one for each day of the week) snapshot times."
+
+### fn spec.snapshotSchedulePolicy.schedule.weeklySchedule.dayOfWeeks.withDay
+
+```ts
+withDay(day)
+```
+
+"Immutable. The day of the week to create the snapshot. e.g. MONDAY Possible values: [\"MONDAY\", \"TUESDAY\", \"WEDNESDAY\", \"THURSDAY\", \"FRIDAY\", \"SATURDAY\", \"SUNDAY\"]."
+
+### fn spec.snapshotSchedulePolicy.schedule.weeklySchedule.dayOfWeeks.withStartTime
+
+```ts
+withStartTime(startTime)
+```
+
+"Immutable. Time within the window to start the operations.\nIt must be in format \"HH:MM\", where HH : [00-23] and MM : [00-00] GMT."
 
 ## obj spec.snapshotSchedulePolicy.snapshotProperties
 

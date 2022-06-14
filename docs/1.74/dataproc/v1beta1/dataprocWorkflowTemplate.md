@@ -22,8 +22,6 @@ permalink: /1.74/dataproc/v1beta1/dataprocWorkflowTemplate/
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -39,6 +37,144 @@ permalink: /1.74/dataproc/v1beta1/dataprocWorkflowTemplate/
   * [`fn withParameters(parameters)`](#fn-specwithparameters)
   * [`fn withParametersMixin(parameters)`](#fn-specwithparametersmixin)
   * [`fn withResourceID(resourceID)`](#fn-specwithresourceid)
+  * [`obj spec.jobs`](#obj-specjobs)
+    * [`fn withLabels(labels)`](#fn-specjobswithlabels)
+    * [`fn withLabelsMixin(labels)`](#fn-specjobswithlabelsmixin)
+    * [`fn withPrerequisiteStepIds(prerequisiteStepIds)`](#fn-specjobswithprerequisitestepids)
+    * [`fn withPrerequisiteStepIdsMixin(prerequisiteStepIds)`](#fn-specjobswithprerequisitestepidsmixin)
+    * [`fn withStepId(stepId)`](#fn-specjobswithstepid)
+    * [`obj spec.jobs.hadoopJob`](#obj-specjobshadoopjob)
+      * [`fn withArchiveUris(archiveUris)`](#fn-specjobshadoopjobwitharchiveuris)
+      * [`fn withArchiveUrisMixin(archiveUris)`](#fn-specjobshadoopjobwitharchiveurismixin)
+      * [`fn withArgs(args)`](#fn-specjobshadoopjobwithargs)
+      * [`fn withArgsMixin(args)`](#fn-specjobshadoopjobwithargsmixin)
+      * [`fn withFileUris(fileUris)`](#fn-specjobshadoopjobwithfileuris)
+      * [`fn withFileUrisMixin(fileUris)`](#fn-specjobshadoopjobwithfileurismixin)
+      * [`fn withJarFileUris(jarFileUris)`](#fn-specjobshadoopjobwithjarfileuris)
+      * [`fn withJarFileUrisMixin(jarFileUris)`](#fn-specjobshadoopjobwithjarfileurismixin)
+      * [`fn withMainClass(mainClass)`](#fn-specjobshadoopjobwithmainclass)
+      * [`fn withMainJarFileUri(mainJarFileUri)`](#fn-specjobshadoopjobwithmainjarfileuri)
+      * [`fn withProperties(properties)`](#fn-specjobshadoopjobwithproperties)
+      * [`fn withPropertiesMixin(properties)`](#fn-specjobshadoopjobwithpropertiesmixin)
+      * [`obj spec.jobs.hadoopJob.loggingConfig`](#obj-specjobshadoopjobloggingconfig)
+        * [`fn withDriverLogLevels(driverLogLevels)`](#fn-specjobshadoopjobloggingconfigwithdriverloglevels)
+        * [`fn withDriverLogLevelsMixin(driverLogLevels)`](#fn-specjobshadoopjobloggingconfigwithdriverloglevelsmixin)
+    * [`obj spec.jobs.hiveJob`](#obj-specjobshivejob)
+      * [`fn withContinueOnFailure(continueOnFailure)`](#fn-specjobshivejobwithcontinueonfailure)
+      * [`fn withJarFileUris(jarFileUris)`](#fn-specjobshivejobwithjarfileuris)
+      * [`fn withJarFileUrisMixin(jarFileUris)`](#fn-specjobshivejobwithjarfileurismixin)
+      * [`fn withProperties(properties)`](#fn-specjobshivejobwithproperties)
+      * [`fn withPropertiesMixin(properties)`](#fn-specjobshivejobwithpropertiesmixin)
+      * [`fn withQueryFileUri(queryFileUri)`](#fn-specjobshivejobwithqueryfileuri)
+      * [`fn withScriptVariables(scriptVariables)`](#fn-specjobshivejobwithscriptvariables)
+      * [`fn withScriptVariablesMixin(scriptVariables)`](#fn-specjobshivejobwithscriptvariablesmixin)
+      * [`obj spec.jobs.hiveJob.queryList`](#obj-specjobshivejobquerylist)
+        * [`fn withQueries(queries)`](#fn-specjobshivejobquerylistwithqueries)
+        * [`fn withQueriesMixin(queries)`](#fn-specjobshivejobquerylistwithqueriesmixin)
+    * [`obj spec.jobs.pigJob`](#obj-specjobspigjob)
+      * [`fn withContinueOnFailure(continueOnFailure)`](#fn-specjobspigjobwithcontinueonfailure)
+      * [`fn withJarFileUris(jarFileUris)`](#fn-specjobspigjobwithjarfileuris)
+      * [`fn withJarFileUrisMixin(jarFileUris)`](#fn-specjobspigjobwithjarfileurismixin)
+      * [`fn withProperties(properties)`](#fn-specjobspigjobwithproperties)
+      * [`fn withPropertiesMixin(properties)`](#fn-specjobspigjobwithpropertiesmixin)
+      * [`fn withQueryFileUri(queryFileUri)`](#fn-specjobspigjobwithqueryfileuri)
+      * [`fn withScriptVariables(scriptVariables)`](#fn-specjobspigjobwithscriptvariables)
+      * [`fn withScriptVariablesMixin(scriptVariables)`](#fn-specjobspigjobwithscriptvariablesmixin)
+      * [`obj spec.jobs.pigJob.loggingConfig`](#obj-specjobspigjobloggingconfig)
+        * [`fn withDriverLogLevels(driverLogLevels)`](#fn-specjobspigjobloggingconfigwithdriverloglevels)
+        * [`fn withDriverLogLevelsMixin(driverLogLevels)`](#fn-specjobspigjobloggingconfigwithdriverloglevelsmixin)
+      * [`obj spec.jobs.pigJob.queryList`](#obj-specjobspigjobquerylist)
+        * [`fn withQueries(queries)`](#fn-specjobspigjobquerylistwithqueries)
+        * [`fn withQueriesMixin(queries)`](#fn-specjobspigjobquerylistwithqueriesmixin)
+    * [`obj spec.jobs.prestoJob`](#obj-specjobsprestojob)
+      * [`fn withClientTags(clientTags)`](#fn-specjobsprestojobwithclienttags)
+      * [`fn withClientTagsMixin(clientTags)`](#fn-specjobsprestojobwithclienttagsmixin)
+      * [`fn withContinueOnFailure(continueOnFailure)`](#fn-specjobsprestojobwithcontinueonfailure)
+      * [`fn withOutputFormat(outputFormat)`](#fn-specjobsprestojobwithoutputformat)
+      * [`fn withProperties(properties)`](#fn-specjobsprestojobwithproperties)
+      * [`fn withPropertiesMixin(properties)`](#fn-specjobsprestojobwithpropertiesmixin)
+      * [`fn withQueryFileUri(queryFileUri)`](#fn-specjobsprestojobwithqueryfileuri)
+      * [`obj spec.jobs.prestoJob.loggingConfig`](#obj-specjobsprestojobloggingconfig)
+        * [`fn withDriverLogLevels(driverLogLevels)`](#fn-specjobsprestojobloggingconfigwithdriverloglevels)
+        * [`fn withDriverLogLevelsMixin(driverLogLevels)`](#fn-specjobsprestojobloggingconfigwithdriverloglevelsmixin)
+      * [`obj spec.jobs.prestoJob.queryList`](#obj-specjobsprestojobquerylist)
+        * [`fn withQueries(queries)`](#fn-specjobsprestojobquerylistwithqueries)
+        * [`fn withQueriesMixin(queries)`](#fn-specjobsprestojobquerylistwithqueriesmixin)
+    * [`obj spec.jobs.pysparkJob`](#obj-specjobspysparkjob)
+      * [`fn withArchiveUris(archiveUris)`](#fn-specjobspysparkjobwitharchiveuris)
+      * [`fn withArchiveUrisMixin(archiveUris)`](#fn-specjobspysparkjobwitharchiveurismixin)
+      * [`fn withArgs(args)`](#fn-specjobspysparkjobwithargs)
+      * [`fn withArgsMixin(args)`](#fn-specjobspysparkjobwithargsmixin)
+      * [`fn withFileUris(fileUris)`](#fn-specjobspysparkjobwithfileuris)
+      * [`fn withFileUrisMixin(fileUris)`](#fn-specjobspysparkjobwithfileurismixin)
+      * [`fn withJarFileUris(jarFileUris)`](#fn-specjobspysparkjobwithjarfileuris)
+      * [`fn withJarFileUrisMixin(jarFileUris)`](#fn-specjobspysparkjobwithjarfileurismixin)
+      * [`fn withMainPythonFileUri(mainPythonFileUri)`](#fn-specjobspysparkjobwithmainpythonfileuri)
+      * [`fn withProperties(properties)`](#fn-specjobspysparkjobwithproperties)
+      * [`fn withPropertiesMixin(properties)`](#fn-specjobspysparkjobwithpropertiesmixin)
+      * [`fn withPythonFileUris(pythonFileUris)`](#fn-specjobspysparkjobwithpythonfileuris)
+      * [`fn withPythonFileUrisMixin(pythonFileUris)`](#fn-specjobspysparkjobwithpythonfileurismixin)
+      * [`obj spec.jobs.pysparkJob.loggingConfig`](#obj-specjobspysparkjobloggingconfig)
+        * [`fn withDriverLogLevels(driverLogLevels)`](#fn-specjobspysparkjobloggingconfigwithdriverloglevels)
+        * [`fn withDriverLogLevelsMixin(driverLogLevels)`](#fn-specjobspysparkjobloggingconfigwithdriverloglevelsmixin)
+    * [`obj spec.jobs.scheduling`](#obj-specjobsscheduling)
+      * [`fn withMaxFailuresPerHour(maxFailuresPerHour)`](#fn-specjobsschedulingwithmaxfailuresperhour)
+      * [`fn withMaxFailuresTotal(maxFailuresTotal)`](#fn-specjobsschedulingwithmaxfailurestotal)
+    * [`obj spec.jobs.sparkJob`](#obj-specjobssparkjob)
+      * [`fn withArchiveUris(archiveUris)`](#fn-specjobssparkjobwitharchiveuris)
+      * [`fn withArchiveUrisMixin(archiveUris)`](#fn-specjobssparkjobwitharchiveurismixin)
+      * [`fn withArgs(args)`](#fn-specjobssparkjobwithargs)
+      * [`fn withArgsMixin(args)`](#fn-specjobssparkjobwithargsmixin)
+      * [`fn withFileUris(fileUris)`](#fn-specjobssparkjobwithfileuris)
+      * [`fn withFileUrisMixin(fileUris)`](#fn-specjobssparkjobwithfileurismixin)
+      * [`fn withJarFileUris(jarFileUris)`](#fn-specjobssparkjobwithjarfileuris)
+      * [`fn withJarFileUrisMixin(jarFileUris)`](#fn-specjobssparkjobwithjarfileurismixin)
+      * [`fn withMainClass(mainClass)`](#fn-specjobssparkjobwithmainclass)
+      * [`fn withMainJarFileUri(mainJarFileUri)`](#fn-specjobssparkjobwithmainjarfileuri)
+      * [`fn withProperties(properties)`](#fn-specjobssparkjobwithproperties)
+      * [`fn withPropertiesMixin(properties)`](#fn-specjobssparkjobwithpropertiesmixin)
+      * [`obj spec.jobs.sparkJob.loggingConfig`](#obj-specjobssparkjobloggingconfig)
+        * [`fn withDriverLogLevels(driverLogLevels)`](#fn-specjobssparkjobloggingconfigwithdriverloglevels)
+        * [`fn withDriverLogLevelsMixin(driverLogLevels)`](#fn-specjobssparkjobloggingconfigwithdriverloglevelsmixin)
+    * [`obj spec.jobs.sparkRJob`](#obj-specjobssparkrjob)
+      * [`fn withArchiveUris(archiveUris)`](#fn-specjobssparkrjobwitharchiveuris)
+      * [`fn withArchiveUrisMixin(archiveUris)`](#fn-specjobssparkrjobwitharchiveurismixin)
+      * [`fn withArgs(args)`](#fn-specjobssparkrjobwithargs)
+      * [`fn withArgsMixin(args)`](#fn-specjobssparkrjobwithargsmixin)
+      * [`fn withFileUris(fileUris)`](#fn-specjobssparkrjobwithfileuris)
+      * [`fn withFileUrisMixin(fileUris)`](#fn-specjobssparkrjobwithfileurismixin)
+      * [`fn withMainRFileUri(mainRFileUri)`](#fn-specjobssparkrjobwithmainrfileuri)
+      * [`fn withProperties(properties)`](#fn-specjobssparkrjobwithproperties)
+      * [`fn withPropertiesMixin(properties)`](#fn-specjobssparkrjobwithpropertiesmixin)
+      * [`obj spec.jobs.sparkRJob.loggingConfig`](#obj-specjobssparkrjobloggingconfig)
+        * [`fn withDriverLogLevels(driverLogLevels)`](#fn-specjobssparkrjobloggingconfigwithdriverloglevels)
+        * [`fn withDriverLogLevelsMixin(driverLogLevels)`](#fn-specjobssparkrjobloggingconfigwithdriverloglevelsmixin)
+    * [`obj spec.jobs.sparkSqlJob`](#obj-specjobssparksqljob)
+      * [`fn withJarFileUris(jarFileUris)`](#fn-specjobssparksqljobwithjarfileuris)
+      * [`fn withJarFileUrisMixin(jarFileUris)`](#fn-specjobssparksqljobwithjarfileurismixin)
+      * [`fn withProperties(properties)`](#fn-specjobssparksqljobwithproperties)
+      * [`fn withPropertiesMixin(properties)`](#fn-specjobssparksqljobwithpropertiesmixin)
+      * [`fn withQueryFileUri(queryFileUri)`](#fn-specjobssparksqljobwithqueryfileuri)
+      * [`fn withScriptVariables(scriptVariables)`](#fn-specjobssparksqljobwithscriptvariables)
+      * [`fn withScriptVariablesMixin(scriptVariables)`](#fn-specjobssparksqljobwithscriptvariablesmixin)
+      * [`obj spec.jobs.sparkSqlJob.loggingConfig`](#obj-specjobssparksqljobloggingconfig)
+        * [`fn withDriverLogLevels(driverLogLevels)`](#fn-specjobssparksqljobloggingconfigwithdriverloglevels)
+        * [`fn withDriverLogLevelsMixin(driverLogLevels)`](#fn-specjobssparksqljobloggingconfigwithdriverloglevelsmixin)
+      * [`obj spec.jobs.sparkSqlJob.queryList`](#obj-specjobssparksqljobquerylist)
+        * [`fn withQueries(queries)`](#fn-specjobssparksqljobquerylistwithqueries)
+        * [`fn withQueriesMixin(queries)`](#fn-specjobssparksqljobquerylistwithqueriesmixin)
+  * [`obj spec.parameters`](#obj-specparameters)
+    * [`fn withDescription(description)`](#fn-specparameterswithdescription)
+    * [`fn withFields(fields)`](#fn-specparameterswithfields)
+    * [`fn withFieldsMixin(fields)`](#fn-specparameterswithfieldsmixin)
+    * [`fn withName(name)`](#fn-specparameterswithname)
+    * [`obj spec.parameters.validation`](#obj-specparametersvalidation)
+      * [`obj spec.parameters.validation.regex`](#obj-specparametersvalidationregex)
+        * [`fn withRegexes(regexes)`](#fn-specparametersvalidationregexwithregexes)
+        * [`fn withRegexesMixin(regexes)`](#fn-specparametersvalidationregexwithregexesmixin)
+      * [`obj spec.parameters.validation.values`](#obj-specparametersvalidationvalues)
+        * [`fn withValues(values)`](#fn-specparametersvalidationvalueswithvalues)
+        * [`fn withValuesMixin(values)`](#fn-specparametersvalidationvalueswithvaluesmixin)
   * [`obj spec.placement`](#obj-specplacement)
     * [`obj spec.placement.clusterSelector`](#obj-specplacementclusterselector)
       * [`fn withClusterLabels(clusterLabels)`](#fn-specplacementclusterselectorwithclusterlabels)
@@ -95,6 +231,9 @@ permalink: /1.74/dataproc/v1beta1/dataprocWorkflowTemplate/
             * [`fn withExternal(external)`](#fn-specplacementmanagedclusterconfiggceclusterconfigsubnetworkrefwithexternal)
             * [`fn withName(name)`](#fn-specplacementmanagedclusterconfiggceclusterconfigsubnetworkrefwithname)
             * [`fn withNamespace(namespace)`](#fn-specplacementmanagedclusterconfiggceclusterconfigsubnetworkrefwithnamespace)
+        * [`obj spec.placement.managedCluster.config.initializationActions`](#obj-specplacementmanagedclusterconfiginitializationactions)
+          * [`fn withExecutableFile(executableFile)`](#fn-specplacementmanagedclusterconfiginitializationactionswithexecutablefile)
+          * [`fn withExecutionTimeout(executionTimeout)`](#fn-specplacementmanagedclusterconfiginitializationactionswithexecutiontimeout)
         * [`obj spec.placement.managedCluster.config.lifecycleConfig`](#obj-specplacementmanagedclusterconfiglifecycleconfig)
           * [`fn withAutoDeleteTime(autoDeleteTime)`](#fn-specplacementmanagedclusterconfiglifecycleconfigwithautodeletetime)
           * [`fn withAutoDeleteTtl(autoDeleteTtl)`](#fn-specplacementmanagedclusterconfiglifecycleconfigwithautodeletettl)
@@ -106,6 +245,9 @@ permalink: /1.74/dataproc/v1beta1/dataprocWorkflowTemplate/
           * [`fn withMinCpuPlatform(minCpuPlatform)`](#fn-specplacementmanagedclusterconfigmasterconfigwithmincpuplatform)
           * [`fn withNumInstances(numInstances)`](#fn-specplacementmanagedclusterconfigmasterconfigwithnuminstances)
           * [`fn withPreemptibility(preemptibility)`](#fn-specplacementmanagedclusterconfigmasterconfigwithpreemptibility)
+          * [`obj spec.placement.managedCluster.config.masterConfig.accelerators`](#obj-specplacementmanagedclusterconfigmasterconfigaccelerators)
+            * [`fn withAcceleratorCount(acceleratorCount)`](#fn-specplacementmanagedclusterconfigmasterconfigacceleratorswithacceleratorcount)
+            * [`fn withAcceleratorType(acceleratorType)`](#fn-specplacementmanagedclusterconfigmasterconfigacceleratorswithacceleratortype)
           * [`obj spec.placement.managedCluster.config.masterConfig.diskConfig`](#obj-specplacementmanagedclusterconfigmasterconfigdiskconfig)
             * [`fn withBootDiskSizeGb(bootDiskSizeGb)`](#fn-specplacementmanagedclusterconfigmasterconfigdiskconfigwithbootdisksizegb)
             * [`fn withBootDiskType(bootDiskType)`](#fn-specplacementmanagedclusterconfigmasterconfigdiskconfigwithbootdisktype)
@@ -121,6 +263,9 @@ permalink: /1.74/dataproc/v1beta1/dataprocWorkflowTemplate/
           * [`fn withMinCpuPlatform(minCpuPlatform)`](#fn-specplacementmanagedclusterconfigsecondaryworkerconfigwithmincpuplatform)
           * [`fn withNumInstances(numInstances)`](#fn-specplacementmanagedclusterconfigsecondaryworkerconfigwithnuminstances)
           * [`fn withPreemptibility(preemptibility)`](#fn-specplacementmanagedclusterconfigsecondaryworkerconfigwithpreemptibility)
+          * [`obj spec.placement.managedCluster.config.secondaryWorkerConfig.accelerators`](#obj-specplacementmanagedclusterconfigsecondaryworkerconfigaccelerators)
+            * [`fn withAcceleratorCount(acceleratorCount)`](#fn-specplacementmanagedclusterconfigsecondaryworkerconfigacceleratorswithacceleratorcount)
+            * [`fn withAcceleratorType(acceleratorType)`](#fn-specplacementmanagedclusterconfigsecondaryworkerconfigacceleratorswithacceleratortype)
           * [`obj spec.placement.managedCluster.config.secondaryWorkerConfig.diskConfig`](#obj-specplacementmanagedclusterconfigsecondaryworkerconfigdiskconfig)
             * [`fn withBootDiskSizeGb(bootDiskSizeGb)`](#fn-specplacementmanagedclusterconfigsecondaryworkerconfigdiskconfigwithbootdisksizegb)
             * [`fn withBootDiskType(bootDiskType)`](#fn-specplacementmanagedclusterconfigsecondaryworkerconfigdiskconfigwithbootdisktype)
@@ -170,6 +315,9 @@ permalink: /1.74/dataproc/v1beta1/dataprocWorkflowTemplate/
           * [`fn withMinCpuPlatform(minCpuPlatform)`](#fn-specplacementmanagedclusterconfigworkerconfigwithmincpuplatform)
           * [`fn withNumInstances(numInstances)`](#fn-specplacementmanagedclusterconfigworkerconfigwithnuminstances)
           * [`fn withPreemptibility(preemptibility)`](#fn-specplacementmanagedclusterconfigworkerconfigwithpreemptibility)
+          * [`obj spec.placement.managedCluster.config.workerConfig.accelerators`](#obj-specplacementmanagedclusterconfigworkerconfigaccelerators)
+            * [`fn withAcceleratorCount(acceleratorCount)`](#fn-specplacementmanagedclusterconfigworkerconfigacceleratorswithacceleratorcount)
+            * [`fn withAcceleratorType(acceleratorType)`](#fn-specplacementmanagedclusterconfigworkerconfigacceleratorswithacceleratortype)
           * [`obj spec.placement.managedCluster.config.workerConfig.diskConfig`](#obj-specplacementmanagedclusterconfigworkerconfigdiskconfig)
             * [`fn withBootDiskSizeGb(bootDiskSizeGb)`](#fn-specplacementmanagedclusterconfigworkerconfigdiskconfigwithbootdisksizegb)
             * [`fn withBootDiskType(bootDiskType)`](#fn-specplacementmanagedclusterconfigworkerconfigdiskconfigwithbootdisktype)
@@ -299,24 +447,6 @@ withLabelsMixin(labels)
 
 **Note:** This function appends passed data to existing values
 
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-**Note:** This function appends passed data to existing values
-
 ### fn metadata.withName
 
 ```ts
@@ -438,6 +568,1104 @@ withResourceID(resourceID)
 ```
 
 "Immutable. Optional. The name of the resource. Used for creation and acquisition. When unset, the value of `metadata.name` is used as the default."
+
+## obj spec.jobs
+
+"Required. The Directed Acyclic Graph of Jobs to submit."
+
+### fn spec.jobs.withLabels
+
+```ts
+withLabels(labels)
+```
+
+"Optional. The labels to associate with this job. Label keys must be between 1 and 63 characters long, and must conform to the following regular expression: p{Ll}p{Lo}{0,62} Label values must be between 1 and 63 characters long, and must conform to the following regular expression: [p{Ll}p{Lo}p{N}_-]{0,63} No more than 32 labels can be associated with a given job."
+
+### fn spec.jobs.withLabelsMixin
+
+```ts
+withLabelsMixin(labels)
+```
+
+"Optional. The labels to associate with this job. Label keys must be between 1 and 63 characters long, and must conform to the following regular expression: p{Ll}p{Lo}{0,62} Label values must be between 1 and 63 characters long, and must conform to the following regular expression: [p{Ll}p{Lo}p{N}_-]{0,63} No more than 32 labels can be associated with a given job."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.jobs.withPrerequisiteStepIds
+
+```ts
+withPrerequisiteStepIds(prerequisiteStepIds)
+```
+
+"Optional. The optional list of prerequisite job step_ids. If not specified, the job will start at the beginning of workflow."
+
+### fn spec.jobs.withPrerequisiteStepIdsMixin
+
+```ts
+withPrerequisiteStepIdsMixin(prerequisiteStepIds)
+```
+
+"Optional. The optional list of prerequisite job step_ids. If not specified, the job will start at the beginning of workflow."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.jobs.withStepId
+
+```ts
+withStepId(stepId)
+```
+
+"Required. The step id. The id must be unique among all jobs within the template. The step id is used as prefix for job id, as job `goog-dataproc-workflow-step-id` label, and in prerequisiteStepIds field from other steps. The id must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). Cannot begin or end with underscore or hyphen. Must consist of between 3 and 50 characters."
+
+## obj spec.jobs.hadoopJob
+
+"Optional. Job is a Hadoop job."
+
+### fn spec.jobs.hadoopJob.withArchiveUris
+
+```ts
+withArchiveUris(archiveUris)
+```
+
+"Optional. HCFS URIs of archives to be extracted in the working directory of Hadoop drivers and tasks. Supported file types: .jar, .tar, .tar.gz, .tgz, or .zip."
+
+### fn spec.jobs.hadoopJob.withArchiveUrisMixin
+
+```ts
+withArchiveUrisMixin(archiveUris)
+```
+
+"Optional. HCFS URIs of archives to be extracted in the working directory of Hadoop drivers and tasks. Supported file types: .jar, .tar, .tar.gz, .tgz, or .zip."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.jobs.hadoopJob.withArgs
+
+```ts
+withArgs(args)
+```
+
+"Optional. The arguments to pass to the driver. Do not include arguments, such as `-libjars` or `-Dfoo=bar`, that can be set as job properties, since a collision may occur that causes an incorrect job submission."
+
+### fn spec.jobs.hadoopJob.withArgsMixin
+
+```ts
+withArgsMixin(args)
+```
+
+"Optional. The arguments to pass to the driver. Do not include arguments, such as `-libjars` or `-Dfoo=bar`, that can be set as job properties, since a collision may occur that causes an incorrect job submission."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.jobs.hadoopJob.withFileUris
+
+```ts
+withFileUris(fileUris)
+```
+
+"Optional. HCFS (Hadoop Compatible Filesystem) URIs of files to be copied to the working directory of Hadoop drivers and distributed tasks. Useful for naively parallel tasks."
+
+### fn spec.jobs.hadoopJob.withFileUrisMixin
+
+```ts
+withFileUrisMixin(fileUris)
+```
+
+"Optional. HCFS (Hadoop Compatible Filesystem) URIs of files to be copied to the working directory of Hadoop drivers and distributed tasks. Useful for naively parallel tasks."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.jobs.hadoopJob.withJarFileUris
+
+```ts
+withJarFileUris(jarFileUris)
+```
+
+"Optional. Jar file URIs to add to the CLASSPATHs of the Hadoop driver and tasks."
+
+### fn spec.jobs.hadoopJob.withJarFileUrisMixin
+
+```ts
+withJarFileUrisMixin(jarFileUris)
+```
+
+"Optional. Jar file URIs to add to the CLASSPATHs of the Hadoop driver and tasks."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.jobs.hadoopJob.withMainClass
+
+```ts
+withMainClass(mainClass)
+```
+
+"The name of the driver's main class. The jar file containing the class must be in the default CLASSPATH or specified in `jar_file_uris`."
+
+### fn spec.jobs.hadoopJob.withMainJarFileUri
+
+```ts
+withMainJarFileUri(mainJarFileUri)
+```
+
+"The HCFS URI of the jar file containing the main class. Examples: 'gs://foo-bucket/analytics-binaries/extract-useful-metrics-mr.jar' 'hdfs:/tmp/test-samples/custom-wordcount.jar' 'file:///home/usr/lib/hadoop-mapreduce/hadoop-mapreduce-examples.jar'"
+
+### fn spec.jobs.hadoopJob.withProperties
+
+```ts
+withProperties(properties)
+```
+
+"Optional. A mapping of property names to values, used to configure Hadoop. Properties that conflict with values set by the Dataproc API may be overwritten. Can include properties set in /etc/hadoop/conf/*-site and classes in user code."
+
+### fn spec.jobs.hadoopJob.withPropertiesMixin
+
+```ts
+withPropertiesMixin(properties)
+```
+
+"Optional. A mapping of property names to values, used to configure Hadoop. Properties that conflict with values set by the Dataproc API may be overwritten. Can include properties set in /etc/hadoop/conf/*-site and classes in user code."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.jobs.hadoopJob.loggingConfig
+
+"Optional. The runtime log config for job execution."
+
+### fn spec.jobs.hadoopJob.loggingConfig.withDriverLogLevels
+
+```ts
+withDriverLogLevels(driverLogLevels)
+```
+
+"The per-package log levels for the driver. This may include \"root\" package name to configure rootLogger. Examples: 'com.google = FATAL', 'root = INFO', 'org.apache = DEBUG'"
+
+### fn spec.jobs.hadoopJob.loggingConfig.withDriverLogLevelsMixin
+
+```ts
+withDriverLogLevelsMixin(driverLogLevels)
+```
+
+"The per-package log levels for the driver. This may include \"root\" package name to configure rootLogger. Examples: 'com.google = FATAL', 'root = INFO', 'org.apache = DEBUG'"
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.jobs.hiveJob
+
+"Optional. Job is a Hive job."
+
+### fn spec.jobs.hiveJob.withContinueOnFailure
+
+```ts
+withContinueOnFailure(continueOnFailure)
+```
+
+"Optional. Whether to continue executing queries if a query fails. The default value is `false`. Setting to `true` can be useful when executing independent parallel queries."
+
+### fn spec.jobs.hiveJob.withJarFileUris
+
+```ts
+withJarFileUris(jarFileUris)
+```
+
+"Optional. HCFS URIs of jar files to add to the CLASSPATH of the Hive server and Hadoop MapReduce (MR) tasks. Can contain Hive SerDes and UDFs."
+
+### fn spec.jobs.hiveJob.withJarFileUrisMixin
+
+```ts
+withJarFileUrisMixin(jarFileUris)
+```
+
+"Optional. HCFS URIs of jar files to add to the CLASSPATH of the Hive server and Hadoop MapReduce (MR) tasks. Can contain Hive SerDes and UDFs."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.jobs.hiveJob.withProperties
+
+```ts
+withProperties(properties)
+```
+
+"Optional. A mapping of property names and values, used to configure Hive. Properties that conflict with values set by the Dataproc API may be overwritten. Can include properties set in /etc/hadoop/conf/*-site.xml, /etc/hive/conf/hive-site.xml, and classes in user code."
+
+### fn spec.jobs.hiveJob.withPropertiesMixin
+
+```ts
+withPropertiesMixin(properties)
+```
+
+"Optional. A mapping of property names and values, used to configure Hive. Properties that conflict with values set by the Dataproc API may be overwritten. Can include properties set in /etc/hadoop/conf/*-site.xml, /etc/hive/conf/hive-site.xml, and classes in user code."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.jobs.hiveJob.withQueryFileUri
+
+```ts
+withQueryFileUri(queryFileUri)
+```
+
+"The HCFS URI of the script that contains Hive queries."
+
+### fn spec.jobs.hiveJob.withScriptVariables
+
+```ts
+withScriptVariables(scriptVariables)
+```
+
+"Optional. Mapping of query variable names to values (equivalent to the Hive command: `SET name=\"value\";`)."
+
+### fn spec.jobs.hiveJob.withScriptVariablesMixin
+
+```ts
+withScriptVariablesMixin(scriptVariables)
+```
+
+"Optional. Mapping of query variable names to values (equivalent to the Hive command: `SET name=\"value\";`)."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.jobs.hiveJob.queryList
+
+"A list of queries."
+
+### fn spec.jobs.hiveJob.queryList.withQueries
+
+```ts
+withQueries(queries)
+```
+
+"Required. The queries to execute. You do not need to end a query expression with a semicolon. Multiple queries can be specified in one string by separating each with a semicolon. Here is an example of a Dataproc API snippet that uses a QueryList to specify a HiveJob: \"hiveJob\": { \"queryList\": { \"queries\": [ \"query1\", \"query2\", \"query3;query4\", ] } }"
+
+### fn spec.jobs.hiveJob.queryList.withQueriesMixin
+
+```ts
+withQueriesMixin(queries)
+```
+
+"Required. The queries to execute. You do not need to end a query expression with a semicolon. Multiple queries can be specified in one string by separating each with a semicolon. Here is an example of a Dataproc API snippet that uses a QueryList to specify a HiveJob: \"hiveJob\": { \"queryList\": { \"queries\": [ \"query1\", \"query2\", \"query3;query4\", ] } }"
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.jobs.pigJob
+
+"Optional. Job is a Pig job."
+
+### fn spec.jobs.pigJob.withContinueOnFailure
+
+```ts
+withContinueOnFailure(continueOnFailure)
+```
+
+"Optional. Whether to continue executing queries if a query fails. The default value is `false`. Setting to `true` can be useful when executing independent parallel queries."
+
+### fn spec.jobs.pigJob.withJarFileUris
+
+```ts
+withJarFileUris(jarFileUris)
+```
+
+"Optional. HCFS URIs of jar files to add to the CLASSPATH of the Pig Client and Hadoop MapReduce (MR) tasks. Can contain Pig UDFs."
+
+### fn spec.jobs.pigJob.withJarFileUrisMixin
+
+```ts
+withJarFileUrisMixin(jarFileUris)
+```
+
+"Optional. HCFS URIs of jar files to add to the CLASSPATH of the Pig Client and Hadoop MapReduce (MR) tasks. Can contain Pig UDFs."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.jobs.pigJob.withProperties
+
+```ts
+withProperties(properties)
+```
+
+"Optional. A mapping of property names to values, used to configure Pig. Properties that conflict with values set by the Dataproc API may be overwritten. Can include properties set in /etc/hadoop/conf/*-site.xml, /etc/pig/conf/pig.properties, and classes in user code."
+
+### fn spec.jobs.pigJob.withPropertiesMixin
+
+```ts
+withPropertiesMixin(properties)
+```
+
+"Optional. A mapping of property names to values, used to configure Pig. Properties that conflict with values set by the Dataproc API may be overwritten. Can include properties set in /etc/hadoop/conf/*-site.xml, /etc/pig/conf/pig.properties, and classes in user code."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.jobs.pigJob.withQueryFileUri
+
+```ts
+withQueryFileUri(queryFileUri)
+```
+
+"The HCFS URI of the script that contains the Pig queries."
+
+### fn spec.jobs.pigJob.withScriptVariables
+
+```ts
+withScriptVariables(scriptVariables)
+```
+
+"Optional. Mapping of query variable names to values (equivalent to the Pig command: `name=[value]`)."
+
+### fn spec.jobs.pigJob.withScriptVariablesMixin
+
+```ts
+withScriptVariablesMixin(scriptVariables)
+```
+
+"Optional. Mapping of query variable names to values (equivalent to the Pig command: `name=[value]`)."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.jobs.pigJob.loggingConfig
+
+"Optional. The runtime log config for job execution."
+
+### fn spec.jobs.pigJob.loggingConfig.withDriverLogLevels
+
+```ts
+withDriverLogLevels(driverLogLevels)
+```
+
+"The per-package log levels for the driver. This may include \"root\" package name to configure rootLogger. Examples: 'com.google = FATAL', 'root = INFO', 'org.apache = DEBUG'"
+
+### fn spec.jobs.pigJob.loggingConfig.withDriverLogLevelsMixin
+
+```ts
+withDriverLogLevelsMixin(driverLogLevels)
+```
+
+"The per-package log levels for the driver. This may include \"root\" package name to configure rootLogger. Examples: 'com.google = FATAL', 'root = INFO', 'org.apache = DEBUG'"
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.jobs.pigJob.queryList
+
+"A list of queries."
+
+### fn spec.jobs.pigJob.queryList.withQueries
+
+```ts
+withQueries(queries)
+```
+
+"Required. The queries to execute. You do not need to end a query expression with a semicolon. Multiple queries can be specified in one string by separating each with a semicolon. Here is an example of a Dataproc API snippet that uses a QueryList to specify a HiveJob: \"hiveJob\": { \"queryList\": { \"queries\": [ \"query1\", \"query2\", \"query3;query4\", ] } }"
+
+### fn spec.jobs.pigJob.queryList.withQueriesMixin
+
+```ts
+withQueriesMixin(queries)
+```
+
+"Required. The queries to execute. You do not need to end a query expression with a semicolon. Multiple queries can be specified in one string by separating each with a semicolon. Here is an example of a Dataproc API snippet that uses a QueryList to specify a HiveJob: \"hiveJob\": { \"queryList\": { \"queries\": [ \"query1\", \"query2\", \"query3;query4\", ] } }"
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.jobs.prestoJob
+
+"Optional. Job is a Presto job."
+
+### fn spec.jobs.prestoJob.withClientTags
+
+```ts
+withClientTags(clientTags)
+```
+
+"Optional. Presto client tags to attach to this query"
+
+### fn spec.jobs.prestoJob.withClientTagsMixin
+
+```ts
+withClientTagsMixin(clientTags)
+```
+
+"Optional. Presto client tags to attach to this query"
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.jobs.prestoJob.withContinueOnFailure
+
+```ts
+withContinueOnFailure(continueOnFailure)
+```
+
+"Optional. Whether to continue executing queries if a query fails. The default value is `false`. Setting to `true` can be useful when executing independent parallel queries."
+
+### fn spec.jobs.prestoJob.withOutputFormat
+
+```ts
+withOutputFormat(outputFormat)
+```
+
+"Optional. The format in which query output will be displayed. See the Presto documentation for supported output formats"
+
+### fn spec.jobs.prestoJob.withProperties
+
+```ts
+withProperties(properties)
+```
+
+"Optional. A mapping of property names to values. Used to set Presto [session properties](https://prestodb.io/docs/current/sql/set-session.html) Equivalent to using the --session flag in the Presto CLI"
+
+### fn spec.jobs.prestoJob.withPropertiesMixin
+
+```ts
+withPropertiesMixin(properties)
+```
+
+"Optional. A mapping of property names to values. Used to set Presto [session properties](https://prestodb.io/docs/current/sql/set-session.html) Equivalent to using the --session flag in the Presto CLI"
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.jobs.prestoJob.withQueryFileUri
+
+```ts
+withQueryFileUri(queryFileUri)
+```
+
+"The HCFS URI of the script that contains SQL queries."
+
+## obj spec.jobs.prestoJob.loggingConfig
+
+"Optional. The runtime log config for job execution."
+
+### fn spec.jobs.prestoJob.loggingConfig.withDriverLogLevels
+
+```ts
+withDriverLogLevels(driverLogLevels)
+```
+
+"The per-package log levels for the driver. This may include \"root\" package name to configure rootLogger. Examples: 'com.google = FATAL', 'root = INFO', 'org.apache = DEBUG'"
+
+### fn spec.jobs.prestoJob.loggingConfig.withDriverLogLevelsMixin
+
+```ts
+withDriverLogLevelsMixin(driverLogLevels)
+```
+
+"The per-package log levels for the driver. This may include \"root\" package name to configure rootLogger. Examples: 'com.google = FATAL', 'root = INFO', 'org.apache = DEBUG'"
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.jobs.prestoJob.queryList
+
+"A list of queries."
+
+### fn spec.jobs.prestoJob.queryList.withQueries
+
+```ts
+withQueries(queries)
+```
+
+"Required. The queries to execute. You do not need to end a query expression with a semicolon. Multiple queries can be specified in one string by separating each with a semicolon. Here is an example of a Dataproc API snippet that uses a QueryList to specify a HiveJob: \"hiveJob\": { \"queryList\": { \"queries\": [ \"query1\", \"query2\", \"query3;query4\", ] } }"
+
+### fn spec.jobs.prestoJob.queryList.withQueriesMixin
+
+```ts
+withQueriesMixin(queries)
+```
+
+"Required. The queries to execute. You do not need to end a query expression with a semicolon. Multiple queries can be specified in one string by separating each with a semicolon. Here is an example of a Dataproc API snippet that uses a QueryList to specify a HiveJob: \"hiveJob\": { \"queryList\": { \"queries\": [ \"query1\", \"query2\", \"query3;query4\", ] } }"
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.jobs.pysparkJob
+
+"Optional. Job is a PySpark job."
+
+### fn spec.jobs.pysparkJob.withArchiveUris
+
+```ts
+withArchiveUris(archiveUris)
+```
+
+"Optional. HCFS URIs of archives to be extracted into the working directory of each executor. Supported file types: .jar, .tar, .tar.gz, .tgz, and .zip."
+
+### fn spec.jobs.pysparkJob.withArchiveUrisMixin
+
+```ts
+withArchiveUrisMixin(archiveUris)
+```
+
+"Optional. HCFS URIs of archives to be extracted into the working directory of each executor. Supported file types: .jar, .tar, .tar.gz, .tgz, and .zip."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.jobs.pysparkJob.withArgs
+
+```ts
+withArgs(args)
+```
+
+"Optional. The arguments to pass to the driver. Do not include arguments, such as `--conf`, that can be set as job properties, since a collision may occur that causes an incorrect job submission."
+
+### fn spec.jobs.pysparkJob.withArgsMixin
+
+```ts
+withArgsMixin(args)
+```
+
+"Optional. The arguments to pass to the driver. Do not include arguments, such as `--conf`, that can be set as job properties, since a collision may occur that causes an incorrect job submission."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.jobs.pysparkJob.withFileUris
+
+```ts
+withFileUris(fileUris)
+```
+
+"Optional. HCFS URIs of files to be placed in the working directory of each executor. Useful for naively parallel tasks."
+
+### fn spec.jobs.pysparkJob.withFileUrisMixin
+
+```ts
+withFileUrisMixin(fileUris)
+```
+
+"Optional. HCFS URIs of files to be placed in the working directory of each executor. Useful for naively parallel tasks."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.jobs.pysparkJob.withJarFileUris
+
+```ts
+withJarFileUris(jarFileUris)
+```
+
+"Optional. HCFS URIs of jar files to add to the CLASSPATHs of the Python driver and tasks."
+
+### fn spec.jobs.pysparkJob.withJarFileUrisMixin
+
+```ts
+withJarFileUrisMixin(jarFileUris)
+```
+
+"Optional. HCFS URIs of jar files to add to the CLASSPATHs of the Python driver and tasks."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.jobs.pysparkJob.withMainPythonFileUri
+
+```ts
+withMainPythonFileUri(mainPythonFileUri)
+```
+
+"Required. The HCFS URI of the main Python file to use as the driver. Must be a .py file."
+
+### fn spec.jobs.pysparkJob.withProperties
+
+```ts
+withProperties(properties)
+```
+
+"Optional. A mapping of property names to values, used to configure PySpark. Properties that conflict with values set by the Dataproc API may be overwritten. Can include properties set in /etc/spark/conf/spark-defaults.conf and classes in user code."
+
+### fn spec.jobs.pysparkJob.withPropertiesMixin
+
+```ts
+withPropertiesMixin(properties)
+```
+
+"Optional. A mapping of property names to values, used to configure PySpark. Properties that conflict with values set by the Dataproc API may be overwritten. Can include properties set in /etc/spark/conf/spark-defaults.conf and classes in user code."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.jobs.pysparkJob.withPythonFileUris
+
+```ts
+withPythonFileUris(pythonFileUris)
+```
+
+"Optional. HCFS file URIs of Python files to pass to the PySpark framework. Supported file types: .py, .egg, and .zip."
+
+### fn spec.jobs.pysparkJob.withPythonFileUrisMixin
+
+```ts
+withPythonFileUrisMixin(pythonFileUris)
+```
+
+"Optional. HCFS file URIs of Python files to pass to the PySpark framework. Supported file types: .py, .egg, and .zip."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.jobs.pysparkJob.loggingConfig
+
+"Optional. The runtime log config for job execution."
+
+### fn spec.jobs.pysparkJob.loggingConfig.withDriverLogLevels
+
+```ts
+withDriverLogLevels(driverLogLevels)
+```
+
+"The per-package log levels for the driver. This may include \"root\" package name to configure rootLogger. Examples: 'com.google = FATAL', 'root = INFO', 'org.apache = DEBUG'"
+
+### fn spec.jobs.pysparkJob.loggingConfig.withDriverLogLevelsMixin
+
+```ts
+withDriverLogLevelsMixin(driverLogLevels)
+```
+
+"The per-package log levels for the driver. This may include \"root\" package name to configure rootLogger. Examples: 'com.google = FATAL', 'root = INFO', 'org.apache = DEBUG'"
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.jobs.scheduling
+
+"Optional. Job scheduling configuration."
+
+### fn spec.jobs.scheduling.withMaxFailuresPerHour
+
+```ts
+withMaxFailuresPerHour(maxFailuresPerHour)
+```
+
+"Optional. Maximum number of times per hour a driver may be restarted as a result of driver exiting with non-zero code before job is reported failed. A job may be reported as thrashing if driver exits with non-zero code 4 times within 10 minute window. Maximum value is 10."
+
+### fn spec.jobs.scheduling.withMaxFailuresTotal
+
+```ts
+withMaxFailuresTotal(maxFailuresTotal)
+```
+
+"Optional. Maximum number of times in total a driver may be restarted as a result of driver exiting with non-zero code before job is reported failed. Maximum value is 240."
+
+## obj spec.jobs.sparkJob
+
+"Optional. Job is a Spark job."
+
+### fn spec.jobs.sparkJob.withArchiveUris
+
+```ts
+withArchiveUris(archiveUris)
+```
+
+"Optional. HCFS URIs of archives to be extracted into the working directory of each executor. Supported file types: .jar, .tar, .tar.gz, .tgz, and .zip."
+
+### fn spec.jobs.sparkJob.withArchiveUrisMixin
+
+```ts
+withArchiveUrisMixin(archiveUris)
+```
+
+"Optional. HCFS URIs of archives to be extracted into the working directory of each executor. Supported file types: .jar, .tar, .tar.gz, .tgz, and .zip."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.jobs.sparkJob.withArgs
+
+```ts
+withArgs(args)
+```
+
+"Optional. The arguments to pass to the driver. Do not include arguments, such as `--conf`, that can be set as job properties, since a collision may occur that causes an incorrect job submission."
+
+### fn spec.jobs.sparkJob.withArgsMixin
+
+```ts
+withArgsMixin(args)
+```
+
+"Optional. The arguments to pass to the driver. Do not include arguments, such as `--conf`, that can be set as job properties, since a collision may occur that causes an incorrect job submission."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.jobs.sparkJob.withFileUris
+
+```ts
+withFileUris(fileUris)
+```
+
+"Optional. HCFS URIs of files to be placed in the working directory of each executor. Useful for naively parallel tasks."
+
+### fn spec.jobs.sparkJob.withFileUrisMixin
+
+```ts
+withFileUrisMixin(fileUris)
+```
+
+"Optional. HCFS URIs of files to be placed in the working directory of each executor. Useful for naively parallel tasks."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.jobs.sparkJob.withJarFileUris
+
+```ts
+withJarFileUris(jarFileUris)
+```
+
+"Optional. HCFS URIs of jar files to add to the CLASSPATHs of the Spark driver and tasks."
+
+### fn spec.jobs.sparkJob.withJarFileUrisMixin
+
+```ts
+withJarFileUrisMixin(jarFileUris)
+```
+
+"Optional. HCFS URIs of jar files to add to the CLASSPATHs of the Spark driver and tasks."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.jobs.sparkJob.withMainClass
+
+```ts
+withMainClass(mainClass)
+```
+
+"The name of the driver's main class. The jar file that contains the class must be in the default CLASSPATH or specified in `jar_file_uris`."
+
+### fn spec.jobs.sparkJob.withMainJarFileUri
+
+```ts
+withMainJarFileUri(mainJarFileUri)
+```
+
+"The HCFS URI of the jar file that contains the main class."
+
+### fn spec.jobs.sparkJob.withProperties
+
+```ts
+withProperties(properties)
+```
+
+"Optional. A mapping of property names to values, used to configure Spark. Properties that conflict with values set by the Dataproc API may be overwritten. Can include properties set in /etc/spark/conf/spark-defaults.conf and classes in user code."
+
+### fn spec.jobs.sparkJob.withPropertiesMixin
+
+```ts
+withPropertiesMixin(properties)
+```
+
+"Optional. A mapping of property names to values, used to configure Spark. Properties that conflict with values set by the Dataproc API may be overwritten. Can include properties set in /etc/spark/conf/spark-defaults.conf and classes in user code."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.jobs.sparkJob.loggingConfig
+
+"Optional. The runtime log config for job execution."
+
+### fn spec.jobs.sparkJob.loggingConfig.withDriverLogLevels
+
+```ts
+withDriverLogLevels(driverLogLevels)
+```
+
+"The per-package log levels for the driver. This may include \"root\" package name to configure rootLogger. Examples: 'com.google = FATAL', 'root = INFO', 'org.apache = DEBUG'"
+
+### fn spec.jobs.sparkJob.loggingConfig.withDriverLogLevelsMixin
+
+```ts
+withDriverLogLevelsMixin(driverLogLevels)
+```
+
+"The per-package log levels for the driver. This may include \"root\" package name to configure rootLogger. Examples: 'com.google = FATAL', 'root = INFO', 'org.apache = DEBUG'"
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.jobs.sparkRJob
+
+"Optional. Job is a SparkR job."
+
+### fn spec.jobs.sparkRJob.withArchiveUris
+
+```ts
+withArchiveUris(archiveUris)
+```
+
+"Optional. HCFS URIs of archives to be extracted into the working directory of each executor. Supported file types: .jar, .tar, .tar.gz, .tgz, and .zip."
+
+### fn spec.jobs.sparkRJob.withArchiveUrisMixin
+
+```ts
+withArchiveUrisMixin(archiveUris)
+```
+
+"Optional. HCFS URIs of archives to be extracted into the working directory of each executor. Supported file types: .jar, .tar, .tar.gz, .tgz, and .zip."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.jobs.sparkRJob.withArgs
+
+```ts
+withArgs(args)
+```
+
+"Optional. The arguments to pass to the driver. Do not include arguments, such as `--conf`, that can be set as job properties, since a collision may occur that causes an incorrect job submission."
+
+### fn spec.jobs.sparkRJob.withArgsMixin
+
+```ts
+withArgsMixin(args)
+```
+
+"Optional. The arguments to pass to the driver. Do not include arguments, such as `--conf`, that can be set as job properties, since a collision may occur that causes an incorrect job submission."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.jobs.sparkRJob.withFileUris
+
+```ts
+withFileUris(fileUris)
+```
+
+"Optional. HCFS URIs of files to be placed in the working directory of each executor. Useful for naively parallel tasks."
+
+### fn spec.jobs.sparkRJob.withFileUrisMixin
+
+```ts
+withFileUrisMixin(fileUris)
+```
+
+"Optional. HCFS URIs of files to be placed in the working directory of each executor. Useful for naively parallel tasks."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.jobs.sparkRJob.withMainRFileUri
+
+```ts
+withMainRFileUri(mainRFileUri)
+```
+
+"Required. The HCFS URI of the main R file to use as the driver. Must be a .R file."
+
+### fn spec.jobs.sparkRJob.withProperties
+
+```ts
+withProperties(properties)
+```
+
+"Optional. A mapping of property names to values, used to configure SparkR. Properties that conflict with values set by the Dataproc API may be overwritten. Can include properties set in /etc/spark/conf/spark-defaults.conf and classes in user code."
+
+### fn spec.jobs.sparkRJob.withPropertiesMixin
+
+```ts
+withPropertiesMixin(properties)
+```
+
+"Optional. A mapping of property names to values, used to configure SparkR. Properties that conflict with values set by the Dataproc API may be overwritten. Can include properties set in /etc/spark/conf/spark-defaults.conf and classes in user code."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.jobs.sparkRJob.loggingConfig
+
+"Optional. The runtime log config for job execution."
+
+### fn spec.jobs.sparkRJob.loggingConfig.withDriverLogLevels
+
+```ts
+withDriverLogLevels(driverLogLevels)
+```
+
+"The per-package log levels for the driver. This may include \"root\" package name to configure rootLogger. Examples: 'com.google = FATAL', 'root = INFO', 'org.apache = DEBUG'"
+
+### fn spec.jobs.sparkRJob.loggingConfig.withDriverLogLevelsMixin
+
+```ts
+withDriverLogLevelsMixin(driverLogLevels)
+```
+
+"The per-package log levels for the driver. This may include \"root\" package name to configure rootLogger. Examples: 'com.google = FATAL', 'root = INFO', 'org.apache = DEBUG'"
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.jobs.sparkSqlJob
+
+"Optional. Job is a SparkSql job."
+
+### fn spec.jobs.sparkSqlJob.withJarFileUris
+
+```ts
+withJarFileUris(jarFileUris)
+```
+
+"Optional. HCFS URIs of jar files to be added to the Spark CLASSPATH."
+
+### fn spec.jobs.sparkSqlJob.withJarFileUrisMixin
+
+```ts
+withJarFileUrisMixin(jarFileUris)
+```
+
+"Optional. HCFS URIs of jar files to be added to the Spark CLASSPATH."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.jobs.sparkSqlJob.withProperties
+
+```ts
+withProperties(properties)
+```
+
+"Optional. A mapping of property names to values, used to configure Spark SQL's SparkConf. Properties that conflict with values set by the Dataproc API may be overwritten."
+
+### fn spec.jobs.sparkSqlJob.withPropertiesMixin
+
+```ts
+withPropertiesMixin(properties)
+```
+
+"Optional. A mapping of property names to values, used to configure Spark SQL's SparkConf. Properties that conflict with values set by the Dataproc API may be overwritten."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.jobs.sparkSqlJob.withQueryFileUri
+
+```ts
+withQueryFileUri(queryFileUri)
+```
+
+"The HCFS URI of the script that contains SQL queries."
+
+### fn spec.jobs.sparkSqlJob.withScriptVariables
+
+```ts
+withScriptVariables(scriptVariables)
+```
+
+"Optional. Mapping of query variable names to values (equivalent to the Spark SQL command: SET `name=\"value\";`)."
+
+### fn spec.jobs.sparkSqlJob.withScriptVariablesMixin
+
+```ts
+withScriptVariablesMixin(scriptVariables)
+```
+
+"Optional. Mapping of query variable names to values (equivalent to the Spark SQL command: SET `name=\"value\";`)."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.jobs.sparkSqlJob.loggingConfig
+
+"Optional. The runtime log config for job execution."
+
+### fn spec.jobs.sparkSqlJob.loggingConfig.withDriverLogLevels
+
+```ts
+withDriverLogLevels(driverLogLevels)
+```
+
+"The per-package log levels for the driver. This may include \"root\" package name to configure rootLogger. Examples: 'com.google = FATAL', 'root = INFO', 'org.apache = DEBUG'"
+
+### fn spec.jobs.sparkSqlJob.loggingConfig.withDriverLogLevelsMixin
+
+```ts
+withDriverLogLevelsMixin(driverLogLevels)
+```
+
+"The per-package log levels for the driver. This may include \"root\" package name to configure rootLogger. Examples: 'com.google = FATAL', 'root = INFO', 'org.apache = DEBUG'"
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.jobs.sparkSqlJob.queryList
+
+"A list of queries."
+
+### fn spec.jobs.sparkSqlJob.queryList.withQueries
+
+```ts
+withQueries(queries)
+```
+
+"Required. The queries to execute. You do not need to end a query expression with a semicolon. Multiple queries can be specified in one string by separating each with a semicolon. Here is an example of a Dataproc API snippet that uses a QueryList to specify a HiveJob: \"hiveJob\": { \"queryList\": { \"queries\": [ \"query1\", \"query2\", \"query3;query4\", ] } }"
+
+### fn spec.jobs.sparkSqlJob.queryList.withQueriesMixin
+
+```ts
+withQueriesMixin(queries)
+```
+
+"Required. The queries to execute. You do not need to end a query expression with a semicolon. Multiple queries can be specified in one string by separating each with a semicolon. Here is an example of a Dataproc API snippet that uses a QueryList to specify a HiveJob: \"hiveJob\": { \"queryList\": { \"queries\": [ \"query1\", \"query2\", \"query3;query4\", ] } }"
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.parameters
+
+"Optional. Template parameters whose values are substituted into the template. Values for parameters must be provided when the template is instantiated."
+
+### fn spec.parameters.withDescription
+
+```ts
+withDescription(description)
+```
+
+"Optional. Brief description of the parameter. Must not exceed 1024 characters."
+
+### fn spec.parameters.withFields
+
+```ts
+withFields(fields)
+```
+
+"Required. Paths to all fields that the parameter replaces. A field is allowed to appear in at most one parameter's list of field paths. A field path is similar in syntax to a google.protobuf.FieldMask. For example, a field path that references the zone field of a workflow template's cluster selector would be specified as `placement.clusterSelector.zone`. Also, field paths can reference fields using the following syntax: * Values in maps can be referenced by key: * labels['key'] * placement.clusterSelector.clusterLabels['key'] * placement.managedCluster.labels['key'] * placement.clusterSelector.clusterLabels['key'] * jobs['step-id'].labels['key'] * Jobs in the jobs list can be referenced by step-id: * jobs['step-id'].hadoopJob.mainJarFileUri * jobs['step-id'].hiveJob.queryFileUri * jobs['step-id'].pySparkJob.mainPythonFileUri * jobs['step-id'].hadoopJob.jarFileUris[0] * jobs['step-id'].hadoopJob.archiveUris[0] * jobs['step-id'].hadoopJob.fileUris[0] * jobs['step-id'].pySparkJob.pythonFileUris[0] * Items in repeated fields can be referenced by a zero-based index: * jobs['step-id'].sparkJob.args[0] * Other examples: * jobs['step-id'].hadoopJob.properties['key'] * jobs['step-id'].hadoopJob.args[0] * jobs['step-id'].hiveJob.scriptVariables['key'] * jobs['step-id'].hadoopJob.mainJarFileUri * placement.clusterSelector.zone It may not be possible to parameterize maps and repeated fields in their entirety since only individual map values and individual items in repeated fields can be referenced. For example, the following field paths are invalid: - placement.clusterSelector.clusterLabels - jobs['step-id'].sparkJob.args"
+
+### fn spec.parameters.withFieldsMixin
+
+```ts
+withFieldsMixin(fields)
+```
+
+"Required. Paths to all fields that the parameter replaces. A field is allowed to appear in at most one parameter's list of field paths. A field path is similar in syntax to a google.protobuf.FieldMask. For example, a field path that references the zone field of a workflow template's cluster selector would be specified as `placement.clusterSelector.zone`. Also, field paths can reference fields using the following syntax: * Values in maps can be referenced by key: * labels['key'] * placement.clusterSelector.clusterLabels['key'] * placement.managedCluster.labels['key'] * placement.clusterSelector.clusterLabels['key'] * jobs['step-id'].labels['key'] * Jobs in the jobs list can be referenced by step-id: * jobs['step-id'].hadoopJob.mainJarFileUri * jobs['step-id'].hiveJob.queryFileUri * jobs['step-id'].pySparkJob.mainPythonFileUri * jobs['step-id'].hadoopJob.jarFileUris[0] * jobs['step-id'].hadoopJob.archiveUris[0] * jobs['step-id'].hadoopJob.fileUris[0] * jobs['step-id'].pySparkJob.pythonFileUris[0] * Items in repeated fields can be referenced by a zero-based index: * jobs['step-id'].sparkJob.args[0] * Other examples: * jobs['step-id'].hadoopJob.properties['key'] * jobs['step-id'].hadoopJob.args[0] * jobs['step-id'].hiveJob.scriptVariables['key'] * jobs['step-id'].hadoopJob.mainJarFileUri * placement.clusterSelector.zone It may not be possible to parameterize maps and repeated fields in their entirety since only individual map values and individual items in repeated fields can be referenced. For example, the following field paths are invalid: - placement.clusterSelector.clusterLabels - jobs['step-id'].sparkJob.args"
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.parameters.withName
+
+```ts
+withName(name)
+```
+
+"Required. Parameter name. The parameter name is used as the key, and paired with the parameter value, which are passed to the template when the template is instantiated. The name must contain only capital letters (A-Z), numbers (0-9), and underscores (_), and must not start with a number. The maximum length is 40 characters."
+
+## obj spec.parameters.validation
+
+"Optional. Validation rules to be applied to this parameter's value."
+
+## obj spec.parameters.validation.regex
+
+"Validation based on regular expressions."
+
+### fn spec.parameters.validation.regex.withRegexes
+
+```ts
+withRegexes(regexes)
+```
+
+"Required. RE2 regular expressions used to validate the parameter's value. The value must match the regex in its entirety (substring matches are not sufficient)."
+
+### fn spec.parameters.validation.regex.withRegexesMixin
+
+```ts
+withRegexesMixin(regexes)
+```
+
+"Required. RE2 regular expressions used to validate the parameter's value. The value must match the regex in its entirety (substring matches are not sufficient)."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.parameters.validation.values
+
+"Validation based on a list of allowed values."
+
+### fn spec.parameters.validation.values.withValues
+
+```ts
+withValues(values)
+```
+
+"Required. List of allowed values for the parameter."
+
+### fn spec.parameters.validation.values.withValuesMixin
+
+```ts
+withValuesMixin(values)
+```
+
+"Required. List of allowed values for the parameter."
+
+**Note:** This function appends passed data to existing values
 
 ## obj spec.placement
 
@@ -837,6 +2065,26 @@ withNamespace(namespace)
 
 "Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
 
+## obj spec.placement.managedCluster.config.initializationActions
+
+"Optional. Commands to execute on each node after config is completed. By default, executables are run on master and all worker nodes. You can test a node's `role` metadata to run an executable on a master or worker node, as shown below using `curl` (you can also use `wget`): ROLE=$(curl -H Metadata-Flavor:Google http://metadata/computeMetadata/v1/instance/attributes/dataproc-role) if [[ \"${ROLE}\" == 'Master' ]]; then ... master specific actions ... else ... worker specific actions ... fi"
+
+### fn spec.placement.managedCluster.config.initializationActions.withExecutableFile
+
+```ts
+withExecutableFile(executableFile)
+```
+
+"Required. Cloud Storage URI of executable file."
+
+### fn spec.placement.managedCluster.config.initializationActions.withExecutionTimeout
+
+```ts
+withExecutionTimeout(executionTimeout)
+```
+
+"Optional. Amount of time executable has to complete. Default is 10 minutes (see JSON representation of [Duration](https://developers.google.com/protocol-buffers/docs/proto3#json)). Cluster creation fails with an explanatory error message (the name of the executable that caused the error and the exceeded timeout period) if the executable is not completed at end of the timeout period."
+
 ## obj spec.placement.managedCluster.config.lifecycleConfig
 
 "Optional. Lifecycle setting for the cluster."
@@ -918,6 +2166,26 @@ withPreemptibility(preemptibility)
 ```
 
 "Optional. Specifies the preemptibility of the instance group. The default value for master and worker groups is `NON_PREEMPTIBLE`. This default cannot be changed. The default value for secondary instances is `PREEMPTIBLE`. Possible values: PREEMPTIBILITY_UNSPECIFIED, NON_PREEMPTIBLE, PREEMPTIBLE"
+
+## obj spec.placement.managedCluster.config.masterConfig.accelerators
+
+"Optional. The Compute Engine accelerator configuration for these instances."
+
+### fn spec.placement.managedCluster.config.masterConfig.accelerators.withAcceleratorCount
+
+```ts
+withAcceleratorCount(acceleratorCount)
+```
+
+"The number of the accelerator cards of this type exposed to this instance."
+
+### fn spec.placement.managedCluster.config.masterConfig.accelerators.withAcceleratorType
+
+```ts
+withAcceleratorType(acceleratorType)
+```
+
+"Full URL, partial URI, or short name of the accelerator type resource to expose to this instance. See [Compute Engine AcceleratorTypes](https://cloud.google.com/compute/docs/reference/beta/acceleratorTypes). Examples: * `https://www.googleapis.com/compute/beta/projects/[project_id]/zones/us-east1-a/acceleratorTypes/nvidia-tesla-k80` * `projects/[project_id]/zones/us-east1-a/acceleratorTypes/nvidia-tesla-k80` * `nvidia-tesla-k80` **Auto Zone Exception**: If you are using the Dataproc [Auto Zone Placement](https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/auto-zone#using_auto_zone_placement) feature, you must use the short name of the accelerator type resource, for example, `nvidia-tesla-k80`."
 
 ## obj spec.placement.managedCluster.config.masterConfig.diskConfig
 
@@ -1028,6 +2296,26 @@ withPreemptibility(preemptibility)
 ```
 
 "Optional. Specifies the preemptibility of the instance group. The default value for master and worker groups is `NON_PREEMPTIBLE`. This default cannot be changed. The default value for secondary instances is `PREEMPTIBLE`. Possible values: PREEMPTIBILITY_UNSPECIFIED, NON_PREEMPTIBLE, PREEMPTIBLE"
+
+## obj spec.placement.managedCluster.config.secondaryWorkerConfig.accelerators
+
+"Optional. The Compute Engine accelerator configuration for these instances."
+
+### fn spec.placement.managedCluster.config.secondaryWorkerConfig.accelerators.withAcceleratorCount
+
+```ts
+withAcceleratorCount(acceleratorCount)
+```
+
+"The number of the accelerator cards of this type exposed to this instance."
+
+### fn spec.placement.managedCluster.config.secondaryWorkerConfig.accelerators.withAcceleratorType
+
+```ts
+withAcceleratorType(acceleratorType)
+```
+
+"Full URL, partial URI, or short name of the accelerator type resource to expose to this instance. See [Compute Engine AcceleratorTypes](https://cloud.google.com/compute/docs/reference/beta/acceleratorTypes). Examples: * `https://www.googleapis.com/compute/beta/projects/[project_id]/zones/us-east1-a/acceleratorTypes/nvidia-tesla-k80` * `projects/[project_id]/zones/us-east1-a/acceleratorTypes/nvidia-tesla-k80` * `nvidia-tesla-k80` **Auto Zone Exception**: If you are using the Dataproc [Auto Zone Placement](https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/auto-zone#using_auto_zone_placement) feature, you must use the short name of the accelerator type resource, for example, `nvidia-tesla-k80`."
 
 ## obj spec.placement.managedCluster.config.secondaryWorkerConfig.diskConfig
 
@@ -1390,6 +2678,26 @@ withPreemptibility(preemptibility)
 ```
 
 "Optional. Specifies the preemptibility of the instance group. The default value for master and worker groups is `NON_PREEMPTIBLE`. This default cannot be changed. The default value for secondary instances is `PREEMPTIBLE`. Possible values: PREEMPTIBILITY_UNSPECIFIED, NON_PREEMPTIBLE, PREEMPTIBLE"
+
+## obj spec.placement.managedCluster.config.workerConfig.accelerators
+
+"Optional. The Compute Engine accelerator configuration for these instances."
+
+### fn spec.placement.managedCluster.config.workerConfig.accelerators.withAcceleratorCount
+
+```ts
+withAcceleratorCount(acceleratorCount)
+```
+
+"The number of the accelerator cards of this type exposed to this instance."
+
+### fn spec.placement.managedCluster.config.workerConfig.accelerators.withAcceleratorType
+
+```ts
+withAcceleratorType(acceleratorType)
+```
+
+"Full URL, partial URI, or short name of the accelerator type resource to expose to this instance. See [Compute Engine AcceleratorTypes](https://cloud.google.com/compute/docs/reference/beta/acceleratorTypes). Examples: * `https://www.googleapis.com/compute/beta/projects/[project_id]/zones/us-east1-a/acceleratorTypes/nvidia-tesla-k80` * `projects/[project_id]/zones/us-east1-a/acceleratorTypes/nvidia-tesla-k80` * `nvidia-tesla-k80` **Auto Zone Exception**: If you are using the Dataproc [Auto Zone Placement](https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/auto-zone#using_auto_zone_placement) feature, you must use the short name of the accelerator type resource, for example, `nvidia-tesla-k80`."
 
 ## obj spec.placement.managedCluster.config.workerConfig.diskConfig
 

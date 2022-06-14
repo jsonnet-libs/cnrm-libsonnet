@@ -22,8 +22,6 @@ permalink: /1.74/bigquery/v1beta1/bigQueryDataset/
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -40,6 +38,16 @@ permalink: /1.74/bigquery/v1beta1/bigQueryDataset/
   * [`fn withFriendlyName(friendlyName)`](#fn-specwithfriendlyname)
   * [`fn withLocation(location)`](#fn-specwithlocation)
   * [`fn withResourceID(resourceID)`](#fn-specwithresourceid)
+  * [`obj spec.access`](#obj-specaccess)
+    * [`fn withDomain(domain)`](#fn-specaccesswithdomain)
+    * [`fn withGroupByEmail(groupByEmail)`](#fn-specaccesswithgroupbyemail)
+    * [`fn withRole(role)`](#fn-specaccesswithrole)
+    * [`fn withSpecialGroup(specialGroup)`](#fn-specaccesswithspecialgroup)
+    * [`fn withUserByEmail(userByEmail)`](#fn-specaccesswithuserbyemail)
+    * [`obj spec.access.view`](#obj-specaccessview)
+      * [`fn withDatasetId(datasetId)`](#fn-specaccessviewwithdatasetid)
+      * [`fn withProjectId(projectId)`](#fn-specaccessviewwithprojectid)
+      * [`fn withTableId(tableId)`](#fn-specaccessviewwithtableid)
   * [`obj spec.defaultEncryptionConfiguration`](#obj-specdefaultencryptionconfiguration)
     * [`obj spec.defaultEncryptionConfiguration.kmsKeyRef`](#obj-specdefaultencryptionconfigurationkmskeyref)
       * [`fn withExternal(external)`](#fn-specdefaultencryptionconfigurationkmskeyrefwithexternal)
@@ -163,24 +171,6 @@ withLabelsMixin(labels)
 ```
 
 "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
-
-**Note:** This function appends passed data to existing values
-
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
 
 **Note:** This function appends passed data to existing values
 
@@ -311,6 +301,78 @@ withResourceID(resourceID)
 ```
 
 "Immutable. Optional. The datasetId of the resource. Used for creation and acquisition. When unset, the value of `metadata.name` is used as the default."
+
+## obj spec.access
+
+"An array of objects that define dataset access for one or more entities."
+
+### fn spec.access.withDomain
+
+```ts
+withDomain(domain)
+```
+
+"A domain to grant access to. Any users signed in with the\ndomain specified will be granted the specified access."
+
+### fn spec.access.withGroupByEmail
+
+```ts
+withGroupByEmail(groupByEmail)
+```
+
+"An email address of a Google Group to grant access to."
+
+### fn spec.access.withRole
+
+```ts
+withRole(role)
+```
+
+"Describes the rights granted to the user specified by the other\nmember of the access object. Basic, predefined, and custom roles\nare supported. Predefined roles that have equivalent basic roles\nare swapped by the API to their basic counterparts. See\n[official docs](https://cloud.google.com/bigquery/docs/access-control)."
+
+### fn spec.access.withSpecialGroup
+
+```ts
+withSpecialGroup(specialGroup)
+```
+
+"A special group to grant access to. Possible values include:\n\n\n* 'projectOwners': Owners of the enclosing project.\n\n\n* 'projectReaders': Readers of the enclosing project.\n\n\n* 'projectWriters': Writers of the enclosing project.\n\n\n* 'allAuthenticatedUsers': All authenticated BigQuery users."
+
+### fn spec.access.withUserByEmail
+
+```ts
+withUserByEmail(userByEmail)
+```
+
+"An email address of a user to grant access to. For example:\nfred@example.com."
+
+## obj spec.access.view
+
+"A view from a different dataset to grant access to. Queries\nexecuted against that view will have read access to tables in\nthis dataset. The role field is not required when this field is\nset. If that view is updated by any user, access to the view\nneeds to be granted again via an update operation."
+
+### fn spec.access.view.withDatasetId
+
+```ts
+withDatasetId(datasetId)
+```
+
+"The ID of the dataset containing this table."
+
+### fn spec.access.view.withProjectId
+
+```ts
+withProjectId(projectId)
+```
+
+"The ID of the project containing this table."
+
+### fn spec.access.view.withTableId
+
+```ts
+withTableId(tableId)
+```
+
+"The ID of the table. The ID must contain only letters (a-z,\nA-Z), numbers (0-9), or underscores (_). The maximum length\nis 1,024 characters."
 
 ## obj spec.defaultEncryptionConfiguration
 

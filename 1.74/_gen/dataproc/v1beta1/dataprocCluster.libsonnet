@@ -27,10 +27,6 @@
     withLabels(labels): { metadata+: { labels: labels } },
     '#withLabelsMixin':: d.fn(help='"Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"\n\n**Note:** This function appends passed data to existing values', args=[d.arg(name='labels', type=d.T.object)]),
     withLabelsMixin(labels): { metadata+: { labels+: labels } },
-    '#withManagedFields':: d.fn(help="\"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \\\"ci-cd\\\". The set of fields is always in the version that the workflow used when modifying the object.\"", args=[d.arg(name='managedFields', type=d.T.array)]),
-    withManagedFields(managedFields): { metadata+: { managedFields: if std.isArray(v=managedFields) then managedFields else [managedFields] } },
-    '#withManagedFieldsMixin':: d.fn(help="\"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \\\"ci-cd\\\". The set of fields is always in the version that the workflow used when modifying the object.\"\n\n**Note:** This function appends passed data to existing values", args=[d.arg(name='managedFields', type=d.T.array)]),
-    withManagedFieldsMixin(managedFields): { metadata+: { managedFields+: if std.isArray(v=managedFields) then managedFields else [managedFields] } },
     '#withName':: d.fn(help='"Name must be unique within a namespace. Is required when creating resources, although some resources may allow a client to request the generation of an appropriate name automatically. Name is primarily intended for creation idempotence and configuration definition. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/identifiers#names"', args=[d.arg(name='name', type=d.T.string)]),
     withName(name): { metadata+: { name: name } },
     '#withNamespace':: d.fn(help='"Namespace defines the space within which each name must be unique. An empty namespace is equivalent to the \\"default\\" namespace, but \\"default\\" is the canonical representation. Not all objects are required to be scoped to a namespace - the value of this field for those objects will be empty.\\n\\nMust be a DNS_LABEL. Cannot be updated. More info: http://kubernetes.io/docs/user-guide/namespaces"', args=[d.arg(name='namespace', type=d.T.string)]),
@@ -155,6 +151,13 @@
         '#withZone':: d.fn(help='"Optional. The zone where the Compute Engine cluster will be located. On a create request, it is required in the \\"global\\" region. If omitted in a non-global Dataproc region, the service will pick a zone in the corresponding Compute Engine region. On a get request, zone will always be present. A full URL, partial URI, or short name are valid. Examples: * `https://www.googleapis.com/compute/v1/projects/[project_id]/zones/[zone]` * `projects/[project_id]/zones/[zone]` * `us-central1-f`"', args=[d.arg(name='zone', type=d.T.string)]),
         withZone(zone): { spec+: { config+: { gceClusterConfig+: { zone: zone } } } },
       },
+      '#initializationActions':: d.obj(help="\"Optional. Commands to execute on each node after config is completed. By default, executables are run on master and all worker nodes. You can test a node's `role` metadata to run an executable on a master or worker node, as shown below using `curl` (you can also use `wget`): ROLE=$(curl -H Metadata-Flavor:Google http://metadata/computeMetadata/v1/instance/attributes/dataproc-role) if [[ \\\"${ROLE}\\\" == 'Master' ]]; then ... master specific actions ... else ... worker specific actions ... fi\""),
+      initializationActions: {
+        '#withExecutableFile':: d.fn(help='"Required. Cloud Storage URI of executable file."', args=[d.arg(name='executableFile', type=d.T.string)]),
+        withExecutableFile(executableFile): { executableFile: executableFile },
+        '#withExecutionTimeout':: d.fn(help='"Optional. Amount of time executable has to complete. Default is 10 minutes (see JSON representation of [Duration](https://developers.google.com/protocol-buffers/docs/proto3#json)). Cluster creation fails with an explanatory error message (the name of the executable that caused the error and the exceeded timeout period) if the executable is not completed at end of the timeout period."', args=[d.arg(name='executionTimeout', type=d.T.string)]),
+        withExecutionTimeout(executionTimeout): { executionTimeout: executionTimeout },
+      },
       '#lifecycleConfig':: d.obj(help='"Optional. Lifecycle setting for the cluster."'),
       lifecycleConfig: {
         '#withAutoDeleteTime':: d.fn(help='"Optional. The time when cluster will be auto-deleted (see JSON representation of [Timestamp](https://developers.google.com/protocol-buffers/docs/proto3#json))."', args=[d.arg(name='autoDeleteTime', type=d.T.string)]),
@@ -166,6 +169,13 @@
       },
       '#masterConfig':: d.obj(help='"Optional. The Compute Engine config settings for the master instance in a cluster."'),
       masterConfig: {
+        '#accelerators':: d.obj(help='"Optional. The Compute Engine accelerator configuration for these instances."'),
+        accelerators: {
+          '#withAcceleratorCount':: d.fn(help='"The number of the accelerator cards of this type exposed to this instance."', args=[d.arg(name='acceleratorCount', type=d.T.integer)]),
+          withAcceleratorCount(acceleratorCount): { acceleratorCount: acceleratorCount },
+          '#withAcceleratorType':: d.fn(help='"Full URL, partial URI, or short name of the accelerator type resource to expose to this instance. See [Compute Engine AcceleratorTypes](https://cloud.google.com/compute/docs/reference/beta/acceleratorTypes). Examples: * `https://www.googleapis.com/compute/beta/projects/[project_id]/zones/us-east1-a/acceleratorTypes/nvidia-tesla-k80` * `projects/[project_id]/zones/us-east1-a/acceleratorTypes/nvidia-tesla-k80` * `nvidia-tesla-k80` **Auto Zone Exception**: If you are using the Dataproc [Auto Zone Placement](https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/auto-zone#using_auto_zone_placement) feature, you must use the short name of the accelerator type resource, for example, `nvidia-tesla-k80`."', args=[d.arg(name='acceleratorType', type=d.T.string)]),
+          withAcceleratorType(acceleratorType): { acceleratorType: acceleratorType },
+        },
         '#diskConfig':: d.obj(help='"Optional. Disk option config settings."'),
         diskConfig: {
           '#withBootDiskSizeGb':: d.fn(help='"Optional. Size in GB of the boot disk (default is 500GB)."', args=[d.arg(name='bootDiskSizeGb', type=d.T.integer)]),
@@ -199,6 +209,13 @@
       },
       '#secondaryWorkerConfig':: d.obj(help='"Optional. The Compute Engine config settings for the master instance in a cluster."'),
       secondaryWorkerConfig: {
+        '#accelerators':: d.obj(help='"Optional. The Compute Engine accelerator configuration for these instances."'),
+        accelerators: {
+          '#withAcceleratorCount':: d.fn(help='"The number of the accelerator cards of this type exposed to this instance."', args=[d.arg(name='acceleratorCount', type=d.T.integer)]),
+          withAcceleratorCount(acceleratorCount): { acceleratorCount: acceleratorCount },
+          '#withAcceleratorType':: d.fn(help='"Full URL, partial URI, or short name of the accelerator type resource to expose to this instance. See [Compute Engine AcceleratorTypes](https://cloud.google.com/compute/docs/reference/beta/acceleratorTypes). Examples: * `https://www.googleapis.com/compute/beta/projects/[project_id]/zones/us-east1-a/acceleratorTypes/nvidia-tesla-k80` * `projects/[project_id]/zones/us-east1-a/acceleratorTypes/nvidia-tesla-k80` * `nvidia-tesla-k80` **Auto Zone Exception**: If you are using the Dataproc [Auto Zone Placement](https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/auto-zone#using_auto_zone_placement) feature, you must use the short name of the accelerator type resource, for example, `nvidia-tesla-k80`."', args=[d.arg(name='acceleratorType', type=d.T.string)]),
+          withAcceleratorType(acceleratorType): { acceleratorType: acceleratorType },
+        },
         '#diskConfig':: d.obj(help='"Optional. Disk option config settings."'),
         diskConfig: {
           '#withBootDiskSizeGb':: d.fn(help='"Optional. Size in GB of the boot disk (default is 500GB)."', args=[d.arg(name='bootDiskSizeGb', type=d.T.integer)]),
@@ -310,6 +327,13 @@
       withInitializationActionsMixin(initializationActions): { spec+: { config+: { initializationActions+: if std.isArray(v=initializationActions) then initializationActions else [initializationActions] } } },
       '#workerConfig':: d.obj(help='"Optional. The Compute Engine config settings for the master instance in a cluster."'),
       workerConfig: {
+        '#accelerators':: d.obj(help='"Optional. The Compute Engine accelerator configuration for these instances."'),
+        accelerators: {
+          '#withAcceleratorCount':: d.fn(help='"The number of the accelerator cards of this type exposed to this instance."', args=[d.arg(name='acceleratorCount', type=d.T.integer)]),
+          withAcceleratorCount(acceleratorCount): { acceleratorCount: acceleratorCount },
+          '#withAcceleratorType':: d.fn(help='"Full URL, partial URI, or short name of the accelerator type resource to expose to this instance. See [Compute Engine AcceleratorTypes](https://cloud.google.com/compute/docs/reference/beta/acceleratorTypes). Examples: * `https://www.googleapis.com/compute/beta/projects/[project_id]/zones/us-east1-a/acceleratorTypes/nvidia-tesla-k80` * `projects/[project_id]/zones/us-east1-a/acceleratorTypes/nvidia-tesla-k80` * `nvidia-tesla-k80` **Auto Zone Exception**: If you are using the Dataproc [Auto Zone Placement](https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/auto-zone#using_auto_zone_placement) feature, you must use the short name of the accelerator type resource, for example, `nvidia-tesla-k80`."', args=[d.arg(name='acceleratorType', type=d.T.string)]),
+          withAcceleratorType(acceleratorType): { acceleratorType: acceleratorType },
+        },
         '#diskConfig':: d.obj(help='"Optional. Disk option config settings."'),
         diskConfig: {
           '#withBootDiskSizeGb':: d.fn(help='"Optional. Size in GB of the boot disk (default is 500GB)."', args=[d.arg(name='bootDiskSizeGb', type=d.T.integer)]),

@@ -22,8 +22,6 @@ permalink: /1.74/bigquery/v1beta1/bigQueryJob/
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -51,6 +49,11 @@ permalink: /1.74/bigquery/v1beta1/bigQueryJob/
         * [`fn withExternal(external)`](#fn-speccopydestinationtabletablerefwithexternal)
         * [`fn withName(name)`](#fn-speccopydestinationtabletablerefwithname)
         * [`fn withNamespace(namespace)`](#fn-speccopydestinationtabletablerefwithnamespace)
+    * [`obj spec.copy.sourceTables`](#obj-speccopysourcetables)
+      * [`obj spec.copy.sourceTables.tableRef`](#obj-speccopysourcetablestableref)
+        * [`fn withExternal(external)`](#fn-speccopysourcetablestablerefwithexternal)
+        * [`fn withName(name)`](#fn-speccopysourcetablestablerefwithname)
+        * [`fn withNamespace(namespace)`](#fn-speccopysourcetablestablerefwithnamespace)
   * [`obj spec.extract`](#obj-specextract)
     * [`fn withCompression(compression)`](#fn-specextractwithcompression)
     * [`fn withDestinationFormat(destinationFormat)`](#fn-specextractwithdestinationformat)
@@ -135,6 +138,9 @@ permalink: /1.74/bigquery/v1beta1/bigQueryJob/
       * [`fn withKeyResultStatement(keyResultStatement)`](#fn-specqueryscriptoptionswithkeyresultstatement)
       * [`fn withStatementByteBudget(statementByteBudget)`](#fn-specqueryscriptoptionswithstatementbytebudget)
       * [`fn withStatementTimeoutMs(statementTimeoutMs)`](#fn-specqueryscriptoptionswithstatementtimeoutms)
+    * [`obj spec.query.userDefinedFunctionResources`](#obj-specqueryuserdefinedfunctionresources)
+      * [`fn withInlineCode(inlineCode)`](#fn-specqueryuserdefinedfunctionresourceswithinlinecode)
+      * [`fn withResourceUri(resourceUri)`](#fn-specqueryuserdefinedfunctionresourceswithresourceuri)
 
 ## Fields
 
@@ -249,24 +255,6 @@ withLabelsMixin(labels)
 ```
 
 "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
-
-**Note:** This function appends passed data to existing values
-
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
 
 **Note:** This function appends passed data to existing values
 
@@ -459,6 +447,38 @@ withName(name)
 "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
 
 ### fn spec.copy.destinationTable.tableRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
+## obj spec.copy.sourceTables
+
+"Immutable. Source tables to copy."
+
+## obj spec.copy.sourceTables.tableRef
+
+"A reference to the table."
+
+### fn spec.copy.sourceTables.tableRef.withExternal
+
+```ts
+withExternal(external)
+```
+
+"The selfLink of a BigQueryTable."
+
+### fn spec.copy.sourceTables.tableRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.copy.sourceTables.tableRef.withNamespace
 
 ```ts
 withNamespace(namespace)
@@ -1081,3 +1101,23 @@ withStatementTimeoutMs(statementTimeoutMs)
 ```
 
 "Immutable. Timeout period for each statement in a script."
+
+## obj spec.query.userDefinedFunctionResources
+
+"Immutable. Describes user-defined function resources used in the query."
+
+### fn spec.query.userDefinedFunctionResources.withInlineCode
+
+```ts
+withInlineCode(inlineCode)
+```
+
+"Immutable. An inline resource that contains code for a user-defined function (UDF).\nProviding a inline code resource is equivalent to providing a URI for a file containing the same code."
+
+### fn spec.query.userDefinedFunctionResources.withResourceUri
+
+```ts
+withResourceUri(resourceUri)
+```
+
+"Immutable. A code resource to load from a Google Cloud Storage URI (gs://bucket/path)."

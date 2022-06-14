@@ -22,8 +22,6 @@ permalink: /1.74/compute/v1beta1/computeSecurityPolicy/
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -40,6 +38,18 @@ permalink: /1.74/compute/v1beta1/computeSecurityPolicy/
     * [`obj spec.adaptiveProtectionConfig.layer7DdosDefenseConfig`](#obj-specadaptiveprotectionconfiglayer7ddosdefenseconfig)
       * [`fn withEnable(enable)`](#fn-specadaptiveprotectionconfiglayer7ddosdefenseconfigwithenable)
       * [`fn withRuleVisibility(ruleVisibility)`](#fn-specadaptiveprotectionconfiglayer7ddosdefenseconfigwithrulevisibility)
+  * [`obj spec.rule`](#obj-specrule)
+    * [`fn withAction(action)`](#fn-specrulewithaction)
+    * [`fn withDescription(description)`](#fn-specrulewithdescription)
+    * [`fn withPreview(preview)`](#fn-specrulewithpreview)
+    * [`fn withPriority(priority)`](#fn-specrulewithpriority)
+    * [`obj spec.rule.match`](#obj-specrulematch)
+      * [`fn withVersionedExpr(versionedExpr)`](#fn-specrulematchwithversionedexpr)
+      * [`obj spec.rule.match.config`](#obj-specrulematchconfig)
+        * [`fn withSrcIpRanges(srcIpRanges)`](#fn-specrulematchconfigwithsrcipranges)
+        * [`fn withSrcIpRangesMixin(srcIpRanges)`](#fn-specrulematchconfigwithsrciprangesmixin)
+      * [`obj spec.rule.match.expr`](#obj-specrulematchexpr)
+        * [`fn withExpression(expression)`](#fn-specrulematchexprwithexpression)
 
 ## Fields
 
@@ -154,24 +164,6 @@ withLabelsMixin(labels)
 ```
 
 "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
-
-**Note:** This function appends passed data to existing values
-
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
 
 **Note:** This function appends passed data to existing values
 
@@ -294,3 +286,85 @@ withRuleVisibility(ruleVisibility)
 ```
 
 "Rule visibility. Supported values include: \"STANDARD\", \"PREMIUM\"."
+
+## obj spec.rule
+
+"The set of rules that belong to this policy. There must always be a default rule (rule with priority 2147483647 and match \"*\"). If no rules are provided when creating a security policy, a default rule with action \"allow\" will be added."
+
+### fn spec.rule.withAction
+
+```ts
+withAction(action)
+```
+
+"Action to take when match matches the request. Valid values:   \"allow\" : allow access to target, \"deny(status)\" : deny access to target, returns the HTTP response code specified (valid values are 403, 404 and 502)."
+
+### fn spec.rule.withDescription
+
+```ts
+withDescription(description)
+```
+
+"An optional description of this rule. Max size is 64."
+
+### fn spec.rule.withPreview
+
+```ts
+withPreview(preview)
+```
+
+"When set to true, the action specified above is not enforced. Stackdriver logs for requests that trigger a preview action are annotated as such."
+
+### fn spec.rule.withPriority
+
+```ts
+withPriority(priority)
+```
+
+"An unique positive integer indicating the priority of evaluation for a rule. Rules are evaluated from highest priority (lowest numerically) to lowest priority (highest numerically) in order."
+
+## obj spec.rule.match
+
+"A match condition that incoming traffic is evaluated against. If it evaluates to true, the corresponding action is enforced."
+
+### fn spec.rule.match.withVersionedExpr
+
+```ts
+withVersionedExpr(versionedExpr)
+```
+
+"Predefined rule expression. If this field is specified, config must also be specified. Available options:   SRC_IPS_V1: Must specify the corresponding src_ip_ranges field in config."
+
+## obj spec.rule.match.config
+
+"The configuration options available when specifying versioned_expr. This field must be specified if versioned_expr is specified and cannot be specified if versioned_expr is not specified."
+
+### fn spec.rule.match.config.withSrcIpRanges
+
+```ts
+withSrcIpRanges(srcIpRanges)
+```
+
+"Set of IP addresses or ranges (IPV4 or IPV6) in CIDR notation to match against inbound traffic. There is a limit of 10 IP ranges per rule. A value of '*' matches all IPs (can be used to override the default behavior)."
+
+### fn spec.rule.match.config.withSrcIpRangesMixin
+
+```ts
+withSrcIpRangesMixin(srcIpRanges)
+```
+
+"Set of IP addresses or ranges (IPV4 or IPV6) in CIDR notation to match against inbound traffic. There is a limit of 10 IP ranges per rule. A value of '*' matches all IPs (can be used to override the default behavior)."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.rule.match.expr
+
+"User defined CEVAL expression. A CEVAL expression is used to specify match criteria such as origin.ip, source.region_code and contents in the request header."
+
+### fn spec.rule.match.expr.withExpression
+
+```ts
+withExpression(expression)
+```
+
+"Textual representation of an expression in Common Expression Language syntax. The application context of the containing message determines which well-known feature set of CEL is supported."

@@ -22,8 +22,6 @@ permalink: /1.74/compute/v1beta1/computeInstanceGroupManager/
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -46,14 +44,25 @@ permalink: /1.74/compute/v1beta1/computeInstanceGroupManager/
   * [`fn withTargetSize(targetSize)`](#fn-specwithtargetsize)
   * [`fn withVersions(versions)`](#fn-specwithversions)
   * [`fn withVersionsMixin(versions)`](#fn-specwithversionsmixin)
+  * [`obj spec.autoHealingPolicies`](#obj-specautohealingpolicies)
+    * [`fn withInitialDelaySec(initialDelaySec)`](#fn-specautohealingpolicieswithinitialdelaysec)
+    * [`obj spec.autoHealingPolicies.healthCheckRef`](#obj-specautohealingpolicieshealthcheckref)
+      * [`fn withExternal(external)`](#fn-specautohealingpolicieshealthcheckrefwithexternal)
+      * [`fn withName(name)`](#fn-specautohealingpolicieshealthcheckrefwithname)
+      * [`fn withNamespace(namespace)`](#fn-specautohealingpolicieshealthcheckrefwithnamespace)
   * [`obj spec.distributionPolicy`](#obj-specdistributionpolicy)
     * [`fn withTargetShape(targetShape)`](#fn-specdistributionpolicywithtargetshape)
     * [`fn withZones(zones)`](#fn-specdistributionpolicywithzones)
     * [`fn withZonesMixin(zones)`](#fn-specdistributionpolicywithzonesmixin)
+    * [`obj spec.distributionPolicy.zones`](#obj-specdistributionpolicyzones)
+      * [`fn withZone(zone)`](#fn-specdistributionpolicyzoneswithzone)
   * [`obj spec.instanceTemplateRef`](#obj-specinstancetemplateref)
     * [`fn withExternal(external)`](#fn-specinstancetemplaterefwithexternal)
     * [`fn withName(name)`](#fn-specinstancetemplaterefwithname)
     * [`fn withNamespace(namespace)`](#fn-specinstancetemplaterefwithnamespace)
+  * [`obj spec.namedPorts`](#obj-specnamedports)
+    * [`fn withName(name)`](#fn-specnamedportswithname)
+    * [`fn withPort(port)`](#fn-specnamedportswithport)
   * [`obj spec.projectRef`](#obj-specprojectref)
     * [`fn withExternal(external)`](#fn-specprojectrefwithexternal)
     * [`fn withName(name)`](#fn-specprojectrefwithname)
@@ -66,6 +75,10 @@ permalink: /1.74/compute/v1beta1/computeInstanceGroupManager/
     * [`obj spec.statefulPolicy.preservedState`](#obj-specstatefulpolicypreservedstate)
       * [`fn withDisks(disks)`](#fn-specstatefulpolicypreservedstatewithdisks)
       * [`fn withDisksMixin(disks)`](#fn-specstatefulpolicypreservedstatewithdisksmixin)
+  * [`obj spec.targetPools`](#obj-spectargetpools)
+    * [`fn withExternal(external)`](#fn-spectargetpoolswithexternal)
+    * [`fn withName(name)`](#fn-spectargetpoolswithname)
+    * [`fn withNamespace(namespace)`](#fn-spectargetpoolswithnamespace)
   * [`obj spec.updatePolicy`](#obj-specupdatepolicy)
     * [`fn withInstanceRedistributionType(instanceRedistributionType)`](#fn-specupdatepolicywithinstanceredistributiontype)
     * [`fn withMinReadySec(minReadySec)`](#fn-specupdatepolicywithminreadysec)
@@ -79,6 +92,16 @@ permalink: /1.74/compute/v1beta1/computeInstanceGroupManager/
     * [`obj spec.updatePolicy.maxUnavailable`](#obj-specupdatepolicymaxunavailable)
       * [`fn withFixed(fixed)`](#fn-specupdatepolicymaxunavailablewithfixed)
       * [`fn withPercent(percent)`](#fn-specupdatepolicymaxunavailablewithpercent)
+  * [`obj spec.versions`](#obj-specversions)
+    * [`fn withName(name)`](#fn-specversionswithname)
+    * [`obj spec.versions.instanceTemplateRef`](#obj-specversionsinstancetemplateref)
+      * [`fn withExternal(external)`](#fn-specversionsinstancetemplaterefwithexternal)
+      * [`fn withName(name)`](#fn-specversionsinstancetemplaterefwithname)
+      * [`fn withNamespace(namespace)`](#fn-specversionsinstancetemplaterefwithnamespace)
+    * [`obj spec.versions.targetSize`](#obj-specversionstargetsize)
+      * [`fn withCalculated(calculated)`](#fn-specversionstargetsizewithcalculated)
+      * [`fn withFixed(fixed)`](#fn-specversionstargetsizewithfixed)
+      * [`fn withPercent(percent)`](#fn-specversionstargetsizewithpercent)
 
 ## Fields
 
@@ -193,24 +216,6 @@ withLabelsMixin(labels)
 ```
 
 "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
-
-**Note:** This function appends passed data to existing values
-
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
 
 **Note:** This function appends passed data to existing values
 
@@ -396,6 +401,46 @@ withVersionsMixin(versions)
 
 **Note:** This function appends passed data to existing values
 
+## obj spec.autoHealingPolicies
+
+"The autohealing policy for this managed instance group. You can specify only one value."
+
+### fn spec.autoHealingPolicies.withInitialDelaySec
+
+```ts
+withInitialDelaySec(initialDelaySec)
+```
+
+"The number of seconds that the managed instance group waits before it applies autohealing policies to new instances or recently recreated instances. This initial delay allows instances to initialize and run their startup scripts before the instance group determines that they are UNHEALTHY. This prevents the managed instance group from recreating its instances prematurely. This value must be from range [0, 3600]."
+
+## obj spec.autoHealingPolicies.healthCheckRef
+
+
+
+### fn spec.autoHealingPolicies.healthCheckRef.withExternal
+
+```ts
+withExternal(external)
+```
+
+"The URL for the health check that signals autohealing.\n\nAllowed value: The `selfLink` field of a `ComputeHealthCheck` resource."
+
+### fn spec.autoHealingPolicies.healthCheckRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.autoHealingPolicies.healthCheckRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
 ## obj spec.distributionPolicy
 
 "Policy specifying the intended distribution of managed instances across zones in a regional managed instance group."
@@ -426,6 +471,18 @@ withZonesMixin(zones)
 
 **Note:** This function appends passed data to existing values
 
+## obj spec.distributionPolicy.zones
+
+"Zones where the regional managed instance group will create and manage its instances."
+
+### fn spec.distributionPolicy.zones.withZone
+
+```ts
+withZone(zone)
+```
+
+"The URL of the [zone](/compute/docs/regions-zones/#available). The zone must exist in the region where the managed instance group is located."
+
 ## obj spec.instanceTemplateRef
 
 
@@ -453,6 +510,26 @@ withNamespace(namespace)
 ```
 
 "Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
+## obj spec.namedPorts
+
+"Named ports configured for the Instance Groups complementary to this Instance Group Manager."
+
+### fn spec.namedPorts.withName
+
+```ts
+withName(name)
+```
+
+"The name for this named port. The name must be 1-63 characters long, and comply with [RFC1035](https://www.ietf.org/rfc/rfc1035.txt)."
+
+### fn spec.namedPorts.withPort
+
+```ts
+withPort(port)
+```
+
+"The port number, which can be a value between 1 and 65535."
 
 ## obj spec.projectRef
 
@@ -535,6 +612,34 @@ withDisksMixin(disks)
 "Disks created on the instances that will be preserved on instance delete, update, etc. This map is keyed with the device names of the disks."
 
 **Note:** This function appends passed data to existing values
+
+## obj spec.targetPools
+
+
+
+### fn spec.targetPools.withExternal
+
+```ts
+withExternal(external)
+```
+
+"Allowed value: The `selfLink` field of a `ComputeTargetPool` resource."
+
+### fn spec.targetPools.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.targetPools.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
 
 ## obj spec.updatePolicy
 
@@ -621,6 +726,74 @@ withFixed(fixed)
 "Specifies a fixed number of VM instances. This must be a positive integer."
 
 ### fn spec.updatePolicy.maxUnavailable.withPercent
+
+```ts
+withPercent(percent)
+```
+
+"Specifies a percentage of instances between 0 to 100%, inclusive. For example, specify `80` for 80%."
+
+## obj spec.versions
+
+"Specifies the instance templates used by this managed instance group to create instances. Each version is defined by an `instanceTemplate` and a `name`. Every version can appear at most once per instance group. This field overrides the top-level `instanceTemplate` field. Read more about the [relationships between these fields](/compute/docs/instance-groups/rolling-out-updates-to-managed-instance-groups#relationship_between_versions_and_instancetemplate_properties_for_a_managed_instance_group). Exactly one `version` must leave the `targetSize` field unset. That version will be applied to all remaining instances. For more information, read about [canary updates](/compute/docs/instance-groups/rolling-out-updates-to-managed-instance-groups#starting_a_canary_update)."
+
+### fn spec.versions.withName
+
+```ts
+withName(name)
+```
+
+"Name of the version. Unique among all versions in the scope of this managed instance group."
+
+## obj spec.versions.instanceTemplateRef
+
+
+
+### fn spec.versions.instanceTemplateRef.withExternal
+
+```ts
+withExternal(external)
+```
+
+"The URL of the instance template that is specified for this managed instance group. The group uses this template to create new instances in the managed instance group until the `targetSize` for this version is reached. The templates for existing instances in the group do not change unless you run `recreateInstances`, run `applyUpdatesToInstances`, or set the group's `updatePolicy.type` to `PROACTIVE`; in those cases, existing instances are updated until the `targetSize` for this version is reached.\n\nAllowed value: The `selfLink` field of a `ComputeInstanceTemplate` resource."
+
+### fn spec.versions.instanceTemplateRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.versions.instanceTemplateRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
+## obj spec.versions.targetSize
+
+"Specifies the intended number of instances to be created from the `instanceTemplate`. The final number of instances created from the template will be equal to: - If expressed as a fixed number, the minimum of either `targetSize.fixed` or `instanceGroupManager.targetSize` is used. - if expressed as a `percent`, the `targetSize` would be `(targetSize.percent/100 * InstanceGroupManager.targetSize)` If there is a remainder, the number is rounded. If unset, this version will update any remaining instances not updated by another `version`. Read [Starting a canary update](/compute/docs/instance-groups/rolling-out-updates-to-managed-instance-groups#starting_a_canary_update) for more information."
+
+### fn spec.versions.targetSize.withCalculated
+
+```ts
+withCalculated(calculated)
+```
+
+"[Output Only] Absolute value of VM instances calculated based on the specific mode. - If the value is `fixed`, then the `calculated` value is equal to the `fixed` value. - If the value is a `percent`, then the `calculated` value is `percent`/100 * `targetSize`. For example, the `calculated` value of a 80% of a managed instance group with 150 instances would be (80/100 * 150) = 120 VM instances. If there is a remainder, the number is rounded."
+
+### fn spec.versions.targetSize.withFixed
+
+```ts
+withFixed(fixed)
+```
+
+"Specifies a fixed number of VM instances. This must be a positive integer."
+
+### fn spec.versions.targetSize.withPercent
 
 ```ts
 withPercent(percent)

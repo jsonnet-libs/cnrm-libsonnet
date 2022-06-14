@@ -22,8 +22,6 @@ permalink: /1.74/compute/v1beta1/computeFirewall/
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -54,12 +52,28 @@ permalink: /1.74/compute/v1beta1/computeFirewall/
   * [`fn withTargetServiceAccountsMixin(targetServiceAccounts)`](#fn-specwithtargetserviceaccountsmixin)
   * [`fn withTargetTags(targetTags)`](#fn-specwithtargettags)
   * [`fn withTargetTagsMixin(targetTags)`](#fn-specwithtargettagsmixin)
+  * [`obj spec.allow`](#obj-specallow)
+    * [`fn withPorts(ports)`](#fn-specallowwithports)
+    * [`fn withPortsMixin(ports)`](#fn-specallowwithportsmixin)
+    * [`fn withProtocol(protocol)`](#fn-specallowwithprotocol)
+  * [`obj spec.deny`](#obj-specdeny)
+    * [`fn withPorts(ports)`](#fn-specdenywithports)
+    * [`fn withPortsMixin(ports)`](#fn-specdenywithportsmixin)
+    * [`fn withProtocol(protocol)`](#fn-specdenywithprotocol)
   * [`obj spec.logConfig`](#obj-speclogconfig)
     * [`fn withMetadata(metadata)`](#fn-speclogconfigwithmetadata)
   * [`obj spec.networkRef`](#obj-specnetworkref)
     * [`fn withExternal(external)`](#fn-specnetworkrefwithexternal)
     * [`fn withName(name)`](#fn-specnetworkrefwithname)
     * [`fn withNamespace(namespace)`](#fn-specnetworkrefwithnamespace)
+  * [`obj spec.sourceServiceAccounts`](#obj-specsourceserviceaccounts)
+    * [`fn withExternal(external)`](#fn-specsourceserviceaccountswithexternal)
+    * [`fn withName(name)`](#fn-specsourceserviceaccountswithname)
+    * [`fn withNamespace(namespace)`](#fn-specsourceserviceaccountswithnamespace)
+  * [`obj spec.targetServiceAccounts`](#obj-spectargetserviceaccounts)
+    * [`fn withExternal(external)`](#fn-spectargetserviceaccountswithexternal)
+    * [`fn withName(name)`](#fn-spectargetserviceaccountswithname)
+    * [`fn withNamespace(namespace)`](#fn-spectargetserviceaccountswithnamespace)
 
 ## Fields
 
@@ -174,24 +188,6 @@ withLabelsMixin(labels)
 ```
 
 "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
-
-**Note:** This function appends passed data to existing values
-
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
 
 **Note:** This function appends passed data to existing values
 
@@ -449,6 +445,66 @@ withTargetTagsMixin(targetTags)
 
 **Note:** This function appends passed data to existing values
 
+## obj spec.allow
+
+"The list of ALLOW rules specified by this firewall. Each rule\nspecifies a protocol and port-range tuple that describes a permitted\nconnection."
+
+### fn spec.allow.withPorts
+
+```ts
+withPorts(ports)
+```
+
+"An optional list of ports to which this rule applies. This field\nis only applicable for UDP or TCP protocol. Each entry must be\neither an integer or a range. If not specified, this rule\napplies to connections through any port.\n\nExample inputs include: [\"22\"], [\"80\",\"443\"], and\n[\"12345-12349\"]."
+
+### fn spec.allow.withPortsMixin
+
+```ts
+withPortsMixin(ports)
+```
+
+"An optional list of ports to which this rule applies. This field\nis only applicable for UDP or TCP protocol. Each entry must be\neither an integer or a range. If not specified, this rule\napplies to connections through any port.\n\nExample inputs include: [\"22\"], [\"80\",\"443\"], and\n[\"12345-12349\"]."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.allow.withProtocol
+
+```ts
+withProtocol(protocol)
+```
+
+"The IP protocol to which this rule applies. The protocol type is\nrequired when creating a firewall rule. This value can either be\none of the following well known protocol strings (tcp, udp,\nicmp, esp, ah, sctp, ipip, all), or the IP protocol number."
+
+## obj spec.deny
+
+"The list of DENY rules specified by this firewall. Each rule specifies\na protocol and port-range tuple that describes a denied connection."
+
+### fn spec.deny.withPorts
+
+```ts
+withPorts(ports)
+```
+
+"An optional list of ports to which this rule applies. This field\nis only applicable for UDP or TCP protocol. Each entry must be\neither an integer or a range. If not specified, this rule\napplies to connections through any port.\n\nExample inputs include: [\"22\"], [\"80\",\"443\"], and\n[\"12345-12349\"]."
+
+### fn spec.deny.withPortsMixin
+
+```ts
+withPortsMixin(ports)
+```
+
+"An optional list of ports to which this rule applies. This field\nis only applicable for UDP or TCP protocol. Each entry must be\neither an integer or a range. If not specified, this rule\napplies to connections through any port.\n\nExample inputs include: [\"22\"], [\"80\",\"443\"], and\n[\"12345-12349\"]."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.deny.withProtocol
+
+```ts
+withProtocol(protocol)
+```
+
+"The IP protocol to which this rule applies. The protocol type is\nrequired when creating a firewall rule. This value can either be\none of the following well known protocol strings (tcp, udp,\nicmp, esp, ah, sctp, ipip, all), or the IP protocol number."
+
 ## obj spec.logConfig
 
 "This field denotes the logging options for a particular firewall rule.\nIf defined, logging is enabled, and logs will be exported to Cloud Logging."
@@ -482,6 +538,62 @@ withName(name)
 "Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
 
 ### fn spec.networkRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
+## obj spec.sourceServiceAccounts
+
+
+
+### fn spec.sourceServiceAccounts.withExternal
+
+```ts
+withExternal(external)
+```
+
+"The email of an IAMServiceAccount."
+
+### fn spec.sourceServiceAccounts.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.sourceServiceAccounts.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
+## obj spec.targetServiceAccounts
+
+
+
+### fn spec.targetServiceAccounts.withExternal
+
+```ts
+withExternal(external)
+```
+
+"The email of an IAMServiceAccount."
+
+### fn spec.targetServiceAccounts.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.targetServiceAccounts.withNamespace
 
 ```ts
 withNamespace(namespace)

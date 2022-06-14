@@ -22,8 +22,6 @@ permalink: /1.74/run/v1beta1/runService/
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -64,6 +62,42 @@ permalink: /1.74/run/v1beta1/runService/
     * [`fn withTimeout(timeout)`](#fn-spectemplatewithtimeout)
     * [`fn withVolumes(volumes)`](#fn-spectemplatewithvolumes)
     * [`fn withVolumesMixin(volumes)`](#fn-spectemplatewithvolumesmixin)
+    * [`obj spec.template.containers`](#obj-spectemplatecontainers)
+      * [`fn withArgs(args)`](#fn-spectemplatecontainerswithargs)
+      * [`fn withArgsMixin(args)`](#fn-spectemplatecontainerswithargsmixin)
+      * [`fn withCommand(command)`](#fn-spectemplatecontainerswithcommand)
+      * [`fn withCommandMixin(command)`](#fn-spectemplatecontainerswithcommandmixin)
+      * [`fn withEnv(env)`](#fn-spectemplatecontainerswithenv)
+      * [`fn withEnvMixin(env)`](#fn-spectemplatecontainerswithenvmixin)
+      * [`fn withImage(image)`](#fn-spectemplatecontainerswithimage)
+      * [`fn withName(name)`](#fn-spectemplatecontainerswithname)
+      * [`fn withPorts(ports)`](#fn-spectemplatecontainerswithports)
+      * [`fn withPortsMixin(ports)`](#fn-spectemplatecontainerswithportsmixin)
+      * [`fn withVolumeMounts(volumeMounts)`](#fn-spectemplatecontainerswithvolumemounts)
+      * [`fn withVolumeMountsMixin(volumeMounts)`](#fn-spectemplatecontainerswithvolumemountsmixin)
+      * [`obj spec.template.containers.env`](#obj-spectemplatecontainersenv)
+        * [`fn withName(name)`](#fn-spectemplatecontainersenvwithname)
+        * [`fn withValue(value)`](#fn-spectemplatecontainersenvwithvalue)
+        * [`obj spec.template.containers.env.valueSource`](#obj-spectemplatecontainersenvvaluesource)
+          * [`obj spec.template.containers.env.valueSource.secretKeyRef`](#obj-spectemplatecontainersenvvaluesourcesecretkeyref)
+            * [`obj spec.template.containers.env.valueSource.secretKeyRef.secretRef`](#obj-spectemplatecontainersenvvaluesourcesecretkeyrefsecretref)
+              * [`fn withExternal(external)`](#fn-spectemplatecontainersenvvaluesourcesecretkeyrefsecretrefwithexternal)
+              * [`fn withName(name)`](#fn-spectemplatecontainersenvvaluesourcesecretkeyrefsecretrefwithname)
+              * [`fn withNamespace(namespace)`](#fn-spectemplatecontainersenvvaluesourcesecretkeyrefsecretrefwithnamespace)
+            * [`obj spec.template.containers.env.valueSource.secretKeyRef.versionRef`](#obj-spectemplatecontainersenvvaluesourcesecretkeyrefversionref)
+              * [`fn withExternal(external)`](#fn-spectemplatecontainersenvvaluesourcesecretkeyrefversionrefwithexternal)
+              * [`fn withName(name)`](#fn-spectemplatecontainersenvvaluesourcesecretkeyrefversionrefwithname)
+              * [`fn withNamespace(namespace)`](#fn-spectemplatecontainersenvvaluesourcesecretkeyrefversionrefwithnamespace)
+      * [`obj spec.template.containers.ports`](#obj-spectemplatecontainersports)
+        * [`fn withContainerPort(containerPort)`](#fn-spectemplatecontainersportswithcontainerport)
+        * [`fn withName(name)`](#fn-spectemplatecontainersportswithname)
+      * [`obj spec.template.containers.resources`](#obj-spectemplatecontainersresources)
+        * [`fn withCpuIdle(cpuIdle)`](#fn-spectemplatecontainersresourceswithcpuidle)
+        * [`fn withLimits(limits)`](#fn-spectemplatecontainersresourceswithlimits)
+        * [`fn withLimitsMixin(limits)`](#fn-spectemplatecontainersresourceswithlimitsmixin)
+      * [`obj spec.template.containers.volumeMounts`](#obj-spectemplatecontainersvolumemounts)
+        * [`fn withMountPath(mountPath)`](#fn-spectemplatecontainersvolumemountswithmountpath)
+        * [`fn withName(name)`](#fn-spectemplatecontainersvolumemountswithname)
     * [`obj spec.template.scaling`](#obj-spectemplatescaling)
       * [`fn withMaxInstanceCount(maxInstanceCount)`](#fn-spectemplatescalingwithmaxinstancecount)
       * [`fn withMinInstanceCount(minInstanceCount)`](#fn-spectemplatescalingwithmininstancecount)
@@ -71,12 +105,41 @@ permalink: /1.74/run/v1beta1/runService/
       * [`fn withExternal(external)`](#fn-spectemplateserviceaccountrefwithexternal)
       * [`fn withName(name)`](#fn-spectemplateserviceaccountrefwithname)
       * [`fn withNamespace(namespace)`](#fn-spectemplateserviceaccountrefwithnamespace)
+    * [`obj spec.template.volumes`](#obj-spectemplatevolumes)
+      * [`fn withName(name)`](#fn-spectemplatevolumeswithname)
+      * [`obj spec.template.volumes.cloudSqlInstance`](#obj-spectemplatevolumescloudsqlinstance)
+        * [`fn withConnections(connections)`](#fn-spectemplatevolumescloudsqlinstancewithconnections)
+        * [`fn withConnectionsMixin(connections)`](#fn-spectemplatevolumescloudsqlinstancewithconnectionsmixin)
+        * [`obj spec.template.volumes.cloudSqlInstance.connections`](#obj-spectemplatevolumescloudsqlinstanceconnections)
+          * [`fn withExternal(external)`](#fn-spectemplatevolumescloudsqlinstanceconnectionswithexternal)
+          * [`fn withName(name)`](#fn-spectemplatevolumescloudsqlinstanceconnectionswithname)
+          * [`fn withNamespace(namespace)`](#fn-spectemplatevolumescloudsqlinstanceconnectionswithnamespace)
+      * [`obj spec.template.volumes.secret`](#obj-spectemplatevolumessecret)
+        * [`fn withDefaultMode(defaultMode)`](#fn-spectemplatevolumessecretwithdefaultmode)
+        * [`fn withItems(items)`](#fn-spectemplatevolumessecretwithitems)
+        * [`fn withItemsMixin(items)`](#fn-spectemplatevolumessecretwithitemsmixin)
+        * [`obj spec.template.volumes.secret.items`](#obj-spectemplatevolumessecretitems)
+          * [`fn withMode(mode)`](#fn-spectemplatevolumessecretitemswithmode)
+          * [`fn withPath(path)`](#fn-spectemplatevolumessecretitemswithpath)
+          * [`obj spec.template.volumes.secret.items.versionRef`](#obj-spectemplatevolumessecretitemsversionref)
+            * [`fn withExternal(external)`](#fn-spectemplatevolumessecretitemsversionrefwithexternal)
+            * [`fn withName(name)`](#fn-spectemplatevolumessecretitemsversionrefwithname)
+            * [`fn withNamespace(namespace)`](#fn-spectemplatevolumessecretitemsversionrefwithnamespace)
+        * [`obj spec.template.volumes.secret.secretRef`](#obj-spectemplatevolumessecretsecretref)
+          * [`fn withExternal(external)`](#fn-spectemplatevolumessecretsecretrefwithexternal)
+          * [`fn withName(name)`](#fn-spectemplatevolumessecretsecretrefwithname)
+          * [`fn withNamespace(namespace)`](#fn-spectemplatevolumessecretsecretrefwithnamespace)
     * [`obj spec.template.vpcAccess`](#obj-spectemplatevpcaccess)
       * [`fn withEgress(egress)`](#fn-spectemplatevpcaccesswithegress)
       * [`obj spec.template.vpcAccess.connectorRef`](#obj-spectemplatevpcaccessconnectorref)
         * [`fn withExternal(external)`](#fn-spectemplatevpcaccessconnectorrefwithexternal)
         * [`fn withName(name)`](#fn-spectemplatevpcaccessconnectorrefwithname)
         * [`fn withNamespace(namespace)`](#fn-spectemplatevpcaccessconnectorrefwithnamespace)
+  * [`obj spec.traffic`](#obj-spectraffic)
+    * [`fn withPercent(percent)`](#fn-spectrafficwithpercent)
+    * [`fn withRevision(revision)`](#fn-spectrafficwithrevision)
+    * [`fn withTag(tag)`](#fn-spectrafficwithtag)
+    * [`fn withType(type)`](#fn-spectrafficwithtype)
 
 ## Fields
 
@@ -191,24 +254,6 @@ withLabelsMixin(labels)
 ```
 
 "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
-
-**Note:** This function appends passed data to existing values
-
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
 
 **Note:** This function appends passed data to existing values
 
@@ -530,6 +575,270 @@ withVolumesMixin(volumes)
 
 **Note:** This function appends passed data to existing values
 
+## obj spec.template.containers
+
+"Holds the single container that defines the unit of execution for this Revision."
+
+### fn spec.template.containers.withArgs
+
+```ts
+withArgs(args)
+```
+
+"Arguments to the entrypoint. The docker image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell"
+
+### fn spec.template.containers.withArgsMixin
+
+```ts
+withArgsMixin(args)
+```
+
+"Arguments to the entrypoint. The docker image's CMD is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell"
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.template.containers.withCommand
+
+```ts
+withCommand(command)
+```
+
+"Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell"
+
+### fn spec.template.containers.withCommandMixin
+
+```ts
+withCommandMixin(command)
+```
+
+"Entrypoint array. Not executed within a shell. The docker image's ENTRYPOINT is used if this is not provided. Variable references $(VAR_NAME) are expanded using the container's environment. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. More info: https://kubernetes.io/docs/tasks/inject-data-application/define-command-argument-container/#running-a-command-in-a-shell"
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.template.containers.withEnv
+
+```ts
+withEnv(env)
+```
+
+"List of environment variables to set in the container."
+
+### fn spec.template.containers.withEnvMixin
+
+```ts
+withEnvMixin(env)
+```
+
+"List of environment variables to set in the container."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.template.containers.withImage
+
+```ts
+withImage(image)
+```
+
+"Required. URL of the Container image in Google Container Registry or Docker More info: https://kubernetes.io/docs/concepts/containers/images"
+
+### fn spec.template.containers.withName
+
+```ts
+withName(name)
+```
+
+"Name of the container specified as a DNS_LABEL."
+
+### fn spec.template.containers.withPorts
+
+```ts
+withPorts(ports)
+```
+
+"List of ports to expose from the container. Only a single port can be specified. The specified ports must be listening on all interfaces (0.0.0.0) within the container to be accessible. If omitted, a port number will be chosen and passed to the container through the PORT environment variable for the container to listen on."
+
+### fn spec.template.containers.withPortsMixin
+
+```ts
+withPortsMixin(ports)
+```
+
+"List of ports to expose from the container. Only a single port can be specified. The specified ports must be listening on all interfaces (0.0.0.0) within the container to be accessible. If omitted, a port number will be chosen and passed to the container through the PORT environment variable for the container to listen on."
+
+**Note:** This function appends passed data to existing values
+
+### fn spec.template.containers.withVolumeMounts
+
+```ts
+withVolumeMounts(volumeMounts)
+```
+
+"Volume to mount into the container's filesystem."
+
+### fn spec.template.containers.withVolumeMountsMixin
+
+```ts
+withVolumeMountsMixin(volumeMounts)
+```
+
+"Volume to mount into the container's filesystem."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.template.containers.env
+
+"List of environment variables to set in the container."
+
+### fn spec.template.containers.env.withName
+
+```ts
+withName(name)
+```
+
+"Required. Name of the environment variable. Must be a C_IDENTIFIER, and mnay not exceed 32768 characters."
+
+### fn spec.template.containers.env.withValue
+
+```ts
+withValue(value)
+```
+
+"Variable references $(VAR_NAME) are expanded using the previous defined environment variables in the container and any route environment variables. If a variable cannot be resolved, the reference in the input string will be unchanged. The $(VAR_NAME) syntax can be escaped with a double $$, ie: $$(VAR_NAME). Escaped references will never be expanded, regardless of whether the variable exists or not. Defaults to \"\", and the maximum length is 32768 bytes."
+
+## obj spec.template.containers.env.valueSource
+
+"Source for the environment variable's value."
+
+## obj spec.template.containers.env.valueSource.secretKeyRef
+
+"Selects a secret and a specific version from Cloud Secret Manager."
+
+## obj spec.template.containers.env.valueSource.secretKeyRef.secretRef
+
+
+
+### fn spec.template.containers.env.valueSource.secretKeyRef.secretRef.withExternal
+
+```ts
+withExternal(external)
+```
+
+"Required. The name of the secret in Cloud Secret Manager. Format: {secret_name} if the secret is in the same project. projects/{project}/secrets/{secret_name} if the secret is in a different project.\n\nAllowed value: The Google Cloud resource name of a `SecretManagerSecret` resource (format: `projects/{{project}}/secrets/{{name}}`)."
+
+### fn spec.template.containers.env.valueSource.secretKeyRef.secretRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.template.containers.env.valueSource.secretKeyRef.secretRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
+## obj spec.template.containers.env.valueSource.secretKeyRef.versionRef
+
+
+
+### fn spec.template.containers.env.valueSource.secretKeyRef.versionRef.withExternal
+
+```ts
+withExternal(external)
+```
+
+"The Cloud Secret Manager secret version. Can be 'latest' for the latest value or an integer for a specific version.\n\nAllowed value: The Google Cloud resource name of a `SecretManagerSecretVersion` resource (format: `{{name}}`)."
+
+### fn spec.template.containers.env.valueSource.secretKeyRef.versionRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.template.containers.env.valueSource.secretKeyRef.versionRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
+## obj spec.template.containers.ports
+
+"List of ports to expose from the container. Only a single port can be specified. The specified ports must be listening on all interfaces (0.0.0.0) within the container to be accessible. If omitted, a port number will be chosen and passed to the container through the PORT environment variable for the container to listen on."
+
+### fn spec.template.containers.ports.withContainerPort
+
+```ts
+withContainerPort(containerPort)
+```
+
+"Port number the container listens on. This must be a valid TCP port number, 0 < container_port < 65536."
+
+### fn spec.template.containers.ports.withName
+
+```ts
+withName(name)
+```
+
+"If specified, used to specify which protocol to use. Allowed values are \"http1\" and \"h2c\"."
+
+## obj spec.template.containers.resources
+
+"Compute Resource requirements by this container. More info: https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources"
+
+### fn spec.template.containers.resources.withCpuIdle
+
+```ts
+withCpuIdle(cpuIdle)
+```
+
+"Determines whether CPU should be throttled or not outside of requests."
+
+### fn spec.template.containers.resources.withLimits
+
+```ts
+withLimits(limits)
+```
+
+"Only memory and CPU are supported. Note: The only supported values for CPU are '1', '2', and '4'. Setting 4 CPU requires at least 2Gi of memory. The values of the map is string form of the 'quantity' k8s type: https://github.com/kubernetes/kubernetes/blob/master/staging/src/k8s.io/apimachinery/pkg/api/resource/quantity.go"
+
+### fn spec.template.containers.resources.withLimitsMixin
+
+```ts
+withLimitsMixin(limits)
+```
+
+"Only memory and CPU are supported. Note: The only supported values for CPU are '1', '2', and '4'. Setting 4 CPU requires at least 2Gi of memory. The values of the map is string form of the 'quantity' k8s type: https://github.com/kubernetes/kubernetes/blob/master/staging/src/k8s.io/apimachinery/pkg/api/resource/quantity.go"
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.template.containers.volumeMounts
+
+"Volume to mount into the container's filesystem."
+
+### fn spec.template.containers.volumeMounts.withMountPath
+
+```ts
+withMountPath(mountPath)
+```
+
+"Required. Path within the container at which the volume should be mounted. Must not contain ':'. For Cloud SQL volumes, it can be left empty, or must otherwise be `/cloudsql`. All instances defined in the Volume will be available as `/cloudsql/[instance]`. For more information on Cloud SQL volumes, visit https://cloud.google.com/sql/docs/mysql/connect-run"
+
+### fn spec.template.containers.volumeMounts.withName
+
+```ts
+withName(name)
+```
+
+"Required. This must match the Name of a Volume."
+
 ## obj spec.template.scaling
 
 "Scaling settings for this Revision."
@@ -578,6 +887,174 @@ withNamespace(namespace)
 
 "Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
 
+## obj spec.template.volumes
+
+"A list of Volumes to make available to containers."
+
+### fn spec.template.volumes.withName
+
+```ts
+withName(name)
+```
+
+"Required. Volume's name."
+
+## obj spec.template.volumes.cloudSqlInstance
+
+"For Cloud SQL volumes, contains the specific instances that should be mounted. Visit https://cloud.google.com/sql/docs/mysql/connect-run for more information on how to connect Cloud SQL and Cloud Run."
+
+### fn spec.template.volumes.cloudSqlInstance.withConnections
+
+```ts
+withConnections(connections)
+```
+
+
+
+### fn spec.template.volumes.cloudSqlInstance.withConnectionsMixin
+
+```ts
+withConnectionsMixin(connections)
+```
+
+
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.template.volumes.cloudSqlInstance.connections
+
+
+
+### fn spec.template.volumes.cloudSqlInstance.connections.withExternal
+
+```ts
+withExternal(external)
+```
+
+"Allowed value: The `connectionName` field of a `SQLInstance` resource."
+
+### fn spec.template.volumes.cloudSqlInstance.connections.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.template.volumes.cloudSqlInstance.connections.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
+## obj spec.template.volumes.secret
+
+"Secret represents a secret that should populate this volume. More info: https://kubernetes.io/docs/concepts/storage/volumes#secret"
+
+### fn spec.template.volumes.secret.withDefaultMode
+
+```ts
+withDefaultMode(defaultMode)
+```
+
+"Integer representation of mode bits to use on created files by default. Must be a value between 0000 and 0777 (octal), defaulting to 0644. Directories within the path are not affected by this setting. Notes * Internally, a umask of 0222 will be applied to any non-zero value. * This is an integer representation of the mode bits. So, the octal integer value should look exactly as the chmod numeric notation with a leading zero. Some examples: for chmod 777 (a=rwx), set to 0777 (octal) or 511 (base-10). For chmod 640 (u=rw,g=r), set to 0640 (octal) or 416 (base-10). For chmod 755 (u=rwx,g=rx,o=rx), set to 0755 (octal) or 493 (base-10). * This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set. This might be in conflict with other options that affect the file mode, like fsGroup, and as a result, other mode bits could be set."
+
+### fn spec.template.volumes.secret.withItems
+
+```ts
+withItems(items)
+```
+
+"If unspecified, the volume will expose a file whose name is the secret, relative to VolumeMount.mount_path. If specified, the key will be used as the version to fetch from Cloud Secret Manager and the path will be the name of the file exposed in the volume. When items are defined, they must specify a path and a version."
+
+### fn spec.template.volumes.secret.withItemsMixin
+
+```ts
+withItemsMixin(items)
+```
+
+"If unspecified, the volume will expose a file whose name is the secret, relative to VolumeMount.mount_path. If specified, the key will be used as the version to fetch from Cloud Secret Manager and the path will be the name of the file exposed in the volume. When items are defined, they must specify a path and a version."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.template.volumes.secret.items
+
+"If unspecified, the volume will expose a file whose name is the secret, relative to VolumeMount.mount_path. If specified, the key will be used as the version to fetch from Cloud Secret Manager and the path will be the name of the file exposed in the volume. When items are defined, they must specify a path and a version."
+
+### fn spec.template.volumes.secret.items.withMode
+
+```ts
+withMode(mode)
+```
+
+"Integer octal mode bits to use on this file, must be a value between 01 and 0777 (octal). If 0 or not set, the Volume's default mode will be used. Notes * Internally, a umask of 0222 will be applied to any non-zero value. * This is an integer representation of the mode bits. So, the octal integer value should look exactly as the chmod numeric notation with a leading zero. Some examples: for chmod 777 (a=rwx), set to 0777 (octal) or 511 (base-10). For chmod 640 (u=rw,g=r), set to 0640 (octal) or 416 (base-10). For chmod 755 (u=rwx,g=rx,o=rx), set to 0755 (octal) or 493 (base-10). * This might be in conflict with other options that affect the file mode, like fsGroup, and the result can be other mode bits set."
+
+### fn spec.template.volumes.secret.items.withPath
+
+```ts
+withPath(path)
+```
+
+"Required. The relative path of the secret in the container."
+
+## obj spec.template.volumes.secret.items.versionRef
+
+
+
+### fn spec.template.volumes.secret.items.versionRef.withExternal
+
+```ts
+withExternal(external)
+```
+
+"The Cloud Secret Manager secret version. Can be 'latest' for the latest value or an integer for a specific version.\n\nAllowed value: The Google Cloud resource name of a `SecretManagerSecretVersion` resource (format: `{{name}}`)."
+
+### fn spec.template.volumes.secret.items.versionRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.template.volumes.secret.items.versionRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
+## obj spec.template.volumes.secret.secretRef
+
+
+
+### fn spec.template.volumes.secret.secretRef.withExternal
+
+```ts
+withExternal(external)
+```
+
+"Required. The name of the secret in Cloud Secret Manager. Format: {secret} if the secret is in the same project. projects/{project}/secrets/{secret} if the secret is in a different project.\n\nAllowed value: The Google Cloud resource name of a `SecretManagerSecret` resource (format: `projects/{{project}}/secrets/{{name}}`)."
+
+### fn spec.template.volumes.secret.secretRef.withName
+
+```ts
+withName(name)
+```
+
+"Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names"
+
+### fn spec.template.volumes.secret.secretRef.withNamespace
+
+```ts
+withNamespace(namespace)
+```
+
+"Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
 ## obj spec.template.vpcAccess
 
 "VPC Access configuration to use for this Revision. For more information, visit https://cloud.google.com/run/docs/configuring/connecting-vpc."
@@ -617,3 +1094,39 @@ withNamespace(namespace)
 ```
 
 "Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
+## obj spec.traffic
+
+"Specifies how to distribute traffic over a collection of Revisions belonging to the Service. If traffic is empty or not provided, defaults to 100% traffic to the latest `Ready` Revision."
+
+### fn spec.traffic.withPercent
+
+```ts
+withPercent(percent)
+```
+
+"Specifies percent of the traffic to this Revision. This defaults to zero if unspecified. Cloud Run currently requires 100 percent for a single TrafficTarget entry."
+
+### fn spec.traffic.withRevision
+
+```ts
+withRevision(revision)
+```
+
+"Revision to which to send this portion of traffic, if traffic allocation is by revision."
+
+### fn spec.traffic.withTag
+
+```ts
+withTag(tag)
+```
+
+"Indicates a string to be part of the URI to exclusively reference this target."
+
+### fn spec.traffic.withType
+
+```ts
+withType(type)
+```
+
+"The allocation type for this traffic target. Possible values: TRAFFIC_TARGET_ALLOCATION_TYPE_UNSPECIFIED, TRAFFIC_TARGET_ALLOCATION_TYPE_LATEST, TRAFFIC_TARGET_ALLOCATION_TYPE_REVISION"

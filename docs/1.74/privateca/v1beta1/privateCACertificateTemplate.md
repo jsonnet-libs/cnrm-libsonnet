@@ -22,8 +22,6 @@ permalink: /1.74/privateca/v1beta1/privateCACertificateTemplate/
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -48,6 +46,9 @@ permalink: /1.74/privateca/v1beta1/privateCACertificateTemplate/
     * [`fn withAdditionalExtensionsMixin(additionalExtensions)`](#fn-specpassthroughextensionswithadditionalextensionsmixin)
     * [`fn withKnownExtensions(knownExtensions)`](#fn-specpassthroughextensionswithknownextensions)
     * [`fn withKnownExtensionsMixin(knownExtensions)`](#fn-specpassthroughextensionswithknownextensionsmixin)
+    * [`obj spec.passthroughExtensions.additionalExtensions`](#obj-specpassthroughextensionsadditionalextensions)
+      * [`fn withObjectIdPath(objectIdPath)`](#fn-specpassthroughextensionsadditionalextensionswithobjectidpath)
+      * [`fn withObjectIdPathMixin(objectIdPath)`](#fn-specpassthroughextensionsadditionalextensionswithobjectidpathmixin)
   * [`obj spec.predefinedValues`](#obj-specpredefinedvalues)
     * [`fn withAdditionalExtensions(additionalExtensions)`](#fn-specpredefinedvalueswithadditionalextensions)
     * [`fn withAdditionalExtensionsMixin(additionalExtensions)`](#fn-specpredefinedvalueswithadditionalextensionsmixin)
@@ -55,6 +56,12 @@ permalink: /1.74/privateca/v1beta1/privateCACertificateTemplate/
     * [`fn withAiaOcspServersMixin(aiaOcspServers)`](#fn-specpredefinedvalueswithaiaocspserversmixin)
     * [`fn withPolicyIds(policyIds)`](#fn-specpredefinedvalueswithpolicyids)
     * [`fn withPolicyIdsMixin(policyIds)`](#fn-specpredefinedvalueswithpolicyidsmixin)
+    * [`obj spec.predefinedValues.additionalExtensions`](#obj-specpredefinedvaluesadditionalextensions)
+      * [`fn withCritical(critical)`](#fn-specpredefinedvaluesadditionalextensionswithcritical)
+      * [`fn withValue(value)`](#fn-specpredefinedvaluesadditionalextensionswithvalue)
+      * [`obj spec.predefinedValues.additionalExtensions.objectId`](#obj-specpredefinedvaluesadditionalextensionsobjectid)
+        * [`fn withObjectIdPath(objectIdPath)`](#fn-specpredefinedvaluesadditionalextensionsobjectidwithobjectidpath)
+        * [`fn withObjectIdPathMixin(objectIdPath)`](#fn-specpredefinedvaluesadditionalextensionsobjectidwithobjectidpathmixin)
     * [`obj spec.predefinedValues.caOptions`](#obj-specpredefinedvaluescaoptions)
       * [`fn withIsCa(isCa)`](#fn-specpredefinedvaluescaoptionswithisca)
       * [`fn withMaxIssuerPathLength(maxIssuerPathLength)`](#fn-specpredefinedvaluescaoptionswithmaxissuerpathlength)
@@ -78,6 +85,12 @@ permalink: /1.74/privateca/v1beta1/privateCACertificateTemplate/
         * [`fn withOcspSigning(ocspSigning)`](#fn-specpredefinedvalueskeyusageextendedkeyusagewithocspsigning)
         * [`fn withServerAuth(serverAuth)`](#fn-specpredefinedvalueskeyusageextendedkeyusagewithserverauth)
         * [`fn withTimeStamping(timeStamping)`](#fn-specpredefinedvalueskeyusageextendedkeyusagewithtimestamping)
+      * [`obj spec.predefinedValues.keyUsage.unknownExtendedKeyUsages`](#obj-specpredefinedvalueskeyusageunknownextendedkeyusages)
+        * [`fn withObjectIdPath(objectIdPath)`](#fn-specpredefinedvalueskeyusageunknownextendedkeyusageswithobjectidpath)
+        * [`fn withObjectIdPathMixin(objectIdPath)`](#fn-specpredefinedvalueskeyusageunknownextendedkeyusageswithobjectidpathmixin)
+    * [`obj spec.predefinedValues.policyIds`](#obj-specpredefinedvaluespolicyids)
+      * [`fn withObjectIdPath(objectIdPath)`](#fn-specpredefinedvaluespolicyidswithobjectidpath)
+      * [`fn withObjectIdPathMixin(objectIdPath)`](#fn-specpredefinedvaluespolicyidswithobjectidpathmixin)
   * [`obj spec.projectRef`](#obj-specprojectref)
     * [`fn withExternal(external)`](#fn-specprojectrefwithexternal)
     * [`fn withName(name)`](#fn-specprojectrefwithname)
@@ -196,24 +209,6 @@ withLabelsMixin(labels)
 ```
 
 "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
-
-**Note:** This function appends passed data to existing values
-
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
 
 **Note:** This function appends passed data to existing values
 
@@ -399,6 +394,28 @@ withKnownExtensionsMixin(knownExtensions)
 
 **Note:** This function appends passed data to existing values
 
+## obj spec.passthroughExtensions.additionalExtensions
+
+"Optional. A set of ObjectIds identifying custom X.509 extensions. Will be combined with known_extensions to determine the full set of X.509 extensions."
+
+### fn spec.passthroughExtensions.additionalExtensions.withObjectIdPath
+
+```ts
+withObjectIdPath(objectIdPath)
+```
+
+"Required. The parts of an OID path. The most significant parts of the path come first."
+
+### fn spec.passthroughExtensions.additionalExtensions.withObjectIdPathMixin
+
+```ts
+withObjectIdPathMixin(objectIdPath)
+```
+
+"Required. The parts of an OID path. The most significant parts of the path come first."
+
+**Note:** This function appends passed data to existing values
+
 ## obj spec.predefinedValues
 
 "Optional. A set of X.509 values that will be applied to all issued certificates that use this template. If the certificate request includes conflicting values for the same properties, they will be overwritten by the values defined here. If the issuing CaPool's IssuancePolicy defines conflicting baseline_values for the same properties, the certificate issuance request will fail."
@@ -454,6 +471,48 @@ withPolicyIdsMixin(policyIds)
 ```
 
 "Optional. Describes the X.509 certificate policy object identifiers, per https://tools.ietf.org/html/rfc5280#section-4.2.1.4."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.predefinedValues.additionalExtensions
+
+"Optional. Describes custom X.509 extensions."
+
+### fn spec.predefinedValues.additionalExtensions.withCritical
+
+```ts
+withCritical(critical)
+```
+
+"Optional. Indicates whether or not this extension is critical (i.e., if the client does not know how to handle this extension, the client should consider this to be an error)."
+
+### fn spec.predefinedValues.additionalExtensions.withValue
+
+```ts
+withValue(value)
+```
+
+"Required. The value of this X.509 extension."
+
+## obj spec.predefinedValues.additionalExtensions.objectId
+
+"Required. The OID for this X.509 extension."
+
+### fn spec.predefinedValues.additionalExtensions.objectId.withObjectIdPath
+
+```ts
+withObjectIdPath(objectIdPath)
+```
+
+"Required. The parts of an OID path. The most significant parts of the path come first."
+
+### fn spec.predefinedValues.additionalExtensions.objectId.withObjectIdPathMixin
+
+```ts
+withObjectIdPathMixin(objectIdPath)
+```
+
+"Required. The parts of an OID path. The most significant parts of the path come first."
 
 **Note:** This function appends passed data to existing values
 
@@ -626,6 +685,50 @@ withTimeStamping(timeStamping)
 ```
 
 "Corresponds to OID 1.3.6.1.5.5.7.3.8. Officially described as \"Binding the hash of an object to a time\"."
+
+## obj spec.predefinedValues.keyUsage.unknownExtendedKeyUsages
+
+"Used to describe extended key usages that are not listed in the KeyUsage.ExtendedKeyUsageOptions message."
+
+### fn spec.predefinedValues.keyUsage.unknownExtendedKeyUsages.withObjectIdPath
+
+```ts
+withObjectIdPath(objectIdPath)
+```
+
+"Required. The parts of an OID path. The most significant parts of the path come first."
+
+### fn spec.predefinedValues.keyUsage.unknownExtendedKeyUsages.withObjectIdPathMixin
+
+```ts
+withObjectIdPathMixin(objectIdPath)
+```
+
+"Required. The parts of an OID path. The most significant parts of the path come first."
+
+**Note:** This function appends passed data to existing values
+
+## obj spec.predefinedValues.policyIds
+
+"Optional. Describes the X.509 certificate policy object identifiers, per https://tools.ietf.org/html/rfc5280#section-4.2.1.4."
+
+### fn spec.predefinedValues.policyIds.withObjectIdPath
+
+```ts
+withObjectIdPath(objectIdPath)
+```
+
+"Required. The parts of an OID path. The most significant parts of the path come first."
+
+### fn spec.predefinedValues.policyIds.withObjectIdPathMixin
+
+```ts
+withObjectIdPathMixin(objectIdPath)
+```
+
+"Required. The parts of an OID path. The most significant parts of the path come first."
+
+**Note:** This function appends passed data to existing values
 
 ## obj spec.projectRef
 

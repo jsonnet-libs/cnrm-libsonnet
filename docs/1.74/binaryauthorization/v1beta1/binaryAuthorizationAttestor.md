@@ -22,8 +22,6 @@ permalink: /1.74/binaryauthorization/v1beta1/binaryAuthorizationAttestor/
   * [`fn withGeneration(generation)`](#fn-metadatawithgeneration)
   * [`fn withLabels(labels)`](#fn-metadatawithlabels)
   * [`fn withLabelsMixin(labels)`](#fn-metadatawithlabelsmixin)
-  * [`fn withManagedFields(managedFields)`](#fn-metadatawithmanagedfields)
-  * [`fn withManagedFieldsMixin(managedFields)`](#fn-metadatawithmanagedfieldsmixin)
   * [`fn withName(name)`](#fn-metadatawithname)
   * [`fn withNamespace(namespace)`](#fn-metadatawithnamespace)
   * [`fn withOwnerReferences(ownerReferences)`](#fn-metadatawithownerreferences)
@@ -45,6 +43,13 @@ permalink: /1.74/binaryauthorization/v1beta1/binaryAuthorizationAttestor/
       * [`fn withExternal(external)`](#fn-specuserowneddrydocknotenoterefwithexternal)
       * [`fn withName(name)`](#fn-specuserowneddrydocknotenoterefwithname)
       * [`fn withNamespace(namespace)`](#fn-specuserowneddrydocknotenoterefwithnamespace)
+    * [`obj spec.userOwnedDrydockNote.publicKeys`](#obj-specuserowneddrydocknotepublickeys)
+      * [`fn withAsciiArmoredPgpPublicKey(asciiArmoredPgpPublicKey)`](#fn-specuserowneddrydocknotepublickeyswithasciiarmoredpgppublickey)
+      * [`fn withComment(comment)`](#fn-specuserowneddrydocknotepublickeyswithcomment)
+      * [`fn withId(id)`](#fn-specuserowneddrydocknotepublickeyswithid)
+      * [`obj spec.userOwnedDrydockNote.publicKeys.pkixPublicKey`](#obj-specuserowneddrydocknotepublickeyspkixpublickey)
+        * [`fn withPublicKeyPem(publicKeyPem)`](#fn-specuserowneddrydocknotepublickeyspkixpublickeywithpublickeypem)
+        * [`fn withSignatureAlgorithm(signatureAlgorithm)`](#fn-specuserowneddrydocknotepublickeyspkixpublickeywithsignaturealgorithm)
 
 ## Fields
 
@@ -159,24 +164,6 @@ withLabelsMixin(labels)
 ```
 
 "Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: http://kubernetes.io/docs/user-guide/labels"
-
-**Note:** This function appends passed data to existing values
-
-### fn metadata.withManagedFields
-
-```ts
-withManagedFields(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
-
-### fn metadata.withManagedFieldsMixin
-
-```ts
-withManagedFieldsMixin(managedFields)
-```
-
-"ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn't need to set or understand this field. A workflow can be the user's name, a controller's name, or the name of a specific apply path like \"ci-cd\". The set of fields is always in the version that the workflow used when modifying the object."
 
 **Note:** This function appends passed data to existing values
 
@@ -335,3 +322,51 @@ withNamespace(namespace)
 ```
 
 "Namespace of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/"
+
+## obj spec.userOwnedDrydockNote.publicKeys
+
+"Optional. Public keys that verify attestations signed by this attestor. This field may be updated. If this field is non-empty, one of the specified public keys must verify that an attestation was signed by this attestor for the image specified in the admission request. If this field is empty, this attestor always returns that no valid attestations exist."
+
+### fn spec.userOwnedDrydockNote.publicKeys.withAsciiArmoredPgpPublicKey
+
+```ts
+withAsciiArmoredPgpPublicKey(asciiArmoredPgpPublicKey)
+```
+
+"ASCII-armored representation of a PGP public key, as the entire output by the command `gpg --export --armor foo@example.com` (either LF or CRLF line endings). When using this field, `id` should be left blank. The BinAuthz API handlers will calculate the ID and fill it in automatically. BinAuthz computes this ID as the OpenPGP RFC4880 V4 fingerprint, represented as upper-case hex. If `id` is provided by the caller, it will be overwritten by the API-calculated ID."
+
+### fn spec.userOwnedDrydockNote.publicKeys.withComment
+
+```ts
+withComment(comment)
+```
+
+"Optional. A descriptive comment. This field may be updated."
+
+### fn spec.userOwnedDrydockNote.publicKeys.withId
+
+```ts
+withId(id)
+```
+
+"The ID of this public key. Signatures verified by BinAuthz must include the ID of the public key that can be used to verify them, and that ID must match the contents of this field exactly. Additional restrictions on this field can be imposed based on which public key type is encapsulated. See the documentation on `public_key` cases below for details."
+
+## obj spec.userOwnedDrydockNote.publicKeys.pkixPublicKey
+
+"A raw PKIX SubjectPublicKeyInfo format public key. NOTE: `id` may be explicitly provided by the caller when using this type of public key, but it MUST be a valid RFC3986 URI. If `id` is left blank, a default one will be computed based on the digest of the DER encoding of the public key."
+
+### fn spec.userOwnedDrydockNote.publicKeys.pkixPublicKey.withPublicKeyPem
+
+```ts
+withPublicKeyPem(publicKeyPem)
+```
+
+"A PEM-encoded public key, as described in https://tools.ietf.org/html/rfc7468#section-13"
+
+### fn spec.userOwnedDrydockNote.publicKeys.pkixPublicKey.withSignatureAlgorithm
+
+```ts
+withSignatureAlgorithm(signatureAlgorithm)
+```
+
+"The signature algorithm used to verify a message against a signature using this key. These signature algorithm must match the structure and any object identifiers encoded in `public_key_pem` (i.e. this algorithm must match that of the public key). Possible values: SIGNATURE_ALGORITHM_UNSPECIFIED, RSA_PSS_2048_SHA256, RSA_PSS_3072_SHA256, RSA_PSS_4096_SHA256, RSA_PSS_4096_SHA512, RSA_SIGN_PKCS1_2048_SHA256, RSA_SIGN_PKCS1_3072_SHA256, RSA_SIGN_PKCS1_4096_SHA256, RSA_SIGN_PKCS1_4096_SHA512, ECDSA_P256_SHA256, EC_SIGN_P256_SHA256, ECDSA_P384_SHA384, EC_SIGN_P384_SHA384, ECDSA_P521_SHA512, EC_SIGN_P521_SHA512"
