@@ -48,11 +48,6 @@ permalink: /1.99/sql/v1beta1/sqlUser/
     * [`fn withEnableFailedAttemptsCheck(enableFailedAttemptsCheck)`](#fn-specpasswordpolicywithenablefailedattemptscheck)
     * [`fn withEnablePasswordVerification(enablePasswordVerification)`](#fn-specpasswordpolicywithenablepasswordverification)
     * [`fn withPasswordExpirationDuration(passwordExpirationDuration)`](#fn-specpasswordpolicywithpasswordexpirationduration)
-    * [`fn withStatus(status)`](#fn-specpasswordpolicywithstatus)
-    * [`fn withStatusMixin(status)`](#fn-specpasswordpolicywithstatusmixin)
-    * [`obj spec.passwordPolicy.status`](#obj-specpasswordpolicystatus)
-      * [`fn withLocked(locked)`](#fn-specpasswordpolicystatuswithlocked)
-      * [`fn withPasswordExpirationTime(passwordExpirationTime)`](#fn-specpasswordpolicystatuswithpasswordexpirationtime)
 
 ## Fields
 
@@ -352,44 +347,6 @@ withEnablePasswordVerification(enablePasswordVerification)
 
 ```ts
 withPasswordExpirationDuration(passwordExpirationDuration)
-```
-
-"Password expiration duration with one week grace period."
-
-### fn spec.passwordPolicy.withStatus
-
-```ts
-withStatus(status)
-```
-
-
-
-### fn spec.passwordPolicy.withStatusMixin
-
-```ts
-withStatusMixin(status)
-```
-
-
-
-**Note:** This function appends passed data to existing values
-
-## obj spec.passwordPolicy.status
-
-
-
-### fn spec.passwordPolicy.status.withLocked
-
-```ts
-withLocked(locked)
-```
-
-"If true, user does not have login privileges."
-
-### fn spec.passwordPolicy.status.withPasswordExpirationTime
-
-```ts
-withPasswordExpirationTime(passwordExpirationTime)
 ```
 
 "Password expiration duration with one week grace period."

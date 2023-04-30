@@ -32,7 +32,6 @@ permalink: /1.82/storagetransfer/v1beta1/storageTransferJob/
 * [`obj spec`](#obj-spec)
   * [`fn withDescription(description)`](#fn-specwithdescription)
   * [`fn withResourceID(resourceID)`](#fn-specwithresourceid)
-  * [`fn withStatus(status)`](#fn-specwithstatus)
   * [`obj spec.schedule`](#obj-specschedule)
     * [`fn withRepeatInterval(repeatInterval)`](#fn-specschedulewithrepeatinterval)
     * [`obj spec.schedule.scheduleEndDate`](#obj-specschedulescheduleenddate)
@@ -299,14 +298,6 @@ withResourceID(resourceID)
 ```
 
 "Immutable. Optional. The service-generated name of the resource. Used for acquisition only. Leave unset to create a new resource."
-
-### fn spec.withStatus
-
-```ts
-withStatus(status)
-```
-
-"Status of the job. Default: ENABLED. NOTE: The effect of the new job status takes place during a subsequent job run. For example, if you change the job status from ENABLED to DISABLED, and an operation spawned by the transfer is running, the status change would not affect the current operation."
 
 ## obj spec.schedule
 

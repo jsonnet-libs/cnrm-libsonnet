@@ -565,8 +565,6 @@
     withLocation(location): { spec+: { location: location } },
     '#withResourceID':: d.fn(help='"Immutable. Optional. The service-generated name of the resource. Used for acquisition only. Leave unset to create a new resource."', args=[d.arg(name='resourceID', type=d.T.string)]),
     withResourceID(resourceID): { spec+: { resourceID: resourceID } },
-    '#withStatus':: d.fn(help='"Immutable. Required. A status for this trigger. Possible values: STATUS_UNSPECIFIED, HEALTHY, PAUSED, CANCELLED"', args=[d.arg(name='status', type=d.T.string)]),
-    withStatus(status): { spec+: { status: status } },
     '#withTriggers':: d.fn(help="\"A list of triggers which will be OR'ed together. Only one in the list needs to trigger for a job to be started. The list may contain only a single Schedule trigger and must have at least one object.\"", args=[d.arg(name='triggers', type=d.T.array)]),
     withTriggers(triggers): { spec+: { triggers: if std.isArray(v=triggers) then triggers else [triggers] } },
     '#withTriggersMixin':: d.fn(help="\"A list of triggers which will be OR'ed together. Only one in the list needs to trigger for a job to be started. The list may contain only a single Schedule trigger and must have at least one object.\"\n\n**Note:** This function appends passed data to existing values", args=[d.arg(name='triggers', type=d.T.array)]),
