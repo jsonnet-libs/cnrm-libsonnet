@@ -34,6 +34,7 @@ permalink: /1.99/dlp/v1beta1/dlpJobTrigger/
   * [`fn withDisplayName(displayName)`](#fn-specwithdisplayname)
   * [`fn withLocation(location)`](#fn-specwithlocation)
   * [`fn withResourceID(resourceID)`](#fn-specwithresourceid)
+  * [`fn withStatus(status)`](#fn-specwithstatus)
   * [`fn withTriggers(triggers)`](#fn-specwithtriggers)
   * [`fn withTriggersMixin(triggers)`](#fn-specwithtriggersmixin)
   * [`obj spec.inspectJob`](#obj-specinspectjob)
@@ -466,6 +467,14 @@ withResourceID(resourceID)
 ```
 
 "Immutable. Optional. The service-generated name of the resource. Used for acquisition only. Leave unset to create a new resource."
+
+### fn spec.withStatus
+
+```ts
+withStatus(status)
+```
+
+"Immutable. Required. A status for this trigger. Possible values: STATUS_UNSPECIFIED, HEALTHY, PAUSED, CANCELLED"
 
 ### fn spec.withTriggers
 

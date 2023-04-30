@@ -224,6 +224,8 @@
     withDescription(description): { spec+: { description: description } },
     '#withResourceID':: d.fn(help='"Immutable. Optional. The service-generated name of the resource. Used for acquisition only. Leave unset to create a new resource."', args=[d.arg(name='resourceID', type=d.T.string)]),
     withResourceID(resourceID): { spec+: { resourceID: resourceID } },
+    '#withStatus':: d.fn(help='"Status of the job. Default: ENABLED. NOTE: The effect of the new job status takes place during a subsequent job run. For example, if you change the job status from ENABLED to DISABLED, and an operation spawned by the transfer is running, the status change would not affect the current operation."', args=[d.arg(name='status', type=d.T.string)]),
+    withStatus(status): { spec+: { status: status } },
   },
   '#mixin': 'ignore',
   mixin: self,
